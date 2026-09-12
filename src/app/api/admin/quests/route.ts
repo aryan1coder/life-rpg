@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { verifyAdminSession, logAdminAuditAction } from '@/lib/auth/admin';
-import { getSupabaseAdminClient, getSupabaseServerClient, isSupabaseConfigured } from '@/lib/supabase/server';
+import { getSupabaseAdminClient, getAuthenticatedSupabaseClient, isSupabaseConfigured } from '@/lib/supabase/server';
 import { db } from '@/lib/storage/data-store';
 
 export async function GET(req: NextRequest) {
@@ -12,7 +12,7 @@ export async function GET(req: NextRequest) {
 
     if (isSupabaseConfigured()) {
       try {
-        const supabase = getSupabaseAdminClient() || getSupabaseServerClient(req);
+        const supabase = getSupabaseAdminClient() || getAuthenticatedSupabaseClient(req);
         if (supabase) {
           const { data: quests, error } = await supabase
             .from('quests')
@@ -90,7 +90,7 @@ export async function POST(req: NextRequest) {
 
     if (isSupabaseConfigured()) {
       try {
-        const supabase = getSupabaseAdminClient() || getSupabaseServerClient(req);
+        const supabase = getSupabaseAdminClient() || getAuthenticatedSupabaseClient(req);
         if (supabase) {
           const { data: created, error } = await supabase
             .from('quests')
@@ -154,7 +154,7 @@ export async function DELETE(req: NextRequest) {
 
     if (isSupabaseConfigured()) {
       try {
-        const supabase = getSupabaseAdminClient() || getSupabaseServerClient(req);
+        const supabase = getSupabaseAdminClient() || getAuthenticatedSupabaseClient(req);
         if (supabase) {
           await supabase.from('quests').delete().eq('id', id);
         }

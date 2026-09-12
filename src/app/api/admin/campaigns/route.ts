@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { verifyAdminSession, logAdminAuditAction } from '@/lib/auth/admin';
-import { getSupabaseAdminClient, getSupabaseServerClient, isSupabaseConfigured } from '@/lib/supabase/server';
+import { getSupabaseAdminClient, getAuthenticatedSupabaseClient, isSupabaseConfigured } from '@/lib/supabase/server';
 
 export async function GET(req: NextRequest) {
   try {
@@ -11,7 +11,7 @@ export async function GET(req: NextRequest) {
 
     if (isSupabaseConfigured()) {
       try {
-        const supabase = getSupabaseAdminClient() || getSupabaseServerClient(req);
+        const supabase = getSupabaseAdminClient() || getAuthenticatedSupabaseClient(req);
         if (supabase) {
           const { data: campaigns, error } = await supabase
             .from('campaigns')
@@ -75,7 +75,7 @@ export async function POST(req: NextRequest) {
 
     if (isSupabaseConfigured()) {
       try {
-        const supabase = getSupabaseAdminClient() || getSupabaseServerClient(req);
+        const supabase = getSupabaseAdminClient() || getAuthenticatedSupabaseClient(req);
         if (supabase) {
           const { data: created, error } = await supabase
             .from('campaigns')

@@ -28,8 +28,8 @@ export async function verifyAdminSession(req: NextRequest): Promise<AdminAuthRes
   // 1. Query Supabase profiles table for role
   if (isSupabaseConfigured()) {
     try {
-      const { getSupabaseAdminClient, getSupabaseServerClient } = await import('@/lib/supabase/server');
-      const supabase = getSupabaseAdminClient() || getSupabaseServerClient(req);
+      const { getSupabaseAdminClient, getAuthenticatedSupabaseClient } = await import('@/lib/supabase/server');
+      const supabase = getSupabaseAdminClient() || getAuthenticatedSupabaseClient(req);
       if (supabase) {
         const { data: profile, error } = await supabase
           .from('profiles')

@@ -3,6 +3,27 @@ import { createClient as createSupabaseClient } from '@supabase/supabase-js';
 import { NextRequest, NextResponse } from 'next/server';
 import { isSupabaseConfigured } from './client';
 export { isSupabaseConfigured };
+import { getAuthToken } from '../auth/session';
+
+/**
+ * Bypasses @supabase/ssr cookie limitations by explicitly injecting the extracted JWT.
+ * Use this when @supabase/ssr fails to read chunked session cookies on Vercel.
+ */
+export function getAuthenticatedSupabaseClient(req: NextRequest) {
+  if (!isSupabaseConfigured()) return null;
+  
+  const token = getAuthToken(req);
+  const url = process.env.NEXT_PUBLIC_SUPABASE_URL!.trim();
+  const anonKey = (process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY || process.env.NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY)!.trim();
+
+  return createSupabaseClient(url, anonKey, {
+    auth: { persistSession: false },
+    global: {
+      headers: token ? { Authorization: `Bearer ${token}` } : {},
+    },
+  });
+}
+
 
 /**
  * Creates a server-side Supabase client for Next.js Route Handlers and Server Components.
