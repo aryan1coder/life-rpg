@@ -77,20 +77,27 @@ export function getAuthSession(req: NextRequest): AuthSession | null {
 
   // 3. Check for standard and SSR Supabase auth cookies (including chunked cookies)
   const allCookies = req.cookies.getAll();
-  const authCookies = allCookies
-    .filter(
-      (c) =>
-        c.name.startsWith('sb-') &&
-        !c.name.includes('code-verifier') &&
-        (c.name.includes('-auth-token') || c.name.includes('access-token'))
-    )
-    .sort((a, b) => {
-      const idxA = a.name.includes('.') ? parseInt(a.name.split('.').pop() || '0', 10) : 0;
-      const idxB = b.name.includes('.') ? parseInt(b.name.split('.').pop() || '0', 10) : 0;
-      return idxA - idxB;
-    });
+  const authCookies = allCookies.filter(
+    (c) =>
+      c.name.startsWith('sb-') &&
+      !c.name.includes('code-verifier') &&
+      (c.name.includes('-auth-token') || c.name.includes('access-token'))
+  );
 
-  let rawVal = authCookies.map((c) => c.value).join('');
+  // Group chunked cookies (.0, .1) separately from unchunked to avoid corrupting combined strings
+  const chunkedCookies = authCookies.filter((c) => {
+    const parts = c.name.split('.');
+    return parts.length > 1 && !isNaN(parseInt(parts[parts.length - 1], 10));
+  });
+
+  const targetAuthCookies = chunkedCookies.length > 0 ? chunkedCookies : authCookies;
+  targetAuthCookies.sort((a, b) => {
+    const idxA = a.name.includes('.') ? parseInt(a.name.split('.').pop() || '0', 10) : 0;
+    const idxB = b.name.includes('.') ? parseInt(b.name.split('.').pop() || '0', 10) : 0;
+    return idxA - idxB;
+  });
+
+  let rawVal = targetAuthCookies.map((c) => c.value).join('');
   if (!rawVal && req.cookies.get('supabase-auth-token')?.value) {
     rawVal = req.cookies.get('supabase-auth-token')!.value;
   }

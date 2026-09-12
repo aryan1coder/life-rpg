@@ -510,56 +510,7 @@ export function createFreshAttributes(profile_id: string): CharacterAttributes {
 }
 
 export function createStarterQuests(profile_id: string): Quest[] {
-  return [
-    {
-      id: `quest_${profile_id}_1`,
-      profile_id,
-      title: 'Initialize Cognitive Command Deck',
-      description: 'Review system capabilities, configure operational profile, and review active directives.',
-      category: 'Engineering',
-      difficulty: 'Easy',
-      attribute: 'Intellect',
-      xp_reward: 80,
-      gold_reward: 40,
-      frequency: 'Daily',
-      status: 'active',
-      due_date: new Date(Date.now() + 24 * 3600 * 1000).toISOString(),
-      created_at: new Date().toISOString(),
-      updated_at: new Date().toISOString(),
-    },
-    {
-      id: `quest_${profile_id}_2`,
-      profile_id,
-      title: 'Establish Deep Work Protocol',
-      description: 'Execute a 90-minute distraction-free engineering or writing session.',
-      category: 'Work',
-      difficulty: 'Normal',
-      attribute: 'Discipline',
-      xp_reward: 120,
-      gold_reward: 65,
-      frequency: 'Daily',
-      status: 'active',
-      due_date: new Date(Date.now() + 24 * 3600 * 1000).toISOString(),
-      created_at: new Date().toISOString(),
-      updated_at: new Date().toISOString(),
-    },
-    {
-      id: `quest_${profile_id}_3`,
-      profile_id,
-      title: 'Recovery & Sunlight Walk',
-      description: 'Complete a 30-minute outdoor walk with hydration and natural light exposure.',
-      category: 'Health',
-      difficulty: 'Easy',
-      attribute: 'Vitality',
-      xp_reward: 80,
-      gold_reward: 40,
-      frequency: 'Daily',
-      status: 'active',
-      due_date: new Date(Date.now() + 24 * 3600 * 1000).toISOString(),
-      created_at: new Date().toISOString(),
-      updated_at: new Date().toISOString(),
-    },
-  ];
+  return [];
 }
 
 class StorageEngine {
@@ -618,11 +569,10 @@ class StorageEngine {
   public initFreshUser(userId: string, username: string): UserProfile {
     const profile = createFreshUserProfile(userId, username);
     const attrs = createFreshAttributes(userId);
-    const starterQuests = createStarterQuests(userId);
 
     this.state.profiles[userId] = profile;
     this.state.attributes[userId] = attrs;
-    this.state.quests[userId] = starterQuests;
+    this.state.quests[userId] = [];
     this.state.inventory[userId] = [];
     this.state.loadouts[userId] = { profile_id: userId };
     this.state.userAchievements[userId] = {};
@@ -671,7 +621,7 @@ class StorageEngine {
 
   public getQuests(id: string): Quest[] {
     if (!this.state.quests[id]) {
-      this.state.quests[id] = createStarterQuests(id);
+      this.state.quests[id] = [];
       this.saveState(this.state);
     }
     return this.state.quests[id];

@@ -63,6 +63,12 @@ export default function LandingPage() {
 
           {/* Dynamic Auth Actions */}
           <div className="flex items-center gap-3">
+            <Link
+              href="/admin"
+              className="text-xs font-mono text-neutral-400 hover:text-indigo-300 transition-colors px-2 py-1"
+            >
+              Admin Console
+            </Link>
             {isAuthenticated ? (
               <>
                 <Link
@@ -681,6 +687,9 @@ export default function LandingPage() {
           <a className="hover:text-neutral-300 transition-colors" href="#engine">
             ENGINE SPECS
           </a>
+          <Link className="hover:text-indigo-300 transition-colors text-indigo-400" href="/admin">
+            ADMIN CONSOLE
+          </Link>
         </div>
       </footer>
     </div>
