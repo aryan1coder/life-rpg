@@ -83,6 +83,25 @@ BEGIN
     NEW.id
   ) ON CONFLICT (profile_id) DO NOTHING;
 
+  -- Insert starter quests
+  INSERT INTO public.quests (
+    profile_id,
+    title,
+    description,
+    category,
+    difficulty,
+    attribute,
+    xp_reward,
+    gold_reward,
+    frequency,
+    status,
+    due_date
+  ) VALUES
+    (NEW.id, 'Initialize Cognitive Command Deck', 'Review system capabilities, configure operational profile, and review active directives.', 'Engineering', 'Easy', 'Intellect', 80, 40, 'Daily', 'active', NOW() + INTERVAL '1 day'),
+    (NEW.id, 'Establish Deep Work Protocol', 'Execute a 90-minute distraction-free engineering or writing session.', 'Work', 'Normal', 'Discipline', 120, 65, 'Daily', 'active', NOW() + INTERVAL '1 day'),
+    (NEW.id, 'Recovery & Sunlight Walk', 'Complete a 30-minute outdoor walk with hydration and natural light exposure.', 'Health', 'Easy', 'Vitality', 80, 40, 'Daily', 'active', NOW() + INTERVAL '1 day')
+  ON CONFLICT DO NOTHING;
+
   RETURN NEW;
 END;
 $$ LANGUAGE plpgsql SECURITY DEFINER;
