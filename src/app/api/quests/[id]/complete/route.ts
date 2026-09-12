@@ -39,6 +39,8 @@ export async function POST(
     const userAchievements = db.getUserAchievements(session.id);
     const completedQuestsCount = quests.filter((q) => q.status === 'completed').length;
     const inventory = db.getInventory(session.id);
+    const masterAvatarItems = db.getAvatarItems();
+    const userAvatarUnlocks = db.getUserAvatarUnlocks(session.id);
 
     const { updatedProfile, updatedAttributes, updatedAchievements, result } = executeQuestCompletion({
       quest,
@@ -46,6 +48,8 @@ export async function POST(
       attributes,
       masterAchievements: SEED_ACHIEVEMENTS,
       userAchievements,
+      masterAvatarItems,
+      userAvatarUnlocks,
       totalQuestsCompleted: completedQuestsCount,
       totalGoldEarned: profile.gold_balance,
       totalItemsOwned: inventory.length,
@@ -64,6 +68,11 @@ export async function POST(
     db.updateProfile(updatedProfile);
     db.updateAttributes(updatedAttributes);
     db.updateUserAchievements(session.id, updatedAchievements);
+
+    // If level-up occurred, persist new avatar unlocks
+    if (result.leveledUp && result.newlyUnlockedAvatarItems) {
+      db.evaluateAvatarUnlocksForLevel(session.id, updatedProfile.level);
+    }
 
     return NextResponse.json({
       success: true,

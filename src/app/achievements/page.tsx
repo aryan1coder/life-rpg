@@ -3,6 +3,7 @@
 import React, { useState } from 'react';
 import { AppShell } from '@/components/ui/AppShell';
 import { useGame } from '@/context/GameContext';
+import { getTitleForLevel } from '@/lib/game/progression';
 import {
   Award,
   Coins,
@@ -44,7 +45,7 @@ export default function AchievementsPage() {
               </span>
               <span className="w-1 h-1 rounded-full bg-border-subtle" />
               <span className="font-mono text-xs text-text-muted">
-                {profile?.username || 'Kai'} · {profile?.title || 'Arch-Strategist II'}
+                {profile?.display_name || profile?.username || 'Operator'} · {profile?.title || getTitleForLevel(profile?.level ?? 1)}
               </span>
             </div>
             <h1 className="text-3xl lg:text-4xl font-display font-bold text-text-primary tracking-tight">

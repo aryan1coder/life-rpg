@@ -15,6 +15,9 @@ export type ItemRarity = 'Common' | 'Uncommon' | 'Rare' | 'Epic' | 'Legendary';
 export interface UserProfile {
   id: string;
   username: string;
+  display_name?: string;
+  bio?: string;
+  role?: 'player' | 'admin';
   title: string;
   level: number;
   xp_current: number;
@@ -55,6 +58,7 @@ export interface Quest {
   gold_reward: number;
   frequency: QuestFrequency;
   status: QuestStatus;
+  is_system_directive?: boolean;
   due_date?: string;
   completed_at?: string;
   created_at: string;
@@ -112,5 +116,47 @@ export interface QuestCompletionResult {
   newStreak: number;
   newStreakMultiplier: number;
   unlockedAchievements: Achievement[];
+  newlyUnlockedAvatarItems?: AvatarItem[];
   message: string;
 }
+
+export type AvatarSlot =
+  | 'head'
+  | 'face'
+  | 'body'
+  | 'outerwear'
+  | 'legs'
+  | 'shoes'
+  | 'accessory'
+  | 'weapon_or_tool'
+  | 'aura'
+  | 'background';
+
+export interface AvatarItem {
+  id: string;
+  name: string;
+  description?: string;
+  slot: AvatarSlot;
+  rarity: ItemRarity;
+  asset_key: string;
+  required_level: number;
+  attribute_requirements?: Record<string, number>;
+  is_active: boolean;
+  created_at?: string;
+}
+
+export interface UserAvatarUnlock {
+  id: string;
+  user_id: string;
+  avatar_item_id: string;
+  unlocked_at: string;
+}
+
+export interface UserAvatarLoadout {
+  id?: string;
+  user_id: string;
+  slot: AvatarSlot;
+  avatar_item_id: string;
+  equipped_at: string;
+}
+

@@ -4,13 +4,15 @@ import React, { useState } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useGame } from '@/context/GameContext';
+import { getTitleForLevel } from '@/lib/game/progression';
 import {
-  Home,
+  Gamepad2,
   CheckSquare,
   User,
   Award,
   Backpack,
   ShieldCheck,
+  ShieldAlert,
   Flame,
   Volume2,
   VolumeX,
@@ -26,10 +28,10 @@ export function TacticalSidebar() {
   const [audioMuted, setAudioMuted] = useState(false);
 
   const navItems = [
-    { label: 'Home', href: '/home', icon: Home, shortcut: '⌘1' },
-    { label: 'Quests', href: '/quests', icon: CheckSquare, shortcut: '⌘2' },
+    { label: 'Lobby', href: '/lobby', icon: Gamepad2, shortcut: '⌘1' },
+    { label: 'Directives', href: '/quests', icon: CheckSquare, shortcut: '⌘2' },
     { label: 'Character', href: '/character', icon: User, shortcut: '⌘3' },
-    { label: 'Rewards', href: '/rewards', icon: Award, shortcut: '⌘4' },
+    { label: 'Armory', href: '/rewards', icon: Award, shortcut: '⌘4' },
     { label: 'Inventory', href: '/inventory', icon: Backpack, shortcut: '⌘5' },
     { label: 'Achievements', href: '/achievements', icon: ShieldCheck, shortcut: '⌘6' },
   ];
@@ -87,7 +89,9 @@ export function TacticalSidebar() {
           <nav className="flex flex-col gap-1 px-3">
             {navItems.map((item) => {
               const Icon = item.icon;
-              const isActive = pathname === item.href || (item.href === '/home' && pathname === '/');
+              const isActive =
+                pathname === item.href ||
+                (item.href === '/lobby' && (pathname === '/' || pathname === '/home'));
 
               return (
                 <Link
@@ -118,6 +122,33 @@ export function TacticalSidebar() {
                 </Link>
               );
             })}
+
+            {profile?.role === 'admin' && (
+              <div className="pt-3 mt-2 border-t border-border-subtle">
+                <div className="px-2 pb-1.5">
+                  <span className="font-mono text-[10px] text-amber-streak uppercase tracking-wider font-semibold">
+                    Administration
+                  </span>
+                </div>
+                <Link
+                  href="/admin"
+                  onClick={() => setSidebarOpen(false)}
+                  className={`group flex items-center justify-between px-3 py-2 rounded-lg transition-all text-sm font-medium ${
+                    pathname?.startsWith('/admin')
+                      ? 'bg-primary/20 text-primary border border-primary/40 shadow-sm'
+                      : 'text-amber-streak/80 hover:text-amber-streak hover:bg-surface-elevated/70'
+                  }`}
+                >
+                  <div className="flex items-center gap-3">
+                    <ShieldAlert className="w-4 h-4 text-primary" />
+                    <span className="font-semibold">Admin Panel</span>
+                  </div>
+                  <span className="font-mono text-[9px] px-1.5 py-0.5 rounded bg-primary/20 text-primary uppercase font-bold tracking-wider">
+                    ADMIN
+                  </span>
+                </Link>
+              </div>
+            )}
           </nav>
         </div>
 
@@ -130,7 +161,7 @@ export function TacticalSidebar() {
             <span className="text-xs text-text-secondary">Current Streak</span>
           </div>
           <span className="font-mono text-xs font-semibold text-amber-streak">
-            {profile?.streak_days ?? 14} DAYS
+            {profile?.streak_days ?? 0} DAYS
           </span>
         </div>
 
@@ -174,10 +205,10 @@ export function TacticalSidebar() {
           </div>
           <div className="flex flex-col min-w-0 flex-1">
             <span className="text-xs font-semibold text-text-primary truncate">
-              {profile?.username || 'Kai'}
+              {profile?.display_name || profile?.username || 'Operator'}
             </span>
             <span className="font-mono text-[10px] text-text-muted truncate">
-              {profile?.title || 'Arch-Strategist II'}
+              {profile?.title || getTitleForLevel(profile?.level ?? 1)}
             </span>
           </div>
         </Link>

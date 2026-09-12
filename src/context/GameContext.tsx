@@ -4,6 +4,7 @@ import React, { createContext, useContext, useState, useEffect, ReactNode } from
 import { usePathname } from 'next/navigation';
 import {
   Achievement,
+  AvatarItem,
   CharacterAttributes,
   EquippedLoadout,
   Quest,
@@ -29,6 +30,9 @@ interface GameContextType {
   inventory: string[];
   rewards: RewardItem[];
   achievements: Achievement[];
+  avatarItems: AvatarItem[];
+  avatarUnlocks: string[];
+  avatarLoadout: Record<string, string>;
   campaign: Campaign | null;
   bossRaid: BossRaid | null;
   loading: boolean;
@@ -39,10 +43,12 @@ interface GameContextType {
   setRedeemItemTarget: (item: RewardItem | null) => void;
   insufficientFundsData: { required: number; balance: number; shortfall: number } | null;
   setInsufficientFundsData: (data: { required: number; balance: number; shortfall: number } | null) => void;
-  levelUpModalData: { newLevel: number; levelsGained: number } | null;
-  setLevelUpModalData: (data: { newLevel: number; levelsGained: number } | null) => void;
+  levelUpModalData: { newLevel: number; levelsGained: number; newlyUnlockedAvatarItems?: AvatarItem[] } | null;
+  setLevelUpModalData: (data: { newLevel: number; levelsGained: number; newlyUnlockedAvatarItems?: AvatarItem[] } | null) => void;
   sidebarOpen: boolean;
   setSidebarOpen: (open: boolean) => void;
+  profileModalOpen: boolean;
+  setProfileModalOpen: (open: boolean) => void;
   logout: () => Promise<void>;
   addToast: (toast: Omit<ToastMessage, 'id'>) => void;
   removeToast: (id: string) => void;
@@ -51,6 +57,10 @@ interface GameContextType {
   redeemReward: (itemId: string) => Promise<boolean>;
   equipItem: (itemId: string) => Promise<boolean>;
   unequipItem: (slot: string) => Promise<boolean>;
+  equipAvatarItem: (itemId: string) => Promise<boolean>;
+  unequipAvatarSlot: (slot: string) => Promise<boolean>;
+  updateProfileData: (data: Partial<UserProfile>) => Promise<boolean>;
+  strikeBossRaid: (raidId: string, damage?: number) => Promise<{ success: boolean; damageDealt?: number; isDefeated?: boolean; newHp?: number; error?: string }>;
   refreshAll: () => Promise<void>;
 }
 
@@ -65,6 +75,9 @@ export function GameProvider({ children }: { children: ReactNode }) {
   const [inventory, setInventory] = useState<string[]>([]);
   const [rewards, setRewards] = useState<RewardItem[]>([]);
   const [achievements, setAchievements] = useState<Achievement[]>([]);
+  const [avatarItems, setAvatarItems] = useState<AvatarItem[]>([]);
+  const [avatarUnlocks, setAvatarUnlocks] = useState<string[]>([]);
+  const [avatarLoadout, setAvatarLoadout] = useState<Record<string, string>>({});
   const [campaign, setCampaign] = useState<Campaign | null>(null);
   const [bossRaid, setBossRaid] = useState<BossRaid | null>(null);
   const [loading, setLoading] = useState(true);
@@ -74,8 +87,9 @@ export function GameProvider({ children }: { children: ReactNode }) {
   const [createQuestModalOpen, setCreateQuestModalOpen] = useState(false);
   const [redeemItemTarget, setRedeemItemTarget] = useState<RewardItem | null>(null);
   const [insufficientFundsData, setInsufficientFundsData] = useState<{ required: number; balance: number; shortfall: number } | null>(null);
-  const [levelUpModalData, setLevelUpModalData] = useState<{ newLevel: number; levelsGained: number } | null>(null);
+  const [levelUpModalData, setLevelUpModalData] = useState<{ newLevel: number; levelsGained: number; newlyUnlockedAvatarItems?: AvatarItem[] } | null>(null);
   const [sidebarOpen, setSidebarOpen] = useState(false);
+  const [profileModalOpen, setProfileModalOpen] = useState(false);
 
   const addToast = (toast: Omit<ToastMessage, 'id'>) => {
     const id = `toast_${Date.now()}_${Math.random().toString(36).substring(2, 6)}`;
@@ -105,6 +119,9 @@ export function GameProvider({ children }: { children: ReactNode }) {
       setRewards([]);
       setInventory([]);
       setAchievements([]);
+      setAvatarItems([]);
+      setAvatarUnlocks([]);
+      setAvatarLoadout({});
       if (typeof window !== 'undefined') {
         window.location.href = '/auth/login';
       }
@@ -112,10 +129,10 @@ export function GameProvider({ children }: { children: ReactNode }) {
   };
 
   const refreshAll = async () => {
-    // 1. Guard against fetching protected endpoints when on public or auth routes
+    // 1. Guard against fetching protected endpoints when on auth routes
     if (typeof window !== 'undefined') {
       const path = window.location.pathname;
-      if (path === '/' || path.startsWith('/auth')) {
+      if (path.startsWith('/auth')) {
         setLoading(false);
         return;
       }
@@ -132,10 +149,10 @@ export function GameProvider({ children }: { children: ReactNode }) {
         setRewards([]);
         setInventory([]);
         setAchievements([]);
+        setAvatarItems([]);
+        setAvatarUnlocks([]);
+        setAvatarLoadout({});
         setLoading(false);
-        if (typeof window !== 'undefined' && !window.location.pathname.startsWith('/auth')) {
-          window.location.href = '/auth/login';
-        }
         return;
       }
 
@@ -152,10 +169,11 @@ export function GameProvider({ children }: { children: ReactNode }) {
       setBossRaid(data.bossRaid);
 
       // 3. Authenticated session verified: fetch auxiliary gameplay telemetry in parallel
-      const [questsRes, rewardsRes, achRes] = await Promise.all([
+      const [questsRes, rewardsRes, achRes, avatarRes] = await Promise.all([
         fetch('/api/quests'),
         fetch('/api/rewards'),
         fetch('/api/achievements'),
+        fetch('/api/avatar/items'),
       ]);
 
       if (questsRes.ok) {
@@ -173,6 +191,13 @@ export function GameProvider({ children }: { children: ReactNode }) {
         const aData = await achRes.json();
         setAchievements(aData.achievements || []);
       }
+
+      if (avatarRes.ok) {
+        const avData = await avatarRes.json();
+        setAvatarItems(avData.items || []);
+        setAvatarUnlocks(avData.unlocks || []);
+        setAvatarLoadout(avData.loadout || {});
+      }
     } catch (e) {
       console.error('Failed to synchronize game state:', e);
     } finally {
@@ -183,6 +208,24 @@ export function GameProvider({ children }: { children: ReactNode }) {
   useEffect(() => {
     refreshAll();
   }, [pathname]);
+
+  // Listen to Supabase auth state transitions
+  useEffect(() => {
+    const supabase = createClient();
+    if (!supabase) return;
+
+    const {
+      data: { subscription },
+    } = supabase.auth.onAuthStateChange((event) => {
+      if (event === 'SIGNED_IN' || event === 'SIGNED_OUT' || event === 'TOKEN_REFRESHED') {
+        refreshAll();
+      }
+    });
+
+    return () => {
+      subscription.unsubscribe();
+    };
+  }, []);
 
   const completeQuest = async (id: string): Promise<boolean> => {
     // Optimistic completion in UI
@@ -220,7 +263,21 @@ export function GameProvider({ children }: { children: ReactNode }) {
         setLevelUpModalData({
           newLevel: data.result.newLevel,
           levelsGained: data.result.levelsGained,
+          newlyUnlockedAvatarItems: data.result.newlyUnlockedAvatarItems,
         });
+
+        // Synchronize avatar unlocks and items
+        try {
+          const avRes = await fetch('/api/avatar/items');
+          if (avRes.ok) {
+            const avData = await avRes.json();
+            setAvatarItems(avData.items || []);
+            setAvatarUnlocks(avData.unlocks || []);
+            setAvatarLoadout(avData.loadout || {});
+          }
+        } catch {
+          // Non-blocking
+        }
       }
 
       if (data.result.unlockedAchievements?.length > 0) {
@@ -407,6 +464,147 @@ export function GameProvider({ children }: { children: ReactNode }) {
     }
   };
 
+  const equipAvatarItem = async (itemId: string): Promise<boolean> => {
+    try {
+      const res = await fetch('/api/avatar/equip', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ itemId }),
+      });
+
+      const data = await res.json();
+      if (!res.ok || !data.success) {
+        addToast({
+          type: 'error',
+          title: 'Equip Failed',
+          message: data.error || 'Could not equip avatar item.',
+        });
+        return false;
+      }
+
+      setAvatarLoadout(data.loadout);
+      addToast({
+        type: 'success',
+        title: 'Gear Equipped',
+        message: `Equipped ${data.equippedItem?.name || 'gear item'} to active loadout.`,
+      });
+      return true;
+    } catch (e: any) {
+      addToast({
+        type: 'error',
+        title: 'Equip Failed',
+        message: 'Could not connect to equipment server.',
+      });
+      return false;
+    }
+  };
+
+  const unequipAvatarSlot = async (slot: string): Promise<boolean> => {
+    try {
+      const res = await fetch('/api/avatar/equip', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ slot, unequip: true }),
+      });
+
+      const data = await res.json();
+      if (!res.ok || !data.success) {
+        return false;
+      }
+
+      setAvatarLoadout(data.loadout);
+      addToast({
+        type: 'info',
+        title: 'Slot Cleared',
+        message: `Removed ${slot} gear piece.`,
+      });
+      return true;
+    } catch {
+      return false;
+    }
+  };
+
+  const updateProfileData = async (data: Partial<UserProfile>): Promise<boolean> => {
+    try {
+      const res = await fetch('/api/character', {
+        method: 'PATCH',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data),
+      });
+
+      if (!res.ok) {
+        const errData = await res.json().catch(() => ({}));
+        throw new Error(errData.error || 'Failed to update profile');
+      }
+
+      const resData = await res.json();
+      if (resData.profile) {
+        setProfile(resData.profile);
+      }
+      addToast({
+        type: 'success',
+        title: 'Profile Synchronized',
+        message: 'Identification record has been updated successfully.',
+      });
+      return true;
+    } catch (e: any) {
+      addToast({
+        type: 'error',
+        title: 'Profile Update Failed',
+        message: e.message || 'Could not persist profile changes.',
+      });
+      return false;
+    }
+  };
+
+  const strikeBossRaid = async (raidId: string, damage: number = 25): Promise<{ success: boolean; damageDealt?: number; isDefeated?: boolean; newHp?: number; error?: string }> => {
+    try {
+      const res = await fetch(`/api/boss-raids/${raidId}/action`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ actionType: 'DIRECTIVE_STRIKE', damage }),
+      });
+      const data = await res.json();
+      if (!res.ok || !data.success) {
+        addToast({
+          type: 'error',
+          title: 'Strike Failed',
+          message: data.error || 'Failed to execute tactical strike on boss encounter.',
+        });
+        return { success: false, error: data.error };
+      }
+
+      if (data.isDefeated) {
+        addToast({
+          type: 'success',
+          title: '🔥 BOSS ENCOUNTER NEUTRALIZED',
+          message: `Victory! Bounty claimed: +${data.rewardXp || 0} XP and +${data.rewardGold || 0} Gold!`,
+        });
+      } else {
+        addToast({
+          type: 'info',
+          title: '🎯 Strike Confirmed',
+          message: `Dealt ${data.damageDealt} damage! Boss HP reduced to ${data.newHp}.`,
+        });
+      }
+
+      await refreshAll();
+      return {
+        success: true,
+        damageDealt: data.damageDealt,
+        isDefeated: data.isDefeated,
+        newHp: data.newHp,
+      };
+    } catch (e: any) {
+      addToast({
+        type: 'error',
+        title: 'Network Anomaly',
+        message: e.message || 'Strike could not be delivered.',
+      });
+      return { success: false, error: e.message };
+    }
+  };
+
   return (
     <GameContext.Provider
       value={{
@@ -417,12 +615,17 @@ export function GameProvider({ children }: { children: ReactNode }) {
         inventory,
         rewards,
         achievements,
+        avatarItems,
+        avatarUnlocks,
+        avatarLoadout,
         campaign,
         bossRaid,
         loading,
         toasts,
         createQuestModalOpen,
         setCreateQuestModalOpen,
+        profileModalOpen,
+        setProfileModalOpen,
         redeemItemTarget,
         setRedeemItemTarget,
         insufficientFundsData,
@@ -439,6 +642,10 @@ export function GameProvider({ children }: { children: ReactNode }) {
         redeemReward,
         equipItem,
         unequipItem,
+        equipAvatarItem,
+        unequipAvatarSlot,
+        updateProfileData,
+        strikeBossRaid,
         refreshAll,
       }}
     >

@@ -5,6 +5,7 @@ import { applyAttributeGain, getAttributeGainForDifficulty } from './attributes'
 import { evaluateAchievements, UserAchievementState } from './achievements';
 import {
   Achievement,
+  AvatarItem,
   CharacterAttributes,
   Quest,
   QuestCompletionResult,
@@ -17,6 +18,8 @@ export interface QuestCompletionInput {
   attributes: CharacterAttributes;
   masterAchievements: Achievement[];
   userAchievements: Record<string, UserAchievementState>;
+  masterAvatarItems?: AvatarItem[];
+  userAvatarUnlocks?: string[];
   totalQuestsCompleted: number;
   totalGoldEarned: number;
   totalItemsOwned: number;
@@ -95,7 +98,18 @@ export function executeQuestCompletion(input: QuestCompletionInput): {
     }
   );
 
-  // 7. Assemble Complete Result
+  // 7. Evaluate Avatar Unlocks on Level Up
+  const newlyUnlockedAvatarItems: AvatarItem[] = [];
+  if (xpProgression.leveledUp && input.masterAvatarItems && input.userAvatarUnlocks) {
+    const currentUnlocks = input.userAvatarUnlocks;
+    for (const item of input.masterAvatarItems) {
+      if (item.required_level <= xpProgression.newLevel && !currentUnlocks.includes(item.id)) {
+        newlyUnlockedAvatarItems.push(item);
+      }
+    }
+  }
+
+  // 8. Assemble Complete Result
   const result: QuestCompletionResult = {
     success: true,
     xpGained: netXpGained,
@@ -113,6 +127,7 @@ export function executeQuestCompletion(input: QuestCompletionInput): {
     newStreak: streakResult.newStreak,
     newStreakMultiplier: streakResult.multiplier,
     unlockedAchievements: newlyUnlocked,
+    newlyUnlockedAvatarItems: newlyUnlockedAvatarItems.length > 0 ? newlyUnlockedAvatarItems : undefined,
     message: `Directive conquered: +${netXpGained} XP, +${netGoldGained} G, +${attributeGainAmount} ${quest.attribute}`,
   };
 

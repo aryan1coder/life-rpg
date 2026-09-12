@@ -6,15 +6,18 @@ import { useGame } from '@/context/GameContext';
 import { TacticalSidebar } from './TacticalSidebar';
 import { TopTelemetryBar } from './TopTelemetryBar';
 import { ToastContainer } from './ToastContainer';
+import { MobileBottomNav } from './MobileBottomNav';
 import { CreateQuestModal } from '../modals/CreateQuestModal';
 import { RedeemModal } from '../modals/RedeemModal';
 import { InsufficientFundsModal } from '../modals/InsufficientFundsModal';
 import { LevelUpModal } from '../modals/LevelUpModal';
+import { ProfileUpdateModal } from '../modals/ProfileUpdateModal';
 
 export function AppShell({ children }: { children: ReactNode }) {
   const router = useRouter();
   const {
     setCreateQuestModalOpen,
+    setProfileModalOpen,
     setRedeemItemTarget,
     setInsufficientFundsData,
     setLevelUpModalData,
@@ -33,6 +36,7 @@ export function AppShell({ children }: { children: ReactNode }) {
 
       if (e.key === 'Escape') {
         setCreateQuestModalOpen(false);
+        setProfileModalOpen(false);
         setRedeemItemTarget(null);
         setInsufficientFundsData(null);
         setLevelUpModalData(null);
@@ -45,7 +49,7 @@ export function AppShell({ children }: { children: ReactNode }) {
       if (isModifier && !isInput) {
         if (e.key === '1') {
           e.preventDefault();
-          router.push('/home');
+          router.push('/lobby');
         } else if (e.key === '2') {
           e.preventDefault();
           router.push('/quests');
@@ -86,9 +90,11 @@ export function AppShell({ children }: { children: ReactNode }) {
       {/* Global Overlays & Modals */}
       <ToastContainer />
       <CreateQuestModal />
+      <ProfileUpdateModal />
       <RedeemModal />
       <InsufficientFundsModal />
       <LevelUpModal />
+      <MobileBottomNav />
     </div>
   );
 }

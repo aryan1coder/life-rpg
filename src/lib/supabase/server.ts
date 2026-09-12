@@ -2,6 +2,7 @@ import { createServerClient } from '@supabase/ssr';
 import { createClient as createSupabaseClient } from '@supabase/supabase-js';
 import { NextRequest, NextResponse } from 'next/server';
 import { isSupabaseConfigured } from './client';
+export { isSupabaseConfigured };
 
 /**
  * Creates a server-side Supabase client for Next.js Route Handlers and Server Components.
@@ -13,7 +14,7 @@ export function getSupabaseServerClient(req?: NextRequest, res?: NextResponse) {
   }
 
   const url = process.env.NEXT_PUBLIC_SUPABASE_URL!.trim();
-  const anonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!.trim();
+  const anonKey = (process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY || process.env.NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY)!.trim();
 
   return createServerClient(url, anonKey, {
     cookies: {

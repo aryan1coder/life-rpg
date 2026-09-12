@@ -4,6 +4,7 @@ export interface AuthSession {
   id: string;
   email: string;
   username: string;
+  role?: string;
 }
 
 export const SESSION_COOKIE_NAME = 'life_rpg_session';
@@ -27,6 +28,7 @@ export function getAuthSession(req: NextRequest): AuthSession | null {
             id: payload.sub,
             email: payload.email || `${payload.sub}@liferpg.system`,
             username: payload.user_metadata?.username || payload.email?.split('@')[0] || 'Operator',
+            role: payload.user_metadata?.role || payload.role || 'player',
           };
         }
       } catch (e) {
@@ -68,17 +70,23 @@ export function getAuthSession(req: NextRequest): AuthSession | null {
     }
   }
 
-  // 3. Check for standard and SSR Supabase auth cookies (e.g. sb-<project>-auth-token)
+  // 3. Check for standard and SSR Supabase auth cookies (including chunked cookies)
   const allCookies = req.cookies.getAll();
-  const sbCookie = allCookies.find(
-    (c) =>
-      c.name.startsWith('sb-') &&
-      (c.name.includes('-auth-token') || c.name === 'sb-access-token')
-  ) || req.cookies.get('supabase-auth-token');
+  const authCookies = allCookies
+    .filter((c) => c.name.startsWith('sb-') && (c.name.includes('-auth-token') || c.name === 'sb-access-token'))
+    .sort((a, b) => {
+      const idxA = a.name.includes('.') ? parseInt(a.name.split('.').pop() || '0', 10) : 0;
+      const idxB = b.name.includes('.') ? parseInt(b.name.split('.').pop() || '0', 10) : 0;
+      return idxA - idxB;
+    });
 
-  if (sbCookie?.value) {
+  let rawVal = authCookies.map((c) => c.value).join('');
+  if (!rawVal && req.cookies.get('supabase-auth-token')?.value) {
+    rawVal = req.cookies.get('supabase-auth-token')!.value;
+  }
+
+  if (rawVal) {
     try {
-      let rawVal = sbCookie.value;
       if (rawVal.startsWith('base64-')) {
         rawVal = Buffer.from(rawVal.substring(7), 'base64').toString('utf-8');
       }
@@ -96,10 +104,14 @@ export function getAuthSession(req: NextRequest): AuthSession | null {
         if (parts.length === 3) {
           const payload = JSON.parse(Buffer.from(parts[1], 'base64').toString('utf-8'));
           if (payload.sub && (!payload.exp || payload.exp * 1000 > Date.now())) {
+            const rawName = payload.user_metadata?.display_name || payload.user_metadata?.username;
+            const cleanName = rawName && typeof rawName === 'string' && rawName.trim().length > 0 && rawName.trim().length <= 40
+              ? rawName.trim()
+              : (payload.email ? payload.email.split('@')[0] : 'Adventurer');
             return {
               id: payload.sub,
               email: payload.email || `${payload.sub}@liferpg.system`,
-              username: payload.user_metadata?.username || payload.email?.split('@')[0] || 'Operator',
+              username: cleanName,
             };
           }
         }

@@ -19,6 +19,7 @@ export default function SignupPage() {
 
   const handleSignup = async (e: React.FormEvent) => {
     e.preventDefault();
+    if (loading) return;
     if (!isConfigured) {
       setError('Supabase is not configured. Please provide NEXT_PUBLIC_SUPABASE_URL and NEXT_PUBLIC_SUPABASE_ANON_KEY in .env.local.');
       return;
@@ -42,12 +43,21 @@ export default function SignupPage() {
         options: {
           data: {
             username: username.trim(),
+            display_name: username.trim(),
           },
         },
       });
 
       if (authError) {
-        setError(authError.message);
+        if (
+          authError.status === 429 ||
+          authError.message?.toLowerCase().includes('rate limit') ||
+          authError.message?.toLowerCase().includes('too many')
+        ) {
+          setError('Too many signup attempts. Please wait a little before trying again.');
+        } else {
+          setError(authError.message);
+        }
         setLoading(false);
         return;
       }
@@ -58,7 +68,7 @@ export default function SignupPage() {
         return;
       }
 
-      router.push('/home');
+      router.push('/lobby');
     } catch (err: any) {
       setError(err?.message || 'Registration request failed. Please check network connection.');
       setLoading(false);
@@ -127,7 +137,7 @@ export default function SignupPage() {
                 disabled={!isConfigured}
                 value={username}
                 onChange={(e) => setUsername(e.target.value)}
-                placeholder="e.g. Kai Vane"
+                placeholder="e.g. OperatorOne"
                 className="w-full pl-10 pr-3.5 py-2.5 rounded-xl bg-surface-elevated border border-border-subtle text-text-primary text-sm focus:outline-none focus:border-primary transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
               />
               <User className="w-4 h-4 text-text-muted absolute left-3.5 top-3" />
@@ -145,7 +155,7 @@ export default function SignupPage() {
                 disabled={!isConfigured}
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                placeholder="kai@liferpg.system"
+                placeholder="operator@example.com"
                 className="w-full pl-10 pr-3.5 py-2.5 rounded-xl bg-surface-elevated border border-border-subtle text-text-primary text-sm focus:outline-none focus:border-primary transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
               />
               <Mail className="w-4 h-4 text-text-muted absolute left-3.5 top-3" />

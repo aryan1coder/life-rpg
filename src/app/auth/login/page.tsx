@@ -17,6 +17,7 @@ export default function LoginPage() {
 
   const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault();
+    if (loading) return;
     if (!isConfigured) {
       setError('Supabase is not configured. Please provide NEXT_PUBLIC_SUPABASE_URL and NEXT_PUBLIC_SUPABASE_ANON_KEY in .env.local.');
       return;
@@ -44,7 +45,7 @@ export default function LoginPage() {
         return;
       }
 
-      router.push('/home');
+      router.push('/lobby');
     } catch (err: any) {
       setError(err?.message || 'Authentication request failed. Please check network connection.');
       setLoading(false);
@@ -106,7 +107,7 @@ export default function LoginPage() {
                 disabled={!isConfigured}
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                placeholder="kai@liferpg.system"
+                placeholder="operator@example.com"
                 className="w-full pl-10 pr-3.5 py-2.5 rounded-xl bg-surface-elevated border border-border-subtle text-text-primary text-sm focus:outline-none focus:border-primary transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
               />
               <Mail className="w-4 h-4 text-text-muted absolute left-3.5 top-3" />

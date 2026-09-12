@@ -45,3 +45,80 @@
     background: #32353d;
   }
 }
+
+@layer utilities {
+  .font-display-hero,
+  .font-display-hero-mobile,
+  .font-headline-lg,
+  .font-headline-md,
+  .font-body-lg,
+  .font-body-md {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  }
+
+  .font-label-code-lg,
+  .font-label-code-sm,
+  .font-metric-numeral {
+    font-family: 'JetBrains Mono', monospace;
+  }
+
+  .glass-panel {
+    background: rgba(18, 19, 27, 0.65);
+    backdrop-filter: blur(28px);
+    -webkit-backdrop-filter: blur(28px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.08);
+  }
+
+  .glass-card {
+    background: rgba(24, 26, 36, 0.5);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.05);
+  }
+
+  .glass-pill {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+  }
+
+  .mesh-glow {
+    background: radial-gradient(circle at 50% 0%, rgba(99, 102, 241, 0.18) 0%, rgba(56, 189, 248, 0.05) 45%, transparent 75%);
+  }
+
+  .landing-page-root .text-secondary {
+    color: #b9c8de;
+  }
+
+  /* Dedicated Mobile Landscape Game Mode (Console Layout) */
+  @media (orientation: landscape) and (max-height: 520px) {
+    .lobby-container {
+      padding-top: 0.5rem !important;
+      padding-bottom: 4.5rem !important;
+      padding-left: 1rem !important;
+      padding-right: 1rem !important;
+      gap: 0.75rem !important;
+      overflow: hidden !important;
+    }
+
+    .lobby-grid {
+      display: grid !important;
+      grid-template-columns: 1.1fr 0.9fr !important;
+      align-items: stretch !important;
+      gap: 0.75rem !important;
+    }
+
+    .lobby-hero-card {
+      padding: 0.75rem 1rem !important;
+    }
+
+    .lobby-status-col {
+      display: flex !important;
+      flex-direction: column !important;
+      gap: 0.5rem !important;
+    }
+  }
+}

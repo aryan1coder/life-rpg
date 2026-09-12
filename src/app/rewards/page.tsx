@@ -21,8 +21,8 @@ export default function RewardsPage() {
   const { rewards, inventory, profile, setRedeemItemTarget, setInsufficientFundsData } = useGame();
 
   const [selectedCategory, setSelectedCategory] = useState<string>('All');
-  const gold = profile?.gold_balance ?? 1420;
-  const level = profile?.level ?? 12;
+  const gold = profile?.gold_balance ?? 0;
+  const level = profile?.level ?? 1;
 
   const categories = ['All', 'Theme', 'Cosmetic', 'Badge', 'Title', 'Boost'];
 

@@ -1,17 +1,26 @@
 'use client';
 
-import React from 'react';
+import React, { useState } from 'react';
 import { useGame } from '@/context/GameContext';
 import { getTitleForLevel } from '@/lib/game/progression';
-import { Award, Zap, ChevronRight, X } from 'lucide-react';
+import { Award, Zap, ChevronRight, X, Sparkles, Check } from 'lucide-react';
 
 export function LevelUpModal() {
-  const { levelUpModalData, setLevelUpModalData } = useGame();
+  const { levelUpModalData, setLevelUpModalData, equipAvatarItem } = useGame();
+  const [equippedIds, setEquippedIds] = useState<string[]>([]);
 
   if (!levelUpModalData) return null;
 
   const newLevel = levelUpModalData.newLevel;
   const title = getTitleForLevel(newLevel);
+  const unlockedGear = levelUpModalData.newlyUnlockedAvatarItems || [];
+
+  const handleEquip = async (itemId: string) => {
+    const ok = await equipAvatarItem(itemId);
+    if (ok) {
+      setEquippedIds((prev) => [...prev, itemId]);
+    }
+  };
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-bg-primary/85 backdrop-blur-md animate-in fade-in zoom-in-95 duration-200">
@@ -23,6 +32,7 @@ export function LevelUpModal() {
           onClick={() => setLevelUpModalData(null)}
           className="absolute top-5 right-5 p-1 rounded-lg text-text-muted hover:text-text-primary hover:bg-surface-elevated transition-colors"
           type="button"
+          aria-label="Close Level Up Dialog"
         >
           <X className="w-5 h-5" />
         </button>
@@ -37,40 +47,89 @@ export function LevelUpModal() {
 
         <div className="mt-5 flex flex-col gap-1">
           <span className="font-mono text-xs text-primary uppercase tracking-widest font-semibold">
-            Progression Threshold Crossed
+            Progression Milestone Reached
           </span>
           <h2 className="text-2xl font-display font-bold text-text-primary tracking-tight">
-            Level Up Achieved
+            LEVEL UP
           </h2>
           <p className="text-xs text-text-secondary mt-1">
             Conferred Rank: <span className="text-text-primary font-semibold">{title}</span>
           </p>
         </div>
 
-        {/* Unlocked Operational Perks */}
-        <div className="mt-5 p-4 rounded-xl bg-surface-elevated border border-border-subtle flex flex-col gap-2.5 text-left">
-          <div className="flex items-center gap-2 text-xs font-semibold text-text-primary">
-            <Zap className="w-4 h-4 text-primary" />
-            <span>Unlocked Capabilities</span>
+        {/* Newly Unlocked Avatar Gear (If Any) */}
+        {unlockedGear.length > 0 && (
+          <div className="mt-4 p-4 rounded-2xl bg-primary/10 border border-primary/30 flex flex-col gap-3 text-left">
+            <div className="flex items-center gap-2 text-xs font-semibold text-primary">
+              <Sparkles className="w-4 h-4" />
+              <span>NEW GEAR UNLOCKED</span>
+            </div>
+            <div className="space-y-2">
+              {unlockedGear.map((item) => {
+                const isEquipped = equippedIds.includes(item.id);
+                return (
+                  <div
+                    key={item.id}
+                    className="flex items-center justify-between p-2.5 rounded-xl bg-surface border border-border-subtle"
+                  >
+                    <div className="flex flex-col">
+                      <div className="flex items-center gap-2">
+                        <span className="text-xs font-semibold text-text-primary">{item.name}</span>
+                        <span className="px-1.5 py-0.5 rounded bg-surface-elevated border border-border-subtle text-[9px] font-mono text-secondary">
+                          {item.rarity}
+                        </span>
+                      </div>
+                      <span className="text-[10px] text-text-muted font-mono uppercase">
+                        Slot: {item.slot}
+                      </span>
+                    </div>
+
+                    <button
+                      type="button"
+                      onClick={() => handleEquip(item.id)}
+                      disabled={isEquipped}
+                      className={`px-3 py-1 rounded-lg text-xs font-semibold font-mono transition-all flex items-center gap-1 ${
+                        isEquipped
+                          ? 'bg-emerald-complete/20 text-emerald-complete border border-emerald-complete/30'
+                          : 'bg-primary text-white hover:bg-primary-hover active:scale-95'
+                      }`}
+                    >
+                      {isEquipped ? (
+                        <>
+                          <Check className="w-3 h-3" />
+                          <span>Equipped</span>
+                        </>
+                      ) : (
+                        <span>Equip</span>
+                      )}
+                    </button>
+                  </div>
+                );
+              })}
+            </div>
           </div>
-          <div className="flex flex-col gap-1.5 text-xs text-text-secondary font-mono">
+        )}
+
+        {/* Operational Perks */}
+        <div className="mt-4 p-3.5 rounded-xl bg-surface-elevated border border-border-subtle flex flex-col gap-2 text-left">
+          <div className="flex items-center gap-2 text-xs font-semibold text-text-primary">
+            <Zap className="w-3.5 h-3.5 text-primary" />
+            <span>Operational Upgrades</span>
+          </div>
+          <div className="flex flex-col gap-1 text-[11px] text-text-secondary font-mono">
             <div className="flex items-center gap-2">
-              <ChevronRight className="w-3.5 h-3.5 text-emerald-complete" />
-              <span>+1 to All Active Core Capacities</span>
+              <ChevronRight className="w-3 h-3 text-emerald-complete" />
+              <span>Attributes: Base values amplified</span>
             </div>
             <div className="flex items-center gap-2">
-              <ChevronRight className="w-3.5 h-3.5 text-secondary" />
-              <span>Expanded Catalog Item Affordability</span>
-            </div>
-            <div className="flex items-center gap-2">
-              <ChevronRight className="w-3.5 h-3.5 text-primary" />
-              <span>Tier II Subroutine Optimization</span>
+              <ChevronRight className="w-3 h-3 text-secondary" />
+              <span>Armory: High-tier catalog permissions granted</span>
             </div>
           </div>
         </div>
 
         {/* Dismiss CTA */}
-        <div className="mt-6">
+        <div className="mt-5">
           <button
             type="button"
             onClick={() => setLevelUpModalData(null)}

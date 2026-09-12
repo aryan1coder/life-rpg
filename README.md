@@ -84,104 +84,65 @@ LIFE RPG solves this through an authentic, mathematically sound RPG progression 
       └────────────────────┬────────────────────┘
                            │
                            ▼
-[ PostgreSQL / Supabase Ledger Commit ]
- • Update `profiles` & `character_attributes`
- • Record `quest_logs` & `xp_transactions`
- • Append `user_inventory` on item acquisition
- • Evaluate master `achievements`
-                           │
-                           ▼
-[ Client Global State Synchronization (`GameContext`) ]
- • TopTelemetryBar XP & Gold animation
- • Floating "+2 INT" attribute chip
- • Instant toast notification stack
- • Active Loadout propagation
-```
-
----
+[ PostgreSQ---
 
 ## 7. Database Architecture & Migrations
 
-The database is defined in `supabase/migrations/`:
-- `001_initial_schema.sql`:
-  - `profiles`: User identity, level, XP, gold, streak, title, avatar.
-  - `character_attributes`: Normalized INT, DIS, VIT, STR, CRE points and daily deltas.
-  - `quests`: Operational directives with category, difficulty, reward tags.
-  - `quest_logs`: Historical completion snapshots.
-  - `xp_transactions`: Immutable XP delta audit ledger.
-  - `gold_transactions`: Immutable Gold debit/credit ledger.
-  - `streaks`: Consecutive day counters and multiplier status.
-  - `attribute_logs`: Historical attribute gains.
-  - `reward_items`: Curated catalog of themes, cosmetics, titles, and boosts.
-  - `user_inventory`: Player-owned items.
-  - `equipped_items`: 5-slot active profile loadout.
-  - `achievements` & `user_achievements`: Master accolades and player unlock progress.
-  - `campaigns` & `campaign_progress`: Multi-stage development campaigns.
-  - `boss_raids` & `boss_raid_progress`: Threat objectives with expiration deadlines.
-- `002_rls_policies.sql`: Row Level Security policies enforcing `auth.uid() = profile_id`.
-- `003_seed_catalog.sql`: Seed definitions for items, achievements, and starter campaigns.
+The database schema is defined across 10 sequential migrations in `supabase/migrations/` with **ZERO seeded gameplay rows**:
+1. `001_core_schema.sql`: Core `profiles` (`role: 'player' | 'admin'`, checks `level >= 1`, `gold_balance >= 0`, `xp_current >= 0`), `character_attributes` (5 core human capacities).
+2. `002_auth_profiles.sql`: Auth trigger `handle_new_user()` (provisions Level 1, 0 XP, 0 Gold, role `player`), `public.is_admin()`, and `public.promote_to_admin(target_email)`.
+3. `003_rls.sql`: Row Level Security policies with self-promotion guards on `profiles` and strict tenant isolation.
+4. `004_quests_directives.sql`: Operational directives (`quests` with `is_system_directive`), `quest_logs`, `streaks`, and `attribute_logs`.
+5. `005_rewards_economy.sql`: Rewards catalog (`reward_items`), player-owned inventory (`user_inventory`), cosmetic loadouts (`equipped_items`), and authoritative double-entry ledger (`gold_transactions`).
+6. `006_avatar_evolution.sql`: Avatar Armory catalog (`avatar_items`), player unlocks (`user_avatar_unlocks`), and 10-slot gear loadouts (`user_avatar_loadout`).
+7. `007_boss_raids.sql`: Authoritative Boss Raids (`boss_raids`), player combat participation (`boss_raid_progress`), and directive strikes log (`boss_raid_actions`).
+8. `008_achievements_campaigns.sql`: Master achievements (`achievements`), unlocks (`user_achievements`), episodic campaigns (`campaigns`), and stages (`campaign_progress`).
+9. `009_admin_system.sql`: Administrative mutation audit trail (`admin_audit_logs`) and system parameters (`system_settings`).
+10. `010_indexes_constraints.sql`: B-tree performance indexes across all foreign keys and query paths.
+
+- **One-Click Master SQL Setup:** [`docs/FRESH_DATABASE_SETUP.sql`](docs/FRESH_DATABASE_SETUP.sql) contains all 10 schema components for single-step execution in Supabase SQL Editor.
+- **Database Schema Specification:** [`docs/SUPABASE_SCHEMA.md`](docs/SUPABASE_SCHEMA.md).
+- **Safe Reset Guide:** [`docs/SUPABASE_DATABASE_RESET.md`](docs/SUPABASE_DATABASE_RESET.md).
 
 ---
 
 ## 8. Canonical Routes
 
-| Route | Shortcut | Purpose |
-|---|---|---|
-| `/` | — | Public landing and system introduction |
-| `/auth/login` | — | Operator authentication terminal |
-| `/auth/signup` | — | New operator registration & character initialization |
-| `/home` | `⌘1` | Command Center, Daily Triage, 5-Factor Radar, Active Campaign |
-| `/quests` | `⌘2` | Mission Log, Category Filters, Boss Raid countdown, Create Quest |
-| `/character` | `⌘3` | Hero Profile, Attribute Capacity Engine, Evolution Chronicle |
-| `/rewards` | `⌘4` | Curated Item Store, 5-Tier Rarity Grid, Financial Delta Redemption |
-| `/inventory` | `⌘5` | 5-Slot Active Synced Loadout, Equipment Deck, Equip/Unequip Toggles |
-| `/achievements` | `⌘6` | Accolades Matrix (Unlocked, In Progress, Locked), Yield Trackers |
+| Route | Shortcut | Clearance | Purpose |
+|---|---|---|---|
+| `/` | — | Public | Kinetic command deck landing page & CTA |
+| `/auth/login` | — | Public | Operator terminal sign-in |
+| `/auth/signup` | — | Public | New operator registration & character initialization |
+| `/lobby` | `⌘1` | Authenticated | Primary Game Lobby, dynamic avatar stage, quick directives & attribute summary |
+| `/home` | — | Authenticated | Compatibility forwarder targeting `/lobby` |
+| `/quests` | `⌘2` | Authenticated | Mission log, category filters, interactive Boss Raid strike deck, directive creation |
+| `/character` | `⌘3` | Authenticated | Hero profile, avatar armory loadout inspector, 5-capacity radar matrix |
+| `/rewards` | `⌘4` | Authenticated | Armory shop catalog, 5-tier rarity grid, real-time gold redemption & shortfall telemetry |
+| `/inventory` | `⌘5` | Authenticated | Active equipped cosmetic loadout deck, equip/unequip toggles |
+| `/achievements` | `⌘6` | Authenticated | Accolades matrix (Unlocked, In Progress, Locked), milestone yield trackers |
+| `/admin` | — | Admin (`role: admin`) | Tactical Administrator Command Center (CMS) |
+| `/admin/qa/avatar-lab` | — | Admin (`role: admin`) | Isolated Developer QA Avatar Evolution Laboratory |
 
 ---
 
-## 9. Project Directory Structure
+## 9. Administrator Command Center & Owner Promotion
 
-```
-├── docs/                                # Engineering documentation suite
-│   ├── STITCH_AUDIT.md                  # Comprehensive prototype audit
-│   ├── ARCHITECTURE.md                  # Master architecture spec
-│   ├── DATABASE.md & schema.md          # Database schemas & relationships
-│   ├── GAME_RULES.md                    # Mathematical rules & formulas
-│   ├── STATE_FLOW.md                    # Cross-system cascade sequence diagrams
-│   ├── API.md                           # Route handlers & endpoints
-│   ├── SECURITY.md                      # RLS validation & multi-user tests
-│   ├── TESTING.md                       # Test suites & execution guide
-│   ├── DEPLOYMENT.md                    # Vercel & Supabase deployment
-│   ├── DESIGN_SYSTEM.md                 # Stitch tokens & typographic hierarchy
-│   └── screens/                         # Individual screen specifications
-├── scripts/
-│   └── test-engine.ts                   # Game Engine automated test suite
-├── src/
-│   ├── app/                             # Next.js App Router canonical pages
-│   │   ├── api/                         # Server-authoritative REST endpoints
-│   │   ├── auth/                        # Login and Signup pages
-│   │   ├── home/                        # /home Command Center
-│   │   ├── quests/                      # /quests Mission Log
-│   │   ├── character/                   # /character Hero Profile
-│   │   ├── rewards/                     # /rewards Store & Vault
-│   │   ├── inventory/                   # /inventory Loadout Deck
-│   │   └── achievements/                # /achievements Accolade Matrix
-│   ├── components/
-│   │   ├── ui/                          # TacticalSidebar, TopTelemetryBar, Toast, AppShell
-│   │   └── modals/                      # CreateQuest, Redeem, InsufficientFunds, LevelUp
-│   ├── context/
-│   │   └── GameContext.tsx              # Synchronized client state provider
-│   ├── lib/
-│   │   ├── game/                        # Isolated Server-Authoritative Game Engine
-│   │   ├── storage/                     # Persistent database store & fallback engine
-│   │   └── supabase/                    # Supabase browser & server clients
-├── supabase/
-│   └── migrations/                      # PostgreSQL SQL migrations
-├── .env.example                         # Environment configuration template
-├── package.json                         # Project dependencies & scripts
-├── tailwind.config.ts                   # Tailwind configuration matching Stitch tokens
-└── tsconfig.json                        # Strict TypeScript compiler options
-```
+All newly registered users are provisioned as standard players (`role = 'player'`). To confer administrative clearance to the project owner:
+
+1. Register or sign in normally at `/auth/signup` or `/auth/login`.
+2. Open your [Supabase Dashboard](https://app.supabase.com) -> **SQL Editor**.
+3. Run the secure promotion procedure:
+   ```sql
+   SELECT public.promote_to_admin('owner@yourdomain.com');
+   ```
+   *(Or direct SQL fallback:)*
+   ```sql
+   UPDATE public.profiles
+   SET role = 'admin', updated_at = NOW()
+   WHERE id = (SELECT id FROM auth.users WHERE email = 'owner@yourdomain.com');
+   ```
+4. Refresh your browser. The **"Admin Panel"** link will appear in the main navigation under **Administration**, providing direct access to `/admin`.
+5. For full details, see [`docs/ADMIN_ACCESS_SETUP.md`](docs/ADMIN_ACCESS_SETUP.md) and [`docs/ADMIN_PANEL.md`](docs/ADMIN_PANEL.md).
 
 ---
 
@@ -197,6 +158,7 @@ Populate the required credentials:
 ```env
 NEXT_PUBLIC_SUPABASE_URL=https://your-project.supabase.co
 NEXT_PUBLIC_SUPABASE_ANON_KEY=your-anon-key-here
+NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY=your-anon-key-here
 SUPABASE_SERVICE_ROLE_KEY=your-service-role-key-here
 NEXT_PUBLIC_SITE_URL=http://localhost:3000
 ```
@@ -210,10 +172,24 @@ NEXT_PUBLIC_SITE_URL=http://localhost:3000
 npm install
 ```
 
-### Run Game Engine Automated Tests
+### Run Master Verification Test Suite (50 Tests)
 ```bash
 npm test
 ```
+Executes the comprehensive 50-test production suite verifying:
+- Real Supabase Auth & session restoration (chunked cookies, no redirect loops)
+- Fresh user initialization (strictly Level 1, 0 XP, 0 Gold, 0 Streak, role `player`)
+- Multi-user tenant isolation & complete absence of hardcoded demo/seed data
+- Zero game state or auth credentials in client storage (`localStorage` / `sessionStorage`)
+- Directive completion lifecycle, duplicate completion guards, and XP/Gold accrual
+- Rewards shop affordability validation, inventory grants, and double-entry ledger logging
+- Avatar Evolution 8-tier progression & slot equipment conflict resolution
+- Server-authoritative Boss Raid deployment, HP deduction, and defeat bounty
+- Admin RBAC enforcement (`verifyAdminSession`), 403 Forbidden checks, and audit logging
+- QA Avatar Evolution Lab isolation on dedicated test operator (`00000000-0000-4000-a000-000000000099`)
+- `docs/FRESH_DATABASE_SETUP.sql` 10-component schema validation
+- Unauthenticated `/admin` redirection to `/auth/login` & player access denial
+- Admin CMS dynamic reward publishing and session persistence across refresh
 
 ### Start Development Server
 ```bash
@@ -228,7 +204,30 @@ npm run build
 
 ---
 
-## 12. Design System Tokens
+## 12. Deployment Instructions (Vercel + Supabase)
+
+### Step 1: Deploy Supabase Schema
+1. Open your [Supabase Dashboard](https://app.supabase.com).
+2. Go to **SQL Editor** -> **New Query**.
+3. Copy and run the entire contents of [`docs/FRESH_DATABASE_SETUP.sql`](docs/FRESH_DATABASE_SETUP.sql).
+4. Promote the project owner:
+   ```sql
+   SELECT public.promote_to_admin('owner@yourdomain.com');
+   ```
+
+### Step 2: Deploy to Vercel
+1. Push your repository to GitHub.
+2. Import the repository in [Vercel](https://vercel.com).
+3. Configure the following environment variables in Vercel Project Settings:
+   - `NEXT_PUBLIC_SUPABASE_URL`
+   - `NEXT_PUBLIC_SUPABASE_ANON_KEY`
+   - `SUPABASE_SERVICE_ROLE_KEY`
+   - `NEXT_PUBLIC_SITE_URL` (e.g. `https://your-domain.vercel.app`)
+4. Click **Deploy**. Vercel will build and deploy the Next.js application.
+
+---
+
+## 13. Design System Tokens
 
 - **Background Canvas:** `#0B0E15` (`bg-primary`)
 - **Container Surfaces:** `#11141C` (`bg-secondary`), `#151923` (`surface`)
@@ -242,6 +241,6 @@ npm run build
 
 ---
 
-## 13. License & Hackathon Attribution
+## 14. License & Hackathon Attribution
 
 Engineered for the LIFE RPG Hackathon. Built on the Stitch Kinetic Command Deck v2 design foundation.

@@ -21,12 +21,13 @@ import {
 } from 'lucide-react';
 
 export default function QuestsPage() {
-  const { quests, bossRaid, completeQuest, setCreateQuestModalOpen } = useGame();
+  const { quests, bossRaid, completeQuest, setCreateQuestModalOpen, strikeBossRaid } = useGame();
 
   const [activeFilter, setActiveFilter] = useState<'All' | 'Active' | 'Daily' | 'Campaigns' | 'Boss Raids' | 'Completed'>('All');
   const [difficultyFilter, setDifficultyFilter] = useState('All');
   const [attributeFilter, setAttributeFilter] = useState('All');
   const [countdownText, setCountdownText] = useState('02:18:42 remaining');
+  const [isStriking, setIsStriking] = useState(false);
 
   useEffect(() => {
     if (!bossRaid) return;
@@ -211,31 +212,57 @@ export default function QuestsPage() {
                 </div>
 
                 <div className="flex flex-col gap-1.5 pt-2">
-                  <div className="flex items-center justify-between text-xs font-mono">
-                    <span className="text-text-muted">
-                      Directives Conquered ({bossRaid.directives_completed}/{bossRaid.required_directives})
-                    </span>
-                    <span className="text-crimson-threat font-semibold">
-                      {Math.round((bossRaid.directives_completed / bossRaid.required_directives) * 100)}%
-                    </span>
-                  </div>
-                  <div className="w-full h-2 rounded-full bg-surface-elevated overflow-hidden border border-border-subtle">
-                    <div
-                      className="h-full bg-crimson-threat rounded-full"
-                      style={{
-                        width: `${(bossRaid.directives_completed / bossRaid.required_directives) * 100}%`,
-                      }}
-                    />
-                  </div>
-                </div>
+                  {(() => {
+                    const maxHp = bossRaid.max_hp ?? 100;
+                    const currentHp = Math.max(0, bossRaid.current_hp ?? (maxHp - (bossRaid.directives_completed * 25)));
+                    const hpPercentage = Math.min(100, Math.max(0, Math.round((currentHp / maxHp) * 100)));
+                    const isDefeated = currentHp <= 0;
 
-                <div className="flex items-center justify-between pt-2 border-t border-border-subtle text-xs font-mono">
-                  <span className="text-text-muted">
-                    Bounty: +{bossRaid.reward_xp} XP, +{bossRaid.reward_gold} G
-                  </span>
-                  <span className="text-emerald-complete font-medium">
-                    Verified Multi-Stage
-                  </span>
+                    return (
+                      <>
+                        <div className="flex items-center justify-between text-xs font-mono">
+                          <span className="text-text-muted">
+                            Boss Integrity ({currentHp} / {maxHp} HP)
+                          </span>
+                          <span className={`font-semibold ${isDefeated ? 'text-emerald-complete' : 'text-crimson-threat'}`}>
+                            {isDefeated ? '0% (Neutralized)' : `${hpPercentage}% HP`}
+                          </span>
+                        </div>
+                        <div className="w-full h-2 rounded-full bg-surface-elevated overflow-hidden border border-border-subtle">
+                          <div
+                            className={`h-full rounded-full transition-all duration-500 ${isDefeated ? 'bg-emerald-complete' : 'bg-crimson-threat'}`}
+                            style={{ width: `${hpPercentage}%` }}
+                          />
+                        </div>
+
+                        <div className="flex items-center justify-between pt-3 mt-1 border-t border-border-subtle gap-3">
+                          <span className="text-xs font-mono text-text-muted">
+                            Bounty: <strong className="text-primary">+{bossRaid.reward_xp} XP</strong> · <strong className="text-amber-streak">+{bossRaid.reward_gold} G</strong>
+                          </span>
+                          {isDefeated ? (
+                            <span className="px-3.5 py-1.5 rounded-lg bg-emerald-500/10 text-emerald-400 font-mono text-xs font-semibold border border-emerald-500/20 flex items-center gap-1.5">
+                              <CheckCircle2 className="w-4 h-4" />
+                              Target Neutralized
+                            </span>
+                          ) : (
+                            <button
+                              onClick={async () => {
+                                setIsStriking(true);
+                                await strikeBossRaid(bossRaid.id, 25);
+                                setIsStriking(false);
+                              }}
+                              disabled={isStriking}
+                              className="px-4 py-2 rounded-xl bg-crimson-threat hover:bg-crimson-threat/80 text-white font-mono text-xs font-bold transition-all shadow-md shadow-crimson-threat/20 flex items-center gap-2 active:scale-95 disabled:opacity-50"
+                              type="button"
+                            >
+                              <Swords className={`w-4 h-4 ${isStriking ? 'animate-spin' : ''}`} />
+                              <span>{isStriking ? 'Striking...' : 'Execute Strike (-25 HP)'}</span>
+                            </button>
+                          )}
+                        </div>
+                      </>
+                    );
+                  })()}
                 </div>
               </div>
             </div>

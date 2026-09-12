@@ -2,19 +2,19 @@
 
 import React from 'react';
 import { useGame } from '@/context/GameContext';
-import { calculateLevelProgress } from '@/lib/game/progression';
+import { calculateLevelProgress, getTitleForLevel } from '@/lib/game/progression';
 import { Coins, Flame, Bell, Menu } from 'lucide-react';
 import Link from 'next/link';
 
 export function TopTelemetryBar() {
   const { profile, sidebarOpen, setSidebarOpen } = useGame();
 
-  const level = profile?.level ?? 12;
-  const xpCurrent = profile?.xp_current ?? 8260;
-  const xpNext = profile?.xp_next_level ?? 10000;
-  const gold = profile?.gold_balance ?? 1420;
-  const streak = profile?.streak_days ?? 14;
-  const title = profile?.title ?? 'Arch-Strategist II';
+  const level = profile?.level ?? 1;
+  const xpCurrent = profile?.xp_current ?? 0;
+  const xpNext = profile?.xp_next_level ?? 1000;
+  const gold = profile?.gold_balance ?? 0;
+  const streak = profile?.streak_days ?? 0;
+  const title = profile?.title || getTitleForLevel(level);
 
   const progressPercent = calculateLevelProgress(xpCurrent, xpNext);
 
