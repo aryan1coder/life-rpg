@@ -25,7 +25,7 @@ export interface DatabaseState {
 const DATA_DIR = path.join(process.cwd(), '.data');
 const DB_FILE = path.join(DATA_DIR, 'life_rpg_db.json');
 
-// Default Curated Catalogs
+// Default Curated Catalogs (Shared Seed Data)
 export const SEED_REWARDS: RewardItem[] = [
   {
     id: 'theme_deep_work_obsidian',
@@ -261,7 +261,7 @@ export const DEFAULT_CAMPAIGN: Campaign = {
   title: 'Ship Hackathon MVP',
   description: 'Execute end-to-end full stack architecture, database persistence, and design integration.',
   total_stages: 4,
-  current_stage: 3,
+  current_stage: 1,
   reward_gold: 850,
   reward_xp: 1500,
   is_completed: false,
@@ -273,143 +273,99 @@ export const DEFAULT_BOSS_RAID: BossRaid = {
   description: 'Refactor distributed cache, synchronize database schemas, and deploy production load balancers.',
   threat_level: 'Critical Threat',
   required_directives: 3,
-  directives_completed: 1,
+  directives_completed: 0,
   expires_at: new Date(Date.now() + 2 * 3600 * 1000 + 18 * 60 * 1000 + 42 * 1000).toISOString(),
   reward_gold: 350,
   reward_xp: 850,
   is_completed: false,
 };
 
-export function getDefaultUserProfile(id = 'kai_operator', username = 'Kai'): UserProfile {
+/**
+ * Standard production initial state for ANY newly registered operator.
+ * Begins at Level 1, 0 XP, 0 Gold, 0 Streak.
+ */
+export function createFreshUserProfile(id: string, username = 'Operator'): UserProfile {
   return {
     id,
     username,
-    title: 'Arch-Strategist II',
-    level: 12,
-    xp_current: 8260,
-    xp_next_level: 10000,
-    gold_balance: 1420,
-    streak_days: 14,
-    streak_multiplier: 1.15,
+    title: 'Initiate Strategist',
+    level: 1,
+    xp_current: 0,
+    xp_next_level: 1000,
+    gold_balance: 0,
+    streak_days: 0,
+    streak_multiplier: 1.0,
     last_active_date: new Date().toISOString().split('T')[0],
-    avatar_url: 'https://lh3.googleusercontent.com/aida-public/AB6AXuBTyH7zzJTFTO-kllZHgd-XpjcEBPsRH8rJHDnsVu-1AAYIqqE9RFwnfupTQXZNikDB1IUNnj7Tk7fdSeybLSikv8mxYWepa23fcvNJ3W01uyUAz70k7W5vi0R-qhgEFneh9z_XDtqQ3dNHTRq5qgxPGVPMsWgoRxIbieW1WsD3pR8pshRJkyoXiNkFXCx_uv6Eip3ZIbLPGeHxDSg2yGZ4O_DLYMvNBSuaNI3lliC90_qNt7xFX3I',
+    avatar_url: '/avatar.png',
     created_at: new Date().toISOString(),
     updated_at: new Date().toISOString(),
   };
 }
 
-export function getDefaultAttributes(profile_id = 'kai_operator'): CharacterAttributes {
+export function createFreshAttributes(profile_id: string): CharacterAttributes {
   return {
     profile_id,
-    intellect: 86,
-    discipline: 91,
-    vitality: 78,
-    strength: 72,
-    creativity: 64,
-    today_intellect_delta: 5,
-    today_discipline_delta: 2,
-    today_vitality_delta: 4,
-    today_strength_delta: 3,
-    today_creativity_delta: 1,
+    intellect: 50,
+    discipline: 50,
+    vitality: 50,
+    strength: 50,
+    creativity: 50,
+    today_intellect_delta: 0,
+    today_discipline_delta: 0,
+    today_vitality_delta: 0,
+    today_strength_delta: 0,
+    today_creativity_delta: 0,
     updated_at: new Date().toISOString(),
   };
 }
 
-export function getDefaultQuests(profile_id = 'kai_operator'): Quest[] {
+export function createStarterQuests(profile_id: string): Quest[] {
   return [
     {
-      id: 'quest_algo_practice',
+      id: `quest_${profile_id}_1`,
       profile_id,
-      title: 'Algorithm Practice & Graph Traversal',
-      description: 'Solve 2 hard LeetCode problems on shortest-path and topological ordering.',
-      category: 'Study',
-      difficulty: 'Normal',
+      title: 'Initialize Cognitive Command Deck',
+      description: 'Review system capabilities, configure operational profile, and review active directives.',
+      category: 'Engineering',
+      difficulty: 'Easy',
       attribute: 'Intellect',
+      xp_reward: 80,
+      gold_reward: 40,
+      frequency: 'Daily',
+      status: 'active',
+      due_date: new Date(Date.now() + 24 * 3600 * 1000).toISOString(),
+      created_at: new Date().toISOString(),
+      updated_at: new Date().toISOString(),
+    },
+    {
+      id: `quest_${profile_id}_2`,
+      profile_id,
+      title: 'Establish Deep Work Protocol',
+      description: 'Execute a 90-minute distraction-free engineering or writing session.',
+      category: 'Work',
+      difficulty: 'Normal',
+      attribute: 'Discipline',
       xp_reward: 120,
       gold_reward: 65,
       frequency: 'Daily',
       status: 'active',
-      due_date: new Date(Date.now() + 6 * 3600 * 1000).toISOString(),
+      due_date: new Date(Date.now() + 24 * 3600 * 1000).toISOString(),
       created_at: new Date().toISOString(),
       updated_at: new Date().toISOString(),
     },
     {
-      id: 'quest_distributed_systems',
+      id: `quest_${profile_id}_3`,
       profile_id,
-      title: 'Distributed Consensus Audit',
-      description: 'Review Raft leader election edge cases and write safety invariant tests.',
-      category: 'Engineering',
-      difficulty: 'Hard',
-      attribute: 'Intellect',
-      xp_reward: 240,
-      gold_reward: 120,
-      frequency: 'Campaign',
-      status: 'active',
-      due_date: new Date(Date.now() + 14 * 3600 * 1000).toISOString(),
-      created_at: new Date().toISOString(),
-      updated_at: new Date().toISOString(),
-    },
-    {
-      id: 'quest_strength_training',
-      profile_id,
-      title: 'Heavy Barbell Compound Session',
-      description: 'Complete 5x5 heavy squat & deadlift routine with disciplined rest periods.',
-      category: 'Fitness',
-      difficulty: 'Normal',
-      attribute: 'Strength',
-      xp_reward: 140,
-      gold_reward: 70,
-      frequency: 'Daily',
-      status: 'active',
-      due_date: new Date(Date.now() + 8 * 3600 * 1000).toISOString(),
-      created_at: new Date().toISOString(),
-      updated_at: new Date().toISOString(),
-    },
-    {
-      id: 'quest_deep_work_sprint',
-      profile_id,
-      title: 'Four-Hour Unbroken Flow Block',
-      description: 'Zero notification workspace session dedicated to core application pipeline.',
-      category: 'Work',
-      difficulty: 'Hard',
-      attribute: 'Discipline',
-      xp_reward: 180,
-      gold_reward: 90,
-      frequency: 'Daily',
-      status: 'active',
-      due_date: new Date(Date.now() + 4 * 3600 * 1000).toISOString(),
-      created_at: new Date().toISOString(),
-      updated_at: new Date().toISOString(),
-    },
-    {
-      id: 'quest_sleep_hygiene',
-      profile_id,
-      title: '8-Hour Sleep Recovery & Hydration Protocol',
-      description: 'Ensure 8+ hours uninterrupted sleep with morning sunlight exposure.',
+      title: 'Recovery & Sunlight Walk',
+      description: 'Complete a 30-minute outdoor walk with hydration and natural light exposure.',
       category: 'Health',
       difficulty: 'Easy',
       attribute: 'Vitality',
-      xp_reward: 90,
-      gold_reward: 45,
+      xp_reward: 80,
+      gold_reward: 40,
       frequency: 'Daily',
-      status: 'completed',
-      completed_at: new Date().toISOString(),
-      created_at: new Date().toISOString(),
-      updated_at: new Date().toISOString(),
-    },
-    {
-      id: 'quest_ui_design_polishing',
-      profile_id,
-      title: 'Micro-Interaction Polish & Framer Tuning',
-      description: 'Tune 180ms ease transitions across command deck dialogs and chips.',
-      category: 'Creative',
-      difficulty: 'Normal',
-      attribute: 'Creativity',
-      xp_reward: 130,
-      gold_reward: 60,
-      frequency: 'Weekly',
-      status: 'completed',
-      completed_at: new Date().toISOString(),
+      status: 'active',
+      due_date: new Date(Date.now() + 24 * 3600 * 1000).toISOString(),
       created_at: new Date().toISOString(),
       updated_at: new Date().toISOString(),
     },
@@ -433,52 +389,15 @@ class StorageEngine {
       console.warn('Could not read persistent DB file, initializing fresh state:', e);
     }
 
-    const defaultProfile = getDefaultUserProfile();
-    const defaultAttrs = getDefaultAttributes(defaultProfile.id);
-    const defaultQuests = getDefaultQuests(defaultProfile.id);
-
     const initial: DatabaseState = {
-      profiles: { [defaultProfile.id]: defaultProfile },
-      attributes: { [defaultProfile.id]: defaultAttrs },
-      quests: { [defaultProfile.id]: defaultQuests },
-      inventory: {
-        [defaultProfile.id]: [
-          'theme_deep_work_obsidian',
-          'frame_tactical_obsidian',
-          'title_arch_strategist',
-          'badge_consistency_master',
-          'boost_xp_surge_25',
-        ],
-      },
-      loadouts: {
-        [defaultProfile.id]: {
-          profile_id: defaultProfile.id,
-          theme_id: 'theme_deep_work_obsidian',
-          frame_id: 'frame_tactical_obsidian',
-          title_id: 'title_arch_strategist',
-          badge_id: 'badge_consistency_master',
-          boost_id: 'boost_xp_surge_25',
-          boost_expires_at: new Date(Date.now() + 18 * 3600 * 1000).toISOString(),
-        },
-      },
-      userAchievements: {
-        [defaultProfile.id]: {
-          ach_first_blood: { is_unlocked: true, current_progress: 1, unlocked_at: new Date().toISOString() },
-          ach_cadence_7: { is_unlocked: true, current_progress: 14, unlocked_at: new Date().toISOString() },
-          ach_cadence_14: { is_unlocked: true, current_progress: 14, unlocked_at: new Date().toISOString() },
-          ach_tier_10: { is_unlocked: true, current_progress: 12, unlocked_at: new Date().toISOString() },
-          ach_first_gear: { is_unlocked: true, current_progress: 5, unlocked_at: new Date().toISOString() },
-          ach_century_operative: { is_unlocked: false, current_progress: 69 },
-          ach_vault_wealthy: { is_unlocked: false, current_progress: 1420 },
-          ach_boss_slayer: { is_unlocked: false, current_progress: 0 },
-        },
-      },
-      campaignProgress: {
-        [defaultProfile.id]: { campaign_hackathon_mvp: 3 },
-      },
-      bossRaidProgress: {
-        [defaultProfile.id]: { boss_q3_system_overhaul: { completed_directives: 1, is_completed: false } },
-      },
+      profiles: {},
+      attributes: {},
+      quests: {},
+      inventory: {},
+      loadouts: {},
+      userAchievements: {},
+      campaignProgress: {},
+      bossRaidProgress: {},
     };
 
     this.saveState(initial);
@@ -496,10 +415,39 @@ class StorageEngine {
     }
   }
 
-  public getProfile(id = 'kai_operator'): UserProfile {
+  public findProfileByEmailOrUsername(query: string): UserProfile | null {
+    const q = query.toLowerCase().trim();
+    for (const p of Object.values(this.state.profiles)) {
+      if (p.id.toLowerCase() === q || p.username.toLowerCase() === q) {
+        return p;
+      }
+    }
+    return null;
+  }
+
+  public initFreshUser(userId: string, username: string): UserProfile {
+    const profile = createFreshUserProfile(userId, username);
+    const attrs = createFreshAttributes(userId);
+    const starterQuests = createStarterQuests(userId);
+
+    this.state.profiles[userId] = profile;
+    this.state.attributes[userId] = attrs;
+    this.state.quests[userId] = starterQuests;
+    this.state.inventory[userId] = [];
+    this.state.loadouts[userId] = { profile_id: userId };
+    this.state.userAchievements[userId] = {};
+    this.state.campaignProgress[userId] = { [DEFAULT_CAMPAIGN.id]: 0 };
+    this.state.bossRaidProgress[userId] = {
+      [DEFAULT_BOSS_RAID.id]: { completed_directives: 0, is_completed: false },
+    };
+
+    this.saveState(this.state);
+    return profile;
+  }
+
+  public getProfile(id: string): UserProfile {
     if (!this.state.profiles[id]) {
-      this.state.profiles[id] = getDefaultUserProfile(id, id === 'kai_operator' ? 'Kai' : id);
-      this.saveState(this.state);
+      return this.initFreshUser(id, id);
     }
     return this.state.profiles[id];
   }
@@ -509,9 +457,9 @@ class StorageEngine {
     this.saveState(this.state);
   }
 
-  public getAttributes(id = 'kai_operator'): CharacterAttributes {
+  public getAttributes(id: string): CharacterAttributes {
     if (!this.state.attributes[id]) {
-      this.state.attributes[id] = getDefaultAttributes(id);
+      this.state.attributes[id] = createFreshAttributes(id);
       this.saveState(this.state);
     }
     return this.state.attributes[id];
@@ -522,9 +470,9 @@ class StorageEngine {
     this.saveState(this.state);
   }
 
-  public getQuests(id = 'kai_operator'): Quest[] {
+  public getQuests(id: string): Quest[] {
     if (!this.state.quests[id]) {
-      this.state.quests[id] = getDefaultQuests(id);
+      this.state.quests[id] = createStarterQuests(id);
       this.saveState(this.state);
     }
     return this.state.quests[id];
@@ -547,7 +495,7 @@ class StorageEngine {
     }
   }
 
-  public deleteQuest(id: string, profile_id = 'kai_operator'): boolean {
+  public deleteQuest(id: string, profile_id: string): boolean {
     const list = this.getQuests(profile_id);
     const initialLen = list.length;
     this.state.quests[profile_id] = list.filter((q) => q.id !== id);
@@ -555,7 +503,7 @@ class StorageEngine {
     return this.state.quests[profile_id].length < initialLen;
   }
 
-  public getInventory(id = 'kai_operator'): string[] {
+  public getInventory(id: string): string[] {
     return this.state.inventory[id] || [];
   }
 
@@ -568,7 +516,7 @@ class StorageEngine {
     }
   }
 
-  public getLoadout(id = 'kai_operator'): EquippedLoadout {
+  public getLoadout(id: string): EquippedLoadout {
     if (!this.state.loadouts[id]) {
       this.state.loadouts[id] = { profile_id: id };
       this.saveState(this.state);
@@ -581,7 +529,7 @@ class StorageEngine {
     this.saveState(this.state);
   }
 
-  public getUserAchievements(id = 'kai_operator') {
+  public getUserAchievements(id: string) {
     return this.state.userAchievements[id] || {};
   }
 
@@ -590,14 +538,51 @@ class StorageEngine {
     this.saveState(this.state);
   }
 
-  public getCampaign(): Campaign {
-    return DEFAULT_CAMPAIGN;
+  public getCampaign(profile_id: string): Campaign {
+    const userProgress = this.state.campaignProgress[profile_id]?.[DEFAULT_CAMPAIGN.id] ?? 0;
+    return {
+      ...DEFAULT_CAMPAIGN,
+      current_stage: userProgress,
+      is_completed: userProgress >= DEFAULT_CAMPAIGN.total_stages,
+    };
   }
 
-  public getBossRaid(): BossRaid {
-    return DEFAULT_BOSS_RAID;
+  public advanceCampaign(profile_id: string): Campaign {
+    if (!this.state.campaignProgress[profile_id]) {
+      this.state.campaignProgress[profile_id] = {};
+    }
+    const current = this.state.campaignProgress[profile_id][DEFAULT_CAMPAIGN.id] ?? 0;
+    const next = Math.min(DEFAULT_CAMPAIGN.total_stages, current + 1);
+    this.state.campaignProgress[profile_id][DEFAULT_CAMPAIGN.id] = next;
+    this.saveState(this.state);
+    return this.getCampaign(profile_id);
+  }
+
+  public getBossRaid(profile_id: string): BossRaid {
+    const userProgress = this.state.bossRaidProgress[profile_id]?.[DEFAULT_BOSS_RAID.id];
+    const completed = userProgress?.completed_directives ?? 0;
+    return {
+      ...DEFAULT_BOSS_RAID,
+      directives_completed: completed,
+      is_completed: completed >= DEFAULT_BOSS_RAID.required_directives,
+    };
+  }
+
+  public advanceBossRaid(profile_id: string): BossRaid {
+    if (!this.state.bossRaidProgress[profile_id]) {
+      this.state.bossRaidProgress[profile_id] = {};
+    }
+    const current = this.state.bossRaidProgress[profile_id][DEFAULT_BOSS_RAID.id]?.completed_directives ?? 0;
+    const next = Math.min(DEFAULT_BOSS_RAID.required_directives, current + 1);
+    this.state.bossRaidProgress[profile_id][DEFAULT_BOSS_RAID.id] = {
+      completed_directives: next,
+      is_completed: next >= DEFAULT_BOSS_RAID.required_directives,
+    };
+    this.saveState(this.state);
+    return this.getBossRaid(profile_id);
   }
 }
 
 // Global Singleton
 export const db = new StorageEngine();
+export const DataStore = db;
