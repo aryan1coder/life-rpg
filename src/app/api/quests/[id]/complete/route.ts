@@ -1,7 +1,46 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { db, SEED_ACHIEVEMENTS } from '@/lib/storage/data-store';
-import { executeQuestCompletion } from '@/lib/game/quest-engine';
 import { getAuthSession } from '@/lib/auth/session';
+import { isSupabaseConfigured, getSupabaseServerClient } from '@/lib/supabase/server';
+
+// Simplistic execution engine since we're removing the heavy DataStore dependencies
+function executeQuestCompletion(quest: any, profile: any, attributes: any) {
+  let newXp = (profile.xp_current || 0) + (quest.xp_reward || 0);
+  let newGold = (profile.gold_balance || 0) + (quest.gold_reward || 0);
+  let newLevel = profile.level || 1;
+  let nextXp = profile.xp_next_level || 1000;
+  let leveledUp = false;
+
+  while (newXp >= nextXp) {
+    newXp -= nextXp;
+    newLevel += 1;
+    nextXp = Math.floor(nextXp * 1.5);
+    leveledUp = true;
+  }
+
+  const updatedProfile = {
+    ...profile,
+    xp_current: newXp,
+    gold_balance: newGold,
+    level: newLevel,
+    xp_next_level: nextXp,
+  };
+
+  const attrKey = quest.attribute?.toLowerCase();
+  const updatedAttributes = { ...attributes };
+  if (attrKey && updatedAttributes[attrKey] !== undefined) {
+    updatedAttributes[attrKey] += 1;
+    updatedAttributes[`today_${attrKey}_delta`] = (updatedAttributes[`today_${attrKey}_delta`] || 0) + 1;
+  }
+
+  return {
+    updatedProfile,
+    updatedAttributes,
+    result: {
+      leveledUp,
+      message: leveledUp ? `Leveled up to ${newLevel}!` : `Gained ${quest.xp_reward} XP and ${quest.gold_reward} Gold.`,
+    }
+  };
+}
 
 export async function POST(
   req: NextRequest,
@@ -13,22 +52,32 @@ export async function POST(
       return NextResponse.json({ success: false, error: 'Unauthorized operator session' }, { status: 401 });
     }
 
-    const questId = params.id;
-    const profile = db.getProfile(session.id);
-    const attributes = db.getAttributes(session.id);
-    const quests = db.getQuests(session.id);
-    const quest = quests.find((q) => q.id === questId);
+    if (!isSupabaseConfigured()) {
+      return NextResponse.json({ success: false, error: 'Database not configured' }, { status: 500 });
+    }
 
-    if (!quest) {
+    const supabase = getSupabaseServerClient(req);
+    if (!supabase) {
+      return NextResponse.json({ success: false, error: 'Database client failed' }, { status: 500 });
+    }
+
+    const questId = params.id;
+
+    // Fetch quest
+    const { data: quest, error: questErr } = await supabase
+      .from('quests')
+      .select('*')
+      .eq('id', questId)
+      .single();
+
+    if (questErr || !quest) {
       return NextResponse.json({ success: false, error: 'Directive not found' }, { status: 404 });
     }
 
-    // Strict multi-tenant ownership check
-    if (quest.profile_id !== session.id) {
-      return NextResponse.json({ success: false, error: 'Forbidden: Directive belongs to another operator' }, { status: 403 });
+    if (quest.profile_id !== session.id && !quest.is_system_directive) {
+      return NextResponse.json({ success: false, error: 'Forbidden' }, { status: 403 });
     }
 
-    // Concurrency & double completion guard
     if (quest.status === 'completed') {
       return NextResponse.json(
         { success: false, error: 'Directive has already been marked as complete' },
@@ -36,124 +85,71 @@ export async function POST(
       );
     }
 
-    const userAchievements = db.getUserAchievements(session.id);
-    const completedQuestsCount = quests.filter((q) => q.status === 'completed').length;
-    const inventory = db.getInventory(session.id);
-    const masterAvatarItems = db.getAvatarItems();
-    const userAvatarUnlocks = db.getUserAvatarUnlocks(session.id);
+    // Fetch profile and attributes
+    const { data: profile } = await supabase.from('profiles').select('*').eq('id', session.id).single();
+    const { data: attributes } = await supabase.from('character_attributes').select('*').eq('profile_id', session.id).single();
 
-    const { updatedProfile, updatedAttributes, updatedAchievements, result } = executeQuestCompletion({
-      quest,
-      profile,
-      attributes,
-      masterAchievements: SEED_ACHIEVEMENTS,
-      userAchievements,
-      masterAvatarItems,
-      userAvatarUnlocks,
-      totalQuestsCompleted: completedQuestsCount,
-      totalGoldEarned: profile.gold_balance,
-      totalItemsOwned: inventory.length,
-      bossRaidsCompleted: 0,
+    if (!profile || !attributes) {
+      return NextResponse.json({ success: false, error: 'Profile not found' }, { status: 404 });
+    }
+
+    const { updatedProfile, updatedAttributes, result } = executeQuestCompletion(quest, profile, attributes);
+
+    // 1. Update quest status
+    const completed_at = new Date().toISOString();
+    await supabase
+      .from('quests')
+      .update({
+        status: 'completed',
+        completed_at,
+        updated_at: completed_at,
+      })
+      .eq('id', questId);
+
+    // 2. Record quest execution log
+    await supabase.from('quest_logs').insert({
+      quest_id: questId,
+      profile_id: session.id,
+      xp_earned: quest.xp_reward,
+      gold_earned: quest.gold_reward,
+      completed_at,
     });
 
-    // Mark quest completed atomically
-    const completedQuest = {
-      ...quest,
-      status: 'completed' as const,
-      completed_at: new Date().toISOString(),
-      updated_at: new Date().toISOString(),
-    };
+    // 3. Update profile progression stats
+    await supabase
+      .from('profiles')
+      .update({
+        level: updatedProfile.level,
+        xp_current: updatedProfile.xp_current,
+        xp_next_level: updatedProfile.xp_next_level,
+        gold_balance: updatedProfile.gold_balance,
+        updated_at: new Date().toISOString(),
+      })
+      .eq('id', session.id);
 
-    db.updateQuest(completedQuest);
-    db.updateProfile(updatedProfile);
-    db.updateAttributes(updatedAttributes);
-    db.updateUserAchievements(session.id, updatedAchievements);
-
-    // If level-up occurred, persist new avatar unlocks
-    if (result.leveledUp && result.newlyUnlockedAvatarItems) {
-      db.evaluateAvatarUnlocksForLevel(session.id, updatedProfile.level);
-    }
-
-    // Persist to authoritative Supabase tables
-    const { isSupabaseConfigured, getSupabaseAdminClient, getSupabaseServerClient } = await import('@/lib/supabase/server');
-    if (isSupabaseConfigured()) {
-      try {
-        const supabase = getSupabaseAdminClient() || getSupabaseServerClient(req);
-        if (supabase) {
-          // 1. Update quest status
-          await supabase
-            .from('quests')
-            .update({
-              status: 'completed',
-              completed_at: completedQuest.completed_at,
-              updated_at: completedQuest.updated_at,
-            })
-            .eq('id', questId);
-
-          // 2. Record quest execution log
-          await supabase.from('quest_logs').insert({
-            quest_id: questId.includes('-') ? questId : null,
-            profile_id: session.id,
-            xp_earned: quest.xp_reward,
-            gold_earned: quest.gold_reward,
-            completed_at: completedQuest.completed_at,
-          });
-
-          // 3. Update profile progression stats
-          await supabase
-            .from('profiles')
-            .update({
-              level: updatedProfile.level,
-              xp_current: updatedProfile.xp_current,
-              xp_next_level: updatedProfile.xp_next_level,
-              gold_balance: updatedProfile.gold_balance,
-              streak_days: updatedProfile.streak_days,
-              streak_multiplier: updatedProfile.streak_multiplier,
-              last_active_date: updatedProfile.last_active_date,
-              updated_at: new Date().toISOString(),
-            })
-            .eq('id', session.id);
-
-          // 4. Update attributes
-          await supabase
-            .from('character_attributes')
-            .upsert({
-              profile_id: session.id,
-              intellect: updatedAttributes.intellect,
-              discipline: updatedAttributes.discipline,
-              vitality: updatedAttributes.vitality,
-              strength: updatedAttributes.strength,
-              creativity: updatedAttributes.creativity,
-              today_intellect_delta: updatedAttributes.today_intellect_delta,
-              today_discipline_delta: updatedAttributes.today_discipline_delta,
-              today_vitality_delta: updatedAttributes.today_vitality_delta,
-              today_strength_delta: updatedAttributes.today_strength_delta,
-              today_creativity_delta: updatedAttributes.today_creativity_delta,
-              updated_at: new Date().toISOString(),
-            }, { onConflict: 'profile_id' });
-
-          // 5. If level up unlocked items, persist avatar unlocks
-          if (result.leveledUp && result.newlyUnlockedAvatarItems?.length) {
-            for (const item of result.newlyUnlockedAvatarItems) {
-              await supabase.from('user_avatar_unlocks').upsert({
-                profile_id: session.id,
-                avatar_item_id: item.id,
-                unlocked_at: new Date().toISOString(),
-              }, { onConflict: 'profile_id,avatar_item_id' });
-            }
-          }
-        }
-      } catch (err) {
-        console.warn('[QuestComplete API] Supabase persistence warning:', err);
-      }
-    }
+    // 4. Update attributes
+    await supabase
+      .from('character_attributes')
+      .upsert({
+        profile_id: session.id,
+        intellect: updatedAttributes.intellect,
+        discipline: updatedAttributes.discipline,
+        vitality: updatedAttributes.vitality,
+        strength: updatedAttributes.strength,
+        creativity: updatedAttributes.creativity,
+        today_intellect_delta: updatedAttributes.today_intellect_delta,
+        today_discipline_delta: updatedAttributes.today_discipline_delta,
+        today_vitality_delta: updatedAttributes.today_vitality_delta,
+        today_strength_delta: updatedAttributes.today_strength_delta,
+        today_creativity_delta: updatedAttributes.today_creativity_delta,
+        updated_at: new Date().toISOString(),
+      }, { onConflict: 'profile_id' });
 
     return NextResponse.json({
       success: true,
-      quest: completedQuest,
+      quest: { ...quest, status: 'completed' },
       profile: updatedProfile,
       attributes: updatedAttributes,
-      achievements: updatedAchievements,
       result,
     });
   } catch (error: any) {
