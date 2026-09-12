@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { verifyAdminSession, logAdminAuditAction } from '@/lib/auth/admin';
-import { getSupabaseAdminClient, isSupabaseConfigured } from '@/lib/supabase/server';
+import { getSupabaseAdminClient, getSupabaseServerClient, isSupabaseConfigured } from '@/lib/supabase/server';
 
 export async function GET(req: NextRequest) {
   try {
@@ -11,7 +11,7 @@ export async function GET(req: NextRequest) {
 
     if (isSupabaseConfigured()) {
       try {
-        const supabase = getSupabaseAdminClient();
+        const supabase = getSupabaseAdminClient() || getSupabaseServerClient(req);
         if (supabase) {
           const { data: settings, error } = await supabase.from('system_settings').select('*');
           if (!error && settings) {
@@ -64,7 +64,7 @@ export async function PUT(req: NextRequest) {
 
     if (isSupabaseConfigured()) {
       try {
-        const supabase = getSupabaseAdminClient();
+        const supabase = getSupabaseAdminClient() || getSupabaseServerClient(req);
         if (supabase) {
           await supabase.from('system_settings').upsert(entry);
         }

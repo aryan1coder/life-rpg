@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { verifyAdminSession, logAdminAuditAction } from '@/lib/auth/admin';
-import { getSupabaseAdminClient, isSupabaseConfigured } from '@/lib/supabase/server';
+import { getSupabaseAdminClient, getSupabaseServerClient, isSupabaseConfigured } from '@/lib/supabase/server';
 import { db, SEED_REWARDS } from '@/lib/storage/data-store';
 
 export async function GET(req: NextRequest) {
@@ -12,7 +12,7 @@ export async function GET(req: NextRequest) {
 
     if (isSupabaseConfigured()) {
       try {
-        const supabase = getSupabaseAdminClient();
+        const supabase = getSupabaseAdminClient() || getSupabaseServerClient(req);
         if (supabase) {
           const { data: rewards, error } = await supabase
             .from('reward_items')
@@ -84,7 +84,7 @@ export async function POST(req: NextRequest) {
 
     if (isSupabaseConfigured()) {
       try {
-        const supabase = getSupabaseAdminClient();
+        const supabase = getSupabaseAdminClient() || getSupabaseServerClient(req);
         if (supabase) {
           const { data: created, error } = await supabase
             .from('reward_items')
@@ -143,7 +143,7 @@ export async function DELETE(req: NextRequest) {
 
     if (isSupabaseConfigured()) {
       try {
-        const supabase = getSupabaseAdminClient();
+        const supabase = getSupabaseAdminClient() || getSupabaseServerClient(req);
         if (supabase) {
           await supabase.from('reward_items').delete().eq('id', id);
         }

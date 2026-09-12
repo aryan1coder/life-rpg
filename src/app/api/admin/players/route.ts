@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { verifyAdminSession, logAdminAuditAction } from '@/lib/auth/admin';
-import { getSupabaseAdminClient, isSupabaseConfigured } from '@/lib/supabase/server';
+import { getSupabaseAdminClient, getSupabaseServerClient, isSupabaseConfigured } from '@/lib/supabase/server';
 import { db } from '@/lib/storage/data-store';
 
 export async function GET(req: NextRequest) {
@@ -15,7 +15,7 @@ export async function GET(req: NextRequest) {
 
     if (isSupabaseConfigured()) {
       try {
-        const supabase = getSupabaseAdminClient();
+        const supabase = getSupabaseAdminClient() || getSupabaseServerClient(req);
         if (supabase) {
           let builder = supabase
             .from('profiles')
@@ -99,7 +99,7 @@ export async function POST(req: NextRequest) {
 
     if (isSupabaseConfigured()) {
       try {
-        const supabase = getSupabaseAdminClient();
+        const supabase = getSupabaseAdminClient() || getSupabaseServerClient(req);
         if (supabase) {
           const { data: profile } = await supabase
             .from('profiles')
