@@ -13,11 +13,11 @@ import { getAuthSession, SESSION_COOKIE_NAME } from '../src/lib/auth/session';
 import { middleware } from '../src/middleware';
 import { NextRequest } from 'next/server';
 
-console.log('⚡ [LIFE RPG] Commencing Master Verification Suite (50 Comprehensive Tests)...\n');
+console.log('⚡ [LIFE RPG] Commencing Master Verification Suite (55 Comprehensive Tests)...\n');
 
 let passed = 0;
 let failed = 0;
-const TOTAL_TESTS = 50;
+const TOTAL_TESTS = 55;
 const asyncQueue: Promise<void>[] = [];
 
 function test(id: number, name: string, fn: () => void | Promise<void>) {
@@ -902,6 +902,110 @@ test(50, 'New user initialization always defaults strictly to role = player, nev
   const schemaPath = path.join(process.cwd(), 'supabase', 'migrations', '001_core_schema.sql');
   const schemaSql = fs.readFileSync(schemaPath, 'utf-8');
   assert(schemaSql.includes("role TEXT NOT NULL DEFAULT 'player'"), "001 schema must define role default as 'player'");
+});
+
+// 51. PWA Web Manifest & Icon Assets Verification
+test(51, 'PWA manifest and all required dark RPG app icons exist with valid headers', () => {
+  const publicDir = path.join(process.cwd(), 'public');
+  const appDir = path.join(process.cwd(), 'src', 'app');
+
+  const manifestPath = path.join(publicDir, 'manifest.json');
+  assert(fs.existsSync(manifestPath), 'manifest.json must exist');
+  const manifest = JSON.parse(fs.readFileSync(manifestPath, 'utf-8'));
+  assert.strictEqual(manifest.short_name, 'LIFE RPG');
+  assert.strictEqual(manifest.theme_color, '#0B0E17');
+  assert.strictEqual(manifest.display, 'standalone');
+
+  const requiredAssets = [
+    path.join(publicDir, 'favicon.ico'),
+    path.join(appDir, 'favicon.ico'),
+    path.join(publicDir, 'favicon-16x16.png'),
+    path.join(publicDir, 'favicon-32x32.png'),
+    path.join(publicDir, 'apple-touch-icon.png'),
+    path.join(publicDir, 'icon-192x192.png'),
+    path.join(publicDir, 'icon-512x512.png'),
+  ];
+
+  for (const asset of requiredAssets) {
+    assert(fs.existsSync(asset), `Asset ${asset} must exist`);
+    const stats = fs.statSync(asset);
+    assert(stats.size > 0, `Asset ${asset} must not be empty`);
+  }
+});
+
+// 52. Client Bearer JWT Authorization Header Verification
+test(52, 'Authorization Bearer JWT header is parsed and validated directly by getAuthSession', () => {
+  const payload = Buffer.from(
+    JSON.stringify({
+      sub: 'usr_bearer_verified_999',
+      email: 'bearer@liferpg.system',
+      user_metadata: { username: 'BearerOp', display_name: 'Bearer Operator' },
+      exp: Math.floor(Date.now() / 1000) + 3600,
+    })
+  ).toString('base64');
+  const validJwt = `eyJhbGciOiJIUzI1NiJ9.${payload}.signature`;
+
+  const req = new NextRequest('http://localhost:3000/api/character', {
+    headers: {
+      Authorization: `Bearer ${validJwt}`,
+    },
+  });
+
+  const session = getAuthSession(req);
+  assert(session, 'Must resolve session from Bearer JWT');
+  assert.strictEqual(session?.id, 'usr_bearer_verified_999');
+  assert.strictEqual(session?.username, 'Bearer Operator');
+});
+
+// 53. Code-verifier cookie immunity
+test(53, 'Presence of Supabase code-verifier cookie does not corrupt or break auth session resolution', () => {
+  const payload = Buffer.from(
+    JSON.stringify({
+      sub: 'usr_verifier_immune_111',
+      email: 'immune@liferpg.system',
+      user_metadata: { display_name: 'ImmuneOp' },
+      exp: Math.floor(Date.now() / 1000) + 3600,
+    })
+  ).toString('base64');
+  const validToken = `eyJhbGciOiJIUzI1NiJ9.${payload}.signature`;
+
+  const req = new NextRequest('http://localhost:3000/api/character', {
+    headers: {
+      cookie: `sb-project-auth-token-code-verifier=raw-verifier-string-xyz; sb-project-auth-token=${validToken}`,
+    },
+  });
+
+  const session = getAuthSession(req);
+  assert(session, 'Must cleanly isolate auth token and ignore code verifier');
+  assert.strictEqual(session?.id, 'usr_verifier_immune_111');
+});
+
+// 54. Quest Supabase Persistence Architecture
+test(54, 'Quest creation and completion routes persist to public.quests and query Supabase', () => {
+  const questsRoutePath = path.join(process.cwd(), 'src', 'app', 'api', 'quests', 'route.ts');
+  const questsRouteCode = fs.readFileSync(questsRoutePath, 'utf-8');
+  assert(questsRouteCode.includes(".from('quests')") && questsRouteCode.includes(".select("), 'GET /api/quests must query Supabase');
+  assert(questsRouteCode.includes(".from('quests')") && questsRouteCode.includes(".insert("), 'POST /api/quests must insert into Supabase');
+
+  const completeRoutePath = path.join(process.cwd(), 'src', 'app', 'api', 'quests', '[id]', 'complete', 'route.ts');
+  const completeCode = fs.readFileSync(completeRoutePath, 'utf-8');
+  assert(completeCode.includes(".from('quests')") && completeCode.includes(".update("), 'Complete route must update Supabase quests');
+  assert(completeCode.includes(".from('quest_logs')") && completeCode.includes(".insert("), 'Complete route must log into quest_logs');
+  assert(completeCode.includes(".from('character_attributes')") && completeCode.includes(".upsert("), 'Complete route must update character_attributes');
+});
+
+// 55. Boss Raid Dynamic Routing & Null State
+test(55, 'Boss raid endpoints return null when no active raid in Supabase and execute strikes dynamically', () => {
+  const bossRoutePath = path.join(process.cwd(), 'src', 'app', 'api', 'boss-raids', 'route.ts');
+  const bossCode = fs.readFileSync(bossRoutePath, 'utf-8');
+  assert(bossCode.includes('bossRaid: null'), 'Must return null bossRaid when no active raid exists in Supabase');
+
+  const charRoutePath = path.join(process.cwd(), 'src', 'app', 'api', 'character', 'route.ts');
+  const charCode = fs.readFileSync(charRoutePath, 'utf-8');
+  assert(charCode.includes(".from('boss_raids')") && charCode.includes(".select('*')"), 'Character route must query active boss raid from Supabase');
+
+  const actionRoutePath = path.join(process.cwd(), 'src', 'app', 'api', 'boss-raids', '[id]', 'action', 'route.ts');
+  assert(fs.existsSync(actionRoutePath), 'Dynamic strike route api/boss-raids/[id]/action must exist');
 });
 
 // Await any asynchronous tests before reporting final results

@@ -74,6 +74,80 @@ export async function POST(
       db.evaluateAvatarUnlocksForLevel(session.id, updatedProfile.level);
     }
 
+    // Persist to authoritative Supabase tables
+    const { isSupabaseConfigured, getSupabaseAdminClient, getSupabaseServerClient } = await import('@/lib/supabase/server');
+    if (isSupabaseConfigured()) {
+      try {
+        const supabase = getSupabaseAdminClient() || getSupabaseServerClient(req);
+        if (supabase) {
+          // 1. Update quest status
+          await supabase
+            .from('quests')
+            .update({
+              status: 'completed',
+              completed_at: completedQuest.completed_at,
+              updated_at: completedQuest.updated_at,
+            })
+            .eq('id', questId);
+
+          // 2. Record quest execution log
+          await supabase.from('quest_logs').insert({
+            quest_id: questId.includes('-') ? questId : null,
+            profile_id: session.id,
+            xp_earned: quest.xp_reward,
+            gold_earned: quest.gold_reward,
+            completed_at: completedQuest.completed_at,
+          });
+
+          // 3. Update profile progression stats
+          await supabase
+            .from('profiles')
+            .update({
+              level: updatedProfile.level,
+              xp_current: updatedProfile.xp_current,
+              xp_next_level: updatedProfile.xp_next_level,
+              gold_balance: updatedProfile.gold_balance,
+              streak_days: updatedProfile.streak_days,
+              streak_multiplier: updatedProfile.streak_multiplier,
+              last_active_date: updatedProfile.last_active_date,
+              updated_at: new Date().toISOString(),
+            })
+            .eq('id', session.id);
+
+          // 4. Update attributes
+          await supabase
+            .from('character_attributes')
+            .upsert({
+              profile_id: session.id,
+              intellect: updatedAttributes.intellect,
+              discipline: updatedAttributes.discipline,
+              vitality: updatedAttributes.vitality,
+              strength: updatedAttributes.strength,
+              creativity: updatedAttributes.creativity,
+              today_intellect_delta: updatedAttributes.today_intellect_delta,
+              today_discipline_delta: updatedAttributes.today_discipline_delta,
+              today_vitality_delta: updatedAttributes.today_vitality_delta,
+              today_strength_delta: updatedAttributes.today_strength_delta,
+              today_creativity_delta: updatedAttributes.today_creativity_delta,
+              updated_at: new Date().toISOString(),
+            }, { onConflict: 'profile_id' });
+
+          // 5. If level up unlocked items, persist avatar unlocks
+          if (result.leveledUp && result.newlyUnlockedAvatarItems?.length) {
+            for (const item of result.newlyUnlockedAvatarItems) {
+              await supabase.from('user_avatar_unlocks').upsert({
+                profile_id: session.id,
+                avatar_item_id: item.id,
+                unlocked_at: new Date().toISOString(),
+              }, { onConflict: 'profile_id,avatar_item_id' });
+            }
+          }
+        }
+      } catch (err) {
+        console.warn('[QuestComplete API] Supabase persistence warning:', err);
+      }
+    }
+
     return NextResponse.json({
       success: true,
       quest: completedQuest,

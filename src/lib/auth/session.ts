@@ -24,10 +24,15 @@ export function getAuthSession(req: NextRequest): AuthSession | null {
       try {
         const payload = JSON.parse(Buffer.from(segments[1], 'base64').toString('utf-8'));
         if (payload.sub && (!payload.exp || payload.exp * 1000 > Date.now())) {
+          const rawName = payload.user_metadata?.display_name || payload.user_metadata?.username;
+          const cleanName =
+            rawName && typeof rawName === 'string' && rawName.trim().length > 0 && rawName.trim().length <= 40
+              ? rawName.trim()
+              : (payload.email ? payload.email.split('@')[0] : 'Operator');
           return {
             id: payload.sub,
             email: payload.email || `${payload.sub}@liferpg.system`,
-            username: payload.user_metadata?.username || payload.email?.split('@')[0] || 'Operator',
+            username: cleanName,
             role: payload.user_metadata?.role || payload.role || 'player',
           };
         }
@@ -73,7 +78,12 @@ export function getAuthSession(req: NextRequest): AuthSession | null {
   // 3. Check for standard and SSR Supabase auth cookies (including chunked cookies)
   const allCookies = req.cookies.getAll();
   const authCookies = allCookies
-    .filter((c) => c.name.startsWith('sb-') && (c.name.includes('-auth-token') || c.name === 'sb-access-token'))
+    .filter(
+      (c) =>
+        c.name.startsWith('sb-') &&
+        !c.name.includes('code-verifier') &&
+        (c.name.includes('-auth-token') || c.name.includes('access-token'))
+    )
     .sort((a, b) => {
       const idxA = a.name.includes('.') ? parseInt(a.name.split('.').pop() || '0', 10) : 0;
       const idxB = b.name.includes('.') ? parseInt(b.name.split('.').pop() || '0', 10) : 0;
@@ -87,6 +97,14 @@ export function getAuthSession(req: NextRequest): AuthSession | null {
 
   if (rawVal) {
     try {
+      if (rawVal.includes('%')) {
+        try {
+          rawVal = decodeURIComponent(rawVal);
+        } catch (e) {
+          // ignore uri decode error
+        }
+      }
+
       if (rawVal.startsWith('base64-')) {
         rawVal = Buffer.from(rawVal.substring(7), 'base64').toString('utf-8');
       }
@@ -94,7 +112,25 @@ export function getAuthSession(req: NextRequest): AuthSession | null {
       let jwtToken: string | null = null;
       if (rawVal.startsWith('[') || rawVal.startsWith('{')) {
         const parsed = JSON.parse(rawVal);
-        jwtToken = Array.isArray(parsed) ? parsed[0] : (parsed.access_token || parsed);
+        jwtToken = Array.isArray(parsed)
+          ? parsed[0]
+          : (parsed.access_token || parsed.token || parsed.currentSession?.access_token || null);
+        
+        // Also check if user object was stored directly
+        if (!jwtToken && parsed.user?.id) {
+          const u = parsed.user;
+          const rawName = u.user_metadata?.display_name || u.user_metadata?.username;
+          const cleanName =
+            rawName && typeof rawName === 'string' && rawName.trim().length > 0 && rawName.trim().length <= 40
+              ? rawName.trim()
+              : (u.email ? u.email.split('@')[0] : 'Adventurer');
+          return {
+            id: u.id,
+            email: u.email || `${u.id}@liferpg.system`,
+            username: cleanName,
+            role: u.user_metadata?.role || u.app_metadata?.role || 'player',
+          };
+        }
       } else if (rawVal.split('.').length === 3) {
         jwtToken = rawVal;
       }
@@ -105,13 +141,15 @@ export function getAuthSession(req: NextRequest): AuthSession | null {
           const payload = JSON.parse(Buffer.from(parts[1], 'base64').toString('utf-8'));
           if (payload.sub && (!payload.exp || payload.exp * 1000 > Date.now())) {
             const rawName = payload.user_metadata?.display_name || payload.user_metadata?.username;
-            const cleanName = rawName && typeof rawName === 'string' && rawName.trim().length > 0 && rawName.trim().length <= 40
-              ? rawName.trim()
-              : (payload.email ? payload.email.split('@')[0] : 'Adventurer');
+            const cleanName =
+              rawName && typeof rawName === 'string' && rawName.trim().length > 0 && rawName.trim().length <= 40
+                ? rawName.trim()
+                : (payload.email ? payload.email.split('@')[0] : 'Adventurer');
             return {
               id: payload.sub,
               email: payload.email || `${payload.sub}@liferpg.system`,
               username: cleanName,
+              role: payload.user_metadata?.role || payload.app_metadata?.role || payload.role || 'player',
             };
           }
         }

@@ -128,6 +128,25 @@ export function GameProvider({ children }: { children: ReactNode }) {
     }
   };
 
+  const authFetch = async (url: string, options: RequestInit = {}): Promise<Response> => {
+    const supabase = createClient();
+    let token: string | null = null;
+    if (supabase) {
+      try {
+        const { data } = await supabase.auth.getSession();
+        token = data.session?.access_token || null;
+      } catch (err) {
+        // non-blocking
+      }
+    }
+
+    const headers = new Headers(options.headers || {});
+    if (token && !headers.has('Authorization')) {
+      headers.set('Authorization', `Bearer ${token}`);
+    }
+    return fetch(url, { ...options, headers });
+  };
+
   const refreshAll = async () => {
     // 1. Guard against fetching protected endpoints when on auth routes
     if (typeof window !== 'undefined') {
@@ -140,7 +159,7 @@ export function GameProvider({ children }: { children: ReactNode }) {
 
     try {
       // 2. Authoritative session verification via /api/character first
-      const charRes = await fetch('/api/character');
+      const charRes = await authFetch('/api/character');
 
       if (charRes.status === 401) {
         setProfile(null);
@@ -170,10 +189,10 @@ export function GameProvider({ children }: { children: ReactNode }) {
 
       // 3. Authenticated session verified: fetch auxiliary gameplay telemetry in parallel
       const [questsRes, rewardsRes, achRes, avatarRes] = await Promise.all([
-        fetch('/api/quests'),
-        fetch('/api/rewards'),
-        fetch('/api/achievements'),
-        fetch('/api/avatar/items'),
+        authFetch('/api/quests'),
+        authFetch('/api/rewards'),
+        authFetch('/api/achievements'),
+        authFetch('/api/avatar/items'),
       ]);
 
       if (questsRes.ok) {
@@ -234,7 +253,7 @@ export function GameProvider({ children }: { children: ReactNode }) {
     );
 
     try {
-      const res = await fetch(`/api/quests/${id}/complete`, { method: 'POST' });
+      const res = await authFetch(`/api/quests/${id}/complete`, { method: 'POST' });
       const data = await res.json();
 
       if (!res.ok || !data.success) {
@@ -268,7 +287,7 @@ export function GameProvider({ children }: { children: ReactNode }) {
 
         // Synchronize avatar unlocks and items
         try {
-          const avRes = await fetch('/api/avatar/items');
+          const avRes = await authFetch('/api/avatar/items');
           if (avRes.ok) {
             const avData = await avRes.json();
             setAvatarItems(avData.items || []);
@@ -304,7 +323,7 @@ export function GameProvider({ children }: { children: ReactNode }) {
 
   const createQuest = async (questData: Partial<Quest>): Promise<boolean> => {
     try {
-      const res = await fetch('/api/quests', {
+      const res = await authFetch('/api/quests', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(questData),
@@ -351,7 +370,7 @@ export function GameProvider({ children }: { children: ReactNode }) {
     }
 
     try {
-      const res = await fetch('/api/rewards/redeem', {
+      const res = await authFetch('/api/rewards/redeem', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ itemId }),
@@ -401,7 +420,7 @@ export function GameProvider({ children }: { children: ReactNode }) {
 
   const equipItem = async (itemId: string): Promise<boolean> => {
     try {
-      const res = await fetch('/api/character/loadout', {
+      const res = await authFetch('/api/character/loadout', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ action: 'equip', itemId }),
@@ -436,7 +455,7 @@ export function GameProvider({ children }: { children: ReactNode }) {
 
   const unequipItem = async (slot: string): Promise<boolean> => {
     try {
-      const res = await fetch('/api/character/loadout', {
+      const res = await authFetch('/api/character/loadout', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ action: 'unequip', slot }),
@@ -466,7 +485,7 @@ export function GameProvider({ children }: { children: ReactNode }) {
 
   const equipAvatarItem = async (itemId: string): Promise<boolean> => {
     try {
-      const res = await fetch('/api/avatar/equip', {
+      const res = await authFetch('/api/avatar/equip', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ itemId }),
@@ -501,7 +520,7 @@ export function GameProvider({ children }: { children: ReactNode }) {
 
   const unequipAvatarSlot = async (slot: string): Promise<boolean> => {
     try {
-      const res = await fetch('/api/avatar/equip', {
+      const res = await authFetch('/api/avatar/equip', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ slot, unequip: true }),
@@ -526,7 +545,7 @@ export function GameProvider({ children }: { children: ReactNode }) {
 
   const updateProfileData = async (data: Partial<UserProfile>): Promise<boolean> => {
     try {
-      const res = await fetch('/api/character', {
+      const res = await authFetch('/api/character', {
         method: 'PATCH',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(data),
@@ -559,7 +578,7 @@ export function GameProvider({ children }: { children: ReactNode }) {
 
   const strikeBossRaid = async (raidId: string, damage: number = 25): Promise<{ success: boolean; damageDealt?: number; isDefeated?: boolean; newHp?: number; error?: string }> => {
     try {
-      const res = await fetch(`/api/boss-raids/${raidId}/action`, {
+      const res = await authFetch(`/api/boss-raids/${raidId}/action`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ actionType: 'DIRECTIVE_STRIKE', damage }),

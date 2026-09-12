@@ -34,7 +34,21 @@ export async function POST(
             .single();
 
           if (raidError || !raid) {
-            return NextResponse.json({ success: false, error: 'Boss raid protocol not found' }, { status: 404 });
+            const localRaid =
+              db.getBossRaids().find((r) => r.id === raidId) ||
+              (db.getBossRaid(userId).id === raidId ? db.getBossRaid(userId) : null);
+            if (!localRaid) {
+              return NextResponse.json({ success: false, error: 'Boss raid protocol not found' }, { status: 404 });
+            }
+            const result = db.attackBossRaid(userId, raidId, damage);
+            return NextResponse.json({
+              success: true,
+              damageDealt: damage,
+              newHp: result.raid.current_hp,
+              isDefeated: result.completedNow,
+              rewardGold: result.rewardGold,
+              rewardXp: result.rewardXp,
+            });
           }
 
           if (!raid.is_active) {

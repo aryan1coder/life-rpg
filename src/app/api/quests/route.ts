@@ -10,6 +10,27 @@ export async function GET(req: NextRequest) {
       return NextResponse.json({ success: false, error: 'Unauthorized operator session' }, { status: 401 });
     }
 
+    const { isSupabaseConfigured, getSupabaseAdminClient, getSupabaseServerClient } = await import('@/lib/supabase/server');
+    if (isSupabaseConfigured()) {
+      try {
+        const supabase = getSupabaseAdminClient() || getSupabaseServerClient(req);
+        if (supabase) {
+          const { data: supaQuests, error } = await supabase
+            .from('quests')
+            .select('*')
+            .or(`profile_id.eq.${session.id},is_system_directive.eq.true`)
+            .order('created_at', { ascending: false });
+
+          if (!error && supaQuests) {
+            db.setQuests(session.id, supaQuests);
+            return NextResponse.json({ success: true, quests: supaQuests });
+          }
+        }
+      } catch (err) {
+        console.warn('[Quests API] Supabase fetch fallback to DataStore:', err);
+      }
+    }
+
     const quests = db.getQuests(session.id);
     return NextResponse.json({ success: true, quests });
   } catch (error: any) {
@@ -50,6 +71,49 @@ export async function POST(req: NextRequest) {
     const xpReward = difficulty === 'Epic' ? 300 : difficulty === 'Hard' ? 200 : difficulty === 'Normal' ? 120 : 80;
     const goldReward = difficulty === 'Epic' ? 150 : difficulty === 'Hard' ? 95 : difficulty === 'Normal' ? 65 : 40;
 
+    const { isSupabaseConfigured, getSupabaseAdminClient, getSupabaseServerClient } = await import('@/lib/supabase/server');
+    if (isSupabaseConfigured()) {
+      try {
+        const supabase = getSupabaseAdminClient() || getSupabaseServerClient(req);
+        if (supabase) {
+          const insertPayload = {
+            profile_id: session.id,
+            title: title.trim(),
+            description: description?.trim() || '',
+            category,
+            difficulty,
+            attribute,
+            xp_reward: xpReward,
+            gold_reward: goldReward,
+            frequency: frequency || 'Daily',
+            status: 'active',
+            due_date: due_date || new Date(Date.now() + 24 * 3600 * 1000).toISOString(),
+            is_system_directive: false,
+          };
+
+          const { data: supaQuest, error: supaError } = await supabase
+            .from('quests')
+            .insert(insertPayload)
+            .select('*')
+            .single();
+
+          if (!supaError && supaQuest) {
+            db.addQuest(supaQuest);
+            return NextResponse.json({
+              success: true,
+              quest: supaQuest,
+              message: 'Directive registered successfully in command deck',
+            });
+          } else if (supaError) {
+            console.warn('[Quests API] Supabase insert warning:', supaError);
+          }
+        }
+      } catch (err) {
+        console.warn('[Quests API] Supabase insert exception:', err);
+      }
+    }
+
+    // Local DataStore fallback
     const newQuest: Quest = {
       id: `quest_${Date.now()}_${Math.random().toString(36).substring(2, 7)}`,
       profile_id: session.id,

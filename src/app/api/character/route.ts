@@ -10,13 +10,18 @@ export async function GET(req: NextRequest) {
     }
 
     let profile = db.getProfile(session.id);
+    let attributes = db.getAttributes(session.id);
+    const loadout = db.getLoadout(session.id);
+    const campaign = db.getCampaign(session.id);
+    let bossRaid: any = null;
 
-    // Synchronize with authoritative Supabase profile if configured
+    // Synchronize with authoritative Supabase profile, attributes, and active boss raid if configured
     const { isSupabaseConfigured, getSupabaseAdminClient, getSupabaseServerClient } = await import('@/lib/supabase/server');
     if (isSupabaseConfigured()) {
       try {
         const supabase = getSupabaseAdminClient() || getSupabaseServerClient(req);
         if (supabase) {
+          // 1. Authoritative profile
           const { data: supaProfile, error } = await supabase
             .from('profiles')
             .select('*')
@@ -31,16 +36,74 @@ export async function GET(req: NextRequest) {
             };
             db.updateProfile(profile);
           }
+
+          // 2. Authoritative attributes
+          const { data: supaAttrs } = await supabase
+            .from('character_attributes')
+            .select('*')
+            .eq('profile_id', session.id)
+            .maybeSingle();
+
+          if (supaAttrs) {
+            attributes = {
+              ...attributes,
+              intellect: supaAttrs.intellect,
+              discipline: supaAttrs.discipline,
+              vitality: supaAttrs.vitality,
+              strength: supaAttrs.strength,
+              creativity: supaAttrs.creativity,
+              today_intellect_delta: supaAttrs.today_intellect_delta,
+              today_discipline_delta: supaAttrs.today_discipline_delta,
+              today_vitality_delta: supaAttrs.today_vitality_delta,
+              today_strength_delta: supaAttrs.today_strength_delta,
+              today_creativity_delta: supaAttrs.today_creativity_delta,
+            };
+            db.updateAttributes(attributes);
+          }
+
+          // 3. Authoritative active boss raid
+          const { data: activeRaid } = await supabase
+            .from('boss_raids')
+            .select('*')
+            .eq('is_active', true)
+            .order('created_at', { ascending: false })
+            .limit(1)
+            .maybeSingle();
+
+          if (activeRaid) {
+            const { data: userProgress } = await supabase
+              .from('boss_raid_progress')
+              .select('*')
+              .eq('profile_id', session.id)
+              .eq('boss_raid_id', activeRaid.id)
+              .maybeSingle();
+
+            bossRaid = {
+              id: activeRaid.id,
+              title: activeRaid.title,
+              description: activeRaid.description,
+              threat_level: activeRaid.threat_level,
+              max_hp: activeRaid.max_hp,
+              current_hp: activeRaid.current_hp,
+              required_directives: activeRaid.required_directives,
+              directives_completed: userProgress?.directives_completed || 0,
+              expires_at: activeRaid.end_at,
+              start_at: activeRaid.start_at,
+              reward_gold: activeRaid.reward_gold,
+              reward_xp: activeRaid.reward_xp,
+              is_completed: activeRaid.current_hp <= 0 || Boolean(userProgress?.is_completed),
+              is_active: activeRaid.is_active,
+            };
+          } else {
+            bossRaid = null;
+          }
         }
       } catch (err) {
         console.warn('[Character API] Supabase profile sync warning:', err);
       }
+    } else {
+      bossRaid = db.getBossRaid(session.id);
     }
-
-    const attributes = db.getAttributes(session.id);
-    const loadout = db.getLoadout(session.id);
-    const campaign = db.getCampaign(session.id);
-    const bossRaid = db.getBossRaid(session.id);
 
     return NextResponse.json({
       success: true,

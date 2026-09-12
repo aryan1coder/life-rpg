@@ -57,13 +57,19 @@ export async function GET(req: NextRequest) {
               },
             });
           }
+
+          // Supabase is configured, but ZERO active boss raids deployed by admin
+          return NextResponse.json({
+            success: true,
+            bossRaid: null,
+          });
         }
       } catch (err) {
         console.warn('[BossRaids API] Supabase query fallback to DataStore:', err);
       }
     }
 
-    // DataStore Fallback
+    // DataStore Fallback (Only when Supabase is unconfigured)
     const localRaid = db.getBossRaid(userId);
     return NextResponse.json({
       success: true,

@@ -677,6 +677,11 @@ class StorageEngine {
     return this.state.quests[id];
   }
 
+  public setQuests(id: string, quests: Quest[]): void {
+    this.state.quests[id] = quests;
+    this.saveState(this.state);
+  }
+
   public addQuest(quest: Quest): void {
     const list = this.getQuests(quest.profile_id);
     list.unshift(quest);
