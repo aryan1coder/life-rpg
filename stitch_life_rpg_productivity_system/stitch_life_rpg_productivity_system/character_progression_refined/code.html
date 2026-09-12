@@ -1,0 +1,591 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&family=Inter:wght@100..900&family=JetBrains+Mono:wght@100..900&display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={darkMode:"class",theme:{extend:{colors:{"on-primary":"#1000a9","inverse-on-surface":"#2d3038","on-secondary-container":"#5b3800","on-error":"#690005","background":"#10131a","border-subtle":"rgba(255, 255, 255, 0.07)","on-secondary":"#472a00","secondary":"#ffb95f","primary":"#c0c1ff","on-primary-fixed-variant":"#2f2ebe","error":"#ffb4ab","primary-container":"#8083ff","on-tertiary-container":"#002f38","surface-container-lowest":"#0b0e15","on-surface":"#e1e2ec","on-secondary-fixed-variant":"#653e00","surface-elevated":"#1B1F2A","tertiary":"#4cd7f6","on-secondary-fixed":"#2a1700","on-primary-fixed":"#07006c","secondary-fixed":"#ffddb8","text-muted":"#64748B","tertiary-fixed-dim":"#4cd7f6","on-background":"#e1e2ec","secondary-fixed-dim":"#ffb95f","bg-secondary":"#11141C","inverse-primary":"#494bd6","surface-container-high":"#272a32","outline":"#908fa0","text-secondary":"#94A3B8","emerald-complete":"#10B981","crimson-threat":"#EF4444","on-tertiary-fixed":"#001f26","surface-bright":"#363941","on-primary-container":"#0d0096","inverse-surface":"#e1e2ec","error-container":"#93000a","surface-container":"#1d2027","surface-tint":"#c0c1ff","tertiary-container":"#009eb9","surface-container-low":"#191b23","bg-primary":"#0B0E15","text-primary":"#F1F5F9","secondary-container":"#ee9800","primary-fixed":"#e1e0ff","border-focus":"rgba(99, 102, 241, 0.4)","primary-fixed-dim":"#c0c1ff","surface-variant":"#32353d","outline-variant":"#464554","amber-streak":"#F97316","surface":"#151923","on-surface-variant":"#c7c4d7","on-tertiary":"#003640","on-error-container":"#ffdad6","surface-dim":"#10131a","surface-container-highest":"#32353d","tertiary-fixed":"#acedff","on-tertiary-fixed-variant":"#004e5c"},borderRadius:{DEFAULT:"0.25rem",lg:"0.5rem",xl:"0.75rem",full:"9999px"},spacing:{"space-lg":"1.5rem","space-xs":"0.25rem",margin:"2rem","margin-mobile":"1rem",gutter:"1.5rem","space-sm":"0.5rem","space-md":"1rem","space-xl":"2rem","gutter-mobile":"0.75rem"},fontFamily:{"headline-lg-mobile":["Geist"],"body-sm":["Inter"],"headline-hero":["Geist"],"headline-hero-mobile":["Geist"],"headline-sm":["Geist"],"body-md":["Inter"],"headline-lg":["Geist"],"headline-md":["Geist"],"label-sm":["JetBrains Mono"],"body-lg":["Inter"],"stat-numeric":["JetBrains Mono"],"label-md":["JetBrains Mono"]},fontSize:{"headline-lg-mobile":["22px",{lineHeight:"28px",letterSpacing:"-0.01em",fontWeight:"600"}],"body-sm":["13px",{lineHeight:"18px",letterSpacing:"0em",fontWeight:"400"}],"headline-hero":["40px",{lineHeight:"48px",letterSpacing:"-0.03em",fontWeight:"600"}],"headline-hero-mobile":["28px",{lineHeight:"36px",letterSpacing:"-0.02em",fontWeight:"600"}],"headline-sm":["16px",{lineHeight:"24px",letterSpacing:"-0.005em",fontWeight:"600"}],"body-md":["14px",{lineHeight:"22px",letterSpacing:"-0.005em",fontWeight:"400"}],"headline-lg":["28px",{lineHeight:"36px",letterSpacing:"-0.02em",fontWeight:"600"}],"headline-md":["20px",{lineHeight:"28px",letterSpacing:"-0.01em",fontWeight:"600"}],"label-sm":["11px",{lineHeight:"14px",letterSpacing:"0.04em",fontWeight:"500"}],"body-lg":["16px",{lineHeight:"26px",letterSpacing:"-0.01em",fontWeight:"400"}],"stat-numeric":["20px",{lineHeight:"24px",letterSpacing:"-0.02em",fontWeight:"500"}],"label-md":["12px",{lineHeight:"16px",letterSpacing:"0.02em",fontWeight:"500"}]}}}};</script></head><body class="bg-bg-primary font-body-md text-body-md text-on-surface antialiased selection:bg-primary-container selection:text-on-primary-container"><aside class="fixed left-0 top-0 h-full w-64 bg-bg-secondary border-r border-border-subtle z-50 flex flex-col justify-between select-none"><div class="flex flex-col"><div class="h-16 px-5 flex items-center gap-3 border-b border-border-subtle"><img alt="Brand logo. - Primary color: #6366f1
+- Font: spaceGrotesk
+- Mode: dark
+- Roundness: rounded-sm
+" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/AEtjO1VbSfhYKcbXhAUIr9-pLsiwvBSLgwakw7fdkXq3szsXQnzb2g_ULv9EmvlgkZeJopKXzqdDZy9Wa8OLbCpXfB3G6I9o5v1jN4WR7oLAaF_3DRjTPzPLFidgjW-3U_kvdIu2UZSJ40fzzhgitYMqHuNSDCRM_Ez1pMQFhUukbzMYbdKnakNc8D1FEIwGJnybK3w98iuLONL8doMHlo1aQQ3h9fhAxhACcWz4cZDWvOjlVFzvtYJdgZul8w"/><div class="flex flex-col"><span class="font-headline-sm text-headline-sm text-text-primary tracking-tight">LIFE RPG</span><span class="font-label-sm text-label-sm text-text-muted tracking-wider uppercase">SYSTEM v2.4</span></div></div><div class="px-3 pt-4 pb-2"><span class="px-2.5 font-label-sm text-label-sm text-text-muted uppercase tracking-widest">Navigation</span></div><nav class="flex flex-col gap-1 px-3" data-active-classes="bg-surface-elevated text-text-primary border border-border-subtle shadow-sm"><a aria-current="page" class="group flex items-center justify-between px-2.5 py-2 rounded-lg transition-all bg-surface-elevated text-text-primary border border-border-subtle shadow-sm" data-path="home" href="#"><div class="flex items-center gap-3"><span class="material-symbols-outlined text-[18px]">home</span><span class="font-body-md text-body-md">Home</span></div><kbd class="font-label-sm text-label-sm text-text-muted group-hover:text-text-secondary transition-colors">⌘1</kbd></a><a class="group flex items-center justify-between px-2.5 py-2 rounded-lg text-text-secondary hover:text-text-primary hover:bg-surface-elevated transition-all" data-path="quests" href="#"><div class="flex items-center gap-3"><span class="material-symbols-outlined text-[18px]">task_alt</span><span class="font-body-md text-body-md">Quests</span></div><kbd class="font-label-sm text-label-sm text-text-muted group-hover:text-text-secondary transition-colors">⌘2</kbd></a><a class="group flex items-center justify-between px-2.5 py-2 rounded-lg text-text-secondary hover:text-text-primary hover:bg-surface-elevated transition-all" data-path="character" href="#"><div class="flex items-center gap-3"><span class="material-symbols-outlined text-[18px]">person</span><span class="font-body-md text-body-md">Character</span></div><kbd class="font-label-sm text-label-sm text-text-muted group-hover:text-text-secondary transition-colors">⌘3</kbd></a><a class="group flex items-center justify-between px-2.5 py-2 rounded-lg text-text-secondary hover:text-text-primary hover:bg-surface-elevated transition-all" data-path="rewards" href="#"><div class="flex items-center gap-3"><span class="material-symbols-outlined text-[18px]">military_tech</span><span class="font-body-md text-body-md">Rewards</span></div><kbd class="font-label-sm text-label-sm text-text-muted group-hover:text-text-secondary transition-colors">⌘4</kbd></a><a class="group flex items-center justify-between px-2.5 py-2 rounded-lg text-text-secondary hover:text-text-primary hover:bg-surface-elevated transition-all" data-path="inventory" href="#"><div class="flex items-center gap-3"><span class="material-symbols-outlined text-[18px]">backpack</span><span class="font-body-md text-body-md">Inventory</span></div><kbd class="font-label-sm text-label-sm text-text-muted group-hover:text-text-secondary transition-colors">⌘5</kbd></a><a class="group flex items-center justify-between px-2.5 py-2 rounded-lg text-text-secondary hover:text-text-primary hover:bg-surface-elevated transition-all" data-path="achievements" href="#"><div class="flex items-center gap-3"><span class="material-symbols-outlined text-[18px]">verified</span><span class="font-body-md text-body-md">Achievements</span></div><kbd class="font-label-sm text-label-sm text-text-muted group-hover:text-text-secondary transition-colors">⌘6</kbd></a></nav></div><div class="flex flex-col gap-3 p-3 border-t border-border-subtle bg-bg-secondary"><div class="flex items-center justify-between px-2.5 py-2 rounded-lg bg-surface-elevated border border-border-subtle"><div class="flex items-center gap-2"><span class="material-symbols-outlined text-amber-streak text-[18px]">local_fire_department</span><span class="font-body-sm text-body-sm text-text-secondary">Current Streak</span></div><span class="font-label-sm text-label-sm text-amber-streak font-medium">14 DAYS</span></div><div class="flex items-center justify-between px-1"><button class="flex items-center gap-2 p-1.5 rounded text-text-muted hover:text-text-primary hover:bg-surface-elevated transition-all" type="button"><span class="material-symbols-outlined text-[18px]">volume_up</span><span class="font-label-sm text-label-sm">Audio ON</span></button><a class="flex items-center gap-1.5 p-1.5 rounded text-text-muted hover:text-text-primary hover:bg-surface-elevated transition-all" data-path="settings" href="#"><span class="material-symbols-outlined text-[18px]">settings</span><span class="font-label-sm text-label-sm">Settings</span></a></div><div class="flex items-center gap-3 p-2 rounded-lg bg-surface border border-border-subtle"><div class="relative flex-shrink-0"><img alt="Profile" class="w-8 h-8 rounded-full object-cover" src="https://lh3.googleusercontent.com/aida/AEtjO1WYYfG_zabn5Hd81ixbEJIgD8ELc302VsbWiIZutAImQAU_yL8Jsz6a6WSSXuCko6C9T073TQeRauo9UcL35S-YyBBpF_F9zhIybtLozsT1d1yzUQdcGGk2E4JsBIeffpiGrdeXtjPyV_ifGll2Y91tAqApDLwKbiTSRDbwJqN_fW89CNAgBFhc78p1QoiVYwZm-Jj2rzjIKUK5pmvVpZKF3EG27YQIS6YDGRfMUNJQ6x5monmR8OmC"/><span class="absolute bottom-0 right-0 w-2 h-2 rounded-full bg-emerald-complete ring-2 ring-surface"></span></div><div class="flex flex-col min-w-0 flex-1"><span class="font-body-sm text-body-sm text-text-primary truncate font-medium">Aiden Vance</span><span class="font-label-sm text-label-sm text-text-muted truncate">Tier 2 Strategist</span></div></div></div></aside><div class="pl-64"><header class="fixed top-0 left-64 right-0 h-16 bg-bg-secondary/90 backdrop-blur-xl border-b border-border-subtle z-40 px-8 flex items-center justify-between"><div class="flex items-center gap-6"><div class="flex items-center gap-2"><span class="font-label-sm text-label-sm px-2 py-0.5 rounded bg-surface-elevated border border-border-subtle text-primary font-medium tracking-wide uppercase">LVL 12</span><span class="text-border-subtle font-light">|</span><span class="font-body-sm text-body-sm text-text-secondary">Master Tactician</span></div><div class="hidden md:flex items-center gap-3 pl-2"><div class="flex items-center gap-2"><span class="font-label-sm text-label-sm text-text-muted uppercase tracking-wider">XP</span><div class="w-24 h-1.5 rounded-full bg-surface-elevated overflow-hidden"><div class="h-full bg-primary-container rounded-full" style="width: 82.6%"></div></div><span class="font-label-sm text-label-sm text-text-secondary">82.6%</span></div></div></div><div class="flex items-center gap-4"><div class="flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-surface-elevated border border-border-subtle"><span class="material-symbols-outlined text-secondary text-[16px]">monetization_on</span><span class="font-label-sm text-label-sm text-secondary font-medium tracking-tight">1,420 G</span></div><div class="flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-surface-elevated border border-border-subtle"><span class="material-symbols-outlined text-amber-streak text-[16px]">local_fire_department</span><span class="font-label-sm text-label-sm text-amber-streak font-medium tracking-tight">14D</span></div><button class="p-1.5 rounded-lg text-text-muted hover:text-text-primary hover:bg-surface-elevated transition-colors" type="button"><span class="material-symbols-outlined text-[20px]">notifications</span></button><div class="h-4 w-px bg-border-subtle"></div><div class="flex items-center gap-2 pl-1"><div class="relative"><img alt="Profile" class="w-8 h-8 rounded-full object-cover" src="https://lh3.googleusercontent.com/aida/AEtjO1WYYfG_zabn5Hd81ixbEJIgD8ELc302VsbWiIZutAImQAU_yL8Jsz6a6WSSXuCko6C9T073TQeRauo9UcL35S-YyBBpF_F9zhIybtLozsT1d1yzUQdcGGk2E4JsBIeffpiGrdeXtjPyV_ifGll2Y91tAqApDLwKbiTSRDbwJqN_fW89CNAgBFhc78p1QoiVYwZm-Jj2rzjIKUK5pmvVpZKF3EG27YQIS6YDGRfMUNJQ6x5monmR8OmC"/><span class="absolute bottom-0 right-0 w-2 h-2 rounded-full bg-emerald-complete ring-2 ring-bg-secondary"></span></div></div></div></header><main class="relative pt-16 min-h-screen bg-bg-primary"><div class="w-full max-w-7xl mx-auto p-8 lg:p-12"><div class="flex flex-col w-full gap-8">
+<!-- Top Profile Hero Section -->
+<section class="relative overflow-hidden rounded-2xl bg-surface p-6 lg:p-8 shadow-sm">
+<div class="absolute -right-20 -top-20 w-80 h-80 rounded-full bg-primary-container/5 blur-3xl pointer-events-none"></div>
+<div class="absolute -left-12 -bottom-12 w-64 h-64 rounded-full bg-tertiary/5 blur-3xl pointer-events-none"></div>
+<div class="relative flex flex-col lg:flex-row items-start lg:items-center justify-between gap-6">
+<div class="flex flex-col sm:flex-row items-start sm:items-center gap-6">
+<!-- Avatar Wrapper -->
+<div class="relative group">
+<div class="relative w-24 h-24 sm:w-28 sm:h-28 rounded-2xl overflow-hidden bg-surface-elevated shadow-md">
+<img class="w-full h-full object-cover" data-alt="Cybernetic styled character portrait of Kai, looking directly forward with disciplined piercing lavender luminescent eyes, refined matte carbon cyberware collar, understated intricate filigree ornamentation, high contrast cinematic studio key lighting on dark obsidian slate background." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBTyH7zzJTFTO-kllZHgd-XpjcEBPsRH8rJHDnsVu-1AAYIqqE9RFwnfupTQXZNikDB1IUNnj7Tk7fdSeybLSikv8mxYWepa23fcvNJ3W01uyUAz70k7W5vi0R-qhgEFneh9z_XDtqQ3dNHTRq5qgxPGVPMsWgoRxIbieW1WsD3pR8pshRJkyoXiNkFXCx_uv6Eip3ZIbLPGeHxDSg2yGZ4O_DLYMvNBSuaNI3lliC90_qNt7xFX3I"/>
+<div class="absolute inset-0 bg-gradient-to-t from-bg-primary/70 via-transparent to-transparent"></div>
+</div>
+<span class="absolute -bottom-2 -right-2 px-2 py-0.5 rounded-md bg-surface-elevated font-label-sm text-label-sm text-primary shadow-sm uppercase tracking-wider">
+            LVL 12
+          </span>
+<span class="absolute top-1 right-1 w-3 h-3 rounded-full bg-emerald-complete shadow-sm ring-2 ring-surface"></span>
+</div>
+<!-- Name & Telemetry Chips -->
+<div class="flex flex-col gap-2">
+<div class="flex flex-wrap items-center gap-3">
+<h1 class="font-headline-lg text-headline-lg text-text-primary tracking-tight">Kai</h1>
+<span class="px-2.5 py-0.5 rounded-full bg-surface-container font-label-sm text-label-sm text-tertiary uppercase tracking-widest">
+              Arch-Strategist
+            </span>
+<span class="flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-surface-container font-label-sm text-label-sm text-text-muted">
+<span class="w-1.5 h-1.5 rounded-full bg-emerald-complete"></span>
+              Synchronized
+            </span>
+</div>
+<p class="font-body-md text-body-md text-text-secondary">
+            Tier 2 Neural Class · Systems Architecture & Strategic Execution
+          </p>
+<!-- Quick Stats Pills -->
+<div class="flex flex-wrap items-center gap-2.5 pt-2">
+<div class="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-surface-elevated">
+<span class="material-symbols-outlined text-[16px] text-amber-streak">local_fire_department</span>
+<span class="font-label-sm text-label-sm text-text-primary">14-Day Streak</span>
+<span class="font-label-sm text-label-sm text-amber-streak">1.15× Boost</span>
+</div>
+<div class="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-surface-elevated">
+<span class="material-symbols-outlined text-[16px] text-primary">bolt</span>
+<span class="font-label-sm text-label-sm text-text-primary">8,260 / 10,000 XP</span>
+<span class="font-label-sm text-label-sm text-text-muted">Total</span>
+</div>
+<div class="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-surface-elevated">
+<span class="material-symbols-outlined text-[16px] text-secondary">monetization_on</span>
+<span class="font-label-sm text-label-sm text-secondary font-medium">1,420 G</span>
+<span class="font-label-sm text-label-sm text-text-muted">Vault</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Actions -->
+<div class="flex items-center gap-3 w-full sm:w-auto self-end lg:self-center">
+<button class="flex-1 sm:flex-none flex items-center justify-center gap-2 px-4 py-2.5 rounded-lg bg-surface-elevated text-text-primary hover:bg-surface-bright transition-all" type="button">
+<span class="material-symbols-outlined text-[18px] text-text-secondary">tune</span>
+<span class="font-body-sm text-body-sm font-medium">Customize Deck</span>
+</button>
+<button class="flex-1 sm:flex-none flex items-center justify-center gap-2 px-5 py-2.5 rounded-lg bg-primary text-on-primary font-medium hover:bg-primary-fixed transition-all shadow-sm" type="button">
+<span class="material-symbols-outlined text-[18px]">verified</span>
+<span class="font-body-sm text-body-sm font-medium">View Badges</span>
+</button>
+</div>
+</div>
+</section>
+<!-- Level Progression Banner -->
+<section class="flex flex-col gap-3 rounded-2xl bg-surface p-6 shadow-sm">
+<div class="flex flex-col sm:flex-row sm:items-baseline justify-between gap-2">
+<div class="flex items-center gap-3">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-text-muted">Level Progression</span>
+<span class="w-1 h-1 rounded-full bg-text-muted"></span>
+<span class="font-headline-sm text-headline-sm text-text-primary">Level 12 → Level 13: Arch-Strategist II</span>
+</div>
+<div class="flex items-center gap-4">
+<span class="font-label-sm text-label-sm text-text-secondary">
+<strong class="font-stat-numeric text-stat-numeric text-primary font-normal">82.6%</strong> completed
+        </span>
+<span class="font-label-sm text-label-sm text-text-muted">+1,740 XP to next tier</span>
+</div>
+</div>
+<!-- Master Progress Track -->
+<div class="w-full h-3 rounded-full bg-surface-elevated overflow-hidden p-0.5">
+<div class="h-full rounded-full bg-gradient-to-r from-primary via-primary-container to-tertiary transition-all duration-700" style="width: 82.6%"></div>
+</div>
+<!-- Secondary Cadence Telemetry -->
+<div class="flex flex-wrap items-center justify-between pt-1 gap-4 font-label-sm text-label-sm">
+<div class="flex items-center gap-6">
+<span class="text-text-muted">Weekly Gain: <span class="text-emerald-complete">+1,240 XP</span></span>
+<span class="text-text-muted">Monthly Delta: <span class="text-tertiary">+4,860 XP</span></span>
+<span class="text-text-muted">Cadence: <span class="text-text-primary">94.2% Optimal</span></span>
+</div>
+<div class="flex items-center gap-2 text-text-muted">
+<span>Estimated Promotion:</span>
+<span class="text-text-primary font-medium">Tomorrow, 18:30 UTC</span>
+</div>
+</div>
+</section>
+<!-- Core Engine Grid: Attributes & Inspector -->
+<section class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+<!-- Attributes List (7 Cols) -->
+<div class="lg:col-span-7 flex flex-col gap-4">
+<div class="flex flex-col gap-1 pb-1">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm uppercase tracking-widest text-text-muted">Attributes Engine</span>
+<span class="font-label-sm text-label-sm text-tertiary font-medium">Auto-Synced with Daily Quests</span>
+</div>
+<h2 class="font-headline-md text-headline-md text-text-primary">Functional Core Capacities</h2>
+</div>
+<!-- Attribute 1: Intellect (Selected) -->
+<div class="group relative flex flex-col gap-3 p-4 rounded-xl bg-surface-elevated shadow-md cursor-pointer transition-all">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-3">
+<div class="w-9 h-9 rounded-lg bg-surface flex items-center justify-center text-tertiary">
+<span class="material-symbols-outlined text-[20px]">psychology</span>
+</div>
+<div>
+<div class="flex items-center gap-2">
+<span class="font-headline-sm text-headline-sm text-text-primary">Intellect</span>
+<span class="px-1.5 py-0.5 rounded bg-surface font-label-sm text-label-sm text-tertiary">Active Focus</span>
+</div>
+<p class="font-body-sm text-body-sm text-text-muted">Study · Systems Learning · Problem Solving</p>
+</div>
+</div>
+<div class="text-right">
+<span class="font-stat-numeric text-stat-numeric text-text-primary">86</span>
+<span class="font-label-sm text-label-sm text-text-muted">/100</span>
+<div class="font-label-sm text-label-sm text-emerald-complete">+5 today</div>
+</div>
+</div>
+<div class="w-full h-1.5 rounded-full bg-surface overflow-hidden">
+<div class="h-full bg-tertiary rounded-full" style="width: 86%"></div>
+</div>
+</div>
+<!-- Attribute 2: Discipline -->
+<div class="flex flex-col gap-3 p-4 rounded-xl bg-surface hover:bg-surface-elevated transition-all cursor-pointer">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-3">
+<div class="w-9 h-9 rounded-lg bg-surface-elevated flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[20px]">schedule</span>
+</div>
+<div>
+<span class="font-headline-sm text-headline-sm text-text-primary">Discipline</span>
+<p class="font-body-sm text-body-sm text-text-muted">Habits · Routine Fidelity · Deep Focus</p>
+</div>
+</div>
+<div class="text-right">
+<span class="font-stat-numeric text-stat-numeric text-text-primary">91</span>
+<span class="font-label-sm text-label-sm text-text-muted">/100</span>
+<div class="font-label-sm text-label-sm text-emerald-complete">+2 today</div>
+</div>
+</div>
+<div class="w-full h-1.5 rounded-full bg-surface-elevated overflow-hidden">
+<div class="h-full bg-primary rounded-full" style="width: 91%"></div>
+</div>
+</div>
+<!-- Attribute 3: Vitality -->
+<div class="flex flex-col gap-3 p-4 rounded-xl bg-surface hover:bg-surface-elevated transition-all cursor-pointer">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-3">
+<div class="w-9 h-9 rounded-lg bg-surface-elevated flex items-center justify-center text-emerald-complete">
+<span class="material-symbols-outlined text-[20px]">cardiology</span>
+</div>
+<div>
+<span class="font-headline-sm text-headline-sm text-text-primary">Vitality</span>
+<p class="font-body-sm text-body-sm text-text-muted">Fitness · Sleep Optimization · HRV</p>
+</div>
+</div>
+<div class="text-right">
+<span class="font-stat-numeric text-stat-numeric text-text-primary">78</span>
+<span class="font-label-sm text-label-sm text-text-muted">/100</span>
+<div class="font-label-sm text-label-sm text-emerald-complete">+4 today</div>
+</div>
+</div>
+<div class="w-full h-1.5 rounded-full bg-surface-elevated overflow-hidden">
+<div class="h-full bg-emerald-complete rounded-full" style="width: 78%"></div>
+</div>
+</div>
+<!-- Attribute 4: Strength -->
+<div class="flex flex-col gap-3 p-4 rounded-xl bg-surface hover:bg-surface-elevated transition-all cursor-pointer">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-3">
+<div class="w-9 h-9 rounded-lg bg-surface-elevated flex items-center justify-center text-amber-streak">
+<span class="material-symbols-outlined text-[20px]">fitness_center</span>
+</div>
+<div>
+<span class="font-headline-sm text-headline-sm text-text-primary">Strength</span>
+<p class="font-body-sm text-body-sm text-text-muted">Physical Capacity · Resistance · Calisthenics</p>
+</div>
+</div>
+<div class="text-right">
+<span class="font-stat-numeric text-stat-numeric text-text-primary">72</span>
+<span class="font-label-sm text-label-sm text-text-muted">/100</span>
+<div class="font-label-sm text-label-sm text-emerald-complete">+3 today</div>
+</div>
+</div>
+<div class="w-full h-1.5 rounded-full bg-surface-elevated overflow-hidden">
+<div class="h-full bg-amber-streak rounded-full" style="width: 72%"></div>
+</div>
+</div>
+<!-- Attribute 5: Creativity -->
+<div class="flex flex-col gap-3 p-4 rounded-xl bg-surface hover:bg-surface-elevated transition-all cursor-pointer">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-3">
+<div class="w-9 h-9 rounded-lg bg-surface-elevated flex items-center justify-center text-secondary">
+<span class="material-symbols-outlined text-[20px]">brush</span>
+</div>
+<div>
+<span class="font-headline-sm text-headline-sm text-text-primary">Creativity</span>
+<p class="font-body-sm text-body-sm text-text-muted">UI Synthesis · Writing · Ideation Cadence</p>
+</div>
+</div>
+<div class="text-right">
+<span class="font-stat-numeric text-stat-numeric text-text-primary">64</span>
+<span class="font-label-sm text-label-sm text-text-muted">/100</span>
+<div class="font-label-sm text-label-sm text-emerald-complete">+1 today</div>
+</div>
+</div>
+<div class="w-full h-1.5 rounded-full bg-surface-elevated overflow-hidden">
+<div class="h-full bg-secondary rounded-full" style="width: 64%"></div>
+</div>
+</div>
+</div>
+<!-- Inspector / Contextual Telemetry for 'Intellect' (5 Cols) -->
+<div class="lg:col-span-5 flex flex-col gap-4 rounded-2xl bg-surface p-6 shadow-sm">
+<div class="flex items-center justify-between pb-2">
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-text-muted">Selected Telemetry</span>
+<span class="font-headline-md text-headline-md text-text-primary">Intellect Analysis</span>
+</div>
+<span class="font-stat-numeric text-stat-numeric text-tertiary">86/100</span>
+</div>
+<!-- Weekly Trend Sparkline Card -->
+<div class="flex flex-col gap-3 p-4 rounded-xl bg-surface-elevated">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm text-text-secondary">7-Day Delta (Mon - Sun)</span>
+<span class="font-label-sm text-label-sm text-emerald-complete font-medium">+14 Pts Net</span>
+</div>
+<!-- Inline SVG sparkline -->
+<div class="h-20 w-full flex items-end">
+<svg class="w-full h-full overflow-visible" fill="none" viewbox="0 0 280 60">
+<path class="text-tertiary" d="M 0 50 Q 40 42 70 36 T 140 28 T 210 18 T 280 8" fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="2.5"></path>
+<path class="text-tertiary opacity-10" d="M 0 50 Q 40 42 70 36 T 140 28 T 210 18 T 280 8 L 280 60 L 0 60 Z" fill="currentColor"></path>
+<circle class="text-tertiary" cx="280" cy="8" fill="currentColor" r="4"></circle>
+</svg>
+</div>
+<div class="flex justify-between font-label-sm text-label-sm text-text-muted px-1">
+<span>MON</span>
+<span>TUE</span>
+<span>WED</span>
+<span>THU</span>
+<span>FRI</span>
+<span>SAT</span>
+<span>SUN</span>
+</div>
+</div>
+<!-- Recent Contributing Tasks -->
+<div class="flex flex-col gap-2.5 pt-1">
+<span class="font-label-sm text-label-sm text-text-muted uppercase tracking-wider">Contributing Operations (Today)</span>
+<div class="flex items-center justify-between p-3 rounded-lg bg-surface-elevated">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-[18px] text-emerald-complete">task_alt</span>
+<div class="flex flex-col min-w-0">
+<span class="font-body-sm text-body-sm text-text-primary truncate">Distributed Systems Paper</span>
+<span class="font-label-sm text-label-sm text-text-muted">Reading & Annotation</span>
+</div>
+</div>
+<span class="font-label-sm text-label-sm text-tertiary font-medium">+2 INT</span>
+</div>
+<div class="flex items-center justify-between p-3 rounded-lg bg-surface-elevated">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-[18px] text-emerald-complete">task_alt</span>
+<div class="flex flex-col min-w-0">
+<span class="font-body-sm text-body-sm text-text-primary truncate">Graph Algorithm Practice</span>
+<span class="font-label-sm text-label-sm text-text-muted">45m Deep Work</span>
+</div>
+</div>
+<span class="font-label-sm text-label-sm text-tertiary font-medium">+2 INT</span>
+</div>
+<div class="flex items-center justify-between p-3 rounded-lg bg-surface-elevated">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-[18px] text-emerald-complete">task_alt</span>
+<div class="flex flex-col min-w-0">
+<span class="font-body-sm text-body-sm text-text-primary truncate">Code Review & Profiling</span>
+<span class="font-label-sm text-label-sm text-text-muted">Core Engine Repo</span>
+</div>
+</div>
+<span class="font-label-sm text-label-sm text-tertiary font-medium">+1 INT</span>
+</div>
+</div>
+<!-- Quick Trajectory Insight -->
+<div class="flex items-start gap-3 p-3 rounded-lg bg-surface-container mt-1">
+<span class="material-symbols-outlined text-[18px] text-primary mt-0.5">info</span>
+<p class="font-body-sm text-body-sm text-text-secondary">
+          High intellect velocity unlocked <strong class="text-text-primary font-medium">Neural Buffer Tier II</strong> (+10% comprehension retention on long-form synthesis).
+        </p>
+</div>
+</div>
+</section>
+<!-- Rank Progression & Historical Timeline Section -->
+<section class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+<!-- Rank Requirements Deck (5 Cols) -->
+<div class="lg:col-span-5 flex flex-col gap-4 rounded-2xl bg-surface p-6 shadow-sm">
+<div class="flex flex-col gap-1">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-text-muted">Promotion Threshold</span>
+<h3 class="font-headline-md text-headline-md text-text-primary">Rank: Arch-Strategist II</h3>
+<p class="font-body-sm text-body-sm text-text-secondary">Promotion requires fulfilling all mastery credentials:</p>
+</div>
+<!-- Rank Gauge Ring & Stats -->
+<div class="flex items-center gap-6 p-4 rounded-xl bg-surface-elevated">
+<div class="relative w-20 h-20 flex-shrink-0 flex items-center justify-center">
+<svg class="w-full h-full -rotate-90" viewbox="0 0 36 36">
+<path class="text-surface" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="currentColor" stroke-width="3.5"></path>
+<path class="text-primary" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="currentColor" stroke-dasharray="68, 100" stroke-linecap="round" stroke-width="3.5"></path>
+</svg>
+<span class="absolute font-stat-numeric text-stat-numeric text-text-primary">68%</span>
+</div>
+<div class="flex flex-col gap-1">
+<span class="font-body-sm text-body-sm font-medium text-text-primary">Rank Phase Index</span>
+<span class="font-label-sm text-label-sm text-text-muted">2 of 3 Criteria completed. Level requirement pending.</span>
+</div>
+</div>
+<!-- Checklist -->
+<div class="flex flex-col gap-2 pt-1">
+<div class="flex items-center justify-between p-3 rounded-lg bg-surface-elevated">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-[18px] text-emerald-complete">check_circle</span>
+<span class="font-body-sm text-body-sm text-text-primary">Character Level 12+</span>
+</div>
+<span class="font-label-sm text-label-sm text-emerald-complete">LVL 12 Met</span>
+</div>
+<div class="flex items-center justify-between p-3 rounded-lg bg-surface-elevated">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-[18px] text-emerald-complete">check_circle</span>
+<span class="font-body-sm text-body-sm text-text-primary">Epic Accomplishments (2/2)</span>
+</div>
+<span class="font-label-sm text-label-sm text-emerald-complete">2 / 2 Met</span>
+</div>
+<div class="flex items-center justify-between p-3 rounded-lg bg-surface-elevated">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-[18px] text-amber-streak">pending</span>
+<span class="font-body-sm text-body-sm text-text-primary">Discipline at 90+</span>
+</div>
+<span class="font-label-sm text-label-sm text-amber-streak">91 / 90 (Verifying)</span>
+</div>
+<div class="flex items-center justify-between p-3 rounded-lg bg-surface-elevated opacity-75">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-[18px] text-text-muted">radio_button_unchecked</span>
+<span class="font-body-sm text-body-sm text-text-muted">Level 13 Unlocked</span>
+</div>
+<span class="font-label-sm text-label-sm text-text-muted">82.6% In Progress</span>
+</div>
+</div>
+</div>
+<!-- Career Progression Timeline (7 Cols) -->
+<div class="lg:col-span-7 flex flex-col gap-4 rounded-2xl bg-surface p-6 shadow-sm">
+<div class="flex items-center justify-between">
+<div class="flex flex-col gap-0.5">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-text-muted">Career Evolution</span>
+<h3 class="font-headline-md text-headline-md text-text-primary">Progression Ledger</h3>
+</div>
+<span class="font-label-sm text-label-sm text-text-secondary">Rank Cohort: v2.4</span>
+</div>
+<!-- Timeline Items -->
+<div class="flex flex-col gap-4 relative pl-4 sm:pl-6 pt-2 before:absolute before:left-2 sm:before:left-3 before:top-4 before:bottom-4 before:w-0.5 before:bg-surface-elevated">
+<!-- Level 12 (Current) -->
+<div class="relative flex flex-col sm:flex-row sm:items-center justify-between p-3.5 rounded-xl bg-surface-elevated shadow-sm gap-2">
+<span class="absolute -left-4 sm:-left-5 top-4 w-2.5 h-2.5 rounded-full bg-primary ring-4 ring-surface"></span>
+<div class="flex flex-col">
+<div class="flex items-center gap-2">
+<span class="font-headline-sm text-headline-sm text-text-primary">Level 12 · Arch-Strategist</span>
+<span class="px-2 py-0.5 rounded bg-primary/10 font-label-sm text-label-sm text-primary font-medium">Active</span>
+</div>
+<span class="font-body-sm text-body-sm text-text-secondary">Milestone: Autonomous Task Engine protocol initialized</span>
+</div>
+<span class="font-label-sm text-label-sm text-text-muted">Oct 24, 2024</span>
+</div>
+<!-- Level 11 -->
+<div class="relative flex flex-col sm:flex-row sm:items-center justify-between p-3 rounded-xl bg-surface hover:bg-surface-elevated transition-all gap-2">
+<span class="absolute -left-4 sm:-left-5 top-4 w-2.5 h-2.5 rounded-full bg-surface-bright ring-4 ring-surface"></span>
+<div class="flex flex-col">
+<span class="font-body-md text-body-md font-medium text-text-primary">Level 11 · Field Commander</span>
+<span class="font-body-sm text-body-sm text-text-muted">Milestone: Unlocked Squad Synchronous Ledger</span>
+</div>
+<span class="font-label-sm text-label-sm text-text-muted">Sep 12, 2024</span>
+</div>
+<!-- Level 10 -->
+<div class="relative flex flex-col sm:flex-row sm:items-center justify-between p-3 rounded-xl bg-surface hover:bg-surface-elevated transition-all gap-2">
+<span class="absolute -left-4 sm:-left-5 top-4 w-2.5 h-2.5 rounded-full bg-surface-bright ring-4 ring-surface"></span>
+<div class="flex flex-col">
+<span class="font-body-md text-body-md font-medium text-text-primary">Level 10 · Tactician</span>
+<span class="font-body-sm text-body-sm text-text-muted">Milestone: Custom Habit Matrix deployed</span>
+</div>
+<span class="font-label-sm text-label-sm text-text-muted">Aug 03, 2024</span>
+</div>
+<!-- Level 09 -->
+<div class="relative flex flex-col sm:flex-row sm:items-center justify-between p-3 rounded-xl bg-surface hover:bg-surface-elevated transition-all gap-2">
+<span class="absolute -left-4 sm:-left-5 top-4 w-2.5 h-2.5 rounded-full bg-surface-bright ring-4 ring-surface"></span>
+<div class="flex flex-col">
+<span class="font-body-md text-body-md font-medium text-text-primary">Level 09 · Operative</span>
+<span class="font-body-sm text-body-sm text-text-muted">Milestone: Deep Work session timer module</span>
+</div>
+<span class="font-label-sm text-label-sm text-text-muted">Jun 19, 2024</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Bottom Row: Streak Telemetry, Activity Log & Title Selector -->
+<section class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+<!-- 14-Day Streak Telemetry Matrix -->
+<div class="flex flex-col gap-4 rounded-2xl bg-surface p-6 shadow-sm">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-amber-streak text-[22px]">local_fire_department</span>
+<h3 class="font-headline-sm text-headline-sm text-text-primary">Active Streak Matrix</h3>
+</div>
+<span class="font-label-sm text-label-sm px-2 py-0.5 rounded bg-surface-elevated text-amber-streak">14 Days</span>
+</div>
+<p class="font-body-sm text-body-sm text-text-secondary">Consistent operational velocity across the past 2 weeks.</p>
+<!-- Calendar Dot Strip -->
+<div class="grid grid-cols-7 gap-2 p-3 rounded-xl bg-surface-elevated">
+<!-- Day 1-13 (Completed Emerald) -->
+<div class="flex flex-col items-center gap-1">
+<span class="font-label-sm text-label-sm text-text-muted">M</span>
+<span class="w-4 h-4 rounded-full bg-emerald-complete"></span>
+</div>
+<div class="flex flex-col items-center gap-1">
+<span class="font-label-sm text-label-sm text-text-muted">T</span>
+<span class="w-4 h-4 rounded-full bg-emerald-complete"></span>
+</div>
+<div class="flex flex-col items-center gap-1">
+<span class="font-label-sm text-label-sm text-text-muted">W</span>
+<span class="w-4 h-4 rounded-full bg-emerald-complete"></span>
+</div>
+<div class="flex flex-col items-center gap-1">
+<span class="font-label-sm text-label-sm text-text-muted">T</span>
+<span class="w-4 h-4 rounded-full bg-emerald-complete"></span>
+</div>
+<div class="flex flex-col items-center gap-1">
+<span class="font-label-sm text-label-sm text-text-muted">F</span>
+<span class="w-4 h-4 rounded-full bg-emerald-complete"></span>
+</div>
+<div class="flex flex-col items-center gap-1">
+<span class="font-label-sm text-label-sm text-text-muted">S</span>
+<span class="w-4 h-4 rounded-full bg-emerald-complete"></span>
+</div>
+<div class="flex flex-col items-center gap-1">
+<span class="font-label-sm text-label-sm text-text-muted">S</span>
+<span class="w-4 h-4 rounded-full bg-emerald-complete"></span>
+</div>
+<!-- Week 2 -->
+<div class="flex flex-col items-center gap-1">
+<span class="font-label-sm text-label-sm text-text-muted">M</span>
+<span class="w-4 h-4 rounded-full bg-emerald-complete"></span>
+</div>
+<div class="flex flex-col items-center gap-1">
+<span class="font-label-sm text-label-sm text-text-muted">T</span>
+<span class="w-4 h-4 rounded-full bg-emerald-complete"></span>
+</div>
+<div class="flex flex-col items-center gap-1">
+<span class="font-label-sm text-label-sm text-text-muted">W</span>
+<span class="w-4 h-4 rounded-full bg-emerald-complete"></span>
+</div>
+<div class="flex flex-col items-center gap-1">
+<span class="font-label-sm text-label-sm text-text-muted">T</span>
+<span class="w-4 h-4 rounded-full bg-emerald-complete"></span>
+</div>
+<div class="flex flex-col items-center gap-1">
+<span class="font-label-sm text-label-sm text-text-muted">F</span>
+<span class="w-4 h-4 rounded-full bg-emerald-complete"></span>
+</div>
+<div class="flex flex-col items-center gap-1">
+<span class="font-label-sm text-label-sm text-text-muted">S</span>
+<span class="w-4 h-4 rounded-full bg-emerald-complete"></span>
+</div>
+<!-- Today (Indigo) -->
+<div class="flex flex-col items-center gap-1">
+<span class="font-label-sm text-label-sm text-primary font-medium">TODAY</span>
+<span class="w-4 h-4 rounded-full bg-primary shadow-sm"></span>
+</div>
+</div>
+<div class="flex items-center justify-between pt-1">
+<span class="font-label-sm text-label-sm text-text-muted">Next Reward: 21 Days</span>
+<span class="font-label-sm text-label-sm text-secondary font-medium">+10% Gold Overclock</span>
+</div>
+</div>
+<!-- Recent Activity Log -->
+<div class="flex flex-col gap-4 rounded-2xl bg-surface p-6 shadow-sm">
+<div class="flex items-center justify-between">
+<h3 class="font-headline-sm text-headline-sm text-text-primary">Execution Telemetry</h3>
+<span class="material-symbols-outlined text-[18px] text-text-muted">history</span>
+</div>
+<div class="flex flex-col gap-2.5">
+<div class="flex items-center justify-between p-2.5 rounded-lg bg-surface-elevated">
+<div class="flex items-center gap-2.5 min-w-0">
+<span class="material-symbols-outlined text-[16px] text-emerald-complete">check</span>
+<div class="flex flex-col truncate">
+<span class="font-body-sm text-body-sm text-text-primary truncate">Quest: Algorithm Practice</span>
+<span class="font-label-sm text-label-sm text-text-muted">Completed 2h ago</span>
+</div>
+</div>
+<span class="font-label-sm text-label-sm text-secondary font-medium">+65 G</span>
+</div>
+<div class="flex items-center justify-between p-2.5 rounded-lg bg-surface-elevated">
+<div class="flex items-center gap-2.5 min-w-0">
+<span class="material-symbols-outlined text-[16px] text-tertiary">upgrade</span>
+<div class="flex flex-col truncate">
+<span class="font-body-sm text-body-sm text-text-primary truncate">Attribute: +2 Intellect</span>
+<span class="font-label-sm text-label-sm text-text-muted">Deep Work Sync</span>
+</div>
+</div>
+<span class="font-label-sm text-label-sm text-primary font-medium">+120 XP</span>
+</div>
+<div class="flex items-center justify-between p-2.5 rounded-lg bg-surface-elevated">
+<div class="flex items-center gap-2.5 min-w-0">
+<span class="material-symbols-outlined text-[16px] text-amber-streak">military_tech</span>
+<div class="flex flex-col truncate">
+<span class="font-body-sm text-body-sm text-text-primary truncate">Achievement: 14D Streak</span>
+<span class="font-label-sm text-label-sm text-text-muted">Milestone Unlocked</span>
+</div>
+</div>
+<span class="font-label-sm text-label-sm text-amber-streak font-medium">1.15×</span>
+</div>
+</div>
+</div>
+<!-- Active Title Registry -->
+<div class="flex flex-col gap-4 rounded-2xl bg-surface p-6 shadow-sm">
+<div class="flex items-center justify-between">
+<h3 class="font-headline-sm text-headline-sm text-text-primary">Codename & Title</h3>
+<span class="font-label-sm text-label-sm text-primary uppercase">Equipped</span>
+</div>
+<div class="flex flex-col gap-2">
+<!-- Equipped -->
+<button class="flex items-center justify-between p-3 rounded-xl bg-surface-elevated text-left shadow-sm" type="button">
+<div class="flex items-center gap-2.5">
+<span class="w-2 h-2 rounded-full bg-primary"></span>
+<div>
+<span class="font-body-sm text-body-sm font-medium text-text-primary">Arch-Strategist</span>
+<p class="font-label-sm text-label-sm text-text-muted">Default Mastery Cohort</p>
+</div>
+</div>
+<span class="material-symbols-outlined text-[18px] text-primary">done</span>
+</button>
+<!-- Selectable 1 -->
+<button class="flex items-center justify-between p-2.5 rounded-lg bg-surface hover:bg-surface-elevated text-left transition-all" type="button">
+<div class="flex items-center gap-2.5">
+<span class="w-2 h-2 rounded-full bg-surface-bright"></span>
+<span class="font-body-sm text-body-sm text-text-secondary">Deep Worker</span>
+</div>
+<span class="font-label-sm text-label-sm text-text-muted">Discipline 90+</span>
+</button>
+<!-- Selectable 2 -->
+<button class="flex items-center justify-between p-2.5 rounded-lg bg-surface hover:bg-surface-elevated text-left transition-all" type="button">
+<div class="flex items-center gap-2.5">
+<span class="w-2 h-2 rounded-full bg-surface-bright"></span>
+<span class="font-body-sm text-body-sm text-text-secondary">Consistency Master</span>
+</div>
+<span class="font-label-sm text-label-sm text-emerald-complete">Unlocked</span>
+</button>
+<!-- Selectable 3 -->
+<button class="flex items-center justify-between p-2.5 rounded-lg bg-surface hover:bg-surface-elevated text-left transition-all opacity-60" type="button">
+<div class="flex items-center gap-2.5">
+<span class="material-symbols-outlined text-[14px] text-text-muted">lock</span>
+<span class="font-body-sm text-body-sm text-text-muted">High Architect</span>
+</div>
+<span class="font-label-sm text-label-sm text-text-muted">Req. LVL 15</span>
+</button>
+</div>
+</div>
+</section>
+</div>
+<script>
+  (function () {
+    const navItems = document.querySelectorAll('aside nav a');
+    navItems.forEach(item => {
+      if (item.getAttribute('data-path') === 'character') {
+        item.className = 'group flex items-center justify-between px-2.5 py-2 rounded-lg bg-surface-elevated text-text-primary shadow-sm transition-all';
+      } else {
+        item.className = 'group flex items-center justify-between px-2.5 py-2 rounded-lg text-text-secondary hover:text-text-primary hover:bg-surface-elevated transition-all';
+      }
+    });
+  })();
+</script></div></main></div></body></html>

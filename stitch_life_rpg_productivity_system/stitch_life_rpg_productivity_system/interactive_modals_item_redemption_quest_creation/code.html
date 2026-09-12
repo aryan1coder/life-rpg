@@ -1,0 +1,802 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@500;600;700&amp;family=Space+Grotesk:wght@600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = {"darkMode":"class","theme":{"extend":{"colors":{"secondary-container":"#ee9800","secondary":"#ffb95f","on-tertiary-fixed":"#001f26","inverse-primary":"#494bd6","error-container":"#93000a","inverse-on-surface":"#2d3038","on-surface-variant":"#c7c4d7","tertiary-fixed":"#acedff","on-surface":"#e0e2ec","outline":"#908fa0","background":"#10131a","on-tertiary-container":"#002f38","on-secondary-fixed":"#2a1700","outline-variant":"#464554","surface-bright":"#363941","tertiary-container":"#009eb9","surface-tint":"#c0c1ff","primary-fixed":"#e1e0ff","secondary-fixed":"#ffddb8","on-secondary-fixed-variant":"#653e00","on-primary-fixed-variant":"#2f2ebe","primary-container":"#8083ff","on-tertiary":"#003640","surface-container":"#1d2027","primary-fixed-dim":"#c0c1ff","on-error-container":"#ffdad6","surface-container-high":"#272a32","surface-dim":"#10131a","secondary-fixed-dim":"#ffb95f","tertiary":"#4cd7f6","primary":"#c0c1ff","on-primary":"#1000a9","error":"#ffb4ab","surface":"#10131a","tertiary-fixed-dim":"#4cd7f6","surface-variant":"#32353d","on-primary-fixed":"#07006c","on-secondary-container":"#5b3800","on-background":"#e0e2ec","on-secondary":"#472a00","on-primary-container":"#0d0096","on-tertiary-fixed-variant":"#004e5c","on-error":"#690005","surface-container-highest":"#32353d","surface-container-low":"#191b23","inverse-surface":"#e0e2ec","surface-container-lowest":"#0b0e15"},"borderRadius":{"DEFAULT":"0.125rem","lg":"0.25rem","xl":"0.5rem","full":"0.75rem"},"spacing":{"gutter-mobile":"0.75rem","margin":"2rem","space-sm":"0.5rem","space-md":"1rem","margin-mobile":"1rem","space-xs":"0.25rem","space-lg":"1.5rem","space-2xl":"3rem","gutter":"1.5rem","space-xl":"2rem"},"fontFamily":{"label-sm":["JetBrains Mono"],"stat-numeric":["JetBrains Mono"],"body-lg":["Inter"],"body-sm":["Inter"],"headline-hero":["Space Grotesk"],"headline-hero-mobile":["Space Grotesk"],"body-md":["Inter"],"headline-lg-mobile":["Space Grotesk"],"headline-lg":["Space Grotesk"],"headline-sm":["Space Grotesk"],"title-md":["Space Grotesk"],"headline-md":["Space Grotesk"],"label-md":["JetBrains Mono"]},"fontSize":{"label-sm":["10px",{"lineHeight":"14px","letterSpacing":"0.08em","fontWeight":"600"}],"stat-numeric":["22px",{"lineHeight":"28px","letterSpacing":"-0.02em","fontWeight":"700"}],"body-lg":["16px",{"lineHeight":"26px","fontWeight":"400"}],"body-sm":["12px",{"lineHeight":"18px","fontWeight":"400"}],"headline-hero":["48px",{"lineHeight":"56px","letterSpacing":"-0.03em","fontWeight":"700"}],"headline-hero-mobile":["32px",{"lineHeight":"40px","letterSpacing":"-0.02em","fontWeight":"700"}],"body-md":["14px",{"lineHeight":"22px","fontWeight":"400"}],"headline-lg-mobile":["24px",{"lineHeight":"32px","letterSpacing":"-0.01em","fontWeight":"600"}],"headline-lg":["32px",{"lineHeight":"40px","letterSpacing":"-0.02em","fontWeight":"700"}],"headline-sm":["20px",{"lineHeight":"28px","letterSpacing":"0em","fontWeight":"600"}],"title-md":["16px",{"lineHeight":"24px","letterSpacing":"0.01em","fontWeight":"600"}],"headline-md":["24px",{"lineHeight":"32px","letterSpacing":"-0.01em","fontWeight":"600"}],"label-md":["12px",{"lineHeight":"16px","letterSpacing":"0.06em","fontWeight":"500"}]}}}</script></head><body class="bg-background font-body-md text-body-md text-on-surface min-h-screen relative selection:bg-primary selection:text-on-primary"><aside class="fixed left-0 top-0 h-full w-72 bg-surface-container-lowest/90 backdrop-blur-2xl z-50 flex flex-col justify-between py-space-md shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="flex flex-col gap-space-lg"><div class="px-space-md flex items-center justify-between"><div class="flex items-center gap-space-sm"><img alt="LIFE RPG Crest Emblem" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/AEtjO1VbSfhYKcbXhAUIr9-pLsiwvBSLgwakw7fdkXq3szsXQnzb2g_ULv9EmvlgkZeJopKXzqdDZy9Wa8OLbCpXfB3G6I9o5v1jN4WR7oLAaF_3DRjTPzPLFidgjW-3U_kvdIu2UZSJ40fzzhgitYMqHuNSDCRM_Ez1pMQFhUukbzMYbdKnakNc8D1FEIwGJnybK3w98iuLONL8doMHlo1aQQ3h9fhAxhACcWz4cZDWvOjlVFzvtYJdgZul8w"/><div class="flex flex-col"><span class="font-title-md text-title-md text-on-surface tracking-wider uppercase">LIFE RPG</span><span class="font-label-sm text-label-sm text-tertiary flex items-center gap-1"><span class="w-1.5 h-1.5 rounded-full bg-tertiary animate-pulse"></span>SYS v2.4 ONLINE</span></div></div></div><nav class="flex flex-col gap-1 px-space-sm" data-active-classes="bg-primary-container text-on-primary-container font-semibold rounded-lg shadow-[0_0_16px_rgba(128,131,255,0.3)]"><a aria-current="page" class="flex items-center justify-between px-space-md py-space-sm transition-all duration-150 group bg-primary-container text-on-primary-container font-semibold rounded-lg shadow-[0_0_16px_rgba(128,131,255,0.3)]" data-path="command-deck" href="#"><div class="flex items-center gap-space-sm"><span class="material-symbols-outlined text-title-md text-outline group-hover:text-on-surface transition-colors">terminal</span><span class="font-title-md text-body-md tracking-wide uppercase">Home / Command</span></div><kbd class="font-label-sm text-label-sm px-1.5 py-0.5 rounded bg-surface-container text-outline">⌘1</kbd></a><a class="flex items-center justify-between px-space-md py-space-sm rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all duration-150 group" data-path="quests-missions" href="#"><div class="flex items-center gap-space-sm"><span class="material-symbols-outlined text-title-md text-outline group-hover:text-on-surface transition-colors">swords</span><span class="font-title-md text-body-md tracking-wide uppercase">Quests &amp; Missions</span></div><kbd class="font-label-sm text-label-sm px-1.5 py-0.5 rounded bg-surface-container text-outline">⌘2</kbd></a><a class="flex items-center justify-between px-space-md py-space-sm rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all duration-150 group" data-path="character-stats" href="#"><div class="flex items-center gap-space-sm"><span class="material-symbols-outlined text-title-md text-outline group-hover:text-on-surface transition-colors">person</span><span class="font-title-md text-body-md tracking-wide uppercase">Character Stats</span></div><kbd class="font-label-sm text-label-sm px-1.5 py-0.5 rounded bg-surface-container text-outline">⌘3</kbd></a><a class="flex items-center justify-between px-space-md py-space-sm rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all duration-150 group" data-path="rewards-loot" href="#"><div class="flex items-center gap-space-sm"><span class="material-symbols-outlined text-title-md text-outline group-hover:text-on-surface transition-colors">featured_seasonal_and_gifts</span><span class="font-title-md text-body-md tracking-wide uppercase">Rewards &amp; Loot</span></div><kbd class="font-label-sm text-label-sm px-1.5 py-0.5 rounded bg-surface-container text-outline">⌘4</kbd></a><a class="flex items-center justify-between px-space-md py-space-sm rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all duration-150 group" data-path="inventory-gear" href="#"><div class="flex items-center gap-space-sm"><span class="material-symbols-outlined text-title-md text-outline group-hover:text-on-surface transition-colors">shield</span><span class="font-title-md text-body-md tracking-wide uppercase">Inventory &amp; Gear</span></div><kbd class="font-label-sm text-label-sm px-1.5 py-0.5 rounded bg-surface-container text-outline">⌘5</kbd></a><a class="flex items-center justify-between px-space-md py-space-sm rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all duration-150 group" data-path="achievements-badges" href="#"><div class="flex items-center gap-space-sm"><span class="material-symbols-outlined text-title-md text-outline group-hover:text-on-surface transition-colors">military_tech</span><span class="font-title-md text-body-md tracking-wide uppercase">Achievements</span></div><kbd class="font-label-sm text-label-sm px-1.5 py-0.5 rounded bg-surface-container text-outline">⌘6</kbd></a></nav></div><div class="px-space-md flex flex-col gap-space-sm"><div class="flex items-center justify-between p-space-sm rounded-lg bg-surface-container-high/60"><div class="flex items-center gap-1.5"><span class="material-symbols-outlined text-secondary text-title-md animate-pulse">local_fire_department</span><span class="font-label-md text-label-md text-secondary font-bold">14 DAYS STREAK</span></div><span class="w-2 h-2 rounded-full bg-secondary-container"></span></div><div class="flex items-center justify-between pt-space-xs"><button class="flex items-center gap-1 px-2 py-1 rounded bg-surface-container text-outline hover:text-on-surface hover:bg-surface-container-high transition-colors" type="button"><span class="material-symbols-outlined text-body-sm">volume_up</span><span class="font-label-sm text-label-sm uppercase">SFX ON</span></button><a class="p-1.5 rounded-lg text-outline hover:text-on-surface hover:bg-surface-container transition-colors" data-path="settings" href="#" title="Settings"><span class="material-symbols-outlined text-title-md">settings</span></a></div></div></aside><div class="pl-72"><header class="fixed top-0 left-72 right-0 h-16 bg-surface-container-lowest/80 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)] z-40"><div class="h-16 w-full px-gutter flex items-center justify-between gap-space-md"><div class="flex items-center gap-space-md"><div class="flex items-center gap-2 px-space-sm py-1 rounded-full bg-surface-container"><span class="w-2 h-2 rounded-full bg-tertiary animate-ping"></span><span class="w-2 h-2 rounded-full bg-tertiary -ml-3.5"></span><span class="font-label-sm text-label-sm text-on-surface uppercase tracking-wider">COMMAND DECK // SECTOR 07</span></div></div><div class="hidden xl:flex items-center gap-space-md px-space-md py-1.5 rounded-lg bg-surface-container-low"><div class="flex flex-col"><span class="font-headline-sm text-body-sm text-primary uppercase font-bold tracking-wide">LV. 12 CYBER-PALADIN</span><div class="flex items-center gap-2"><div class="w-44 h-1.5 rounded-full bg-surface-container overflow-hidden"><div class="h-full bg-gradient-to-r from-inverse-primary to-primary rounded-full" style="width: 82%;"></div></div><span class="font-label-sm text-label-sm text-on-surface-variant">2,480 / 3,000 XP (82%)</span></div></div></div><div class="flex items-center gap-space-md"><div class="flex items-center gap-space-sm"><div class="flex items-center gap-1.5 px-space-sm py-1 rounded bg-surface-container-high"><span class="material-symbols-outlined text-secondary text-title-md">hexagon</span><span class="font-label-md text-label-md text-secondary font-bold">1,420 GOLD</span></div><div class="flex items-center gap-1.5 px-space-sm py-1 rounded bg-surface-container-high"><span class="material-symbols-outlined text-tertiary text-title-md">bolt</span><span class="font-label-md text-label-md text-tertiary font-bold">85/100 AP</span></div></div><button class="relative p-2 text-outline hover:text-on-surface transition-colors" type="button"><span class="material-symbols-outlined text-title-md">notifications</span><span class="absolute top-1.5 right-1.5 w-2 h-2 rounded-full bg-error ring-2 ring-surface-container-lowest"></span></button><div class="relative flex items-center pl-space-xs"><img alt="Profile" class="w-8 h-8 rounded-full object-cover ring-2 ring-primary-container" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAfSAhjqlKlBy8eMpX6DcEFhNiWiNgK6sIdoMSftXsEHPJWOVgnqfuokBmDy9e9VP09XdAR8Ps1z1hq4MrhzDK4MptLZGJOAAZt05Wumo8VQ60ii4aNWXqpjyM8HEG0ovykcguUW0KPYxjcyX30nUF3pcRRstQhwIP1iSsG2E2K4aKXqHRgRCXpcP5TtZhvqFNXjrXTOhE9jG2GmDF3MKmM_g_2r5TUd9Qc9mQVnTHkdauzsZ8InuQ"/><span class="absolute -bottom-1 -right-1 font-label-sm text-label-sm bg-primary text-on-primary px-1 rounded-full text-[9px] font-bold">12</span></div></div></div></header><main class="relative pt-16 bg-background w-full min-h-screen px-gutter py-space-lg"><div class="flex flex-col w-full">
+<!-- Interactive Deck Canvas -->
+<div class="w-full flex flex-col gap-space-lg">
+<!-- Top Command Telemetry Bar & Modal Showcase Switcher -->
+<div class="flex flex-col xl:flex-row items-start xl:items-center justify-between gap-space-md p-space-md rounded-xl bg-surface-container-low shadow-sm">
+<div class="flex flex-wrap items-center gap-space-md">
+<div class="flex items-center gap-space-sm px-space-sm py-1 rounded bg-surface-container">
+<span class="material-symbols-outlined text-tertiary text-title-md">token</span>
+<span class="font-label-sm text-label-sm text-on-surface uppercase tracking-wider">PROTOCOL ENGINE // v2.4</span>
+</div>
+<div class="h-4 w-px bg-surface-container-highest"></div>
+<div class="flex items-center gap-space-sm">
+<span class="font-label-sm text-label-sm text-on-surface-variant">OPERATOR:</span>
+<span class="font-headline-sm text-body-sm text-on-surface font-semibold">Kai · Arch-Strategist II</span>
+</div>
+<div class="flex items-center gap-2 px-space-sm py-0.5 rounded bg-surface-container-high">
+<span class="material-symbols-outlined text-secondary text-body-sm">monetization_on</span>
+<span class="font-stat-numeric text-body-sm text-secondary font-bold" id="global-vault-balance">1,420 G</span>
+</div>
+</div>
+<!-- Quick Interactive Switcher Controller -->
+<div class="flex items-center gap-space-xs p-1 rounded-lg bg-surface-container-highest">
+<button class="px-space-md py-1 rounded font-headline-sm text-body-sm transition-all duration-150 bg-primary-container text-on-primary-container shadow-sm" id="tab-btn-redemption" onclick="switchModalView('redemption')">
+          Item Redemption Flow
+        </button>
+<button class="px-space-md py-1 rounded font-headline-sm text-body-sm transition-all duration-150 text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high" id="tab-btn-quest" onclick="switchModalView('quest')">
+          Create Quest Protocol
+        </button>
+<button class="px-space-md py-1 rounded font-headline-sm text-body-sm transition-all duration-150 text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high" id="tab-btn-deck" onclick="switchModalView('deck')">
+          Command Grid View
+        </button>
+</div>
+</div>
+<!-- Background Command Deck Overview (Visible behind modals or stand-alone) -->
+<div class="grid grid-cols-1 xl:grid-cols-12 gap-space-lg">
+<!-- Left Column: Character Trajectory & Stats (3 Cols) -->
+<div class="xl:col-span-3 flex flex-col gap-space-md">
+<div class="p-space-lg rounded-xl bg-surface-container shadow-sm flex flex-col gap-space-md">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">ACTIVE SPEC // STATS</span>
+<span class="font-label-sm text-label-sm text-tertiary">TIER II</span>
+</div>
+<div class="flex items-center gap-space-md">
+<div class="w-12 h-12 rounded-lg bg-surface-container-high flex items-center justify-center text-primary font-headline-md text-headline-sm">
+              12
+            </div>
+<div class="flex flex-col">
+<span class="font-headline-sm text-body-md text-on-surface font-semibold">Kai Vane</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Arch-Strategist II</span>
+</div>
+</div>
+<!-- Attributes Grid -->
+<div class="grid grid-cols-2 gap-space-sm pt-space-xs">
+<div class="p-space-sm rounded bg-surface-container-low flex flex-col gap-1">
+<div class="flex justify-between items-center">
+<span class="font-label-sm text-label-sm text-tertiary">INT</span>
+<span class="font-stat-numeric text-body-sm text-on-surface" id="hero-stat-int">34</span>
+</div>
+<div class="w-full h-1 bg-surface-container-highest rounded-full overflow-hidden">
+<div class="h-full bg-tertiary" style="width: 74%;"></div>
+</div>
+</div>
+<div class="p-space-sm rounded bg-surface-container-low flex flex-col gap-1">
+<div class="flex justify-between items-center">
+<span class="font-label-sm text-label-sm text-primary">DIS</span>
+<span class="font-stat-numeric text-body-sm text-on-surface">42</span>
+</div>
+<div class="w-full h-1 bg-surface-container-highest rounded-full overflow-hidden">
+<div class="h-full bg-primary" style="width: 86%;"></div>
+</div>
+</div>
+<div class="p-space-sm rounded bg-surface-container-low flex flex-col gap-1">
+<div class="flex justify-between items-center">
+<span class="font-label-sm text-label-sm text-secondary">STR</span>
+<span class="font-stat-numeric text-body-sm text-on-surface">19</span>
+</div>
+<div class="w-full h-1 bg-surface-container-highest rounded-full overflow-hidden">
+<div class="h-full bg-secondary" style="width: 48%;"></div>
+</div>
+</div>
+<div class="p-space-sm rounded bg-surface-container-low flex flex-col gap-1">
+<div class="flex justify-between items-center">
+<span class="font-label-sm text-label-sm text-emerald-complete">VIT</span>
+<span class="font-stat-numeric text-body-sm text-on-surface">27</span>
+</div>
+<div class="w-full h-1 bg-surface-container-highest rounded-full overflow-hidden">
+<div class="h-full bg-emerald-complete" style="width: 62%;"></div>
+</div>
+</div>
+</div>
+<!-- Quick Action Deck Triggers -->
+<div class="flex flex-col gap-space-sm pt-space-sm">
+<button class="w-full py-space-sm px-space-md rounded-lg bg-surface-container-high hover:bg-surface-bright text-on-surface text-body-md font-headline-sm flex items-center justify-between transition-all" onclick="openRedemptionModal()">
+<span class="flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary text-body-lg">redeem</span>
+                Inspect Vault Loot
+              </span>
+<span class="font-label-sm text-label-sm text-secondary font-bold">750 G</span>
+</button>
+<button class="w-full py-space-sm px-space-md rounded-lg bg-primary-container hover:bg-inverse-primary text-on-primary-container text-body-md font-headline-sm flex items-center justify-between transition-all shadow-sm" onclick="openQuestModal()">
+<span class="flex items-center gap-2">
+<span class="material-symbols-outlined text-body-lg">add_task</span>
+                New Directive Protocol
+              </span>
+<kbd class="font-label-sm text-label-sm px-1.5 py-0.5 rounded bg-on-primary-container/20 text-on-primary-container">⌘N</kbd>
+</button>
+</div>
+</div>
+</div>
+<!-- Center Column: Live Tactical Directive Queue (6 Cols) -->
+<div class="xl:col-span-6 flex flex-col gap-space-md">
+<div class="p-space-lg rounded-xl bg-surface-container shadow-sm flex flex-col gap-space-md">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-space-sm">
+<span class="material-symbols-outlined text-primary text-title-md">view_timeline</span>
+<span class="font-headline-sm text-headline-sm text-on-surface">Active Operations Queue</span>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant px-2 py-0.5 rounded bg-surface-container-high">3 PENDING</span>
+</div>
+<!-- Mock Tasks List -->
+<div class="flex flex-col gap-space-sm" id="operational-task-list">
+<!-- Task 1 -->
+<div class="p-space-md rounded-lg bg-surface-container-low hover:bg-surface-container-high/70 transition-all flex items-start justify-between gap-space-md">
+<div class="flex items-start gap-space-sm">
+<button class="mt-0.5 w-5 h-5 rounded bg-surface-container-highest hover:bg-emerald-complete/30 flex items-center justify-center text-emerald-complete transition-colors" onclick="completeDemoTask(this)">
+<span class="material-symbols-outlined text-body-sm opacity-0 hover:opacity-100">check</span>
+</button>
+<div class="flex flex-col">
+<span class="font-headline-sm text-body-md text-on-surface">Compile Memory-Safe Token Parser</span>
+<div class="flex items-center gap-space-sm pt-1">
+<span class="font-label-sm text-label-sm px-1.5 py-0.2 rounded bg-tertiary-container/30 text-tertiary">INT +2</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">90m Focus Block</span>
+</div>
+</div>
+</div>
+<div class="flex items-center gap-2">
+<span class="font-label-sm text-label-sm text-primary">+120 XP</span>
+<span class="font-label-sm text-label-sm text-secondary">+65 G</span>
+</div>
+</div>
+<!-- Task 2 -->
+<div class="p-space-md rounded-lg bg-surface-container-low hover:bg-surface-container-high/70 transition-all flex items-start justify-between gap-space-md">
+<div class="flex items-start gap-space-sm">
+<button class="mt-0.5 w-5 h-5 rounded bg-surface-container-highest hover:bg-emerald-complete/30 flex items-center justify-center text-emerald-complete transition-colors" onclick="completeDemoTask(this)">
+<span class="material-symbols-outlined text-body-sm opacity-0 hover:opacity-100">check</span>
+</button>
+<div class="flex flex-col">
+<span class="font-headline-sm text-body-md text-on-surface">Zone 2 Aerobic Base Calibration</span>
+<div class="flex items-center gap-space-sm pt-1">
+<span class="font-label-sm text-label-sm px-1.5 py-0.2 rounded bg-surface-container-highest text-emerald-complete">VIT +3</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Daily Routine</span>
+</div>
+</div>
+</div>
+<div class="flex items-center gap-2">
+<span class="font-label-sm text-label-sm text-primary">+180 XP</span>
+<span class="font-label-sm text-label-sm text-secondary">+100 G</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Right Column: Ledger & Vault Telemetry (3 Cols) -->
+<div class="xl:col-span-3 flex flex-col gap-space-md">
+<div class="p-space-lg rounded-xl bg-surface-container shadow-sm flex flex-col gap-space-md">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">VAULT LEDGER TELEMETRY</span>
+<div class="flex flex-col gap-space-sm">
+<div class="flex items-center justify-between p-space-sm rounded bg-surface-container-low">
+<span class="font-body-sm text-body-sm text-on-surface-variant">Current Vault</span>
+<span class="font-stat-numeric text-body-sm text-secondary font-bold" id="card-vault-balance">1,420 G</span>
+</div>
+<div class="flex items-center justify-between p-space-sm rounded bg-surface-container-low">
+<span class="font-body-sm text-body-sm text-on-surface-variant">Action Points</span>
+<span class="font-stat-numeric text-body-sm text-tertiary font-bold">85 / 100 AP</span>
+</div>
+<div class="flex items-center justify-between p-space-sm rounded bg-surface-container-low">
+<span class="font-body-sm text-body-sm text-on-surface-variant">Active Streak</span>
+<span class="font-stat-numeric text-body-sm text-amber-streak font-bold">14 DAYS</span>
+</div>
+</div>
+<!-- Visual Data: Mini SVG Weekly Performance Curve -->
+<div class="pt-space-xs flex flex-col gap-1">
+<span class="font-label-sm text-label-sm text-on-surface-variant">DISCIPLINE VELOCITY (7D)</span>
+<svg class="w-full h-14 text-primary overflow-visible" fill="none" viewbox="0 0 200 60">
+<path d="M 0 50 Q 30 45, 60 30 T 120 22 T 160 14 T 200 8" fill="none" stroke="currentColor" stroke-width="2"></path>
+<path d="M 0 50 Q 30 45, 60 30 T 120 22 T 160 14 T 200 8 L 200 60 L 0 60 Z" fill="currentColor" fill-opacity="0.08"></path>
+<circle class="fill-primary" cx="200" cy="8" r="3.5"></circle>
+</svg>
+</div>
+</div>
+</div>
+</div>
+<!-- MODAL 1: ITEM REDEMPTION FLOW (AUTHORIZE REDEMPTION // VAULT TRANSFER) -->
+<div class="fixed inset-0 z-50 flex items-center justify-center p-gutter transition-all duration-300" id="modal-redemption">
+<!-- Backdrop with ambient dim blur -->
+<div class="absolute inset-0 bg-black/60 backdrop-blur-md" onclick="closeRedemptionModal()"></div>
+<!-- Dialog Surface Container -->
+<div class="relative w-full max-w-xl bg-surface-container-low rounded-2xl shadow-xl overflow-hidden z-10 flex flex-col">
+<!-- Modal Top Bar -->
+<div class="flex items-center justify-between px-space-lg py-space-md bg-surface-container">
+<div class="flex items-center gap-space-sm">
+<span class="material-symbols-outlined text-secondary text-title-md">verified</span>
+<span class="font-headline-sm text-body-md text-on-surface font-semibold tracking-wide uppercase">Authorize Redemption // Vault Transfer</span>
+</div>
+<div class="flex items-center gap-space-sm">
+<span class="font-label-sm text-label-sm px-1.5 py-0.5 rounded bg-surface-container-highest text-on-surface-variant">ESC</span>
+<button class="w-7 h-7 rounded hover:bg-surface-container-highest text-on-surface-variant hover:text-on-surface flex items-center justify-center transition-colors" onclick="closeRedemptionModal()">
+<span class="material-symbols-outlined text-body-md">close</span>
+</button>
+</div>
+</div>
+<!-- Dynamic State Content Container -->
+<div class="p-space-lg flex flex-col gap-space-lg" id="redemption-content">
+<!-- Edge State Tester Switch (For reviewing insufficient balance condition) -->
+<div class="flex items-center justify-between px-space-md py-1.5 rounded-lg bg-surface-container-highest/60 text-body-sm">
+<span class="font-label-sm text-label-sm text-on-surface-variant">TESTING HARNESS:</span>
+<button class="font-label-sm text-label-sm px-2 py-0.5 rounded bg-surface-container text-secondary hover:text-on-surface transition-colors" id="edge-state-btn" onclick="toggleBalanceEdgeState()">
+              Simulate: Insufficient Vault Funds (420 G)
+            </button>
+</div>
+<!-- Item Showcase Card -->
+<div class="p-space-md rounded-xl bg-surface-container flex flex-col md:flex-row gap-space-md items-center">
+<!-- Item Preview Media -->
+<div class="w-24 h-24 rounded-lg bg-surface-container-high flex flex-col items-center justify-center relative overflow-hidden flex-shrink-0">
+<span class="material-symbols-outlined text-secondary text-headline-hero">dark_mode</span>
+<span class="absolute bottom-1 right-1 font-label-sm text-label-sm px-1 rounded bg-secondary text-on-secondary font-bold">RARE</span>
+</div>
+<!-- Item Meta Telemetry -->
+<div class="flex flex-col flex-grow gap-1">
+<div class="flex items-center justify-between">
+<span class="font-headline-sm text-headline-sm text-on-surface font-semibold">Obsidian Deep-Work Theme</span>
+<span class="font-label-sm text-label-sm px-2 py-0.5 rounded bg-emerald-complete/20 text-emerald-complete font-bold">LVL 10+ MET</span>
+</div>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Engineered high-contrast interface palette optimized for distraction-free code architecture and continuous hyperfocus sprints.</span>
+<div class="flex items-center gap-space-sm pt-1">
+<span class="font-label-sm text-label-sm text-tertiary flex items-center gap-1">
+<span class="material-symbols-outlined text-body-sm">visibility</span> -42% Eye Fatigue
+                </span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">· Theme ID #ENV-098</span>
+</div>
+</div>
+</div>
+<!-- Vault Ledger Accounting Delta -->
+<div class="flex flex-col gap-space-xs p-space-md rounded-xl bg-surface-container-high">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">VAULT LEDGER DELTA</span>
+<div class="flex items-center justify-between py-1">
+<span class="font-body-md text-body-md text-on-surface-variant">Current Vault Balance</span>
+<span class="font-stat-numeric text-body-md text-on-surface" id="redemption-curr-vault">1,420 G</span>
+</div>
+<div class="flex items-center justify-between py-1">
+<span class="font-body-md text-body-md text-on-surface-variant">Item Redemption Cost</span>
+<span class="font-stat-numeric text-body-md text-secondary font-bold">-750 G</span>
+</div>
+<div class="h-px bg-surface-container-highest my-1"></div>
+<div class="flex items-center justify-between py-1">
+<span class="font-headline-sm text-body-md text-on-surface font-semibold">Resulting Vault Balance</span>
+<span class="font-stat-numeric text-headline-sm text-emerald-complete font-bold" id="redemption-result-vault">670 G</span>
+</div>
+</div>
+<!-- Ledger Verification Notice -->
+<div class="flex items-start gap-space-sm p-space-sm rounded-lg bg-surface-container text-body-sm text-on-surface-variant">
+<span class="material-symbols-outlined text-tertiary text-title-md mt-0.5">lock</span>
+<span class="font-body-sm text-body-sm">
+              Transaction verified against PostgreSQL ledger with Row Level Security. Authenticated item propagates instantly to Loadout &amp; Inventory.
+            </span>
+</div>
+<!-- Insufficient Funds Warning Banner (Shown if state toggled) -->
+<div class="hidden flex items-start gap-space-sm p-space-sm rounded-lg bg-error-container text-on-error-container" id="insufficient-alert">
+<span class="material-symbols-outlined text-body-lg mt-0.5">warning</span>
+<div class="flex flex-col">
+<span class="font-headline-sm text-body-sm font-bold">Insufficient Gold Reserve</span>
+<span class="font-body-sm text-body-sm">Requires 750 G · Available in Vault: 420 G. Complete operational directives to replenish treasury.</span>
+</div>
+</div>
+<!-- Action Buttons -->
+<div class="flex items-center justify-end gap-space-md pt-space-xs">
+<button class="px-space-md py-space-sm rounded-lg bg-surface-container hover:bg-surface-container-high text-on-surface font-headline-sm text-body-md transition-colors" onclick="closeRedemptionModal()">
+              Cancel
+            </button>
+<button class="px-space-lg py-space-sm rounded-lg bg-primary-container hover:bg-inverse-primary text-on-primary-container font-headline-sm text-body-md font-semibold flex items-center gap-2 transition-all shadow-md" id="btn-confirm-redemption" onclick="executeRedemption()">
+<span class="material-symbols-outlined text-title-md">shopping_bag</span>
+<span>Confirm Redemption (750 G)</span>
+</button>
+</div>
+</div>
+<!-- Reward Unlocked Cinematic Screen (Initially Hidden) -->
+<div class="hidden p-space-xl flex flex-col items-center text-center gap-space-lg" id="redemption-success">
+<div class="w-20 h-20 rounded-2xl bg-secondary/20 flex items-center justify-center text-secondary shadow-lg">
+<span class="material-symbols-outlined text-headline-hero animate-pulse">workspace_premium</span>
+</div>
+<div class="flex flex-col gap-1">
+<span class="font-label-sm text-label-sm text-secondary uppercase tracking-widest font-bold">TRANSACTION COMMITTED // VAULT DECREMENTED</span>
+<span class="font-headline-lg text-headline-lg text-on-surface font-bold">Obsidian Deep-Work Theme Unlocked</span>
+<span class="font-body-md text-body-md text-on-surface-variant max-w-md">The environment preset has been securely provisioned to your Inventory with high-contrast profile bindings.</span>
+</div>
+<div class="flex items-center gap-space-md py-space-sm px-space-lg rounded-lg bg-surface-container">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-body-sm text-secondary">monetization_on</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Remaining Vault: <strong class="text-on-surface" id="success-vault-text">670 G</strong></span>
+</div>
+<div class="h-3 w-px bg-surface-container-highest"></div>
+<span class="font-label-sm text-label-sm text-emerald-complete font-semibold">STATUS: EQUIPPABLE</span>
+</div>
+<div class="flex items-center gap-space-md pt-space-xs">
+<button class="px-space-lg py-space-sm rounded-lg bg-emerald-complete hover:bg-emerald-complete/90 text-surface-container-lowest font-headline-sm text-body-md font-bold transition-all flex items-center gap-2" onclick="equipRewardTheme()">
+<span class="material-symbols-outlined text-title-md">brush</span>
+<span>Equip Environment Now</span>
+</button>
+<button class="px-space-md py-space-sm rounded-lg bg-surface-container hover:bg-surface-container-high text-on-surface font-headline-sm text-body-md transition-colors" onclick="resetRedemptionFlow()">
+              Dismiss Modal
+            </button>
+</div>
+</div>
+</div>
+</div>
+<!-- MODAL 2: QUEST CREATION FLOW (INITIALIZE PROTOCOL // NEW DIRECTIVE) -->
+<div class="fixed inset-0 z-50 flex items-center justify-center p-gutter transition-all duration-300" id="modal-quest">
+<!-- Backdrop with ambient dim blur -->
+<div class="absolute inset-0 bg-black/60 backdrop-blur-md" onclick="closeQuestModal()"></div>
+<!-- Dialog Surface Container -->
+<div class="relative w-full max-w-2xl bg-surface-container-low rounded-2xl shadow-xl overflow-hidden z-10 flex flex-col">
+<!-- Modal Header -->
+<div class="flex items-center justify-between px-space-lg py-space-md bg-surface-container">
+<div class="flex items-center gap-space-sm">
+<span class="material-symbols-outlined text-primary text-title-md">bolt</span>
+<span class="font-headline-sm text-body-md text-on-surface font-semibold tracking-wide uppercase">Initialize Protocol // New Directive</span>
+</div>
+<div class="flex items-center gap-space-sm">
+<span class="font-label-sm text-label-sm px-1.5 py-0.5 rounded bg-surface-container-highest text-on-surface-variant">ESC</span>
+<button class="w-7 h-7 rounded hover:bg-surface-container-highest text-on-surface-variant hover:text-on-surface flex items-center justify-center transition-colors" onclick="closeQuestModal()">
+<span class="material-symbols-outlined text-body-md">close</span>
+</button>
+</div>
+</div>
+<!-- Form Body -->
+<div class="p-space-lg flex flex-col gap-space-md overflow-y-auto max-h-[819px]">
+<!-- Title & Directive Tag -->
+<div class="flex flex-col gap-1.5">
+<div class="flex justify-between items-center">
+<label class="font-headline-sm text-body-sm text-on-surface font-semibold" for="quest-title-input">Directive Objective Title</label>
+<span class="font-label-sm text-label-sm text-on-surface-variant" id="char-counter">32 / 80</span>
+</div>
+<input class="w-full px-space-md py-2.5 rounded-lg bg-surface-container text-on-surface placeholder:text-outline font-body-md focus:outline-none focus:bg-surface-container-high transition-colors" id="quest-title-input" maxlength="80" oninput="handleTitleInput(this)" type="text" value="Architect Distributed Query Index"/>
+<span class="font-label-sm text-label-sm text-emerald-complete flex items-center gap-1" id="title-validation-msg">
+<span class="material-symbols-outlined text-label-sm">check_circle</span> Title format adheres to clear tactical scope
+            </span>
+</div>
+<!-- Directive Category Segmented Chips -->
+<div class="flex flex-col gap-1.5">
+<span class="font-headline-sm text-body-sm text-on-surface font-semibold">Domain Category</span>
+<div class="flex flex-wrap gap-space-xs" id="category-chip-group">
+<button class="category-chip px-space-md py-1 rounded font-label-md text-label-md bg-primary-container text-on-primary-container font-semibold transition-all" onclick="selectCategory(this, 'Work')" type="button">Work</button>
+<button class="category-chip px-space-md py-1 rounded font-label-md text-label-md bg-surface-container text-on-surface-variant hover:bg-surface-container-high transition-all" onclick="selectCategory(this, 'Study')" type="button">Study</button>
+<button class="category-chip px-space-md py-1 rounded font-label-md text-label-md bg-surface-container text-on-surface-variant hover:bg-surface-container-high transition-all" onclick="selectCategory(this, 'Fitness')" type="button">Fitness</button>
+<button class="category-chip px-space-md py-1 rounded font-label-md text-label-md bg-surface-container text-on-surface-variant hover:bg-surface-container-high transition-all" onclick="selectCategory(this, 'Creative')" type="button">Creative</button>
+<button class="category-chip px-space-md py-1 rounded font-label-md text-label-md bg-surface-container text-on-surface-variant hover:bg-surface-container-high transition-all" onclick="selectCategory(this, 'Health')" type="button">Health</button>
+</div>
+</div>
+<!-- Difficulty & Risk Tier Selector -->
+<div class="flex flex-col gap-1.5">
+<div class="flex justify-between items-center">
+<span class="font-headline-sm text-body-sm text-on-surface font-semibold">Difficulty &amp; Risk Tier</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Calibrates XP and Vault Yield</span>
+</div>
+<div class="grid grid-cols-2 sm:grid-cols-4 gap-space-sm" id="difficulty-pill-group">
+<!-- Easy -->
+<div class="diff-card p-space-sm rounded-lg bg-surface-container hover:bg-surface-container-high cursor-pointer flex flex-col gap-1 transition-all" onclick="selectDifficulty('Easy', 60, 25, 1)">
+<span class="font-label-sm text-label-sm text-on-surface font-bold">EASY</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">+60 XP · +25 G</span>
+</div>
+<!-- Normal (Active Default) -->
+<div class="diff-card active-diff p-space-sm rounded-lg bg-primary-container text-on-primary-container cursor-pointer flex flex-col gap-1 transition-all shadow-sm" onclick="selectDifficulty('Normal', 120, 65, 2)">
+<span class="font-label-sm text-label-sm font-bold">NORMAL</span>
+<span class="font-label-sm text-label-sm text-on-primary-container/80">+120 XP · +65 G</span>
+</div>
+<!-- Hard -->
+<div class="diff-card p-space-sm rounded-lg bg-surface-container hover:bg-surface-container-high cursor-pointer flex flex-col gap-1 transition-all" onclick="selectDifficulty('Hard', 180, 100, 3)">
+<span class="font-label-sm text-label-sm text-on-surface font-bold">HARD</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">+180 XP · +100 G</span>
+</div>
+<!-- Epic -->
+<div class="diff-card p-space-sm rounded-lg bg-surface-container hover:bg-surface-container-high cursor-pointer flex flex-col gap-1 transition-all" onclick="selectDifficulty('Epic', 300, 180, 5)">
+<span class="font-label-sm text-label-sm text-secondary font-bold">EPIC</span>
+<span class="font-label-sm text-label-sm text-secondary/80">+300 XP · +180 G</span>
+</div>
+</div>
+</div>
+<!-- Target Attribute Impact -->
+<div class="flex flex-col gap-1.5">
+<span class="font-headline-sm text-body-sm text-on-surface font-semibold">Primary Target Attribute</span>
+<div class="grid grid-cols-2 sm:grid-cols-4 gap-space-sm" id="attribute-radio-group">
+<div class="attr-card active-attr p-space-sm rounded-lg bg-surface-container-high cursor-pointer flex items-center justify-between transition-all" onclick="selectAttribute('INT', 'Intellect', 'tertiary')">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-tertiary text-title-md">psychology</span>
+<span class="font-label-md text-label-md text-on-surface font-bold">INT</span>
+</div>
+<span class="font-label-sm text-label-sm text-tertiary font-bold" id="attr-delta-INT">+2</span>
+</div>
+<div class="attr-card p-space-sm rounded-lg bg-surface-container hover:bg-surface-container-high cursor-pointer flex items-center justify-between transition-all" onclick="selectAttribute('DIS', 'Discipline', 'primary')">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-primary text-title-md">military_tech</span>
+<span class="font-label-md text-label-md text-on-surface font-bold">DIS</span>
+</div>
+<span class="font-label-sm text-label-sm text-outline font-bold" id="attr-delta-DIS">+2</span>
+</div>
+<div class="attr-card p-space-sm rounded-lg bg-surface-container hover:bg-surface-container-high cursor-pointer flex items-center justify-between transition-all" onclick="selectAttribute('VIT', 'Vitality', 'emerald-complete')">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-emerald-complete text-title-md">favorite</span>
+<span class="font-label-md text-label-md text-on-surface font-bold">VIT</span>
+</div>
+<span class="font-label-sm text-label-sm text-outline font-bold" id="attr-delta-VIT">+2</span>
+</div>
+<div class="attr-card p-space-sm rounded-lg bg-surface-container hover:bg-surface-container-high cursor-pointer flex items-center justify-between transition-all" onclick="selectAttribute('STR', 'Strength', 'secondary')">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-secondary text-title-md">fitness_center</span>
+<span class="font-label-md text-label-md text-on-surface font-bold">STR</span>
+</div>
+<span class="font-label-sm text-label-sm text-outline font-bold" id="attr-delta-STR">+2</span>
+</div>
+</div>
+</div>
+<!-- Cadence & Focus Window -->
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-space-md">
+<div class="flex flex-col gap-1.5">
+<span class="font-headline-sm text-body-sm text-on-surface font-semibold">Cadence Recurrence</span>
+<div class="flex gap-space-xs p-1 rounded-lg bg-surface-container">
+<button class="cadence-chip flex-1 py-1 rounded font-label-sm text-label-sm bg-surface-container-high text-on-surface font-semibold" onclick="selectCadence(this, 'Daily')" type="button">Daily</button>
+<button class="cadence-chip flex-1 py-1 rounded font-label-sm text-label-sm text-on-surface-variant hover:text-on-surface" onclick="selectCadence(this, 'Weekly')" type="button">Weekly</button>
+<button class="cadence-chip flex-1 py-1 rounded font-label-sm text-label-sm text-on-surface-variant hover:text-on-surface" onclick="selectCadence(this, 'One-Off')" type="button">One-Off</button>
+</div>
+</div>
+<div class="flex flex-col gap-1.5">
+<span class="font-headline-sm text-body-sm text-on-surface font-semibold">Hyperfocus Window</span>
+<div class="flex items-center justify-between px-space-md py-1.5 rounded-lg bg-surface-container">
+<span class="font-body-sm text-body-sm text-on-surface flex items-center gap-1.5">
+<span class="material-symbols-outlined text-tertiary text-title-md">timer</span> 90-Min Focus Block
+                </span>
+<span class="font-label-sm text-label-sm px-1.5 py-0.5 rounded bg-surface-container-highest text-tertiary font-bold">RECOMMENDED</span>
+</div>
+</div>
+</div>
+<!-- Real-Time Dynamic Yield Calculation Card -->
+<div class="p-space-md rounded-xl bg-surface-container-high flex flex-col gap-space-xs">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">PROJECTED PROTOCOL YIELD</span>
+<span class="font-label-sm text-label-sm text-emerald-complete">REAL-TIME CALCULATION</span>
+</div>
+<div class="grid grid-cols-3 gap-space-md pt-space-xs">
+<div class="flex flex-col p-space-sm rounded bg-surface-container-low">
+<span class="font-label-sm text-label-sm text-on-surface-variant">EXPERIENCE</span>
+<span class="font-stat-numeric text-headline-sm text-primary font-bold" id="yield-xp">+120 XP</span>
+</div>
+<div class="flex flex-col p-space-sm rounded bg-surface-container-low">
+<span class="font-label-sm text-label-sm text-on-surface-variant">VAULT REWARD</span>
+<span class="font-stat-numeric text-headline-sm text-secondary font-bold" id="yield-gold">+65 G</span>
+</div>
+<div class="flex flex-col p-space-sm rounded bg-surface-container-low">
+<span class="font-label-sm text-label-sm text-on-surface-variant">TARGET ATTRIBUTE</span>
+<span class="font-stat-numeric text-headline-sm text-tertiary font-bold" id="yield-attr">+2 INT</span>
+</div>
+</div>
+</div>
+<!-- Action Footer -->
+<div class="flex items-center justify-between pt-space-sm">
+<button class="px-space-md py-space-sm rounded-lg hover:bg-surface-container text-on-surface-variant hover:text-on-surface font-headline-sm text-body-md transition-colors" onclick="saveQuestAsDraft()" type="button">
+              Save as Template Draft
+            </button>
+<div class="flex items-center gap-space-sm">
+<button class="px-space-md py-space-sm rounded-lg bg-surface-container hover:bg-surface-container-high text-on-surface font-headline-sm text-body-md transition-colors" onclick="closeQuestModal()" type="button">
+                Cancel
+              </button>
+<button class="px-space-lg py-space-sm rounded-lg bg-primary-container hover:bg-inverse-primary text-on-primary-container font-headline-sm text-body-md font-semibold flex items-center gap-2 transition-all shadow-md" id="btn-submit-quest" onclick="submitQuestProtocol()" type="button">
+<span class="material-symbols-outlined text-title-md">task_alt</span>
+<span id="submit-quest-text">Initialize Protocol</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Restrained Floating Feedback Toast -->
+<div class="fixed bottom-6 right-6 z-50 flex flex-col gap-2 pointer-events-none" id="toast-container">
+<div class="hidden transition-all duration-300 transform translate-y-4 opacity-0 pointer-events-auto flex items-center gap-space-sm px-space-md py-space-sm rounded-xl bg-surface-container-high shadow-xl max-w-md" id="active-toast">
+<span class="material-symbols-outlined text-emerald-complete text-title-md" id="toast-icon">check_circle</span>
+<div class="flex flex-col">
+<span class="font-headline-sm text-body-sm text-on-surface font-semibold" id="toast-title">Protocol Conquered</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant" id="toast-desc">+120 XP, +65 Gold, +2 Intellect committed to Command Deck.</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<script>
+  // State variables for interactive prototype
+  let currentVault = 1420;
+  let simulatedEdgeState = false;
+  let selectedDifficulty = { name: 'Normal', xp: 120, gold: 65, attrIncrement: 2 };
+  let selectedAttribute = { code: 'INT', name: 'Intellect', color: 'tertiary' };
+  let selectedCategoryVal = 'Work';
+
+  // Modal switcher controls
+  function switchModalView(view) {
+    const btnRedemption = document.getElementById('tab-btn-redemption');
+    const btnQuest = document.getElementById('tab-btn-quest');
+    const btnDeck = document.getElementById('tab-btn-deck');
+    const modalRedemption = document.getElementById('modal-redemption');
+    const modalQuest = document.getElementById('modal-quest');
+
+    // Reset buttons
+    [btnRedemption, btnQuest, btnDeck].forEach(btn => {
+      btn.className = 'px-space-md py-1 rounded font-headline-sm text-body-sm transition-all duration-150 text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high';
+    });
+
+    if (view === 'redemption') {
+      btnRedemption.className = 'px-space-md py-1 rounded font-headline-sm text-body-sm transition-all duration-150 bg-primary-container text-on-primary-container shadow-sm';
+      modalRedemption.classList.remove('hidden');
+      modalQuest.classList.add('hidden');
+    } else if (view === 'quest') {
+      btnQuest.className = 'px-space-md py-1 rounded font-headline-sm text-body-sm transition-all duration-150 bg-primary-container text-on-primary-container shadow-sm';
+      modalQuest.classList.remove('hidden');
+      modalRedemption.classList.add('hidden');
+    } else {
+      btnDeck.className = 'px-space-md py-1 rounded font-headline-sm text-body-sm transition-all duration-150 bg-primary-container text-on-primary-container shadow-sm';
+      modalRedemption.classList.add('hidden');
+      modalQuest.classList.add('hidden');
+    }
+  }
+
+  function openRedemptionModal() {
+    switchModalView('redemption');
+  }
+
+  function closeRedemptionModal() {
+    document.getElementById('modal-redemption').classList.add('hidden');
+    updateTabButtonToDeck();
+  }
+
+  function openQuestModal() {
+    switchModalView('quest');
+  }
+
+  function closeQuestModal() {
+    document.getElementById('modal-quest').classList.add('hidden');
+    updateTabButtonToDeck();
+  }
+
+  function updateTabButtonToDeck() {
+    const btnRedemption = document.getElementById('tab-btn-redemption');
+    const btnQuest = document.getElementById('tab-btn-quest');
+    const btnDeck = document.getElementById('tab-btn-deck');
+    [btnRedemption, btnQuest].forEach(b => {
+      b.className = 'px-space-md py-1 rounded font-headline-sm text-body-sm transition-all duration-150 text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high';
+    });
+    btnDeck.className = 'px-space-md py-1 rounded font-headline-sm text-body-sm transition-all duration-150 bg-primary-container text-on-primary-container shadow-sm';
+  }
+
+  // Keyboard shortcut for ESC to dismiss modal
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+      closeRedemptionModal();
+      closeQuestModal();
+    }
+    if ((e.metaKey || e.ctrlKey) && e.key === 'n') {
+      e.preventDefault();
+      openQuestModal();
+    }
+  });
+
+  // Redemption Ledger Simulation & Edge State
+  function toggleBalanceEdgeState() {
+    simulatedEdgeState = !simulatedEdgeState;
+    const btn = document.getElementById('edge-state-btn');
+    const currVaultLabel = document.getElementById('redemption-curr-vault');
+    const resultVaultLabel = document.getElementById('redemption-result-vault');
+    const alertBox = document.getElementById('insufficient-alert');
+    const confirmBtn = document.getElementById('btn-confirm-redemption');
+
+    if (simulatedEdgeState) {
+      btn.innerText = 'Reset to Normal Balance (1,420 G)';
+      currVaultLabel.innerText = '420 G';
+      resultVaultLabel.innerText = '-330 G (Deficit)';
+      resultVaultLabel.className = 'font-stat-numeric text-headline-sm text-error font-bold';
+      alertBox.classList.remove('hidden');
+      confirmBtn.disabled = true;
+      confirmBtn.className = 'px-space-lg py-space-sm rounded-lg bg-surface-container text-on-surface-variant font-headline-sm text-body-md font-semibold opacity-50 cursor-not-allowed';
+    } else {
+      btn.innerText = 'Simulate: Insufficient Vault Funds (420 G)';
+      currVaultLabel.innerText = '1,420 G';
+      resultVaultLabel.innerText = '670 G';
+      resultVaultLabel.className = 'font-stat-numeric text-headline-sm text-emerald-complete font-bold';
+      alertBox.classList.add('hidden');
+      confirmBtn.disabled = false;
+      confirmBtn.className = 'px-space-lg py-space-sm rounded-lg bg-primary-container hover:bg-inverse-primary text-on-primary-container font-headline-sm text-body-md font-semibold flex items-center gap-2 transition-all shadow-md';
+    }
+  }
+
+  function executeRedemption() {
+    const btn = document.getElementById('btn-confirm-redemption');
+    btn.disabled = true;
+    btn.innerHTML = '<span class="material-symbols-outlined text-title-md animate-spin">sync</span><span>Verifying Ledger...</span>';
+
+    setTimeout(() => {
+      // Commit deduction
+      currentVault = currentVault - 750;
+      document.getElementById('global-vault-balance').innerText = currentVault + ' G';
+      document.getElementById('card-vault-balance').innerText = currentVault + ' G';
+      document.getElementById('success-vault-text').innerText = currentVault + ' G';
+
+      // Transition to cinematic reveal
+      document.getElementById('redemption-content').classList.add('hidden');
+      document.getElementById('redemption-success').classList.remove('hidden');
+
+      showToast('Item Redeemed & Vault Updated', 'Obsidian Deep-Work Theme added to Inventory. 750 G committed.', 'check_circle', 'emerald-complete');
+    }, 900);
+  }
+
+  function resetRedemptionFlow() {
+    closeRedemptionModal();
+    setTimeout(() => {
+      document.getElementById('redemption-content').classList.remove('hidden');
+      document.getElementById('redemption-success').classList.add('hidden');
+      const btn = document.getElementById('btn-confirm-redemption');
+      btn.disabled = false;
+      btn.innerHTML = '<span class="material-symbols-outlined text-title-md">shopping_bag</span><span>Confirm Redemption (750 G)</span>';
+    }, 300);
+  }
+
+  function equipRewardTheme() {
+    showToast('Environment Active', 'Obsidian Deep-Work Theme profile applied to Command Deck.', 'brush', 'secondary');
+    resetRedemptionFlow();
+  }
+
+  // Quest Protocol Logic
+  function handleTitleInput(input) {
+    const len = input.value.length;
+    document.getElementById('char-counter').innerText = len + ' / 80';
+    const validation = document.getElementById('title-validation-msg');
+    if (len < 5) {
+      validation.innerHTML = '<span class="material-symbols-outlined text-label-sm text-error">error</span> Title requires at least 5 characters for strategic clarity.';
+      validation.className = 'font-label-sm text-label-sm text-error flex items-center gap-1';
+    } else {
+      validation.innerHTML = '<span class="material-symbols-outlined text-label-sm text-emerald-complete">check_circle</span> Title format adheres to clear tactical scope';
+      validation.className = 'font-label-sm text-label-sm text-emerald-complete flex items-center gap-1';
+    }
+  }
+
+  function selectCategory(btn, category) {
+    selectedCategoryVal = category;
+    document.querySelectorAll('.category-chip').forEach(c => {
+      c.className = 'category-chip px-space-md py-1 rounded font-label-md text-label-md bg-surface-container text-on-surface-variant hover:bg-surface-container-high transition-all';
+    });
+    btn.className = 'category-chip px-space-md py-1 rounded font-label-md text-label-md bg-primary-container text-on-primary-container font-semibold transition-all';
+  }
+
+  function selectDifficulty(name, xp, gold, attrInc) {
+    selectedDifficulty = { name, xp, gold, attrIncrement: attrInc };
+    const cards = document.querySelectorAll('.diff-card');
+    cards.forEach(c => {
+      c.className = 'diff-card p-space-sm rounded-lg bg-surface-container hover:bg-surface-container-high cursor-pointer flex flex-col gap-1 transition-all';
+    });
+    event.currentTarget.className = 'diff-card active-diff p-space-sm rounded-lg bg-primary-container text-on-primary-container cursor-pointer flex flex-col gap-1 transition-all shadow-sm';
+
+    // Update yield card
+    updateYieldCalculation();
+  }
+
+  function selectAttribute(code, name, color) {
+    selectedAttribute = { code, name, color };
+    const cards = document.querySelectorAll('.attr-card');
+    cards.forEach(c => {
+      c.className = 'attr-card p-space-sm rounded-lg bg-surface-container hover:bg-surface-container-high cursor-pointer flex items-center justify-between transition-all';
+    });
+    event.currentTarget.className = 'attr-card active-attr p-space-sm rounded-lg bg-surface-container-high cursor-pointer flex items-center justify-between transition-all';
+
+    updateYieldCalculation();
+  }
+
+  function selectCadence(btn, cadence) {
+    document.querySelectorAll('.cadence-chip').forEach(c => {
+      c.className = 'cadence-chip flex-1 py-1 rounded font-label-sm text-label-sm text-on-surface-variant hover:text-on-surface';
+    });
+    btn.className = 'cadence-chip flex-1 py-1 rounded font-label-sm text-label-sm bg-surface-container-high text-on-surface font-semibold';
+  }
+
+  function updateYieldCalculation() {
+    document.getElementById('yield-xp').innerText = '+' + selectedDifficulty.xp + ' XP';
+    document.getElementById('yield-gold').innerText = '+' + selectedDifficulty.gold + ' G';
+    document.getElementById('yield-attr').innerText = '+' + selectedDifficulty.attrIncrement + ' ' + selectedAttribute.code;
+    
+    // Update attribute delta badge
+    ['INT', 'DIS', 'VIT', 'STR'].forEach(k => {
+      const el = document.getElementById('attr-delta-' + k);
+      if (k === selectedAttribute.code) {
+        el.innerText = '+' + selectedDifficulty.attrIncrement;
+        el.className = 'font-label-sm text-label-sm text-' + selectedAttribute.color + ' font-bold';
+      } else {
+        el.innerText = '+0';
+        el.className = 'font-label-sm text-label-sm text-outline';
+      }
+    });
+  }
+
+  function submitQuestProtocol() {
+    const title = document.getElementById('quest-title-input').value.trim();
+    if (!title || title.length < 5) {
+      document.getElementById('quest-title-input').focus();
+      showToast('Validation Error', 'Directive title requires a descriptive objective.', 'error', 'error');
+      return;
+    }
+
+    const btn = document.getElementById('btn-submit-quest');
+    btn.disabled = true;
+    document.getElementById('submit-quest-text').innerText = 'Registering Directive...';
+
+    setTimeout(() => {
+      // Append to active operations queue
+      const list = document.getElementById('operational-task-list');
+      const newTask = document.createElement('div');
+      newTask.className = 'p-space-md rounded-lg bg-surface-container-low hover:bg-surface-container-high/70 transition-all flex items-start justify-between gap-space-md';
+      newTask.innerHTML = `
+        <div class="flex items-start gap-space-sm">
+          <button class="mt-0.5 w-5 h-5 rounded bg-surface-container-highest hover:bg-emerald-complete/30 flex items-center justify-center text-emerald-complete transition-colors" onclick="completeDemoTask(this)">
+            <span class="material-symbols-outlined text-body-sm opacity-0 hover:opacity-100">check</span>
+          </button>
+          <div class="flex flex-col">
+            <span class="font-headline-sm text-body-md text-on-surface">${title}</span>
+            <div class="flex items-center gap-space-sm pt-1">
+              <span class="font-label-sm text-label-sm px-1.5 py-0.2 rounded bg-surface-container-highest text-tertiary">${selectedAttribute.code} +${selectedDifficulty.attrIncrement}</span>
+              <span class="font-label-sm text-label-sm text-on-surface-variant">${selectedCategoryVal} · 90m Focus</span>
+            </div>
+          </div>
+        </div>
+        <div class="flex items-center gap-2">
+          <span class="font-label-sm text-label-sm text-primary">+${selectedDifficulty.xp} XP</span>
+          <span class="font-label-sm text-label-sm text-secondary">+${selectedDifficulty.gold} G</span>
+        </div>
+      `;
+      list.insertBefore(newTask, list.firstChild);
+
+      btn.disabled = false;
+      document.getElementById('submit-quest-text').innerText = 'Initialize Protocol';
+      closeQuestModal();
+
+      showToast('Protocol Conquered & Initialized', `"${title}" registered (+${selectedDifficulty.xp} XP / +${selectedDifficulty.gold} G).`, 'task_alt', 'emerald-complete');
+    }, 700);
+  }
+
+  function saveQuestAsDraft() {
+    showToast('Template Stored', 'Directive parameters archived to Local Protocol Templates.', 'bookmark_added', 'primary');
+  }
+
+  function completeDemoTask(btn) {
+    const parent = btn.closest('.p-space-md');
+    parent.style.opacity = '0.5';
+    btn.innerHTML = '<span class="material-symbols-outlined text-body-sm opacity-100">check</span>';
+    btn.className = 'mt-0.5 w-5 h-5 rounded bg-emerald-complete flex items-center justify-center text-surface-container-lowest';
+    
+    // Increment global gold and update INT
+    currentVault += 65;
+    document.getElementById('global-vault-balance').innerText = currentVault + ' G';
+    document.getElementById('card-vault-balance').innerText = currentVault + ' G';
+    
+    showToast('Directive Completed', '+120 XP, +65 Gold, +2 Intellect verified and added to Vault.', 'celebration', 'emerald-complete');
+  }
+
+  // Toast dispatch utility
+  let toastTimer;
+  function showToast(title, desc, iconName = 'check_circle', iconColor = 'emerald-complete') {
+    const toast = document.getElementById('active-toast');
+    const toastTitle = document.getElementById('toast-title');
+    const toastDesc = document.getElementById('toast-desc');
+    const toastIcon = document.getElementById('toast-icon');
+
+    toastTitle.innerText = title;
+    toastDesc.innerText = desc;
+    toastIcon.innerText = iconName;
+    toastIcon.className = `material-symbols-outlined text-${iconColor} text-title-md`;
+
+    clearTimeout(toastTimer);
+    toast.classList.remove('hidden');
+    setTimeout(() => {
+      toast.classList.remove('opacity-0', 'translate-y-4');
+      toast.classList.add('opacity-100', 'translate-y-0');
+    }, 20);
+
+    toastTimer = setTimeout(() => {
+      toast.classList.remove('opacity-100', 'translate-y-0');
+      toast.classList.add('opacity-0', 'translate-y-4');
+      setTimeout(() => toast.classList.add('hidden'), 300);
+    }, 4000);
+  }
+
+  // Initial setup on prototype render
+  window.addEventListener('DOMContentLoaded', () => {
+    // Start with Redemption modal open to showcase interactive flow
+    switchModalView('redemption');
+    updateYieldCalculation();
+  });
+</script></main></div></body></html>

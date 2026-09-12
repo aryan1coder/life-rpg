@@ -1,0 +1,606 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@500;600;700&amp;family=Space+Grotesk:wght@600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = {"darkMode":"class","theme":{"extend":{"colors":{"secondary-container":"#ee9800","secondary":"#ffb95f","on-tertiary-fixed":"#001f26","inverse-primary":"#494bd6","error-container":"#93000a","inverse-on-surface":"#2d3038","on-surface-variant":"#c7c4d7","tertiary-fixed":"#acedff","on-surface":"#e0e2ec","outline":"#908fa0","background":"#10131a","on-tertiary-container":"#002f38","on-secondary-fixed":"#2a1700","outline-variant":"#464554","surface-bright":"#363941","tertiary-container":"#009eb9","surface-tint":"#c0c1ff","primary-fixed":"#e1e0ff","secondary-fixed":"#ffddb8","on-secondary-fixed-variant":"#653e00","on-primary-fixed-variant":"#2f2ebe","primary-container":"#8083ff","on-tertiary":"#003640","surface-container":"#1d2027","primary-fixed-dim":"#c0c1ff","on-error-container":"#ffdad6","surface-container-high":"#272a32","surface-dim":"#10131a","secondary-fixed-dim":"#ffb95f","tertiary":"#4cd7f6","primary":"#c0c1ff","on-primary":"#1000a9","error":"#ffb4ab","surface":"#10131a","tertiary-fixed-dim":"#4cd7f6","surface-variant":"#32353d","on-primary-fixed":"#07006c","on-secondary-container":"#5b3800","on-background":"#e0e2ec","on-secondary":"#472a00","on-primary-container":"#0d0096","on-tertiary-fixed-variant":"#004e5c","on-error":"#690005","surface-container-highest":"#32353d","surface-container-low":"#191b23","inverse-surface":"#e0e2ec","surface-container-lowest":"#0b0e15"},"borderRadius":{"DEFAULT":"0.125rem","lg":"0.25rem","xl":"0.5rem","full":"0.75rem"},"spacing":{"gutter-mobile":"0.75rem","margin":"2rem","space-sm":"0.5rem","space-md":"1rem","margin-mobile":"1rem","space-xs":"0.25rem","space-lg":"1.5rem","space-2xl":"3rem","gutter":"1.5rem","space-xl":"2rem"},"fontFamily":{"label-sm":["JetBrains Mono"],"stat-numeric":["JetBrains Mono"],"body-lg":["Inter"],"body-sm":["Inter"],"headline-hero":["Space Grotesk"],"headline-hero-mobile":["Space Grotesk"],"body-md":["Inter"],"headline-lg-mobile":["Space Grotesk"],"headline-lg":["Space Grotesk"],"headline-sm":["Space Grotesk"],"title-md":["Space Grotesk"],"headline-md":["Space Grotesk"],"label-md":["JetBrains Mono"]},"fontSize":{"label-sm":["10px",{"lineHeight":"14px","letterSpacing":"0.08em","fontWeight":"600"}],"stat-numeric":["22px",{"lineHeight":"28px","letterSpacing":"-0.02em","fontWeight":"700"}],"body-lg":["16px",{"lineHeight":"26px","fontWeight":"400"}],"body-sm":["12px",{"lineHeight":"18px","fontWeight":"400"}],"headline-hero":["48px",{"lineHeight":"56px","letterSpacing":"-0.03em","fontWeight":"700"}],"headline-hero-mobile":["32px",{"lineHeight":"40px","letterSpacing":"-0.02em","fontWeight":"700"}],"body-md":["14px",{"lineHeight":"22px","fontWeight":"400"}],"headline-lg-mobile":["24px",{"lineHeight":"32px","letterSpacing":"-0.01em","fontWeight":"600"}],"headline-lg":["32px",{"lineHeight":"40px","letterSpacing":"-0.02em","fontWeight":"700"}],"headline-sm":["20px",{"lineHeight":"28px","letterSpacing":"0em","fontWeight":"600"}],"title-md":["16px",{"lineHeight":"24px","letterSpacing":"0.01em","fontWeight":"600"}],"headline-md":["24px",{"lineHeight":"32px","letterSpacing":"-0.01em","fontWeight":"600"}],"label-md":["12px",{"lineHeight":"16px","letterSpacing":"0.06em","fontWeight":"500"}]}}}</script></head><body class="bg-background font-body-md text-body-md text-on-surface min-h-screen relative selection:bg-primary selection:text-on-primary"><aside class="fixed left-0 top-0 h-full w-72 bg-surface-container-lowest/90 backdrop-blur-2xl z-50 flex flex-col justify-between py-space-md shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="flex flex-col gap-space-lg"><div class="px-space-md flex items-center justify-between"><div class="flex items-center gap-space-sm"><img alt="LIFE RPG Crest Emblem" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/AEtjO1VbSfhYKcbXhAUIr9-pLsiwvBSLgwakw7fdkXq3szsXQnzb2g_ULv9EmvlgkZeJopKXzqdDZy9Wa8OLbCpXfB3G6I9o5v1jN4WR7oLAaF_3DRjTPzPLFidgjW-3U_kvdIu2UZSJ40fzzhgitYMqHuNSDCRM_Ez1pMQFhUukbzMYbdKnakNc8D1FEIwGJnybK3w98iuLONL8doMHlo1aQQ3h9fhAxhACcWz4cZDWvOjlVFzvtYJdgZul8w"/><div class="flex flex-col"><span class="font-title-md text-title-md text-on-surface tracking-wider uppercase">LIFE RPG</span><span class="font-label-sm text-label-sm text-tertiary flex items-center gap-1"><span class="w-1.5 h-1.5 rounded-full bg-tertiary animate-pulse"></span>SYS v2.4 ONLINE</span></div></div></div><nav class="flex flex-col gap-1 px-space-sm" data-active-classes="bg-primary-container text-on-primary-container font-semibold rounded-lg shadow-[0_0_16px_rgba(128,131,255,0.3)]"><a class="flex items-center justify-between px-space-md py-space-sm rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all duration-150 group" data-path="command-deck" href="#"><div class="flex items-center gap-space-sm"><span class="material-symbols-outlined text-title-md text-outline group-hover:text-on-surface transition-colors">terminal</span><span class="font-title-md text-body-md tracking-wide uppercase">Home / Command</span></div><kbd class="font-label-sm text-label-sm px-1.5 py-0.5 rounded bg-surface-container text-outline">⌘1</kbd></a><a aria-current="page" class="flex items-center justify-between px-space-md py-space-sm transition-all duration-150 group bg-primary-container text-on-primary-container font-semibold rounded-lg shadow-[0_0_16px_rgba(128,131,255,0.3)]" data-path="quests-missions" href="#"><div class="flex items-center gap-space-sm"><span class="material-symbols-outlined text-title-md text-outline group-hover:text-on-surface transition-colors">swords</span><span class="font-title-md text-body-md tracking-wide uppercase">Quests &amp; Missions</span></div><kbd class="font-label-sm text-label-sm px-1.5 py-0.5 rounded bg-surface-container text-outline">⌘2</kbd></a><a class="flex items-center justify-between px-space-md py-space-sm rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all duration-150 group" data-path="character-stats" href="#"><div class="flex items-center gap-space-sm"><span class="material-symbols-outlined text-title-md text-outline group-hover:text-on-surface transition-colors">person</span><span class="font-title-md text-body-md tracking-wide uppercase">Character Stats</span></div><kbd class="font-label-sm text-label-sm px-1.5 py-0.5 rounded bg-surface-container text-outline">⌘3</kbd></a><a class="flex items-center justify-between px-space-md py-space-sm rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all duration-150 group" data-path="rewards-loot" href="#"><div class="flex items-center gap-space-sm"><span class="material-symbols-outlined text-title-md text-outline group-hover:text-on-surface transition-colors">featured_seasonal_and_gifts</span><span class="font-title-md text-body-md tracking-wide uppercase">Rewards &amp; Loot</span></div><kbd class="font-label-sm text-label-sm px-1.5 py-0.5 rounded bg-surface-container text-outline">⌘4</kbd></a><a class="flex items-center justify-between px-space-md py-space-sm rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all duration-150 group" data-path="inventory-gear" href="#"><div class="flex items-center gap-space-sm"><span class="material-symbols-outlined text-title-md text-outline group-hover:text-on-surface transition-colors">shield</span><span class="font-title-md text-body-md tracking-wide uppercase">Inventory &amp; Gear</span></div><kbd class="font-label-sm text-label-sm px-1.5 py-0.5 rounded bg-surface-container text-outline">⌘5</kbd></a><a class="flex items-center justify-between px-space-md py-space-sm rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all duration-150 group" data-path="achievements-badges" href="#"><div class="flex items-center gap-space-sm"><span class="material-symbols-outlined text-title-md text-outline group-hover:text-on-surface transition-colors">military_tech</span><span class="font-title-md text-body-md tracking-wide uppercase">Achievements</span></div><kbd class="font-label-sm text-label-sm px-1.5 py-0.5 rounded bg-surface-container text-outline">⌘6</kbd></a></nav></div><div class="px-space-md flex flex-col gap-space-sm"><div class="flex items-center justify-between p-space-sm rounded-lg bg-surface-container-high/60"><div class="flex items-center gap-1.5"><span class="material-symbols-outlined text-secondary text-title-md animate-pulse">local_fire_department</span><span class="font-label-md text-label-md text-secondary font-bold">14 DAYS STREAK</span></div><span class="w-2 h-2 rounded-full bg-secondary-container"></span></div><div class="flex items-center justify-between pt-space-xs"><button class="flex items-center gap-1 px-2 py-1 rounded bg-surface-container text-outline hover:text-on-surface hover:bg-surface-container-high transition-colors" type="button"><span class="material-symbols-outlined text-body-sm">volume_up</span><span class="font-label-sm text-label-sm uppercase">SFX ON</span></button><a class="p-1.5 rounded-lg text-outline hover:text-on-surface hover:bg-surface-container transition-colors" data-path="settings" href="#" title="Settings"><span class="material-symbols-outlined text-title-md">settings</span></a></div></div></aside><div class="pl-72"><header class="fixed top-0 left-72 right-0 h-16 bg-surface-container-lowest/80 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)] z-40"><div class="h-16 w-full px-gutter flex items-center justify-between gap-space-md"><div class="flex items-center gap-space-md"><div class="flex items-center gap-2 px-space-sm py-1 rounded-full bg-surface-container"><span class="w-2 h-2 rounded-full bg-tertiary animate-ping"></span><span class="w-2 h-2 rounded-full bg-tertiary -ml-3.5"></span><span class="font-label-sm text-label-sm text-on-surface uppercase tracking-wider">COMMAND DECK // SECTOR 07</span></div></div><div class="hidden xl:flex items-center gap-space-md px-space-md py-1.5 rounded-lg bg-surface-container-low"><div class="flex flex-col"><span class="font-headline-sm text-body-sm text-primary uppercase font-bold tracking-wide">LV. 12 CYBER-PALADIN</span><div class="flex items-center gap-2"><div class="w-44 h-1.5 rounded-full bg-surface-container overflow-hidden"><div class="h-full bg-gradient-to-r from-inverse-primary to-primary rounded-full" style="width: 82%;"></div></div><span class="font-label-sm text-label-sm text-on-surface-variant">2,480 / 3,000 XP (82%)</span></div></div></div><div class="flex items-center gap-space-md"><div class="flex items-center gap-space-sm"><div class="flex items-center gap-1.5 px-space-sm py-1 rounded bg-surface-container-high"><span class="material-symbols-outlined text-secondary text-title-md">hexagon</span><span class="font-label-md text-label-md text-secondary font-bold">1,420 GOLD</span></div><div class="flex items-center gap-1.5 px-space-sm py-1 rounded bg-surface-container-high"><span class="material-symbols-outlined text-tertiary text-title-md">bolt</span><span class="font-label-md text-label-md text-tertiary font-bold">85/100 AP</span></div></div><button class="relative p-2 text-outline hover:text-on-surface transition-colors" type="button"><span class="material-symbols-outlined text-title-md">notifications</span><span class="absolute top-1.5 right-1.5 w-2 h-2 rounded-full bg-error ring-2 ring-surface-container-lowest"></span></button><div class="relative flex items-center pl-space-xs"><img alt="Profile" class="w-8 h-8 rounded-full object-cover ring-2 ring-primary-container" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAfSAhjqlKlBy8eMpX6DcEFhNiWiNgK6sIdoMSftXsEHPJWOVgnqfuokBmDy9e9VP09XdAR8Ps1z1hq4MrhzDK4MptLZGJOAAZt05Wumo8VQ60ii4aNWXqpjyM8HEG0ovykcguUW0KPYxjcyX30nUF3pcRRstQhwIP1iSsG2E2K4aKXqHRgRCXpcP5TtZhvqFNXjrXTOhE9jG2GmDF3MKmM_g_2r5TUd9Qc9mQVnTHkdauzsZ8InuQ"/><span class="absolute -bottom-1 -right-1 font-label-sm text-label-sm bg-primary text-on-primary px-1 rounded-full text-[9px] font-bold">12</span></div></div></div></header><main class="relative pt-16 bg-background w-full min-h-screen px-gutter py-space-lg"><div class="flex flex-col w-full">
+<!-- Top Command & Telemetry Ribbon -->
+<div class="flex flex-col gap-space-md mb-space-xl">
+<div class="flex flex-col lg:flex-row lg:items-center justify-between gap-space-md">
+<div class="flex flex-col gap-space-xs">
+<div class="flex items-center gap-space-sm">
+<span class="px-2 py-0.5 rounded bg-primary-container text-on-primary-container font-label-sm text-label-sm tracking-wider uppercase">DECK 04 // ACTIVE REGISTRY</span>
+<span class="font-label-sm text-label-sm text-outline">SEC_ID: 994-ALPHA</span>
+</div>
+<h1 class="font-headline-lg text-headline-lg text-on-surface uppercase tracking-tight">Active Campaign &amp; Quest Log // Sector Missions</h1>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-2xl">Convert real-world productivity into high-yield XP, cybernetic telemetry, and rare artifacts.</p>
+</div>
+<!-- Quick Action Controls -->
+<div class="flex items-center gap-space-sm flex-wrap">
+<button class="flex items-center gap-2 px-space-md py-space-sm rounded-lg bg-secondary-container text-on-secondary-container hover:bg-secondary transition-all duration-150 shadow-md group" id="open-modal-trigger" type="button">
+<span class="material-symbols-outlined text-title-md font-bold group-hover:rotate-90 transition-transform">add</span>
+<span class="font-title-md text-title-md tracking-wider uppercase font-bold">+ NEW MISSION PROTOCOL</span>
+</button>
+<div class="relative inline-block">
+<button class="flex items-center gap-2 px-space-md py-space-sm rounded-lg bg-surface-container-high text-on-surface hover:bg-surface-bright transition-all duration-150" type="button">
+<span class="material-symbols-outlined text-title-md text-secondary">swap_vert</span>
+<span class="font-label-md text-label-md uppercase tracking-wider">SORT BY: REWARD VALUE</span>
+<span class="material-symbols-outlined text-body-sm text-outline">expand_more</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Telemetry Stats Strip -->
+<div class="grid grid-cols-2 md:grid-cols-4 gap-space-md">
+<div class="p-space-md rounded-xl bg-surface-container flex items-center justify-between shadow-sm">
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-outline uppercase tracking-wider">Active Protocols</span>
+<span class="font-stat-numeric text-stat-numeric text-on-surface">08 / 12</span>
+</div>
+<div class="w-10 h-10 rounded-lg bg-surface-container-high flex items-center justify-center text-primary">
+<span class="material-symbols-outlined">radar</span>
+</div>
+</div>
+<div class="p-space-md rounded-xl bg-surface-container flex items-center justify-between shadow-sm">
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-outline uppercase tracking-wider">Daily Streak</span>
+<span class="font-stat-numeric text-stat-numeric text-secondary flex items-center gap-1">14 <span class="text-body-sm font-normal text-on-surface-variant">DAYS</span></span>
+</div>
+<div class="w-10 h-10 rounded-lg bg-surface-container-high flex items-center justify-center text-secondary">
+<span class="material-symbols-outlined">local_fire_department</span>
+</div>
+</div>
+<div class="p-space-md rounded-xl bg-surface-container flex items-center justify-between shadow-sm">
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-outline uppercase tracking-wider">Pending Yield</span>
+<span class="font-stat-numeric text-stat-numeric text-primary">+1,240 <span class="text-body-sm font-normal text-on-surface-variant">XP</span></span>
+</div>
+<div class="w-10 h-10 rounded-lg bg-surface-container-high flex items-center justify-center text-primary">
+<span class="material-symbols-outlined">bolt</span>
+</div>
+</div>
+<div class="p-space-md rounded-xl bg-surface-container flex items-center justify-between shadow-sm">
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-outline uppercase tracking-wider">Gold Bounty Pool</span>
+<span class="font-stat-numeric text-stat-numeric text-secondary">+420 <span class="text-body-sm font-normal text-on-surface-variant">G</span></span>
+</div>
+<div class="w-10 h-10 rounded-lg bg-surface-container-high flex items-center justify-center text-secondary">
+<span class="material-symbols-outlined">monetization_on</span>
+</div>
+</div>
+</div>
+<!-- Search and Filter Bar -->
+<div class="flex flex-col md:flex-row gap-space-sm items-stretch">
+<div class="relative flex-1">
+<span class="material-symbols-outlined absolute left-space-md top-1/2 -translate-y-1/2 text-outline">search</span>
+<input class="w-full pl-12 pr-space-md py-3 rounded-lg bg-surface-container-low text-on-surface placeholder:text-outline text-body-md focus:bg-surface-container focus:outline-none shadow-inner" placeholder="Filter protocols by mission title, attribute, or difficulty..." type="text"/>
+</div>
+<div class="flex items-center gap-space-xs overflow-x-auto pb-1 md:pb-0 scrollbar-none">
+<button class="px-space-md py-2.5 rounded-lg bg-primary-container text-on-primary-container font-label-sm text-label-sm uppercase tracking-wider whitespace-nowrap shadow-sm font-bold" type="button">ALL PROTOCOLS (12)</button>
+<button class="px-space-md py-2.5 rounded-lg bg-surface-container text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high font-label-sm text-label-sm uppercase tracking-wider whitespace-nowrap transition-colors" type="button">INTELLECT (4)</button>
+<button class="px-space-md py-2.5 rounded-lg bg-surface-container text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high font-label-sm text-label-sm uppercase tracking-wider whitespace-nowrap transition-colors" type="button">STRENGTH (3)</button>
+<button class="px-space-md py-2.5 rounded-lg bg-surface-container text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high font-label-sm text-label-sm uppercase tracking-wider whitespace-nowrap transition-colors" type="button">DISCIPLINE (3)</button>
+<button class="px-space-md py-2.5 rounded-lg bg-surface-container text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high font-label-sm text-label-sm uppercase tracking-wider whitespace-nowrap transition-colors" type="button">CREATIVITY (2)</button>
+<button class="px-space-md py-2.5 rounded-lg bg-surface-container text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high font-label-sm text-label-sm uppercase tracking-wider whitespace-nowrap transition-colors" type="button">BOSS RAIDS (1)</button>
+</div>
+</div>
+</div>
+<!-- Primary Tactical Deck & Sidebar Grid -->
+<div class="grid grid-cols-1 xl:grid-cols-12 gap-space-lg items-start">
+<!-- Center Operation Matrix (9 Columns) -->
+<div class="xl:col-span-8 flex flex-col gap-space-xl">
+<!-- SECTION 1: BOSS & HIGH-PRIORITY MISSIONS -->
+<div class="flex flex-col gap-space-md">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-space-sm">
+<span class="w-3 h-3 rounded-full bg-error animate-pulse"></span>
+<span class="font-title-md text-title-md text-on-surface uppercase tracking-wider font-bold">CRITICAL SECTOR ALERT // BOSS RAID</span>
+</div>
+<span class="font-label-sm text-label-sm text-error bg-error-container/40 text-on-error-container px-2 py-0.5 rounded">THREAT LEVEL: OMEGA</span>
+</div>
+<!-- Epic Boss Mission Card -->
+<div class="relative overflow-hidden rounded-xl bg-gradient-to-br from-surface-container to-surface-container-high p-space-lg shadow-xl">
+<!-- Top glowing indicator strip -->
+<div class="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-error via-secondary to-primary"></div>
+<div class="flex flex-col gap-space-md">
+<div class="flex flex-col sm:flex-row sm:items-start justify-between gap-space-sm">
+<div class="flex flex-col gap-1">
+<div class="flex items-center gap-2 flex-wrap">
+<span class="font-label-sm text-label-sm px-2 py-0.5 rounded bg-error-container text-on-error-container uppercase font-bold">CAMPAIGN OBJECTIVE // EPIC</span>
+<span class="font-label-sm text-label-sm text-outline">DEADLINE: T-MINUS 36H 12M</span>
+</div>
+<h2 class="font-headline-md text-headline-md text-on-surface uppercase font-bold mt-1">SYSTEM DEFENSE: HACKATHON MVP SHIPMENT</h2>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-xl">Deploy core production API, finalize responsive tactile frontend, and submit zero-regression deployment package to the staging grid.</p>
+</div>
+<!-- Rarity Artefact Badge -->
+<div class="flex items-center gap-space-sm p-space-sm rounded-lg bg-surface-container-lowest shrink-0 shadow-inner">
+<div class="w-12 h-12 rounded bg-surface-container-high flex items-center justify-center text-secondary">
+<span class="material-symbols-outlined text-headline-sm">military_tech</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-secondary uppercase font-bold">RARE ARTIFACT</span>
+<span class="font-title-md text-body-sm text-on-surface">Hackathon Laurel</span>
+</div>
+</div>
+</div>
+<!-- Reward Tokens Grid -->
+<div class="flex flex-wrap items-center gap-space-xs pt-space-xs">
+<span class="px-2.5 py-1 rounded bg-surface-container-lowest font-label-sm text-label-sm text-primary font-bold flex items-center gap-1">
+<span class="material-symbols-outlined text-body-sm">bolt</span> +500 XP
+              </span>
+<span class="px-2.5 py-1 rounded bg-surface-container-lowest font-label-sm text-label-sm text-secondary font-bold flex items-center gap-1">
+<span class="material-symbols-outlined text-body-sm">monetization_on</span> +250 GOLD
+              </span>
+<span class="px-2.5 py-1 rounded bg-surface-container-lowest font-label-sm text-label-sm text-tertiary font-bold flex items-center gap-1">
+<span class="material-symbols-outlined text-body-sm">shield</span> +15 DISCIPLINE
+              </span>
+<span class="px-2.5 py-1 rounded bg-surface-container-lowest font-label-sm text-label-sm text-on-surface-variant">
+                STREAK MULTIPLIER: 1.15x
+              </span>
+</div>
+<!-- Boss Sub-Objectives Track -->
+<div class="flex flex-col gap-space-sm pt-space-sm">
+<div class="flex items-center justify-between text-body-sm">
+<span class="font-label-sm text-label-sm text-outline uppercase tracking-wider">Sub-Protocol Execution</span>
+<span class="font-label-md text-label-md text-primary font-bold">3 / 4 COMPLETED (75%)</span>
+</div>
+<!-- Progress Bar -->
+<div class="w-full h-2 rounded-full bg-surface-container-lowest overflow-hidden">
+<div class="h-full bg-gradient-to-r from-error via-secondary to-primary rounded-full" style="width: 75%;"></div>
+</div>
+<!-- Sub-tasks Checklist -->
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-2 mt-1">
+<div class="flex items-center gap-2 p-2 rounded bg-surface-container-lowest text-body-sm text-on-surface">
+<span class="material-symbols-outlined text-tertiary text-title-md">check_box</span>
+<span class="line-through text-outline">Database schema &amp; seed migrations</span>
+</div>
+<div class="flex items-center gap-2 p-2 rounded bg-surface-container-lowest text-body-sm text-on-surface">
+<span class="material-symbols-outlined text-tertiary text-title-md">check_box</span>
+<span class="line-through text-outline">Core authentication &amp; JWT logic</span>
+</div>
+<div class="flex items-center gap-2 p-2 rounded bg-surface-container-lowest text-body-sm text-on-surface">
+<span class="material-symbols-outlined text-tertiary text-title-md">check_box</span>
+<span class="line-through text-outline">Tactical HUD integration &amp; CSS passes</span>
+</div>
+<div class="flex items-center gap-2 p-2 rounded bg-surface-container-lowest text-body-sm text-on-surface">
+<span class="material-symbols-outlined text-outline text-title-md">check_box_outline_blank</span>
+<span class="font-semibold text-secondary">Final staging deployment &amp; demo video</span>
+</div>
+</div>
+</div>
+<!-- Boss Card Action Bar -->
+<div class="flex flex-col sm:flex-row items-center justify-between gap-space-md pt-space-sm">
+<div class="flex items-center gap-space-sm text-body-sm text-on-surface-variant">
+<span class="material-symbols-outlined text-title-md text-secondary">group</span>
+<span>Squad Members Deployed: <strong class="text-on-surface">03 Operators</strong></span>
+</div>
+<button class="w-full sm:w-auto px-space-lg py-space-sm rounded-lg bg-primary text-on-primary font-title-md text-title-md uppercase tracking-wider font-bold hover:bg-surface-tint transition-all duration-150 shadow-md flex items-center justify-center gap-2" type="button">
+<span class="material-symbols-outlined text-title-md">swords</span>
+<span>ENGAGE BOSS PROTOCOL</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<!-- SECTION 2: DAILY MISSIONS & HABITS -->
+<div class="flex flex-col gap-space-md">
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-space-xs">
+<div class="flex items-center gap-space-sm">
+<span class="material-symbols-outlined text-tertiary text-title-md">cycle</span>
+<h2 class="font-title-md text-title-md text-on-surface uppercase tracking-wider font-bold">DAILY CADENCE MISSIONS &amp; HABITS</h2>
+</div>
+<div class="flex items-center gap-1.5 px-space-sm py-1 rounded bg-surface-container font-label-sm text-label-sm text-tertiary">
+<span class="w-2 h-2 rounded-full bg-tertiary animate-ping"></span>
+<span>CYCLE RESETS IN: 06:42:19</span>
+</div>
+</div>
+<div class="grid grid-cols-1 gap-space-md">
+<!-- Card A: Algorithmic Problem Solving -->
+<div class="p-space-md rounded-xl bg-surface-container flex flex-col gap-space-sm shadow-sm hover:bg-surface-container-high transition-colors">
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-space-xs">
+<div class="flex items-center gap-space-xs flex-wrap">
+<span class="px-2 py-0.5 rounded bg-tertiary-container text-on-tertiary-container font-label-sm text-label-sm font-bold uppercase">INTELLECT</span>
+<span class="px-2 py-0.5 rounded bg-error-container/30 text-error font-label-sm text-label-sm font-bold uppercase">DIFFICULTY: HARD</span>
+<span class="font-label-sm text-label-sm text-outline">TAG: RECURSION_GRAPHS</span>
+</div>
+<div class="flex items-center gap-1 text-tertiary font-label-sm text-label-sm font-bold">
+<span class="material-symbols-outlined text-body-sm">schedule</span>
+<span>02:15:00 REMAINING</span>
+</div>
+</div>
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-space-md">
+<div class="flex flex-col">
+<h3 class="font-title-md text-title-md text-on-surface font-bold">Algorithmic Problem Solving (2 LeetCode Mediums)</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Execute dynamic programming or graph traversal challenge sets with optimal space-time complexity.</p>
+</div>
+<div class="flex items-center gap-space-xs shrink-0">
+<span class="px-2 py-1 rounded bg-surface-container-lowest font-label-sm text-label-sm text-primary font-bold">+140 XP</span>
+<span class="px-2 py-1 rounded bg-surface-container-lowest font-label-sm text-label-sm text-secondary font-bold">+45 G</span>
+<span class="px-2 py-1 rounded bg-surface-container-lowest font-label-sm text-label-sm text-tertiary font-bold">+6 INT</span>
+</div>
+</div>
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-space-sm pt-space-xs">
+<div class="flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-tertiary"></span>
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase">STATUS: 1 OF 2 PROBLEMS RESOLVED</span>
+</div>
+<button class="px-space-md py-2 rounded-lg bg-surface-container-highest hover:bg-primary hover:text-on-primary text-on-surface font-label-md text-label-md uppercase tracking-wider font-bold transition-all duration-150 flex items-center justify-center gap-1.5 shadow-sm" type="button">
+<span class="material-symbols-outlined text-body-sm">upload_file</span>
+<span>SUBMIT PROOF &amp; CLAIM REWARD</span>
+</button>
+</div>
+</div>
+<!-- Card B: 10,000 Steps Expedition -->
+<div class="p-space-md rounded-xl bg-surface-container flex flex-col gap-space-sm shadow-sm hover:bg-surface-container-high transition-colors">
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-space-xs">
+<div class="flex items-center gap-space-xs flex-wrap">
+<span class="px-2 py-0.5 rounded bg-surface-container-highest text-tertiary font-label-sm text-label-sm font-bold uppercase">VITALITY</span>
+<span class="px-2 py-0.5 rounded bg-secondary-container/30 text-secondary font-label-sm text-label-sm font-bold uppercase">DIFFICULTY: MEDIUM</span>
+<span class="font-label-sm text-label-sm text-outline">BIOMETRIC TRACKER</span>
+</div>
+<span class="font-label-sm text-label-sm text-outline">DAILY RECURRENCE</span>
+</div>
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-space-md">
+<div class="flex flex-col">
+<h3 class="font-title-md text-title-md text-on-surface font-bold">10,000 Steps Expedition</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Maintain baseline aerobic conditioning and cognitive oxygenation via outdoor urban march.</p>
+</div>
+<div class="flex items-center gap-space-xs shrink-0">
+<span class="px-2 py-1 rounded bg-surface-container-lowest font-label-sm text-label-sm text-primary font-bold">+90 XP</span>
+<span class="px-2 py-1 rounded bg-surface-container-lowest font-label-sm text-label-sm text-secondary font-bold">+25 G</span>
+<span class="px-2 py-1 rounded bg-surface-container-lowest font-label-sm text-label-sm text-tertiary font-bold">+5 VIT</span>
+</div>
+</div>
+<!-- Steps Progress Telemetry -->
+<div class="flex flex-col gap-1.5 pt-space-xs">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm text-outline uppercase">Pedometer Sensor Feed</span>
+<span class="font-label-sm text-label-sm text-secondary font-bold">7,420 / 10,000 STEPS (74.2%)</span>
+</div>
+<div class="w-full h-1.5 rounded-full bg-surface-container-lowest overflow-hidden">
+<div class="h-full bg-secondary rounded-full" style="width: 74.2%;"></div>
+</div>
+</div>
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-space-sm pt-space-xs">
+<div class="flex items-center gap-2 text-outline text-body-sm">
+<span class="material-symbols-outlined text-body-sm text-tertiary">watch</span>
+<span class="font-label-sm text-label-sm">Apple Health / Garmin Core Connected</span>
+</div>
+<button class="px-space-md py-2 rounded-lg bg-surface-container-highest hover:bg-secondary hover:text-on-secondary text-on-surface font-label-md text-label-md uppercase tracking-wider font-bold transition-all duration-150 flex items-center justify-center gap-1.5 shadow-sm" type="button">
+<span class="material-symbols-outlined text-body-sm">sync</span>
+<span>SYNC HEALTH SENSORS</span>
+</button>
+</div>
+</div>
+<!-- Card C: Zero-Inbox Discipline Run -->
+<div class="p-space-md rounded-xl bg-surface-container flex flex-col gap-space-sm shadow-sm hover:bg-surface-container-high transition-colors">
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-space-xs">
+<div class="flex items-center gap-space-xs flex-wrap">
+<span class="px-2 py-0.5 rounded bg-primary-container text-on-primary-container font-label-sm text-label-sm font-bold uppercase">DISCIPLINE</span>
+<span class="px-2 py-0.5 rounded bg-surface-container-highest text-on-surface font-label-sm text-label-sm font-bold uppercase">DIFFICULTY: EASY</span>
+</div>
+<span class="font-label-sm text-label-sm text-secondary font-bold uppercase">READY TO HARVEST</span>
+</div>
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-space-md">
+<div class="flex flex-col">
+<h3 class="font-title-md text-title-md text-on-surface font-bold">Zero-Inbox Discipline Run</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Triage pending inbound transmissions across communication terminals to absolute zero.</p>
+</div>
+<div class="flex items-center gap-space-xs shrink-0">
+<span class="px-2 py-1 rounded bg-surface-container-lowest font-label-sm text-label-sm text-primary font-bold">+50 XP</span>
+<span class="px-2 py-1 rounded bg-surface-container-lowest font-label-sm text-label-sm text-secondary font-bold">+15 G</span>
+</div>
+</div>
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-space-sm pt-space-xs">
+<div class="flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-secondary animate-ping"></span>
+<span class="font-label-sm text-label-sm text-secondary uppercase font-bold">ALL 0 UNREAD TRANSFERS LOGGED</span>
+</div>
+<button class="px-space-md py-2 rounded-lg bg-secondary text-on-secondary font-label-md text-label-md uppercase tracking-wider font-bold transition-all duration-150 flex items-center justify-center gap-1.5 shadow-md hover:brightness-110" type="button">
+<span class="material-symbols-outlined text-body-sm">check_circle</span>
+<span>CLAIM +50 XP &amp; BOUNTY</span>
+</button>
+</div>
+</div>
+<!-- Card D: Deep Sleep Protocol -->
+<div class="p-space-md rounded-xl bg-surface-container/60 opacity-80 flex flex-col gap-space-sm shadow-sm">
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-space-xs">
+<div class="flex items-center gap-space-xs flex-wrap">
+<span class="px-2 py-0.5 rounded bg-surface-container-high text-outline font-label-sm text-label-sm font-bold uppercase">VITALITY</span>
+<span class="px-2 py-0.5 rounded bg-surface-container-high text-outline font-label-sm text-label-sm font-bold uppercase">DIFFICULTY: MEDIUM</span>
+</div>
+<div class="flex items-center gap-1 text-outline font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-body-sm">lock</span>
+<span>LOCKED: TIME RESTRICTED</span>
+</div>
+</div>
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-space-md">
+<div class="flex flex-col">
+<h3 class="font-title-md text-title-md text-outline font-bold">Deep Sleep Protocol (8 HRS At 22:30)</h3>
+<p class="font-body-sm text-body-sm text-outline">Initiate REM cellular regeneration protocol with screens suspended 45m prior to blackout.</p>
+</div>
+<div class="flex items-center gap-space-xs shrink-0 opacity-60">
+<span class="px-2 py-1 rounded bg-surface-container-lowest font-label-sm text-label-sm text-outline">+100 XP</span>
+<span class="px-2 py-1 rounded bg-surface-container-lowest font-label-sm text-label-sm text-outline">+30 G</span>
+</div>
+</div>
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-space-sm pt-space-xs">
+<span class="font-label-sm text-label-sm text-outline">Temporal lockout engages unlock window at 22:00 local time</span>
+<button class="px-space-md py-2 rounded-lg bg-surface-container-high text-outline font-label-md text-label-md uppercase tracking-wider font-bold cursor-not-allowed" disabled="" type="button">
+                LOCKED UNTIL 22:00
+              </button>
+</div>
+</div>
+</div>
+</div>
+<!-- SECTION 3: COMPLETED MISSIONS ARCHIVE -->
+<div class="flex flex-col gap-space-md">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-space-sm">
+<span class="material-symbols-outlined text-outline text-title-md">history_toggle_off</span>
+<h2 class="font-title-md text-title-md text-outline uppercase tracking-wider font-bold">COMPLETED PROTOCOLS (ARCHIVED TODAY)</h2>
+</div>
+<span class="font-label-sm text-label-sm text-outline">2 MISSIONS HARVESTED</span>
+</div>
+<div class="grid grid-cols-1 gap-space-sm opacity-75">
+<!-- Completed 1 -->
+<div class="p-space-md rounded-xl bg-surface-container-low flex flex-col sm:flex-row sm:items-center justify-between gap-space-md shadow-sm">
+<div class="flex items-center gap-space-md">
+<div class="w-8 h-8 rounded-full bg-surface-container flex items-center justify-center text-tertiary shrink-0">
+<span class="material-symbols-outlined text-body-sm">done_all</span>
+</div>
+<div class="flex flex-col">
+<span class="font-title-md text-body-md text-on-surface line-through">Read 30 Min Design System Specification</span>
+<span class="font-label-sm text-label-sm text-outline">ARCHIVED AT 09:14 AM // DURATION: 32M</span>
+</div>
+</div>
+<div class="flex items-center gap-space-sm">
+<span class="font-label-sm text-label-sm px-2 py-1 rounded bg-surface-container text-tertiary font-bold">+120 XP &amp; +30 G CLAIMED</span>
+</div>
+</div>
+<!-- Completed 2 -->
+<div class="p-space-md rounded-xl bg-surface-container-low flex flex-col sm:flex-row sm:items-center justify-between gap-space-md shadow-sm">
+<div class="flex items-center gap-space-md">
+<div class="w-8 h-8 rounded-full bg-surface-container flex items-center justify-center text-tertiary shrink-0">
+<span class="material-symbols-outlined text-body-sm">done_all</span>
+</div>
+<div class="flex flex-col">
+<span class="font-title-md text-body-md text-on-surface line-through">Hydration Cycle 2.5L</span>
+<span class="font-label-sm text-label-sm text-outline">ARCHIVED AT 11:45 AM // TELEMETRY VERIFIED</span>
+</div>
+</div>
+<div class="flex items-center gap-space-sm">
+<span class="font-label-sm text-label-sm px-2 py-1 rounded bg-surface-container text-tertiary font-bold">+40 XP &amp; +10 G CLAIMED</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Right Tactical Side-Rail (4 Columns) -->
+<div class="xl:col-span-4 flex flex-col gap-space-lg">
+<!-- Fast Mission Formulation Matrix -->
+<div class="p-space-lg rounded-xl bg-surface-container shadow-md flex flex-col gap-space-md">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary text-title-md">bolt</span>
+<h3 class="font-title-md text-title-md text-on-surface uppercase tracking-wider font-bold">FAST PROTOCOL ENTRY</h3>
+</div>
+<span class="font-label-sm text-label-sm px-1.5 py-0.5 rounded bg-surface-container-high text-outline">SYS v2.4</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Inject an ad-hoc tactical objective directly into your active daily operations queue.</p>
+<form class="flex flex-col gap-space-sm" id="fast-quest-form">
+<div class="flex flex-col gap-1">
+<label class="font-label-sm text-label-sm text-outline uppercase tracking-wider">Mission Designation</label>
+<input class="w-full px-space-md py-2.5 rounded-lg bg-surface-container-lowest text-on-surface placeholder:text-outline text-body-md focus:outline-none" id="quest-title-input" placeholder="e.g., Code Review Pull Request #402" required="" type="text"/>
+</div>
+<div class="grid grid-cols-2 gap-space-sm">
+<div class="flex flex-col gap-1">
+<label class="font-label-sm text-label-sm text-outline uppercase tracking-wider">Attribute Core</label>
+<select class="w-full px-space-sm py-2.5 rounded-lg bg-surface-container-lowest text-on-surface text-body-sm focus:outline-none uppercase font-label-sm" id="quest-attr-select">
+<option value="INT">Intellect</option>
+<option value="STR">Strength</option>
+<option selected="" value="DIS">Discipline</option>
+<option value="CRE">Creativity</option>
+<option value="VIT">Vitality</option>
+</select>
+</div>
+<div class="flex flex-col gap-1">
+<label class="font-label-sm text-label-sm text-outline uppercase tracking-wider">Difficulty Tier</label>
+<select class="w-full px-space-sm py-2.5 rounded-lg bg-surface-container-lowest text-on-surface text-body-sm focus:outline-none uppercase font-label-sm" id="quest-diff-select">
+<option value="EASY">EASY (Rank C)</option>
+<option selected="" value="MED">MED (Rank B)</option>
+<option value="HARD">HARD (Rank A)</option>
+<option value="EPIC">EPIC (Boss)</option>
+</select>
+</div>
+</div>
+<!-- Dynamic Live Yield Estimator -->
+<div class="p-space-sm rounded-lg bg-surface-container-lowest flex items-center justify-between my-space-xs">
+<span class="font-label-sm text-label-sm text-outline uppercase">Calculated Yield:</span>
+<div class="flex items-center gap-space-sm">
+<span class="font-label-sm text-label-sm text-primary font-bold" id="preview-xp">+85 XP</span>
+<span class="font-label-sm text-label-sm text-secondary font-bold" id="preview-gold">+25 GOLD</span>
+</div>
+</div>
+<button class="w-full py-2.5 rounded-lg bg-primary text-on-primary font-title-md text-title-md uppercase tracking-wider font-bold hover:bg-surface-tint transition-all duration-150 shadow flex items-center justify-center gap-2" type="submit">
+<span class="material-symbols-outlined text-title-md">add_circle</span>
+<span>INITIALIZE PROTOCOL</span>
+</button>
+</form>
+<p class="font-label-sm text-label-sm text-outline italic text-center">Server-authoritative balance applies dynamic level scaling.</p>
+</div>
+<!-- Streak Multiplier Telemetry Gauge -->
+<div class="p-space-lg rounded-xl bg-surface-container shadow-md flex flex-col gap-space-md">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary text-title-md">local_fire_department</span>
+<h3 class="font-title-md text-title-md text-on-surface uppercase tracking-wider font-bold">STREAK OVERCLOCK</h3>
+</div>
+<span class="px-2 py-0.5 rounded bg-secondary-container text-on-secondary-container font-label-sm text-label-sm font-bold">ACTIVE</span>
+</div>
+<div class="flex items-center gap-space-md">
+<!-- Circular Telemetry Wheel SVG -->
+<div class="relative w-20 h-20 shrink-0 flex items-center justify-center">
+<svg class="w-20 h-20 transform -rotate-90" viewbox="0 0 36 36">
+<path class="text-surface-container-lowest" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="currentColor" stroke-width="3.5"></path>
+<path class="text-secondary" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="currentColor" stroke-dasharray="88, 100" stroke-linecap="round" stroke-width="3.5"></path>
+</svg>
+<div class="absolute flex flex-col items-center justify-center">
+<span class="font-label-md text-stat-numeric text-secondary font-bold leading-none">14</span>
+<span class="font-label-sm text-[9px] text-outline uppercase leading-tight">DAYS</span>
+</div>
+</div>
+<div class="flex flex-col gap-1">
+<span class="font-title-md text-body-md text-on-surface font-bold">Tier III Overclock Status</span>
+<p class="font-body-sm text-body-sm text-on-surface-variant leading-tight">14-Day uninterrupted streak applies high-voltage modifiers to all yield calculations.</p>
+</div>
+</div>
+<div class="grid grid-cols-2 gap-space-xs">
+<div class="p-space-sm rounded bg-surface-container-lowest flex flex-col items-center">
+<span class="font-label-sm text-label-sm text-outline uppercase">Bonus Yield</span>
+<span class="font-title-md text-title-md text-primary font-bold">+15% XP</span>
+</div>
+<div class="p-space-sm rounded bg-surface-container-lowest flex flex-col items-center">
+<span class="font-label-sm text-label-sm text-outline uppercase">Gold Bounty</span>
+<span class="font-title-md text-title-md text-secondary font-bold">+10% GOLD</span>
+</div>
+</div>
+</div>
+<!-- Campaign Visual Snapshot -->
+<div class="relative overflow-hidden rounded-xl bg-surface-container shadow-md flex flex-col">
+<div class="relative w-full h-44 bg-cover bg-center" data-alt="Futuristic cybernetic paladin warrior standing inside a high-tech tactical cockpit holographic control deck with indigo photon telemetry screens and amber warning indicators cinematic sci-fi lighting dark obsidian atmosphere" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuA5Z9Sbi_xxgADCrGd4HuihJuA_eM4ZDKVqYRLTHiAdJTYQYMPLss8N3ZlXtnwFxAzMMKaEWQuOScPMvT3owHgO9sZzqNC8KWrugpww7z3hSedZ3NlmnVJLhdKWxM9GAfVQHlJv5XoRLyRliUWHdnOojNJOySqTTsO0AliurN8FvxuoQMwXcpqsSUJD456Vpjt3a4qDNdNUMIROTc3n38Eb1J7appIZSX4nGvKuXYAc4S0fVxa4h5A')">
+<div class="absolute inset-0 bg-gradient-to-t from-surface-container via-surface-container/40 to-transparent"></div>
+<div class="absolute bottom-space-md left-space-md right-space-md flex flex-col">
+<span class="font-label-sm text-label-sm text-tertiary uppercase font-bold tracking-wider">CAMPAIGN SECTOR PROGRESSION</span>
+<h4 class="font-title-md text-title-md text-on-surface font-bold uppercase">SECTOR 07 // NEURAL CITADEL</h4>
+</div>
+</div>
+<div class="p-space-md flex flex-col gap-space-sm">
+<div class="flex items-center justify-between text-body-sm">
+<span class="font-label-sm text-label-sm text-outline uppercase">Dominance Factor</span>
+<span class="font-label-sm text-label-sm text-on-surface font-bold">82% LIBERATED</span>
+</div>
+<div class="w-full h-1.5 rounded-full bg-surface-container-lowest overflow-hidden">
+<div class="h-full bg-primary rounded-full" style="width: 82%;"></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Interactive Modal: Create Protocol -->
+<div class="fixed inset-0 z-50 flex items-center justify-center bg-background/80 backdrop-blur-md hidden p-space-md" id="protocol-modal">
+<div class="w-full max-w-xl rounded-xl bg-surface-container-high p-space-lg shadow-2xl flex flex-col gap-space-md">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-space-sm">
+<span class="material-symbols-outlined text-secondary text-title-md">military_tech</span>
+<h2 class="font-headline-sm text-headline-sm text-on-surface uppercase font-bold">DEPLOY NEW PROTOCOL</h2>
+</div>
+<button class="p-1 rounded-lg text-outline hover:text-on-surface transition-colors" id="close-modal-trigger" type="button">
+<span class="material-symbols-outlined text-title-md">close</span>
+</button>
+</div>
+<div class="flex flex-col gap-space-sm">
+<div class="flex flex-col gap-1">
+<label class="font-label-sm text-label-sm text-outline uppercase tracking-wider">Mission Header</label>
+<input class="w-full px-space-md py-2.5 rounded-lg bg-surface-container-lowest text-on-surface placeholder:text-outline focus:outline-none" placeholder="Title of your real-world task..." type="text"/>
+</div>
+<div class="flex flex-col gap-1">
+<label class="font-label-sm text-label-sm text-outline uppercase tracking-wider">Briefing &amp; Specifications</label>
+<textarea class="w-full px-space-md py-2.5 rounded-lg bg-surface-container-lowest text-on-surface placeholder:text-outline focus:outline-none" placeholder="Context, success conditions, and execution parameters..." rows="3"></textarea>
+</div>
+<div class="grid grid-cols-2 gap-space-sm">
+<div class="flex flex-col gap-1">
+<label class="font-label-sm text-label-sm text-outline uppercase tracking-wider">Assigned Attribute</label>
+<select class="w-full px-space-sm py-2.5 rounded-lg bg-surface-container-lowest text-on-surface focus:outline-none uppercase font-label-sm">
+<option>INTELLECT / COGNITIVE</option>
+<option>STRENGTH / PHYSICAL</option>
+<option>DISCIPLINE / HABIT</option>
+<option>CREATIVITY / DESIGN</option>
+<option>VITALITY / RECOVERY</option>
+</select>
+</div>
+<div class="flex flex-col gap-1">
+<label class="font-label-sm text-label-sm text-outline uppercase tracking-wider">Protocol Classification</label>
+<select class="w-full px-space-sm py-2.5 rounded-lg bg-surface-container-lowest text-on-surface focus:outline-none uppercase font-label-sm">
+<option>DAILY ROUTINE</option>
+<option>WEEKLY SPRINT</option>
+<option>EPIC BOSS CAMPAIGN</option>
+</select>
+</div>
+</div>
+<div class="p-space-sm rounded-lg bg-surface-container-lowest flex items-center justify-between">
+<span class="font-label-sm text-label-sm text-outline uppercase">Dynamic Yield:</span>
+<div class="flex items-center gap-space-sm font-label-sm text-label-sm font-bold">
+<span class="text-primary">+120 XP</span>
+<span class="text-secondary">+40 GOLD</span>
+<span class="text-tertiary">+4 STAT</span>
+</div>
+</div>
+</div>
+<div class="flex items-center justify-end gap-space-sm pt-space-sm">
+<button class="px-space-md py-2.5 rounded-lg bg-surface-container text-on-surface-variant hover:text-on-surface font-label-md text-label-md uppercase" id="cancel-modal-trigger" type="button">CANCEL</button>
+<button class="px-space-lg py-2.5 rounded-lg bg-secondary-container text-on-secondary-container font-title-md text-title-md uppercase font-bold hover:bg-secondary transition-all" id="confirm-modal-trigger" type="button">ENGAGE MISSION</button>
+</div>
+</div>
+</div>
+<!-- Client-side Interactive Logic -->
+<script>
+    (function() {
+      // Dynamic Yield Calculation on Fast Entry
+      const diffSelect = document.getElementById('quest-diff-select');
+      const xpDisplay = document.getElementById('preview-xp');
+      const goldDisplay = document.getElementById('preview-gold');
+
+      const yieldMap = {
+        'EASY': { xp: 45, gold: 15 },
+        'MED': { xp: 85, gold: 25 },
+        'HARD': { xp: 140, gold: 45 },
+        'EPIC': { xp: 350, gold: 120 }
+      };
+
+      if (diffSelect && xpDisplay && goldDisplay) {
+        diffSelect.addEventListener('change', (e) => {
+          const val = e.target.value;
+          const rewards = yieldMap[val] || yieldMap['MED'];
+          xpDisplay.textContent = `+${rewards.xp} XP`;
+          goldDisplay.textContent = `+${rewards.gold} GOLD`;
+        });
+      }
+
+      // Fast Protocol Submit Handler
+      const fastForm = document.getElementById('fast-quest-form');
+      if (fastForm) {
+        fastForm.addEventListener('submit', (e) => {
+          e.preventDefault();
+          const input = document.getElementById('quest-title-input');
+          if (input && input.value.trim() !== '') {
+            alert(`Tactical Mission Protocol Initialized: "${input.value.trim()}"`);
+            input.value = '';
+          }
+        });
+      }
+
+      // Modal Triggers
+      const modal = document.getElementById('protocol-modal');
+      const openBtn = document.getElementById('open-modal-trigger');
+      const closeBtn = document.getElementById('close-modal-trigger');
+      const cancelBtn = document.getElementById('cancel-modal-trigger');
+      const confirmBtn = document.getElementById('confirm-modal-trigger');
+
+      function toggleModal(show) {
+        if (!modal) return;
+        if (show) {
+          modal.classList.remove('hidden');
+        } else {
+          modal.classList.add('hidden');
+        }
+      }
+
+      if (openBtn) openBtn.addEventListener('click', () => toggleModal(true));
+      if (closeBtn) closeBtn.addEventListener('click', () => toggleModal(false));
+      if (cancelBtn) cancelBtn.addEventListener('click', () => toggleModal(false));
+      if (confirmBtn) confirmBtn.addEventListener('click', () => {
+        alert("Mission Directive Dispatched to Active Roster.");
+        toggleModal(false);
+      });
+    })();
+  </script>
+</div></main></div></body></html>

@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&family=Inter:wght@100..900&family=JetBrains+Mono:wght@100..900&display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={darkMode:"class",theme:{extend:{colors:{"tertiary":"#4cd7f6","bg-secondary":"#11141C","text-muted":"#64748B","surface-dim":"#10131a","on-secondary-fixed-variant":"#653e00","on-primary":"#1000a9","on-primary-fixed-variant":"#2f2ebe","border-focus":"rgba(99, 102, 241, 0.4)","on-tertiary-fixed-variant":"#004e5c","tertiary-fixed-dim":"#4cd7f6","on-surface":"#e1e2ec","outline":"#908fa0","on-error-container":"#ffdad6","surface":"#151923","secondary-fixed":"#ffddb8","inverse-surface":"#e1e2ec","on-secondary":"#472a00","surface-container-low":"#191b23","on-tertiary-container":"#002f38","on-secondary-container":"#5b3800","amber-streak":"#F97316","secondary-fixed-dim":"#ffb95f","text-secondary":"#94A3B8","inverse-primary":"#494bd6","on-error":"#690005","surface-tint":"#c0c1ff","surface-variant":"#32353d","error":"#ffb4ab","error-container":"#93000a","surface-container":"#1d2027","surface-container-highest":"#32353d","on-secondary-fixed":"#2a1700","surface-bright":"#363941","tertiary-container":"#009eb9","inverse-on-surface":"#2d3038","emerald-complete":"#10B981","bg-primary":"#0B0E15","crimson-threat":"#EF4444","background":"#10131a","on-surface-variant":"#c7c4d7","outline-variant":"#464554","primary":"#c0c1ff","border-subtle":"rgba(255, 255, 255, 0.07)","on-background":"#e1e2ec","secondary-container":"#ee9800","on-primary-container":"#0d0096","text-primary":"#F1F5F9","secondary":"#ffb95f","on-tertiary-fixed":"#001f26","on-primary-fixed":"#07006c","primary-container":"#8083ff","surface-elevated":"#1B1F2A","primary-fixed-dim":"#c0c1ff","surface-container-high":"#272a32","on-tertiary":"#003640","surface-container-lowest":"#0b0e15","primary-fixed":"#e1e0ff","tertiary-fixed":"#acedff"},borderRadius:{"DEFAULT":"0.25rem","lg":"0.5rem","xl":"0.75rem","full":"9999px"},spacing:{"margin-mobile":"1rem","space-md":"1rem","space-sm":"0.5rem","gutter-mobile":"0.75rem","space-xl":"2rem","gutter":"1.5rem","space-lg":"1.5rem","space-xs":"0.25rem","margin":"2rem"},fontFamily:{"label-md":["JetBrains Mono"],"headline-lg-mobile":["Geist"],"headline-hero-mobile":["Geist"],"body-lg":["Inter"],"body-md":["Inter"],"headline-lg":["Geist"],"headline-md":["Geist"],"headline-hero":["Geist"],"label-sm":["JetBrains Mono"],"headline-sm":["Geist"],"body-sm":["Inter"],"stat-numeric":["JetBrains Mono"]},fontSize:{"label-md":["12px",{"lineHeight":"16px","letterSpacing":"0.02em","fontWeight":"500"}],"headline-lg-mobile":["22px",{"lineHeight":"28px","letterSpacing":"-0.01em","fontWeight":"600"}],"headline-hero-mobile":["28px",{"lineHeight":"36px","letterSpacing":"-0.02em","fontWeight":"600"}],"body-lg":["16px",{"lineHeight":"26px","letterSpacing":"-0.01em","fontWeight":"400"}],"body-md":["14px",{"lineHeight":"22px","letterSpacing":"-0.005em","fontWeight":"400"}],"headline-lg":["28px",{"lineHeight":"36px","letterSpacing":"-0.02em","fontWeight":"600"}],"headline-md":["20px",{"lineHeight":"28px","letterSpacing":"-0.01em","fontWeight":"600"}],"headline-hero":["40px",{"lineHeight":"48px","letterSpacing":"-0.03em","fontWeight":"600"}],"label-sm":["11px",{"lineHeight":"14px","letterSpacing":"0.04em","fontWeight":"500"}],"headline-sm":["16px",{"lineHeight":"24px","letterSpacing":"-0.005em","fontWeight":"600"}],"body-sm":["13px",{"lineHeight":"18px","letterSpacing":"0em","fontWeight":"400"}],"stat-numeric":["20px",{"lineHeight":"24px","letterSpacing":"-0.02em","fontWeight":"500"}]}}}}</script></head><body class="bg-bg-primary text-text-primary font-body-md text-body-md antialiased selection:bg-primary-container selection:text-on-primary-container"><aside class="fixed left-0 top-0 h-full w-60 bg-surface border-r border-border-subtle z-50 flex flex-col justify-between select-none"><div class="flex flex-col"><div class="h-14 px-space-md flex items-center justify-between border-b border-border-subtle"><div class="flex items-center gap-space-sm"><img alt="Brand logo. - Primary color: #6366f1
+- Font: spaceGrotesk
+- Mode: dark
+- Roundness: rounded-sm
+" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/AEtjO1VlbnrqzmNOVJ2yKdYoktYWIGVBFEvYg9syEtql2dySDYkvWLo4PZw8yRWen_4lhpH0ZLZuXgSsRXL6rmGiSfwcHeD4YXphx5QNfkIwTQgmwyJkAEbYZEVf9ave59tLPGCx5sHugwK1O1gVSR5ckE5oAu8GDjTBTn1nN79EqkdFq0RnCt1qx_BWz-FjbPd0unBiu5utczfixV-Rz7CYRu8roH1Z5p6OXZiI08oq6pXwvyIeJxZuCsNy3w"/><span class="font-headline-sm text-headline-sm text-text-primary tracking-tight font-semibold">LIFE RPG</span></div><span class="font-label-sm text-label-sm px-1.5 py-0.5 rounded bg-surface-elevated text-text-secondary border border-border-subtle">v2.4</span></div><div class="px-space-md py-space-sm"><span class="font-label-sm text-label-sm uppercase text-text-muted tracking-wider px-2">Navigation</span></div><nav class="flex flex-col px-space-sm gap-1" data-active-classes="bg-surface-elevated text-text-primary font-medium border-l-2 border-primary"><a class="flex items-center justify-between px-3 py-2 rounded-lg text-text-secondary hover:bg-surface-elevated hover:text-text-primary transition-colors group" data-path="home" href="#"><div class="flex items-center gap-2.5"><span class="material-symbols-outlined text-[18px] text-text-muted group-hover:text-text-primary transition-colors">space_dashboard</span><span class="font-body-md text-body-md">Home</span></div><kbd class="font-label-sm text-label-sm text-text-muted group-hover:text-text-secondary">⌘1</kbd></a><a class="flex items-center justify-between px-3 py-2 rounded-lg text-text-secondary hover:bg-surface-elevated hover:text-text-primary transition-colors group" data-path="quests" href="#"><div class="flex items-center gap-2.5"><span class="material-symbols-outlined text-[18px] text-text-muted group-hover:text-text-primary transition-colors">task_alt</span><span class="font-body-md text-body-md">Quests</span></div><kbd class="font-label-sm text-label-sm text-text-muted group-hover:text-text-secondary">⌘2</kbd></a><a class="flex items-center justify-between px-3 py-2 rounded-lg text-text-secondary hover:bg-surface-elevated hover:text-text-primary transition-colors group" data-path="character" href="#"><div class="flex items-center gap-2.5"><span class="material-symbols-outlined text-[18px] text-text-muted group-hover:text-text-primary transition-colors">shield_person</span><span class="font-body-md text-body-md">Character</span></div><kbd class="font-label-sm text-label-sm text-text-muted group-hover:text-text-secondary">⌘3</kbd></a><a class="flex items-center justify-between px-3 py-2 rounded-lg text-text-secondary hover:bg-surface-elevated hover:text-text-primary transition-colors group" data-path="rewards" href="#"><div class="flex items-center gap-2.5"><span class="material-symbols-outlined text-[18px] text-text-muted group-hover:text-text-primary transition-colors">featured_seasonal_and_gifts</span><span class="font-body-md text-body-md">Rewards</span></div><kbd class="font-label-sm text-label-sm text-text-muted group-hover:text-text-secondary">⌘4</kbd></a><a aria-current="page" class="flex items-center justify-between px-3 py-2 rounded-lg transition-colors group bg-surface-elevated text-text-primary font-medium border-l-2 border-primary" data-path="inventory" href="#"><div class="flex items-center gap-2.5"><span class="material-symbols-outlined text-[18px] text-text-muted group-hover:text-text-primary transition-colors">inventory_2</span><span class="font-body-md text-body-md">Inventory</span></div><kbd class="font-label-sm text-label-sm text-text-muted group-hover:text-text-secondary">⌘5</kbd></a><a class="flex items-center justify-between px-3 py-2 rounded-lg text-text-secondary hover:bg-surface-elevated hover:text-text-primary transition-colors group" data-path="achievements" href="#"><div class="flex items-center gap-2.5"><span class="material-symbols-outlined text-[18px] text-text-muted group-hover:text-text-primary transition-colors">military_tech</span><span class="font-body-md text-body-md">Achievements</span></div><kbd class="font-label-sm text-label-sm text-text-muted group-hover:text-text-secondary">⌘6</kbd></a></nav></div><div class="flex flex-col gap-2 p-space-sm border-t border-border-subtle bg-bg-secondary/40"><div class="flex items-center justify-between px-2.5 py-1.5 rounded-lg bg-surface-elevated border border-border-subtle"><div class="flex items-center gap-2"><span class="material-symbols-outlined text-[16px] text-amber-streak">local_fire_department</span><span class="font-label-sm text-label-sm text-text-primary font-medium">14-DAY STREAK</span></div><span class="w-1.5 h-1.5 rounded-full bg-emerald-complete"></span></div><div class="flex items-center justify-between px-2 text-text-secondary"><div class="flex items-center gap-2"><button aria-label="Toggle Audio SFX" class="p-1.5 rounded-md hover:bg-surface-elevated hover:text-text-primary transition-colors" type="button"><span class="material-symbols-outlined text-[18px]">volume_up</span></button><button aria-label="Settings" class="p-1.5 rounded-md hover:bg-surface-elevated hover:text-text-primary transition-colors" type="button"><span class="material-symbols-outlined text-[18px]">tune</span></button></div><span class="font-label-sm text-label-sm text-text-muted">SYST:OK</span></div><div class="flex items-center gap-2.5 px-2 py-1.5 rounded-lg hover:bg-surface-elevated transition-colors cursor-pointer border border-transparent hover:border-border-subtle"><div class="w-8 h-8 rounded-full bg-surface-variant flex items-center justify-center font-label-sm text-label-sm text-primary font-bold border border-border-subtle">K</div><div class="flex flex-col min-w-0 flex-1"><span class="font-body-sm text-body-sm font-medium text-text-primary truncate leading-none">Kai</span><span class="font-label-sm text-label-sm text-text-muted truncate mt-0.5">Arch-Strategist II</span></div><span class="material-symbols-outlined text-[16px] text-text-muted">unfold_more</span></div></div></aside><div class="pl-60"><header class="fixed top-0 left-60 right-0 h-14 bg-surface/90 backdrop-blur-xl border-b border-border-subtle z-40 flex items-center justify-between px-gutter"><div class="flex items-center gap-space-lg flex-1 max-w-2xl"><div class="flex items-center gap-2"><span class="font-label-sm text-label-sm text-primary font-semibold px-2 py-0.5 rounded bg-primary-container/20 border border-border-focus">LVL 12</span><span class="font-body-sm text-body-sm text-text-secondary font-medium hidden sm:inline">Arch-Strategist II</span></div><div class="flex-1 flex items-center gap-3"><div class="w-full bg-surface-elevated h-1.5 rounded-full overflow-hidden border border-border-subtle"><div class="bg-primary-container h-full rounded-full" style="width: 82.6%"></div></div><span class="font-label-sm text-label-sm text-text-muted whitespace-nowrap">8,260 / 10,000 XP</span></div></div><div class="flex items-center gap-space-md"><div class="flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-surface-elevated border border-border-subtle"><span class="material-symbols-outlined text-[16px] text-secondary">monetization_on</span><span class="font-stat-numeric text-stat-numeric text-[13px] text-secondary font-medium">1,420 G</span></div><div class="flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-surface-elevated border border-border-subtle"><span class="material-symbols-outlined text-[16px] text-emerald-complete">local_fire_department</span><span class="font-label-sm text-label-sm text-emerald-complete font-semibold">14D</span></div><div class="h-4 w-px bg-border-subtle"></div><button aria-label="Notifications" class="p-1.5 rounded-md text-text-secondary hover:text-text-primary hover:bg-surface-elevated transition-colors relative" type="button"><span class="material-symbols-outlined text-[20px]">notifications</span><span class="absolute top-1 right-1 w-2 h-2 rounded-full bg-primary-container ring-2 ring-surface"></span></button><img alt="Profile" class="w-8 h-8 rounded-full object-cover border border-border-subtle" src="https://lh3.googleusercontent.com/aida/AEtjO1UJwu6y3T_FuhMaWitkt8dJ_HR6r_r-RxSgzCQMd2P_Mq_z8ZDZZ3mbJq7RKuigb7wfG0H7WmGacUeBXtF3_QoUzaQj9v7Lf4IvvrY4v2cINEmR1uZ8jrA5niXbnAURU6FIuqvtbHCj-84EDn11bXjHjd_lWNF5VOmTJqBkC1soYnekynvJ2gMxl6U2Aeo8ezkwDidsdaiP4gHOAjAqg0hlQQBdp0If-3oExSxDVxuAnIBLIFiX7HVa"/></div></header><main class="relative pt-14 w-full min-h-screen bg-bg-primary px-gutter py-space-lg"><div class="flex flex-col w-full gap-space-lg">
+<!-- Page Header & Metrics Strip -->
+<section class="flex flex-col md:flex-row md:items-end justify-between gap-space-md">
+<div class="flex flex-col gap-1">
+<div class="flex items-center gap-2">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-text-muted">Vault & Loadout Management</span>
+<span class="w-1 h-1 rounded-full bg-border-subtle"></span>
+<span class="font-label-sm text-label-sm text-primary">OPERATIONAL SUITE</span>
+</div>
+<h1 class="font-headline-lg text-headline-lg text-text-primary tracking-tight">Inventory</h1>
+<p class="font-body-md text-body-md text-text-secondary">Manage everything you've earned, unlocked, and equipped across missions.</p>
+</div>
+<!-- Summary telemetry pills -->
+<div class="flex flex-wrap items-center gap-2">
+<div class="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-surface border border-border-subtle shadow-sm">
+<span class="material-symbols-outlined text-[16px] text-primary">inventory_2</span>
+<span class="font-label-sm text-label-sm text-text-primary font-medium">18 Items Collected</span>
+</div>
+<div class="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-surface border border-border-subtle shadow-sm">
+<span class="w-2 h-2 rounded-full bg-emerald-complete"></span>
+<span class="font-label-sm text-label-sm text-text-primary font-medium">4 Active Loadout Slots</span>
+</div>
+<div class="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-surface border border-border-subtle shadow-sm">
+<span class="material-symbols-outlined text-[16px] text-secondary">monetization_on</span>
+<span class="font-stat-numeric text-stat-numeric text-[13px] text-secondary font-medium">1,420 G</span>
+</div>
+<div class="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-surface border border-border-subtle shadow-sm">
+<span class="material-symbols-outlined text-[16px] text-primary-container">stars</span>
+<span class="font-label-sm text-label-sm text-primary-container font-medium">5 Rare+</span>
+</div>
+</div>
+</section>
+<!-- Section 1: Active Synced Loadout Strip -->
+<section class="w-full rounded-2xl bg-surface border border-border-subtle p-5 md:p-6 flex flex-col gap-4 shadow-sm relative overflow-hidden">
+<div class="absolute -right-24 -top-24 w-80 h-80 rounded-full bg-gradient-to-br from-primary-container/10 via-transparent to-transparent pointer-events-none blur-2xl"></div>
+<div class="flex items-center justify-between z-10">
+<div class="flex items-center gap-3">
+<div class="flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-emerald-complete animate-pulse"></span>
+<h2 class="font-headline-sm text-headline-sm text-text-primary">Active Synced Loadout</h2>
+</div>
+<span class="font-label-sm text-label-sm text-text-muted px-2 py-0.5 rounded bg-surface-elevated border border-border-subtle hidden sm:inline">Profile Sync v2.4</span>
+</div>
+<button class="font-label-sm text-label-sm text-text-muted hover:text-text-primary hover:bg-surface-elevated px-3 py-1.5 rounded-lg transition-colors flex items-center gap-1.5 border border-transparent hover:border-border-subtle" type="button">
+<span class="material-symbols-outlined text-[15px]">power_settings_new</span>
+<span>Unequip All</span>
+</button>
+</div>
+<!-- 5 Loadout Cards -->
+<div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-3 z-10">
+<!-- Slot A: Theme -->
+<div class="p-3.5 rounded-xl bg-surface-elevated border border-primary-container/40 flex flex-col justify-between gap-3 relative group hover:border-primary-container transition-all">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm text-text-muted uppercase tracking-wider">Theme Slot</span>
+<span class="font-label-sm text-label-sm px-1.5 py-0.5 rounded bg-primary-container/20 text-primary border border-border-focus font-medium">EQUIPPED</span>
+</div>
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-lg bg-bg-primary border border-border-subtle flex items-center justify-center relative overflow-hidden flex-shrink-0">
+<div class="absolute inset-1 rounded bg-gradient-to-br from-surface to-bg-secondary flex items-center justify-center">
+<span class="material-symbols-outlined text-primary text-[18px]">palette</span>
+</div>
+</div>
+<div class="flex flex-col min-w-0">
+<span class="font-body-sm text-body-sm font-semibold text-text-primary truncate">Obsidian Deep-Work</span>
+<span class="font-label-sm text-label-sm text-primary">Rare Workspace</span>
+</div>
+</div>
+<button class="w-full py-1.5 rounded-lg bg-surface hover:bg-surface-container text-text-secondary hover:text-text-primary text-center font-label-sm text-label-sm border border-border-subtle transition-colors flex items-center justify-center gap-1" type="button">
+<span class="material-symbols-outlined text-[14px]">swap_horiz</span> Change
+        </button>
+</div>
+<!-- Slot B: Frame -->
+<div class="p-3.5 rounded-xl bg-surface-elevated border border-primary-container/40 flex flex-col justify-between gap-3 relative group hover:border-primary-container transition-all">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm text-text-muted uppercase tracking-wider">Tactical Frame</span>
+<span class="font-label-sm text-label-sm px-1.5 py-0.5 rounded bg-primary-container/20 text-primary border border-border-focus font-medium">EQUIPPED</span>
+</div>
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-lg bg-bg-primary border border-border-subtle flex items-center justify-center relative flex-shrink-0">
+<div class="w-7 h-7 rounded-full border-2 border-dashed border-primary-container flex items-center justify-center">
+<span class="material-symbols-outlined text-text-secondary text-[14px]">face</span>
+</div>
+</div>
+<div class="flex flex-col min-w-0">
+<span class="font-body-sm text-body-sm font-semibold text-text-primary truncate">Orbit Avatar Frame</span>
+<span class="font-label-sm text-label-sm text-purple-400">Epic Cosmetic</span>
+</div>
+</div>
+<button class="w-full py-1.5 rounded-lg bg-surface hover:bg-surface-container text-text-secondary hover:text-text-primary text-center font-label-sm text-label-sm border border-border-subtle transition-colors flex items-center justify-center gap-1" type="button">
+<span class="material-symbols-outlined text-[14px]">swap_horiz</span> Change
+        </button>
+</div>
+<!-- Slot C: Codename -->
+<div class="p-3.5 rounded-xl bg-surface-elevated border border-primary-container/40 flex flex-col justify-between gap-3 relative group hover:border-primary-container transition-all">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm text-text-muted uppercase tracking-wider">Codename Title</span>
+<span class="font-label-sm text-label-sm px-1.5 py-0.5 rounded bg-primary-container/20 text-primary border border-border-focus font-medium">EQUIPPED</span>
+</div>
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-lg bg-bg-primary border border-border-subtle flex items-center justify-center flex-shrink-0">
+<span class="material-symbols-outlined text-secondary text-[18px]">badge</span>
+</div>
+<div class="flex flex-col min-w-0">
+<span class="font-body-sm text-body-sm font-semibold text-text-primary truncate">Arch-Strategist II</span>
+<span class="font-label-sm text-label-sm text-secondary">Prestige Title</span>
+</div>
+</div>
+<button class="w-full py-1.5 rounded-lg bg-surface hover:bg-surface-container text-text-secondary hover:text-text-primary text-center font-label-sm text-label-sm border border-border-subtle transition-colors flex items-center justify-center gap-1" type="button">
+<span class="material-symbols-outlined text-[14px]">swap_horiz</span> Change
+        </button>
+</div>
+<!-- Slot D: Badge -->
+<div class="p-3.5 rounded-xl bg-surface-elevated border border-primary-container/40 flex flex-col justify-between gap-3 relative group hover:border-primary-container transition-all">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm text-text-muted uppercase tracking-wider">Honor Badge</span>
+<span class="font-label-sm text-label-sm px-1.5 py-0.5 rounded bg-primary-container/20 text-primary border border-border-focus font-medium">EQUIPPED</span>
+</div>
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-lg bg-bg-primary border border-border-subtle flex items-center justify-center flex-shrink-0">
+<span class="material-symbols-outlined text-emerald-complete text-[18px]">verified</span>
+</div>
+<div class="flex flex-col min-w-0">
+<span class="font-body-sm text-body-sm font-semibold text-text-primary truncate">Consistency Master</span>
+<span class="font-label-sm text-label-sm text-emerald-complete">Rare Insignia</span>
+</div>
+</div>
+<button class="w-full py-1.5 rounded-lg bg-surface hover:bg-surface-container text-text-secondary hover:text-text-primary text-center font-label-sm text-label-sm border border-border-subtle transition-colors flex items-center justify-center gap-1" type="button">
+<span class="material-symbols-outlined text-[14px]">swap_horiz</span> Change
+        </button>
+</div>
+<!-- Slot E: Active Boost / Consumable -->
+<div class="p-3.5 rounded-xl bg-surface-elevated border border-amber-streak/40 flex flex-col justify-between gap-3 relative group hover:border-amber-streak transition-all">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm text-amber-streak uppercase tracking-wider font-semibold">Consumable Buff</span>
+<span class="font-label-sm text-label-sm px-1.5 py-0.5 rounded bg-amber-streak/20 text-amber-streak border border-amber-streak/30 font-medium">18h REM</span>
+</div>
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-lg bg-bg-primary border border-amber-streak/30 flex items-center justify-center flex-shrink-0 shadow-sm">
+<span class="material-symbols-outlined text-amber-streak text-[18px]">vital_signs</span>
+</div>
+<div class="flex flex-col min-w-0">
+<span class="font-body-sm text-body-sm font-semibold text-text-primary truncate">XP Surge Vial</span>
+<span class="font-label-sm text-label-sm text-amber-streak font-medium">+25% Quest Yield</span>
+</div>
+</div>
+<button class="w-full py-1.5 rounded-lg bg-surface hover:bg-surface-container text-amber-streak text-center font-label-sm text-label-sm border border-border-subtle transition-colors flex items-center justify-center gap-1" type="button">
+<span class="material-symbols-outlined text-[14px]">info</span> Details
+        </button>
+</div>
+</div>
+</section>
+<!-- Filter & Sort Bar -->
+<section class="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-space-md">
+<!-- Filter Tabs -->
+<div class="flex flex-wrap items-center gap-1.5 bg-surface p-1.5 rounded-xl border border-border-subtle w-full lg:w-auto">
+<button class="px-3 py-1.5 rounded-lg bg-surface-elevated text-text-primary font-label-sm text-label-sm font-medium border border-border-subtle transition-colors" type="button">
+        All (18)
+      </button>
+<button class="px-3 py-1.5 rounded-lg text-text-secondary hover:text-text-primary hover:bg-surface-elevated font-label-sm text-label-sm font-medium transition-colors" type="button">
+        Equipped (4)
+      </button>
+<button class="px-3 py-1.5 rounded-lg text-text-secondary hover:text-text-primary hover:bg-surface-elevated font-label-sm text-label-sm font-medium transition-colors" type="button">
+        Themes (4)
+      </button>
+<button class="px-3 py-1.5 rounded-lg text-text-secondary hover:text-text-primary hover:bg-surface-elevated font-label-sm text-label-sm font-medium transition-colors" type="button">
+        Cosmetics (4)
+      </button>
+<button class="px-3 py-1.5 rounded-lg text-text-secondary hover:text-text-primary hover:bg-surface-elevated font-label-sm text-label-sm font-medium transition-colors" type="button">
+        Badges (4)
+      </button>
+<button class="px-3 py-1.5 rounded-lg text-text-secondary hover:text-text-primary hover:bg-surface-elevated font-label-sm text-label-sm font-medium transition-colors" type="button">
+        Titles (3)
+      </button>
+<button class="px-3 py-1.5 rounded-lg text-text-secondary hover:text-text-primary hover:bg-surface-elevated font-label-sm text-label-sm font-medium transition-colors" type="button">
+        Boosts (3)
+      </button>
+</div>
+<!-- Search and Sort controls -->
+<div class="flex items-center gap-2.5 w-full lg:w-auto">
+<div class="relative flex-1 lg:w-64">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-text-muted text-[18px]">search</span>
+<input class="w-full bg-bg-secondary text-text-primary placeholder-text-muted pl-9 pr-3 py-1.5 rounded-lg border border-border-subtle text-body-sm font-body-sm focus:outline-none focus:border-border-focus transition-colors" placeholder="Search inventory..." type="text"/>
+</div>
+<div class="relative">
+<button class="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-surface border border-border-subtle hover:bg-surface-elevated transition-colors text-text-secondary hover:text-text-primary font-label-sm text-label-sm" type="button">
+<span class="material-symbols-outlined text-[16px]">sort</span>
+<span>Sort: Recently Acquired</span>
+<span class="material-symbols-outlined text-[16px]">expand_more</span>
+</button>
+</div>
+</div>
+</section>
+<!-- Inventory Grid & Inspector Layout -->
+<div class="grid grid-cols-1 xl:grid-cols-12 gap-space-lg items-start">
+<!-- Left 8 or 9 Cols: 12 Item Cards Grid -->
+<div class="xl:col-span-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+<!-- Item 1: Obsidian Deep-Work Workspace (Equipped) -->
+<div class="p-4 rounded-2xl bg-surface border border-primary-container/40 flex flex-col justify-between gap-4 relative group shadow-sm hover:border-primary-container transition-all">
+<div class="flex flex-col gap-3">
+<div class="h-32 w-full rounded-xl bg-bg-secondary relative overflow-hidden border border-border-subtle flex items-center justify-center p-3">
+<img class="w-full h-full object-cover rounded-lg" data-alt="A sleek minimalist dark obsidian workspace interface design mockup with high contrast dark charcoal graphite cards, subtle deep indigo border highlights, clean typography, low glare productivity mode, digital art render." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDxljCmPu5Qja_8-HGiMXy8Ms194MJ9zUqj6y1y_-3BAip0Ngo4_kZI2W7ozAkXJRAJQtrvVMZnvxEbXBGVVzEQmBRp3iwaSUUmYgwbvQzVlohLsMP8WAZEU_LZMTCS4RDcS7o4hyRqSLB0x0tRBjt3ymSf78zunGbZHIIMMKBUBXeUT_Mdq22Ilknpgx8d1nt6k_Ou7p5FNxlCNlDVxWG6IYsNzxAharvOIabiLME60ARzNxBlzm8"/>
+<div class="absolute top-2 right-2 px-2 py-0.5 rounded bg-primary-container/90 text-text-primary font-label-sm text-label-sm font-semibold flex items-center gap-1 shadow-sm backdrop-blur-sm">
+<span class="material-symbols-outlined text-[13px]">check</span> Equipped
+            </div>
+<div class="absolute bottom-2 left-2 px-2 py-0.5 rounded bg-bg-primary/90 text-primary font-label-sm text-label-sm border border-border-subtle font-medium">
+              Rare Theme
+            </div>
+</div>
+<div>
+<h3 class="font-headline-sm text-headline-sm text-text-primary truncate">Obsidian Deep-Work</h3>
+<p class="font-body-sm text-body-sm text-text-secondary line-clamp-2 mt-0.5">Low-contrast graphite palette with dynamic task highlighting.</p>
+</div>
+</div>
+<div class="flex items-center justify-between pt-2 border-t border-border-subtle/40">
+<span class="font-label-sm text-label-sm text-text-muted">Acquired 3d ago</span>
+<span class="font-label-sm text-label-sm text-primary font-medium">Active Theme</span>
+</div>
+</div>
+<!-- Item 2: Midnight Calm Environment (Owned) -->
+<div class="p-4 rounded-2xl bg-surface border border-border-subtle flex flex-col justify-between gap-4 relative group shadow-sm hover:border-border-focus transition-all">
+<div class="flex flex-col gap-3">
+<div class="h-32 w-full rounded-xl bg-bg-secondary relative overflow-hidden border border-border-subtle flex items-center justify-center p-3">
+<img class="w-full h-full object-cover rounded-lg" data-alt="Calm midnight blue digital workspace layout preview with deep navy gradients, subtle cyan accent lines, soft ambient illumination, clean minimal dashboard render." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDWJbHcPiYsdn1HtRYMNlOC9IOY5BGGBQgf0Pbosm9fuzZ15-wDPn154QR9-MTik1kNu6AUNVCFz7D-EY65aGoUvX63gFKenbD9F2J8x9VDJpiOsWV_4xbKPbe9U0ESycW6D0ZXPJ7Hpp5Ygk_aIxzsHehXNFP2-xotxC_aowOiyUgAmvpDa3FBOMP0LTJhp6-0gZdN1-P6AiGydZOsOzza_OcSTs64YsRk-GNLPx2-qxlOOcTjVs4"/>
+<div class="absolute bottom-2 left-2 px-2 py-0.5 rounded bg-bg-primary/90 text-tertiary font-label-sm text-label-sm border border-border-subtle font-medium">
+              Uncommon Theme
+            </div>
+</div>
+<div>
+<h3 class="font-headline-sm text-headline-sm text-text-primary truncate">Midnight Calm Environment</h3>
+<p class="font-body-sm text-body-sm text-text-secondary line-clamp-2 mt-0.5">Deep navy accents reducing eye strain during night execution cycles.</p>
+</div>
+</div>
+<div class="flex items-center justify-between pt-2 border-t border-border-subtle/40">
+<span class="font-label-sm text-label-sm text-text-muted">Acquired 7d ago</span>
+<button class="px-3 py-1 rounded-lg bg-surface-elevated hover:bg-primary-container hover:text-text-primary text-text-secondary text-center font-label-sm text-label-sm border border-border-subtle transition-all" type="button">
+            Equip Theme
+          </button>
+</div>
+</div>
+<!-- Item 3: Orbit Avatar Frame (Equipped) -->
+<div class="p-4 rounded-2xl bg-surface border border-primary-container/40 flex flex-col justify-between gap-4 relative group shadow-sm hover:border-primary-container transition-all">
+<div class="flex flex-col gap-3">
+<div class="h-32 w-full rounded-xl bg-bg-secondary relative overflow-hidden border border-border-subtle flex items-center justify-center">
+<div class="w-20 h-20 rounded-full border-2 border-dashed border-primary-container/80 flex items-center justify-center relative">
+<span class="w-16 h-16 rounded-full bg-surface-elevated flex items-center justify-center text-primary font-bold text-lg">K</span>
+<div class="absolute -top-1 right-1 w-3 h-3 rounded-full bg-tertiary shadow-sm"></div>
+</div>
+<div class="absolute top-2 right-2 px-2 py-0.5 rounded bg-primary-container/90 text-text-primary font-label-sm text-label-sm font-semibold flex items-center gap-1 shadow-sm backdrop-blur-sm">
+<span class="material-symbols-outlined text-[13px]">check</span> Equipped
+            </div>
+<div class="absolute bottom-2 left-2 px-2 py-0.5 rounded bg-bg-primary/90 text-purple-400 font-label-sm text-label-sm border border-border-subtle font-medium">
+              Epic Cosmetic
+            </div>
+</div>
+<div>
+<h3 class="font-headline-sm text-headline-sm text-text-primary truncate">Orbit Avatar Frame</h3>
+<p class="font-body-sm text-body-sm text-text-secondary line-clamp-2 mt-0.5">Rotating planetary orbital telemetry boundary for your profile badge.</p>
+</div>
+</div>
+<div class="flex items-center justify-between pt-2 border-t border-border-subtle/40">
+<span class="font-label-sm text-label-sm text-text-muted">Season 2 Reward</span>
+<span class="font-label-sm text-label-sm text-primary font-medium">Active Frame</span>
+</div>
+</div>
+<!-- Item 4: Tactical Glass Frame (Owned) -->
+<div class="p-4 rounded-2xl bg-surface border border-border-subtle flex flex-col justify-between gap-4 relative group shadow-sm hover:border-border-focus transition-all">
+<div class="flex flex-col gap-3">
+<div class="h-32 w-full rounded-xl bg-bg-secondary relative overflow-hidden border border-border-subtle flex items-center justify-center">
+<div class="w-18 h-18 rounded-xl border border-white/20 bg-white/5 backdrop-blur-md flex items-center justify-center p-3">
+<span class="material-symbols-outlined text-text-secondary text-[28px]">shield</span>
+</div>
+<div class="absolute bottom-2 left-2 px-2 py-0.5 rounded bg-bg-primary/90 text-primary font-label-sm text-label-sm border border-border-subtle font-medium">
+              Rare Cosmetic
+            </div>
+</div>
+<div>
+<h3 class="font-headline-sm text-headline-sm text-text-primary truncate">Tactical Glass Frame</h3>
+<p class="font-body-sm text-body-sm text-text-secondary line-clamp-2 mt-0.5">Frosted prism border featuring micro grid line alignment marks.</p>
+</div>
+</div>
+<div class="flex items-center justify-between pt-2 border-t border-border-subtle/40">
+<span class="font-label-sm text-label-sm text-text-muted">Acquired 10d ago</span>
+<button class="px-3 py-1 rounded-lg bg-surface-elevated hover:bg-primary-container hover:text-text-primary text-text-secondary text-center font-label-sm text-label-sm border border-border-subtle transition-all" type="button">
+            Equip Frame
+          </button>
+</div>
+</div>
+<!-- Item 5: XP Surge Vial (x2 Consumable) -->
+<div class="p-4 rounded-2xl bg-surface border border-border-subtle flex flex-col justify-between gap-4 relative group shadow-sm hover:border-amber-streak/40 transition-all">
+<div class="flex flex-col gap-3">
+<div class="h-32 w-full rounded-xl bg-bg-secondary relative overflow-hidden border border-border-subtle flex items-center justify-center">
+<div class="w-12 h-12 rounded-xl bg-amber-streak/10 border border-amber-streak/30 flex items-center justify-center">
+<span class="material-symbols-outlined text-amber-streak text-[28px]">vital_signs</span>
+</div>
+<div class="absolute top-2 right-2 px-2 py-0.5 rounded bg-amber-streak/20 text-amber-streak font-label-sm text-label-sm font-semibold border border-amber-streak/30">
+              2 IN STOCK
+            </div>
+<div class="absolute bottom-2 left-2 px-2 py-0.5 rounded bg-bg-primary/90 text-amber-streak font-label-sm text-label-sm border border-border-subtle font-medium">
+              +25% XP Buff
+            </div>
+</div>
+<div>
+<h3 class="font-headline-sm text-headline-sm text-text-primary truncate">XP Surge Vial (x2)</h3>
+<p class="font-body-sm text-body-sm text-text-secondary line-clamp-2 mt-0.5">Increases all task and quest XP output by 25% for 24 continuous hours.</p>
+</div>
+</div>
+<div class="flex items-center justify-between pt-2 border-t border-border-subtle/40">
+<span class="font-label-sm text-label-sm text-text-muted">Boost Item</span>
+<button class="px-3 py-1 rounded-lg bg-amber-streak/10 hover:bg-amber-streak text-amber-streak hover:text-bg-primary font-label-sm text-label-sm font-medium border border-amber-streak/30 transition-all" type="button">
+            Use Consumable
+          </button>
+</div>
+</div>
+<!-- Item 6: Consistency Master Insignia (Equipped) -->
+<div class="p-4 rounded-2xl bg-surface border border-primary-container/40 flex flex-col justify-between gap-4 relative group shadow-sm hover:border-primary-container transition-all">
+<div class="flex flex-col gap-3">
+<div class="h-32 w-full rounded-xl bg-bg-secondary relative overflow-hidden border border-border-subtle flex items-center justify-center">
+<div class="w-14 h-14 rounded-full bg-emerald-complete/10 border border-emerald-complete/40 flex items-center justify-center">
+<span class="material-symbols-outlined text-emerald-complete text-[28px]">local_fire_department</span>
+</div>
+<div class="absolute top-2 right-2 px-2 py-0.5 rounded bg-primary-container/90 text-text-primary font-label-sm text-label-sm font-semibold flex items-center gap-1 shadow-sm backdrop-blur-sm">
+<span class="material-symbols-outlined text-[13px]">check</span> Equipped
+            </div>
+<div class="absolute bottom-2 left-2 px-2 py-0.5 rounded bg-bg-primary/90 text-emerald-complete font-label-sm text-label-sm border border-border-subtle font-medium">
+              Rare Badge
+            </div>
+</div>
+<div>
+<h3 class="font-headline-sm text-headline-sm text-text-primary truncate">Consistency Master</h3>
+<p class="font-body-sm text-body-sm text-text-secondary line-clamp-2 mt-0.5">Awarded for unbroken daily streak protocols surpassing two weeks.</p>
+</div>
+</div>
+<div class="flex items-center justify-between pt-2 border-t border-border-subtle/40">
+<span class="font-label-sm text-label-sm text-text-muted">14d streak met</span>
+<span class="font-label-sm text-label-sm text-primary font-medium">Displayed</span>
+</div>
+</div>
+<!-- Item 7: First Blood Protocol (Owned Badge) -->
+<div class="p-4 rounded-2xl bg-surface border border-border-subtle flex flex-col justify-between gap-4 relative group shadow-sm hover:border-border-focus transition-all">
+<div class="flex flex-col gap-3">
+<div class="h-32 w-full rounded-xl bg-bg-secondary relative overflow-hidden border border-border-subtle flex items-center justify-center">
+<div class="w-14 h-14 rounded-xl bg-surface-elevated border border-border-subtle flex items-center justify-center">
+<span class="material-symbols-outlined text-text-secondary text-[26px]">flag</span>
+</div>
+<div class="absolute bottom-2 left-2 px-2 py-0.5 rounded bg-bg-primary/90 text-text-secondary font-label-sm text-label-sm border border-border-subtle font-medium">
+              Uncommon Badge
+            </div>
+</div>
+<div>
+<h3 class="font-headline-sm text-headline-sm text-text-primary truncate">First Blood Protocol</h3>
+<p class="font-body-sm text-body-sm text-text-secondary line-clamp-2 mt-0.5">Commemorates completing your initial priority life quest cycle.</p>
+</div>
+</div>
+<div class="flex items-center justify-between pt-2 border-t border-border-subtle/40">
+<span class="font-label-sm text-label-sm text-text-muted">Acquired Day 1</span>
+<button class="px-3 py-1 rounded-lg bg-surface-elevated hover:bg-primary-container hover:text-text-primary text-text-secondary text-center font-label-sm text-label-sm border border-border-subtle transition-all" type="button">
+            Display Badge
+          </button>
+</div>
+</div>
+<!-- Item 8: Arch-Strategist Codename (Equipped Title) -->
+<div class="p-4 rounded-2xl bg-surface border border-primary-container/40 flex flex-col justify-between gap-4 relative group shadow-sm hover:border-primary-container transition-all">
+<div class="flex flex-col gap-3">
+<div class="h-32 w-full rounded-xl bg-bg-secondary relative overflow-hidden border border-border-subtle flex items-center justify-center">
+<div class="px-3 py-2 rounded-lg bg-surface-elevated border border-secondary/40 text-secondary font-label-sm text-label-sm tracking-wider font-semibold">
+              // ARCH-STRATEGIST
+            </div>
+<div class="absolute top-2 right-2 px-2 py-0.5 rounded bg-primary-container/90 text-text-primary font-label-sm text-label-sm font-semibold flex items-center gap-1 shadow-sm backdrop-blur-sm">
+<span class="material-symbols-outlined text-[13px]">check</span> Equipped
+            </div>
+<div class="absolute bottom-2 left-2 px-2 py-0.5 rounded bg-bg-primary/90 text-secondary font-label-sm text-label-sm border border-border-subtle font-medium">
+              Epic Title
+            </div>
+</div>
+<div>
+<h3 class="font-headline-sm text-headline-sm text-text-primary truncate">Arch-Strategist Codename</h3>
+<p class="font-body-sm text-body-sm text-text-secondary line-clamp-2 mt-0.5">Rank insignia recognizing advanced tactical task architecture.</p>
+</div>
+</div>
+<div class="flex items-center justify-between pt-2 border-t border-border-subtle/40">
+<span class="font-label-sm text-label-sm text-text-muted">Level 12 Met</span>
+<span class="font-label-sm text-label-sm text-primary font-medium">Current Title</span>
+</div>
+</div>
+<!-- Item 9: Deep Worker Codename (Owned Title) -->
+<div class="p-4 rounded-2xl bg-surface border border-border-subtle flex flex-col justify-between gap-4 relative group shadow-sm hover:border-border-focus transition-all">
+<div class="flex flex-col gap-3">
+<div class="h-32 w-full rounded-xl bg-bg-secondary relative overflow-hidden border border-border-subtle flex items-center justify-center">
+<div class="px-3 py-2 rounded-lg bg-surface-elevated border border-border-subtle text-text-primary font-label-sm text-label-sm tracking-wider">
+              // DEEP_WORKER
+            </div>
+<div class="absolute bottom-2 left-2 px-2 py-0.5 rounded bg-bg-primary/90 text-primary font-label-sm text-label-sm border border-border-subtle font-medium">
+              Rare Title
+            </div>
+</div>
+<div>
+<h3 class="font-headline-sm text-headline-sm text-text-primary truncate">Deep Worker Codename</h3>
+<p class="font-body-sm text-body-sm text-text-secondary line-clamp-2 mt-0.5">Specialized codename for focused single-task flow state specialists.</p>
+</div>
+</div>
+<div class="flex items-center justify-between pt-2 border-t border-border-subtle/40">
+<span class="font-label-sm text-label-sm text-text-muted">Unlocked LVL 10</span>
+<button class="px-3 py-1 rounded-lg bg-surface-elevated hover:bg-primary-container hover:text-text-primary text-text-secondary text-center font-label-sm text-label-sm border border-border-subtle transition-all" type="button">
+            Set Title
+          </button>
+</div>
+</div>
+<!-- Item 10: Autonomous Task Engine (Legendary - Locked) -->
+<div class="p-4 rounded-2xl bg-surface-dim border border-border-subtle/60 flex flex-col justify-between gap-4 relative group opacity-75 hover:opacity-100 transition-all">
+<div class="flex flex-col gap-3">
+<div class="h-32 w-full rounded-xl bg-bg-secondary/60 relative overflow-hidden border border-border-subtle flex flex-col items-center justify-center p-3">
+<div class="w-12 h-12 rounded-full bg-surface-container flex items-center justify-center text-text-muted">
+<span class="material-symbols-outlined text-[24px]">lock</span>
+</div>
+<div class="absolute top-2 right-2 px-2 py-0.5 rounded bg-surface-container-highest text-text-muted font-label-sm text-label-sm font-medium">
+              LOCKED
+            </div>
+<div class="absolute bottom-2 left-2 px-2 py-0.5 rounded bg-bg-primary/90 text-amber-streak font-label-sm text-label-sm border border-border-subtle font-medium">
+              Legendary Unlock
+            </div>
+</div>
+<div>
+<h3 class="font-headline-sm text-headline-sm text-text-secondary truncate">Autonomous Task Engine</h3>
+<p class="font-body-sm text-body-sm text-text-muted line-clamp-2 mt-0.5">Req. Level 13 Arch-Strategist III · Automatically recycles completed habit nodes.</p>
+</div>
+</div>
+<div class="flex flex-col gap-1.5 pt-2 border-t border-border-subtle/40">
+<div class="flex items-center justify-between font-label-sm text-label-sm text-text-muted">
+<span>LVL 13 Progress</span>
+<span>82.6%</span>
+</div>
+<div class="w-full bg-surface-elevated h-1.5 rounded-full overflow-hidden border border-border-subtle">
+<div class="bg-primary-container h-full rounded-full" style="width: 82.6%"></div>
+</div>
+</div>
+</div>
+<!-- Item 11: Indigo Aura Shard (Owned Card Shader) -->
+<div class="p-4 rounded-2xl bg-surface border border-border-subtle flex flex-col justify-between gap-4 relative group shadow-sm hover:border-border-focus transition-all">
+<div class="flex flex-col gap-3">
+<div class="h-32 w-full rounded-xl bg-bg-secondary relative overflow-hidden border border-border-subtle flex items-center justify-center">
+<div class="w-16 h-16 rounded-xl bg-gradient-to-tr from-primary/20 via-primary-container/30 to-tertiary/20 border border-primary-container/50 flex items-center justify-center">
+<span class="material-symbols-outlined text-primary text-[24px]">auto_awesome</span>
+</div>
+<div class="absolute bottom-2 left-2 px-2 py-0.5 rounded bg-bg-primary/90 text-primary font-label-sm text-label-sm border border-border-subtle font-medium">
+              Rare Card Shader
+            </div>
+</div>
+<div>
+<h3 class="font-headline-sm text-headline-sm text-text-primary truncate">Indigo Aura Shard</h3>
+<p class="font-body-sm text-body-sm text-text-secondary line-clamp-2 mt-0.5">Applies an ambient chromatic gradient edge to your primary task cards.</p>
+</div>
+</div>
+<div class="flex items-center justify-between pt-2 border-t border-border-subtle/40">
+<span class="font-label-sm text-label-sm text-text-muted">Acquired 5d ago</span>
+<button class="px-3 py-1 rounded-lg bg-surface-elevated hover:bg-primary-container hover:text-text-primary text-text-secondary text-center font-label-sm text-label-sm border border-border-subtle transition-all" type="button">
+            Equip Aura
+          </button>
+</div>
+</div>
+<!-- Item 12: Overclock Stim (x1 Boost) -->
+<div class="p-4 rounded-2xl bg-surface border border-border-subtle flex flex-col justify-between gap-4 relative group shadow-sm hover:border-tertiary/40 transition-all">
+<div class="flex flex-col gap-3">
+<div class="h-32 w-full rounded-xl bg-bg-secondary relative overflow-hidden border border-border-subtle flex items-center justify-center">
+<div class="w-12 h-12 rounded-xl bg-tertiary/10 border border-tertiary/40 flex items-center justify-center">
+<span class="material-symbols-outlined text-tertiary text-[26px]">bolt</span>
+</div>
+<div class="absolute top-2 right-2 px-2 py-0.5 rounded bg-tertiary/20 text-tertiary font-label-sm text-label-sm font-semibold border border-tertiary/30">
+              1 IN STOCK
+            </div>
+<div class="absolute bottom-2 left-2 px-2 py-0.5 rounded bg-bg-primary/90 text-tertiary font-label-sm text-label-sm border border-border-subtle font-medium">
+              Rare Boost
+            </div>
+</div>
+<div>
+<h3 class="font-headline-sm text-headline-sm text-text-primary truncate">Overclock Stim (x1)</h3>
+<p class="font-body-sm text-body-sm text-text-secondary line-clamp-2 mt-0.5">Instantly converts 3 routine habits into bonus gold-yielding milestone tasks.</p>
+</div>
+</div>
+<div class="flex items-center justify-between pt-2 border-t border-border-subtle/40">
+<span class="font-label-sm text-label-sm text-text-muted">Consumable Stim</span>
+<button class="px-3 py-1 rounded-lg bg-tertiary/10 hover:bg-tertiary text-tertiary hover:text-bg-primary font-label-sm text-label-sm font-medium border border-tertiary/30 transition-all" type="button">
+            Activate
+          </button>
+</div>
+</div>
+</div>
+<!-- Right 4 Cols: Item Inspection & System Diagnostics Drawer Preview -->
+<div class="xl:col-span-4 flex flex-col gap-4">
+<!-- Primary Item Inspector Card -->
+<div class="w-full rounded-2xl bg-surface border border-border-subtle p-5 flex flex-col gap-5 shadow-sm sticky top-20">
+<div class="flex items-center justify-between pb-3 border-b border-border-subtle">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[18px]">search_insights</span>
+<span class="font-headline-sm text-headline-sm text-text-primary">Item Inspector</span>
+</div>
+<span class="font-label-sm text-label-sm text-text-muted px-2 py-0.5 rounded bg-surface-elevated border border-border-subtle">ID: THM-089</span>
+</div>
+<div class="flex flex-col gap-3">
+<div class="w-full h-44 rounded-xl bg-bg-primary border border-border-subtle relative overflow-hidden flex flex-col items-center justify-center p-3">
+<img class="w-full h-full object-cover rounded-lg" data-alt="High-resolution dark obsidian design system preview with slate graphite panels, muted status indicators, low glare typography, clean UI dashboard illustration." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC3rXy72np__WjookI_UHdzc8yBE24EtDxH54Y9jE7AJemnp2G3lOykaQQ7kU_0BZd94YFch1t6T5yISbwsZRPTc-RmjS-v6aHZ7GDN1Il0b4vzO_0PDC_RdXKbQq80AyROJ3Km4FYqpQsp4ho6im7V7XpPWXMG_IZ_m5w5rq5IGf1JVw_33ffYCGmAwNAhFASSAp0I6S5pkZowhTlcyZKY_hKvIccIbOO48luABKpw9lXs6L61szE"/>
+<div class="absolute inset-0 bg-gradient-to-t from-bg-primary via-transparent to-transparent"></div>
+<div class="absolute bottom-3 left-3 right-3 flex items-center justify-between">
+<span class="px-2 py-0.5 rounded bg-primary-container text-text-primary font-label-sm text-label-sm font-semibold">Active Equipped</span>
+<span class="font-stat-numeric text-stat-numeric text-sm text-secondary">VALUED AT 450 G</span>
+</div>
+</div>
+<div class="flex flex-col gap-1">
+<div class="flex items-center justify-between">
+<h3 class="font-headline-md text-headline-md text-text-primary">Obsidian Deep-Work</h3>
+<span class="font-label-sm text-label-sm text-primary uppercase font-bold">Rare Workspace</span>
+</div>
+<p class="font-body-sm text-body-sm text-text-secondary mt-1">
+              Precision-calibrated interface skin that silences visual friction. Implements deep contrast ratios designed for sustained focus during high-cognitive output sprints.
+            </p>
+</div>
+</div>
+<!-- Token Specs Table -->
+<div class="flex flex-col gap-2 p-3 rounded-xl bg-surface-elevated border border-border-subtle">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-text-muted">Surface Properties</span>
+<div class="grid grid-cols-2 gap-2 pt-1 font-label-sm text-label-sm">
+<div class="flex flex-col">
+<span class="text-text-muted">Canvas Tint</span>
+<span class="text-text-primary font-medium">#0B0E15</span>
+</div>
+<div class="flex flex-col">
+<span class="text-text-muted">Edge Definition</span>
+<span class="text-text-primary font-medium">1px / 0.07 Alpha</span>
+</div>
+<div class="flex flex-col">
+<span class="text-text-muted">Primary Accent</span>
+<span class="text-primary font-medium">#6366F1 (Indigo)</span>
+</div>
+<div class="flex flex-col">
+<span class="text-text-muted">Eye Fatigue Index</span>
+<span class="text-emerald-complete font-medium">Minimal (-42%)</span>
+</div>
+</div>
+</div>
+<!-- Action Matrix -->
+<div class="flex flex-col gap-2">
+<button class="w-full py-2.5 rounded-lg bg-surface-elevated hover:bg-surface-container text-text-primary font-body-sm text-body-sm font-medium border border-border-subtle flex items-center justify-center gap-2 transition-colors" type="button">
+<span class="material-symbols-outlined text-[18px]">swap_horiz</span>
+<span>Switch with Midnight Calm</span>
+</button>
+<a class="w-full py-2.5 rounded-lg bg-primary hover:bg-primary-container text-on-primary font-body-sm text-body-sm font-medium flex items-center justify-center gap-2 transition-colors" data-path="character" href="#">
+<span class="material-symbols-outlined text-[18px]">shield_person</span>
+<span>Preview in Character Studio</span>
+</a>
+</div>
+</div>
+<!-- Quick Vault Telemetry Card -->
+<div class="w-full rounded-2xl bg-surface border border-border-subtle p-5 flex flex-col gap-3 shadow-sm">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm text-text-muted uppercase tracking-wider">Vault Capacity</span>
+<span class="font-label-sm text-label-sm text-emerald-complete font-medium">18 / 60 Slots (30%)</span>
+</div>
+<div class="w-full bg-surface-elevated h-1.5 rounded-full overflow-hidden border border-border-subtle">
+<div class="bg-emerald-complete h-full rounded-full" style="width: 30%"></div>
+</div>
+<div class="flex items-center justify-between text-body-sm font-body-sm pt-1">
+<span class="text-text-secondary">Gold Vault:</span>
+<span class="font-stat-numeric text-stat-numeric text-[14px] text-secondary">1,420 G</span>
+</div>
+<a class="w-full py-2 rounded-lg bg-surface-elevated hover:bg-surface-container text-text-secondary hover:text-text-primary text-center font-label-sm text-label-sm border border-border-subtle transition-colors flex items-center justify-center gap-1.5 mt-1" data-path="rewards" href="#">
+<span class="material-symbols-outlined text-[16px]">storefront</span> Visit Reward Exchange
+        </a>
+</div>
+</div>
+</div>
+</div></main></div></body></html>

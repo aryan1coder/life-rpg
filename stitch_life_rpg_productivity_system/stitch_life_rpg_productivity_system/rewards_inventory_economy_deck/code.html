@@ -1,0 +1,883 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@500;600;700&amp;family=Space+Grotesk:wght@600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = {"darkMode":"class","theme":{"extend":{"colors":{"secondary-container":"#ee9800","secondary":"#ffb95f","on-tertiary-fixed":"#001f26","inverse-primary":"#494bd6","error-container":"#93000a","inverse-on-surface":"#2d3038","on-surface-variant":"#c7c4d7","tertiary-fixed":"#acedff","on-surface":"#e0e2ec","outline":"#908fa0","background":"#10131a","on-tertiary-container":"#002f38","on-secondary-fixed":"#2a1700","outline-variant":"#464554","surface-bright":"#363941","tertiary-container":"#009eb9","surface-tint":"#c0c1ff","primary-fixed":"#e1e0ff","secondary-fixed":"#ffddb8","on-secondary-fixed-variant":"#653e00","on-primary-fixed-variant":"#2f2ebe","primary-container":"#8083ff","on-tertiary":"#003640","surface-container":"#1d2027","primary-fixed-dim":"#c0c1ff","on-error-container":"#ffdad6","surface-container-high":"#272a32","surface-dim":"#10131a","secondary-fixed-dim":"#ffb95f","tertiary":"#4cd7f6","primary":"#c0c1ff","on-primary":"#1000a9","error":"#ffb4ab","surface":"#10131a","tertiary-fixed-dim":"#4cd7f6","surface-variant":"#32353d","on-primary-fixed":"#07006c","on-secondary-container":"#5b3800","on-background":"#e0e2ec","on-secondary":"#472a00","on-primary-container":"#0d0096","on-tertiary-fixed-variant":"#004e5c","on-error":"#690005","surface-container-highest":"#32353d","surface-container-low":"#191b23","inverse-surface":"#e0e2ec","surface-container-lowest":"#0b0e15"},"borderRadius":{"DEFAULT":"0.125rem","lg":"0.25rem","xl":"0.5rem","full":"0.75rem"},"spacing":{"gutter-mobile":"0.75rem","margin":"2rem","space-sm":"0.5rem","space-md":"1rem","margin-mobile":"1rem","space-xs":"0.25rem","space-lg":"1.5rem","space-2xl":"3rem","gutter":"1.5rem","space-xl":"2rem"},"fontFamily":{"label-sm":["JetBrains Mono"],"stat-numeric":["JetBrains Mono"],"body-lg":["Inter"],"body-sm":["Inter"],"headline-hero":["Space Grotesk"],"headline-hero-mobile":["Space Grotesk"],"body-md":["Inter"],"headline-lg-mobile":["Space Grotesk"],"headline-lg":["Space Grotesk"],"headline-sm":["Space Grotesk"],"title-md":["Space Grotesk"],"headline-md":["Space Grotesk"],"label-md":["JetBrains Mono"]},"fontSize":{"label-sm":["10px",{"lineHeight":"14px","letterSpacing":"0.08em","fontWeight":"600"}],"stat-numeric":["22px",{"lineHeight":"28px","letterSpacing":"-0.02em","fontWeight":"700"}],"body-lg":["16px",{"lineHeight":"26px","fontWeight":"400"}],"body-sm":["12px",{"lineHeight":"18px","fontWeight":"400"}],"headline-hero":["48px",{"lineHeight":"56px","letterSpacing":"-0.03em","fontWeight":"700"}],"headline-hero-mobile":["32px",{"lineHeight":"40px","letterSpacing":"-0.02em","fontWeight":"700"}],"body-md":["14px",{"lineHeight":"22px","fontWeight":"400"}],"headline-lg-mobile":["24px",{"lineHeight":"32px","letterSpacing":"-0.01em","fontWeight":"600"}],"headline-lg":["32px",{"lineHeight":"40px","letterSpacing":"-0.02em","fontWeight":"700"}],"headline-sm":["20px",{"lineHeight":"28px","letterSpacing":"0em","fontWeight":"600"}],"title-md":["16px",{"lineHeight":"24px","letterSpacing":"0.01em","fontWeight":"600"}],"headline-md":["24px",{"lineHeight":"32px","letterSpacing":"-0.01em","fontWeight":"600"}],"label-md":["12px",{"lineHeight":"16px","letterSpacing":"0.06em","fontWeight":"500"}]}}}</script></head><body class="bg-background font-body-md text-body-md text-on-surface min-h-screen relative selection:bg-primary selection:text-on-primary"><aside class="fixed left-0 top-0 h-full w-72 bg-surface-container-lowest/90 backdrop-blur-2xl z-50 flex flex-col justify-between py-space-md shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="flex flex-col gap-space-lg"><div class="px-space-md flex items-center justify-between"><div class="flex items-center gap-space-sm"><img alt="LIFE RPG Crest Emblem" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/AEtjO1VbSfhYKcbXhAUIr9-pLsiwvBSLgwakw7fdkXq3szsXQnzb2g_ULv9EmvlgkZeJopKXzqdDZy9Wa8OLbCpXfB3G6I9o5v1jN4WR7oLAaF_3DRjTPzPLFidgjW-3U_kvdIu2UZSJ40fzzhgitYMqHuNSDCRM_Ez1pMQFhUukbzMYbdKnakNc8D1FEIwGJnybK3w98iuLONL8doMHlo1aQQ3h9fhAxhACcWz4cZDWvOjlVFzvtYJdgZul8w"/><div class="flex flex-col"><span class="font-title-md text-title-md text-on-surface tracking-wider uppercase">LIFE RPG</span><span class="font-label-sm text-label-sm text-tertiary flex items-center gap-1"><span class="w-1.5 h-1.5 rounded-full bg-tertiary animate-pulse"></span>SYS v2.4 ONLINE</span></div></div></div><nav class="flex flex-col gap-1 px-space-sm" data-active-classes="bg-primary-container text-on-primary-container font-semibold rounded-lg shadow-[0_0_16px_rgba(128,131,255,0.3)]"><a aria-current="page" class="flex items-center justify-between px-space-md py-space-sm transition-all duration-150 group bg-primary-container text-on-primary-container font-semibold rounded-lg shadow-[0_0_16px_rgba(128,131,255,0.3)]" data-path="command-deck" href="#"><div class="flex items-center gap-space-sm"><span class="material-symbols-outlined text-title-md text-outline group-hover:text-on-surface transition-colors">terminal</span><span class="font-title-md text-body-md tracking-wide uppercase">Home / Command</span></div><kbd class="font-label-sm text-label-sm px-1.5 py-0.5 rounded bg-surface-container text-outline">⌘1</kbd></a><a class="flex items-center justify-between px-space-md py-space-sm rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all duration-150 group" data-path="quests-missions" href="#"><div class="flex items-center gap-space-sm"><span class="material-symbols-outlined text-title-md text-outline group-hover:text-on-surface transition-colors">swords</span><span class="font-title-md text-body-md tracking-wide uppercase">Quests &amp; Missions</span></div><kbd class="font-label-sm text-label-sm px-1.5 py-0.5 rounded bg-surface-container text-outline">⌘2</kbd></a><a class="flex items-center justify-between px-space-md py-space-sm rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all duration-150 group" data-path="character-stats" href="#"><div class="flex items-center gap-space-sm"><span class="material-symbols-outlined text-title-md text-outline group-hover:text-on-surface transition-colors">person</span><span class="font-title-md text-body-md tracking-wide uppercase">Character Stats</span></div><kbd class="font-label-sm text-label-sm px-1.5 py-0.5 rounded bg-surface-container text-outline">⌘3</kbd></a><a class="flex items-center justify-between px-space-md py-space-sm rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all duration-150 group" data-path="rewards-loot" href="#"><div class="flex items-center gap-space-sm"><span class="material-symbols-outlined text-title-md text-outline group-hover:text-on-surface transition-colors">featured_seasonal_and_gifts</span><span class="font-title-md text-body-md tracking-wide uppercase">Rewards &amp; Loot</span></div><kbd class="font-label-sm text-label-sm px-1.5 py-0.5 rounded bg-surface-container text-outline">⌘4</kbd></a><a class="flex items-center justify-between px-space-md py-space-sm rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all duration-150 group" data-path="inventory-gear" href="#"><div class="flex items-center gap-space-sm"><span class="material-symbols-outlined text-title-md text-outline group-hover:text-on-surface transition-colors">shield</span><span class="font-title-md text-body-md tracking-wide uppercase">Inventory &amp; Gear</span></div><kbd class="font-label-sm text-label-sm px-1.5 py-0.5 rounded bg-surface-container text-outline">⌘5</kbd></a><a class="flex items-center justify-between px-space-md py-space-sm rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all duration-150 group" data-path="achievements-badges" href="#"><div class="flex items-center gap-space-sm"><span class="material-symbols-outlined text-title-md text-outline group-hover:text-on-surface transition-colors">military_tech</span><span class="font-title-md text-body-md tracking-wide uppercase">Achievements</span></div><kbd class="font-label-sm text-label-sm px-1.5 py-0.5 rounded bg-surface-container text-outline">⌘6</kbd></a></nav></div><div class="px-space-md flex flex-col gap-space-sm"><div class="flex items-center justify-between p-space-sm rounded-lg bg-surface-container-high/60"><div class="flex items-center gap-1.5"><span class="material-symbols-outlined text-secondary text-title-md animate-pulse">local_fire_department</span><span class="font-label-md text-label-md text-secondary font-bold">14 DAYS STREAK</span></div><span class="w-2 h-2 rounded-full bg-secondary-container"></span></div><div class="flex items-center justify-between pt-space-xs"><button class="flex items-center gap-1 px-2 py-1 rounded bg-surface-container text-outline hover:text-on-surface hover:bg-surface-container-high transition-colors" type="button"><span class="material-symbols-outlined text-body-sm">volume_up</span><span class="font-label-sm text-label-sm uppercase">SFX ON</span></button><a class="p-1.5 rounded-lg text-outline hover:text-on-surface hover:bg-surface-container transition-colors" data-path="settings" href="#" title="Settings"><span class="material-symbols-outlined text-title-md">settings</span></a></div></div></aside><div class="pl-72"><header class="fixed top-0 left-72 right-0 h-16 bg-surface-container-lowest/80 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)] z-40"><div class="h-16 w-full px-gutter flex items-center justify-between gap-space-md"><div class="flex items-center gap-space-md"><div class="flex items-center gap-2 px-space-sm py-1 rounded-full bg-surface-container"><span class="w-2 h-2 rounded-full bg-tertiary animate-ping"></span><span class="w-2 h-2 rounded-full bg-tertiary -ml-3.5"></span><span class="font-label-sm text-label-sm text-on-surface uppercase tracking-wider">COMMAND DECK // SECTOR 07</span></div></div><div class="hidden xl:flex items-center gap-space-md px-space-md py-1.5 rounded-lg bg-surface-container-low"><div class="flex flex-col"><span class="font-headline-sm text-body-sm text-primary uppercase font-bold tracking-wide">LV. 12 CYBER-PALADIN</span><div class="flex items-center gap-2"><div class="w-44 h-1.5 rounded-full bg-surface-container overflow-hidden"><div class="h-full bg-gradient-to-r from-inverse-primary to-primary rounded-full" style="width: 82%;"></div></div><span class="font-label-sm text-label-sm text-on-surface-variant">2,480 / 3,000 XP (82%)</span></div></div></div><div class="flex items-center gap-space-md"><div class="flex items-center gap-space-sm"><div class="flex items-center gap-1.5 px-space-sm py-1 rounded bg-surface-container-high"><span class="material-symbols-outlined text-secondary text-title-md">hexagon</span><span class="font-label-md text-label-md text-secondary font-bold">1,420 GOLD</span></div><div class="flex items-center gap-1.5 px-space-sm py-1 rounded bg-surface-container-high"><span class="material-symbols-outlined text-tertiary text-title-md">bolt</span><span class="font-label-md text-label-md text-tertiary font-bold">85/100 AP</span></div></div><button class="relative p-2 text-outline hover:text-on-surface transition-colors" type="button"><span class="material-symbols-outlined text-title-md">notifications</span><span class="absolute top-1.5 right-1.5 w-2 h-2 rounded-full bg-error ring-2 ring-surface-container-lowest"></span></button><div class="relative flex items-center pl-space-xs"><img alt="Profile" class="w-8 h-8 rounded-full object-cover ring-2 ring-primary-container" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAfSAhjqlKlBy8eMpX6DcEFhNiWiNgK6sIdoMSftXsEHPJWOVgnqfuokBmDy9e9VP09XdAR8Ps1z1hq4MrhzDK4MptLZGJOAAZt05Wumo8VQ60ii4aNWXqpjyM8HEG0ovykcguUW0KPYxjcyX30nUF3pcRRstQhwIP1iSsG2E2K4aKXqHRgRCXpcP5TtZhvqFNXjrXTOhE9jG2GmDF3MKmM_g_2r5TUd9Qc9mQVnTHkdauzsZ8InuQ"/><span class="absolute -bottom-1 -right-1 font-label-sm text-label-sm bg-primary text-on-primary px-1 rounded-full text-[9px] font-bold">12</span></div></div></div></header><main class="relative pt-16 bg-background w-full min-h-screen px-gutter py-space-lg"><div class="flex flex-col w-full">
+<!-- Toast Notification -->
+<div class="fixed top-20 right-8 z-50 flex items-center gap-space-md px-space-md py-space-sm rounded-xl bg-surface-container-high shadow-xl transition-all duration-300 transform translate-y-0 opacity-100" id="reward-toast">
+<div class="flex items-center justify-center w-8 h-8 rounded-lg bg-secondary/10 text-secondary">
+<span class="material-symbols-outlined text-headline-sm">rewarded_ads</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-secondary">Recent Reward Drop</span>
+<span class="font-body-sm text-body-sm text-on-surface">Focus Surge Elixir • Hackathon MVP Stage 3 complete</span>
+</div>
+<button class="text-outline hover:text-on-surface ml-space-sm" onclick="document.getElementById('reward-toast').style.opacity='0'; setTimeout(()=&gt;document.getElementById('reward-toast').remove(), 300)">
+<span class="material-symbols-outlined text-body-md">close</span>
+</button>
+</div>
+<!-- Header Section & Telemetry Deck -->
+<div class="flex flex-col gap-space-lg mb-space-xl">
+<div class="flex flex-col lg:flex-row lg:items-end justify-between gap-space-md">
+<div class="flex flex-col gap-space-xs">
+<div class="flex items-center gap-space-sm">
+<span class="font-label-sm text-label-sm uppercase px-space-sm py-0.5 rounded bg-surface-container text-primary font-semibold">ECO-SYS // ARCHIVE &amp; VAULT</span>
+<span class="font-label-sm text-label-sm text-outline">DECK REF 04.9A</span>
+</div>
+<h1 class="font-headline-hero text-headline-hero text-on-surface tracking-tight">Rewards &amp; Vault</h1>
+<p class="font-body-md text-body-md text-text-secondary max-w-xl">
+          Turn your real-world disciplined execution into permanent environmental assets and tactical gear.
+        </p>
+</div>
+<!-- Telemetry Strip -->
+<div class="flex flex-wrap items-center gap-space-sm bg-surface-container-lowest p-1.5 rounded-xl shadow-sm">
+<div class="flex items-center gap-space-xs px-space-md py-space-xs rounded-lg bg-surface-container">
+<span class="material-symbols-outlined text-secondary text-headline-sm animate-pulse">monetization_on</span>
+<div class="flex flex-col">
+<span class="font-stat-numeric text-stat-numeric text-secondary font-bold" id="current-gold-display">1,420 G</span>
+<span class="font-label-sm text-[10px] text-outline uppercase tracking-wider">Vault Reserve</span>
+</div>
+</div>
+<div class="flex items-center gap-space-xs px-space-md py-space-xs rounded-lg bg-surface-container">
+<span class="material-symbols-outlined text-primary text-headline-sm">military_tech</span>
+<div class="flex flex-col">
+<span class="font-stat-numeric text-stat-numeric text-on-surface font-semibold">LVL 12</span>
+<span class="font-label-sm text-[10px] text-outline uppercase tracking-wider">Arch-Strategist</span>
+</div>
+</div>
+<div class="flex items-center gap-space-xs px-space-md py-space-xs rounded-lg bg-surface-container">
+<span class="material-symbols-outlined text-amber-streak text-headline-sm">local_fire_department</span>
+<div class="flex flex-col">
+<span class="font-stat-numeric text-stat-numeric text-amber-streak font-bold">14D</span>
+<span class="font-label-sm text-[10px] text-outline uppercase tracking-wider">Streak Lock</span>
+</div>
+</div>
+<div class="hidden sm:flex flex-col justify-center px-space-md py-space-xs rounded-lg bg-surface-container">
+<div class="flex justify-between items-center gap-space-md mb-1">
+<span class="font-label-sm text-[10px] text-outline uppercase tracking-wider">EXP Pool</span>
+<span class="font-label-sm text-[10px] text-primary font-semibold">8,260 / 10,000</span>
+</div>
+<div class="w-32 h-1.5 bg-surface-container-highest rounded-full overflow-hidden">
+<div class="h-full bg-primary rounded-full" style="width: 82.6%"></div>
+</div>
+</div>
+</div>
+</div>
+<!-- Navigation Tabs Switcher -->
+<div class="flex items-center justify-between gap-space-md pt-space-sm">
+<div class="inline-flex p-1 rounded-xl bg-surface-container-low shadow-inner">
+<button class="flex items-center gap-space-xs px-space-lg py-space-xs rounded-lg bg-surface text-on-surface font-title-md text-body-md shadow-sm transition-all duration-150" id="tab-store-btn" onclick="switchMainTab('store')">
+<span class="material-symbols-outlined text-headline-sm text-primary">storefront</span>
+<span>Reward Store</span>
+<span class="font-label-sm text-label-sm px-1.5 py-0.5 rounded bg-surface-container-high text-outline ml-space-xs">24</span>
+</button>
+<button class="flex items-center gap-space-xs px-space-lg py-space-xs rounded-lg text-text-secondary hover:text-on-surface font-title-md text-body-md transition-all duration-150" id="tab-inventory-btn" onclick="switchMainTab('inventory')">
+<span class="material-symbols-outlined text-headline-sm">inventory_2</span>
+<span>My Inventory</span>
+<span class="font-label-sm text-label-sm px-1.5 py-0.5 rounded bg-surface-container text-text-muted ml-space-xs">18</span>
+</button>
+</div>
+<div class="flex items-center gap-space-xs">
+<div class="hidden md:flex items-center gap-2 px-space-sm py-1 rounded bg-surface-container-low text-text-secondary text-label-sm font-label-sm">
+<span class="w-2 h-2 rounded-full bg-emerald-complete"></span>
+<span>MARKET TICK: ACTIVE</span>
+</div>
+<button class="p-2 rounded-lg bg-surface-container text-outline hover:text-on-surface hover:bg-surface-container-high transition-colors" title="Filter Settings" type="button">
+<span class="material-symbols-outlined text-headline-sm">tune</span>
+</button>
+</div>
+</div>
+</div>
+<!-- SECTION 1: Featured Milestone Spotlight Hero -->
+<div class="relative w-full rounded-xl bg-surface p-space-lg shadow-md mb-space-xl overflow-hidden group">
+<div class="absolute -top-32 -right-32 w-96 h-96 rounded-full bg-primary/10 blur-3xl pointer-events-none"></div>
+<div class="absolute -bottom-24 -left-24 w-80 h-80 rounded-full bg-tertiary/5 blur-3xl pointer-events-none"></div>
+<div class="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-space-xl items-center">
+<!-- Left Editorial Column -->
+<div class="lg:col-span-6 flex flex-col gap-space-md">
+<div class="flex items-center gap-space-sm flex-wrap">
+<span class="px-2.5 py-1 rounded font-label-sm text-label-sm uppercase tracking-wider font-semibold bg-primary/10 text-primary">
+            ENVIRONMENT THEME
+          </span>
+<span class="px-2.5 py-1 rounded font-label-sm text-label-sm uppercase tracking-wider font-semibold bg-surface-container-high text-tertiary flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary animate-ping"></span>
+            RARE PROTOCOL
+          </span>
+<span class="font-label-sm text-label-sm text-emerald-complete flex items-center gap-1">
+<span class="material-symbols-outlined text-body-md">check_circle</span>
+            Level 10+ Met
+          </span>
+</div>
+<div class="flex flex-col gap-space-xs">
+<h2 class="font-headline-lg text-headline-lg text-on-surface tracking-tight">
+            Focus Mode: Obsidian Deep-Work Environment
+          </h2>
+<p class="font-body-lg text-body-lg text-text-secondary leading-relaxed">
+            A calm, ultra-low distraction workspace layout engineered specifically for prolonged 90-minute hyperfocus intervals. Drops non-essential dashboard saturation by 40% and highlights primary quest telemetry.
+          </p>
+</div>
+<!-- Telemetry Spec Badges -->
+<div class="grid grid-cols-3 gap-space-sm py-space-xs">
+<div class="flex flex-col p-space-sm rounded-lg bg-surface-container-low">
+<span class="font-label-sm text-[10px] text-outline uppercase tracking-wider">Exchange Cost</span>
+<div class="flex items-center gap-1 text-secondary font-stat-numeric text-body-lg font-bold">
+<span class="material-symbols-outlined text-body-md">toll</span>
+<span>750 G</span>
+</div>
+</div>
+<div class="flex flex-col p-space-sm rounded-lg bg-surface-container-low">
+<span class="font-label-sm text-[10px] text-outline uppercase tracking-wider">Perception Yield</span>
+<span class="font-label-md text-label-md text-primary font-bold">+18% Cog-Rate</span>
+</div>
+<div class="flex flex-col p-space-sm rounded-lg bg-surface-container-low">
+<span class="font-label-sm text-[10px] text-outline uppercase tracking-wider">Status</span>
+<span class="font-label-md text-label-md text-emerald-complete font-bold">Unlocked • Eligible</span>
+</div>
+</div>
+<!-- Action Row -->
+<div class="flex items-center gap-space-sm pt-space-xs">
+<button class="flex items-center gap-space-xs px-space-lg py-space-sm rounded-lg bg-primary-container text-on-primary-container font-title-md text-body-md font-semibold hover:bg-inverse-primary transition-all duration-150 shadow-md" onclick="openDrawer('Deep Work Environment', 750, 'theme')">
+<span class="material-symbols-outlined text-headline-sm">shopping_bag</span>
+<span>Redeem 750 G</span>
+</button>
+<button class="flex items-center gap-space-xs px-space-md py-space-sm rounded-lg bg-surface-container text-on-surface font-title-md text-body-md hover:bg-surface-container-high transition-colors" onclick="previewThemeModal()">
+<span class="material-symbols-outlined text-body-md text-outline">visibility</span>
+<span>Interactive Preview</span>
+</button>
+</div>
+</div>
+<!-- Right Visual Spec Column -->
+<div class="lg:col-span-6 flex flex-col">
+<div class="relative w-full rounded-lg bg-surface-container-lowest overflow-hidden shadow-xl p-space-md flex flex-col gap-space-sm">
+<!-- Terminal Frame Header -->
+<div class="flex items-center justify-between pb-space-xs">
+<div class="flex items-center gap-1.5">
+<span class="w-2.5 h-2.5 rounded-full bg-error/60"></span>
+<span class="w-2.5 h-2.5 rounded-full bg-secondary/60"></span>
+<span class="w-2.5 h-2.5 rounded-full bg-emerald-complete/60"></span>
+<span class="ml-2 font-label-sm text-[10px] text-outline uppercase">ENVIRONMENT // OBSIDIAN-V2.SHELL</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="font-label-sm text-[10px] px-2 py-0.5 rounded bg-surface text-primary">LIVE HUD STREAM</span>
+</div>
+</div>
+<!-- Synthetic IDE & Task Matrix Simulation -->
+<div class="relative w-full h-64 rounded bg-surface-container p-space-md flex flex-col justify-between overflow-hidden">
+<div class="flex items-center justify-between text-label-sm font-label-sm text-outline">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-body-md">terminal</span>
+<span class="text-on-surface">system_session_090.sh</span>
+</div>
+<span class="text-tertiary">01:24:18 / HYPERFOCUS</span>
+</div>
+<div class="space-y-2 py-2">
+<div class="p-2.5 rounded bg-surface-container-high flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-emerald-complete text-body-sm">check_circle</span>
+<span class="font-body-sm text-body-sm text-on-surface">Architect Distributed Query Index</span>
+</div>
+<span class="font-label-sm text-[10px] text-secondary">+120 EXP</span>
+</div>
+<div class="p-2.5 rounded bg-surface-container-lowest flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
+<span class="font-body-sm text-body-sm text-on-surface">Write Integration Tests: Vault Token API</span>
+</div>
+<span class="font-label-sm text-[10px] text-primary">IN PROGRESS</span>
+</div>
+<div class="p-2.5 rounded bg-surface-container-high opacity-40 flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-outline text-body-sm">radio_button_unchecked</span>
+<span class="font-body-sm text-body-sm text-text-muted">Commit telemetry patch &amp; publish</span>
+</div>
+<span class="font-label-sm text-[10px] text-outline">QUEUED</span>
+</div>
+</div>
+<!-- Footer Telemetry in Preview -->
+<div class="flex items-center justify-between pt-2">
+<div class="flex items-center gap-2">
+<span class="font-label-sm text-[10px] text-outline">NEO-PALETTE</span>
+<div class="flex gap-1">
+<span class="w-3 h-3 rounded-full bg-surface-container-lowest"></span>
+<span class="w-3 h-3 rounded-full bg-surface"></span>
+<span class="w-3 h-3 rounded-full bg-primary"></span>
+<span class="w-3 h-3 rounded-full bg-secondary"></span>
+</div>
+</div>
+<span class="font-label-sm text-[10px] text-primary font-semibold tracking-wider">SATURATION: -40% CALM</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- SECTION 2: Economy & Gold Vault Ledger Strip -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-space-md mb-space-xl">
+<!-- Block 1: Gold Reservoir & Sparkline -->
+<div class="lg:col-span-4 rounded-xl bg-surface p-space-lg flex flex-col justify-between shadow-sm">
+<div class="flex flex-col gap-space-xs">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-outline">RESERVOIR TELEMETRY</span>
+<span class="font-label-sm text-label-sm px-2 py-0.5 rounded bg-secondary/10 text-secondary font-semibold">+47.8% NET</span>
+</div>
+<div class="flex items-baseline gap-space-sm mt-1">
+<span class="font-stat-numeric text-headline-hero text-on-surface font-bold tracking-tight">1,420</span>
+<span class="font-headline-sm text-headline-sm text-secondary font-semibold">GOLD</span>
+</div>
+<p class="font-body-sm text-body-sm text-text-secondary">
+          Rolling balance. +680 G accumulated past 7 days across 18 quest milestones.
+        </p>
+</div>
+<!-- Linear Inline SVG Sparkline -->
+<div class="mt-space-md pt-space-sm">
+<div class="flex items-center justify-between text-label-sm font-label-sm text-outline mb-1">
+<span>MON</span>
+<span>WED</span>
+<span>FRI</span>
+<span class="text-secondary font-bold">TODAY</span>
+</div>
+<svg class="w-full h-14 text-secondary" fill="none" viewbox="0 0 280 60" xmlns="http://www.w3.org/2000/svg">
+<path d="M0 45 C 30 42, 60 50, 90 32 C 120 15, 150 38, 180 20 C 210 5, 240 18, 280 8" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"></path>
+<path d="M0 45 C 30 42, 60 50, 90 32 C 120 15, 150 38, 180 20 C 210 5, 240 18, 280 8 L 280 60 L 0 60 Z" fill="currentColor" fill-opacity="0.08"></path>
+<circle cx="280" cy="8" fill="currentColor" r="4"></circle>
+</svg>
+</div>
+</div>
+<!-- Block 2: Current Tactical Loadout -->
+<div class="lg:col-span-4 rounded-xl bg-surface p-space-lg flex flex-col justify-between shadow-sm">
+<div class="flex items-center justify-between mb-space-xs">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-outline">ACTIVE SYNCED LOADOUT</span>
+<span class="font-label-sm text-label-sm text-primary font-semibold">CONFIG OK</span>
+</div>
+<div class="flex flex-col gap-space-sm my-auto">
+<div class="flex items-center justify-between p-space-xs rounded-lg bg-surface-container-low">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-body-md text-outline">palette</span>
+<span class="font-body-sm text-body-sm text-text-secondary">Equipped Theme</span>
+</div>
+<span class="font-title-md text-body-sm text-on-surface font-semibold">Midnight Graphite</span>
+</div>
+<div class="flex items-center justify-between p-space-xs rounded-lg bg-surface-container-low">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-body-md text-outline">crop_free</span>
+<span class="font-body-sm text-body-sm text-text-secondary">Tactical Frame</span>
+</div>
+<span class="font-title-md text-body-sm text-on-surface font-semibold">Tactical Obsidian</span>
+</div>
+<div class="flex items-center justify-between p-space-xs rounded-lg bg-surface-container-low">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-body-md text-outline">badge</span>
+<span class="font-body-sm text-body-sm text-text-secondary">Squad Title</span>
+</div>
+<span class="font-title-md text-body-sm text-primary font-semibold">Arch-Strategist</span>
+</div>
+<div class="flex items-center justify-between p-space-xs rounded-lg bg-surface-container-low">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-body-md text-amber-streak">speed</span>
+<span class="font-body-sm text-body-sm text-text-secondary">Overclock Buff</span>
+</div>
+<span class="font-title-md text-body-sm text-amber-streak font-semibold">+15% Streak Yield</span>
+</div>
+</div>
+<div class="pt-space-xs">
+<button class="w-full py-1.5 rounded-lg bg-surface-container hover:bg-surface-container-high text-on-surface font-body-sm text-body-sm text-center transition-colors" onclick="switchMainTab('inventory')">
+          Manage Equipment Slots
+        </button>
+</div>
+</div>
+<!-- Block 3: Recent Ledger Activity -->
+<div class="lg:col-span-4 rounded-xl bg-surface p-space-lg flex flex-col justify-between shadow-sm">
+<div class="flex items-center justify-between mb-space-xs">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-outline">LEDGER TRANSACTIONS</span>
+<span class="font-label-sm text-label-sm text-outline">LAST 48H</span>
+</div>
+<div class="flex flex-col divide-y divide-transparent gap-2 my-auto">
+<div class="flex items-center justify-between py-1">
+<div class="flex items-center gap-2">
+<div class="w-7 h-7 rounded-lg bg-emerald-complete/10 text-emerald-complete flex items-center justify-center">
+<span class="material-symbols-outlined text-headline-sm">task_alt</span>
+</div>
+<div class="flex flex-col">
+<span class="font-body-sm text-body-sm text-on-surface font-medium">Sprint Architecture Quest</span>
+<span class="font-label-sm text-[10px] text-text-muted">2h ago • Verified Protocol</span>
+</div>
+</div>
+<span class="font-stat-numeric text-body-sm text-emerald-complete font-bold">+120 G</span>
+</div>
+<div class="flex items-center justify-between py-1">
+<div class="flex items-center gap-2">
+<div class="w-7 h-7 rounded-lg bg-secondary/10 text-secondary flex items-center justify-center">
+<span class="material-symbols-outlined text-headline-sm">local_fire_department</span>
+</div>
+<div class="flex flex-col">
+<span class="font-body-sm text-body-sm text-on-surface font-medium">14-Day Streak Bonus Multiplier</span>
+<span class="font-label-sm text-[10px] text-text-muted">Yesterday • Continuous Node</span>
+</div>
+</div>
+<span class="font-stat-numeric text-body-sm text-secondary font-bold">+250 G</span>
+</div>
+<div class="flex items-center justify-between py-1">
+<div class="flex items-center gap-2">
+<div class="w-7 h-7 rounded-lg bg-primary/10 text-primary flex items-center justify-center">
+<span class="material-symbols-outlined text-headline-sm">shopping_cart_checkout</span>
+</div>
+<div class="flex flex-col">
+<span class="font-body-sm text-body-sm text-on-surface font-medium">Redeemed: Obsidian Environment</span>
+<span class="font-label-sm text-[10px] text-text-muted">3 days ago • Vault Transfer</span>
+</div>
+</div>
+<span class="font-stat-numeric text-body-sm text-outline font-bold">-750 G</span>
+</div>
+</div>
+<div class="pt-space-xs flex justify-between items-center text-label-sm font-label-sm text-outline">
+<span>HASH: 0x88F...A92</span>
+<button class="hover:text-on-surface transition-colors flex items-center gap-1">
+<span>Full Export</span>
+<span class="material-symbols-outlined text-[14px]">arrow_forward</span>
+</button>
+</div>
+</div>
+</div>
+<!-- SECTION 3: Catalog View (Store) -->
+<div class="flex flex-col gap-space-lg" id="catalog-section">
+<!-- Filters and Segmented Tabs -->
+<div class="flex flex-col md:flex-row md:items-center justify-between gap-space-md">
+<div class="flex items-center gap-1.5 overflow-x-auto pb-2 md:pb-0" id="filter-pills">
+<button class="catalog-filter-btn px-space-md py-1 rounded-lg bg-surface-container-high text-on-surface font-label-md text-label-md font-semibold transition-all" onclick="filterCatalog('all')">
+          All (24)
+        </button>
+<button class="catalog-filter-btn px-space-md py-1 rounded-lg bg-surface-container text-text-secondary hover:text-on-surface font-label-md text-label-md transition-all" onclick="filterCatalog('theme')">
+          Themes (6)
+        </button>
+<button class="catalog-filter-btn px-space-md py-1 rounded-lg bg-surface-container text-text-secondary hover:text-on-surface font-label-md text-label-md transition-all" onclick="filterCatalog('cosmetic')">
+          Cosmetics (5)
+        </button>
+<button class="catalog-filter-btn px-space-md py-1 rounded-lg bg-surface-container text-text-secondary hover:text-on-surface font-label-md text-label-md transition-all" onclick="filterCatalog('badge')">
+          Badges (4)
+        </button>
+<button class="catalog-filter-btn px-space-md py-1 rounded-lg bg-surface-container text-text-secondary hover:text-on-surface font-label-md text-label-md transition-all" onclick="filterCatalog('title')">
+          Titles (4)
+        </button>
+<button class="catalog-filter-btn px-space-md py-1 rounded-lg bg-surface-container text-text-secondary hover:text-on-surface font-label-md text-label-md transition-all" onclick="filterCatalog('boost')">
+          Boosts (3)
+        </button>
+<button class="catalog-filter-btn px-space-md py-1 rounded-lg bg-surface-container text-text-secondary hover:text-on-surface font-label-md text-label-md transition-all" onclick="filterCatalog('unlock')">
+          Unlocks (2)
+        </button>
+</div>
+<div class="flex items-center gap-space-sm shrink-0">
+<div class="flex items-center gap-2 px-space-sm py-1.5 rounded-lg bg-surface-container text-body-sm text-text-secondary">
+<span class="material-symbols-outlined text-outline text-headline-sm">swap_vert</span>
+<select class="bg-transparent text-on-surface font-label-md text-label-md focus:outline-none cursor-pointer">
+<option value="featured">Sort: Featured First</option>
+<option value="price-asc">Price: Low to High</option>
+<option value="price-desc">Price: High to Low</option>
+<option value="rarity">Rarity Level</option>
+</select>
+</div>
+</div>
+</div>
+<!-- Catalog Grid of 8 Tactile Items -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-space-md" id="cards-container">
+<!-- Card 1: Theme: Deep Work -->
+<div class="store-card group flex flex-col justify-between rounded-xl bg-surface p-space-md shadow-sm hover:bg-surface-elevated transition-all duration-200" data-category="theme">
+<div class="flex flex-col gap-space-sm">
+<div class="relative w-full h-36 rounded-lg bg-surface-container-low overflow-hidden flex items-center justify-center p-3">
+<div class="w-full h-full rounded bg-surface-container flex flex-col p-2 justify-between">
+<div class="flex items-center justify-between">
+<span class="w-16 h-2 rounded bg-surface-bright"></span>
+<span class="w-3 h-3 rounded-full bg-primary/40"></span>
+</div>
+<div class="space-y-1.5">
+<div class="w-3/4 h-2 rounded bg-surface-container-highest"></div>
+<div class="w-1/2 h-2 rounded bg-surface-container-highest"></div>
+</div>
+<span class="font-label-sm text-[9px] text-primary">FOCUS PROTOCOL ACTIVE</span>
+</div>
+<span class="absolute top-2 right-2 font-label-sm text-[10px] px-2 py-0.5 rounded bg-primary/20 text-primary font-bold">RARE</span>
+</div>
+<div class="flex flex-col gap-1">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-[11px] text-outline uppercase tracking-wider">ENVIRONMENT</span>
+<span class="font-stat-numeric text-body-md text-secondary font-bold">750 G</span>
+</div>
+<h3 class="font-title-md text-title-md text-on-surface group-hover:text-primary transition-colors">Deep Work Workspace</h3>
+<p class="font-body-sm text-body-sm text-text-secondary line-clamp-2">
+              Low-contrast graphite palette with dynamic task highlighting for sustained sprints.
+            </p>
+</div>
+</div>
+<div class="mt-space-md pt-space-xs flex items-center justify-between">
+<span class="font-label-sm text-label-sm text-emerald-complete font-medium">Ready to claim</span>
+<button class="px-space-md py-1.5 rounded-lg bg-surface-container hover:bg-primary hover:text-on-primary text-on-surface font-title-md text-body-sm transition-all" onclick="openDrawer('Deep Work Workspace', 750, 'theme')">
+            Redeem
+          </button>
+</div>
+</div>
+<!-- Card 2: Cosmetic: Orbit Avatar Frame -->
+<div class="store-card group flex flex-col justify-between rounded-xl bg-surface p-space-md shadow-sm hover:bg-surface-elevated transition-all duration-200" data-category="cosmetic">
+<div class="flex flex-col gap-space-sm">
+<div class="relative w-full h-36 rounded-lg bg-surface-container-low overflow-hidden flex items-center justify-center p-3">
+<div class="relative w-20 h-20 rounded-full flex items-center justify-center">
+<div class="absolute inset-0 rounded-full border border-primary/40 animate-spin" style="animation-duration: 8s;"></div>
+<div class="w-14 h-14 rounded-full bg-surface-container flex items-center justify-center">
+<span class="material-symbols-outlined text-primary text-headline-lg">person</span>
+</div>
+</div>
+<span class="absolute top-2 right-2 font-label-sm text-[10px] px-2 py-0.5 rounded bg-primary-container/20 text-primary-container font-bold">EPIC</span>
+</div>
+<div class="flex flex-col gap-1">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-[11px] text-outline uppercase tracking-wider">COSMETIC FRAME</span>
+<span class="font-stat-numeric text-body-md text-secondary font-bold">950 G</span>
+</div>
+<h3 class="font-title-md text-title-md text-on-surface group-hover:text-primary transition-colors">Orbit Avatar Frame</h3>
+<p class="font-body-sm text-body-sm text-text-secondary line-clamp-2">
+              Concentric cybernetic orbital ring with subtle reactive glow responsive to current focus timer.
+            </p>
+</div>
+</div>
+<div class="mt-space-md pt-space-xs flex items-center justify-between">
+<span class="font-label-sm text-label-sm text-text-secondary">Cosmetic only</span>
+<button class="px-space-md py-1.5 rounded-lg bg-surface-container hover:bg-primary hover:text-on-primary text-on-surface font-title-md text-body-sm transition-all" onclick="openDrawer('Orbit Avatar Frame', 950, 'cosmetic')">
+            Redeem
+          </button>
+</div>
+</div>
+<!-- Card 3: Boost: XP Surge Vial -->
+<div class="store-card group flex flex-col justify-between rounded-xl bg-surface p-space-md shadow-sm hover:bg-surface-elevated transition-all duration-200" data-category="boost">
+<div class="flex flex-col gap-space-sm">
+<div class="relative w-full h-36 rounded-lg bg-surface-container-low overflow-hidden flex items-center justify-center p-3">
+<div class="w-14 h-14 rounded-xl bg-emerald-complete/10 flex items-center justify-center text-emerald-complete">
+<span class="material-symbols-outlined text-headline-hero">science</span>
+</div>
+<span class="absolute top-2 right-2 font-label-sm text-[10px] px-2 py-0.5 rounded bg-surface-container-high text-emerald-complete font-bold">UNCOMMON</span>
+<span class="absolute bottom-2 left-2 font-label-sm text-[10px] px-2 py-0.5 rounded bg-surface text-outline">OWNED: 2X</span>
+</div>
+<div class="flex flex-col gap-1">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-[11px] text-outline uppercase tracking-wider">CONSUMABLE BOOST</span>
+<span class="font-stat-numeric text-body-md text-secondary font-bold">350 G</span>
+</div>
+<h3 class="font-title-md text-title-md text-on-surface group-hover:text-primary transition-colors">XP Surge Vial</h3>
+<p class="font-body-sm text-body-sm text-text-secondary line-clamp-2">
+              Grants +25% XP yield across all finished execution quests for 2 consecutive hours.
+            </p>
+</div>
+</div>
+<div class="mt-space-md pt-space-xs flex items-center justify-between">
+<span class="font-label-sm text-label-sm text-emerald-complete">In Stock</span>
+<button class="px-space-md py-1.5 rounded-lg bg-surface-container hover:bg-emerald-complete hover:text-surface-container-lowest text-on-surface font-title-md text-body-sm transition-all" onclick="openDrawer('XP Surge Vial', 350, 'boost')">
+            Acquire More
+          </button>
+</div>
+</div>
+<!-- Card 4: Unlock: Autonomous Task Engine -->
+<div class="store-card group flex flex-col justify-between rounded-xl bg-surface p-space-md shadow-sm opacity-90 hover:opacity-100 transition-all duration-200" data-category="unlock">
+<div class="flex flex-col gap-space-sm">
+<div class="relative w-full h-36 rounded-lg bg-surface-container-lowest overflow-hidden flex items-center justify-center p-3">
+<div class="w-14 h-14 rounded-xl bg-secondary/10 flex items-center justify-center text-secondary">
+<span class="material-symbols-outlined text-headline-hero">auto_mode</span>
+</div>
+<span class="absolute top-2 right-2 font-label-sm text-[10px] px-2 py-0.5 rounded bg-secondary-container/30 text-secondary font-bold">LEGENDARY</span>
+<div class="absolute inset-0 bg-background/60 backdrop-blur-[1px] flex flex-col items-center justify-center gap-1">
+<span class="material-symbols-outlined text-headline-sm text-outline">lock</span>
+<span class="font-label-sm text-[11px] text-on-surface font-semibold uppercase tracking-wider">Level 13 Required</span>
+</div>
+</div>
+<div class="flex flex-col gap-1">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-[11px] text-outline uppercase tracking-wider">FEATURE UNLOCK</span>
+<span class="font-stat-numeric text-body-md text-text-muted font-bold">1,800 G</span>
+</div>
+<h3 class="font-title-md text-title-md text-on-surface group-hover:text-primary transition-colors">Autonomous Task Engine</h3>
+<p class="font-body-sm text-body-sm text-text-secondary line-clamp-2">
+              Automatically aggregates recurring habit pipelines into calendar timeblocks with smart-rescheduling.
+            </p>
+</div>
+</div>
+<div class="mt-space-md pt-space-xs flex items-center justify-between">
+<span class="font-label-sm text-label-sm text-error">Locked (Lvl 12)</span>
+<button class="px-space-md py-1.5 rounded-lg bg-surface-container-high text-outline cursor-not-allowed font-title-md text-body-sm" disabled="">
+            Locked
+          </button>
+</div>
+</div>
+<!-- Card 5: Title: High Architect -->
+<div class="store-card group flex flex-col justify-between rounded-xl bg-surface p-space-md shadow-sm opacity-90 hover:opacity-100 transition-all duration-200" data-category="title">
+<div class="flex flex-col gap-space-sm">
+<div class="relative w-full h-36 rounded-lg bg-surface-container-lowest overflow-hidden flex items-center justify-center p-3">
+<div class="flex flex-col items-center gap-1">
+<span class="material-symbols-outlined text-primary text-headline-lg">verified</span>
+<span class="font-label-sm text-[11px] text-primary uppercase font-bold tracking-widest">[HIGH ARCHITECT]</span>
+</div>
+<span class="absolute top-2 right-2 font-label-sm text-[10px] px-2 py-0.5 rounded bg-primary-container/20 text-primary-container font-bold">EPIC</span>
+<div class="absolute inset-0 bg-background/60 backdrop-blur-[1px] flex flex-col items-center justify-center gap-1">
+<span class="material-symbols-outlined text-headline-sm text-outline">lock</span>
+<span class="font-label-sm text-[11px] text-on-surface font-semibold uppercase tracking-wider">Level 15 Required</span>
+</div>
+</div>
+<div class="flex flex-col gap-1">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-[11px] text-outline uppercase tracking-wider">PRESTIGE TITLE</span>
+<span class="font-stat-numeric text-body-md text-secondary font-bold">1,200 G</span>
+</div>
+<h3 class="font-title-md text-title-md text-on-surface group-hover:text-primary transition-colors">High Architect</h3>
+<p class="font-body-sm text-body-sm text-text-secondary line-clamp-2">
+              Unlocks title flair &amp; gold particle signature on team velocity boards.
+            </p>
+</div>
+</div>
+<div class="mt-space-md pt-space-xs flex items-center justify-between">
+<span class="font-label-sm text-label-sm text-error">Req LVL 15</span>
+<button class="px-space-md py-1.5 rounded-lg bg-surface-container-high text-outline cursor-not-allowed font-title-md text-body-sm" disabled="">
+            Locked
+          </button>
+</div>
+</div>
+<!-- Card 6: Badge: Consistency Master -->
+<div class="store-card group flex flex-col justify-between rounded-xl bg-surface p-space-md shadow-sm hover:bg-surface-elevated transition-all duration-200" data-category="badge">
+<div class="flex flex-col gap-space-sm">
+<div class="relative w-full h-36 rounded-lg bg-surface-container-low overflow-hidden flex items-center justify-center p-3">
+<div class="w-16 h-16 rounded-full bg-secondary/10 flex items-center justify-center text-secondary border border-secondary/20">
+<span class="material-symbols-outlined text-headline-lg">workspace_premium</span>
+</div>
+<span class="absolute top-2 right-2 font-label-sm text-[10px] px-2 py-0.5 rounded bg-surface-container-high text-primary font-bold">RARE</span>
+<span class="absolute bottom-2 left-2 font-label-sm text-[10px] px-2 py-0.5 rounded bg-surface text-emerald-complete">STREAK UNLOCKED</span>
+</div>
+<div class="flex flex-col gap-1">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-[11px] text-outline uppercase tracking-wider">CHIEV BADGE</span>
+<span class="font-stat-numeric text-body-md text-secondary font-bold">500 G</span>
+</div>
+<h3 class="font-title-md text-title-md text-on-surface group-hover:text-primary transition-colors">Consistency Master</h3>
+<p class="font-body-sm text-body-sm text-text-secondary line-clamp-2">
+              Commemorative insignia for holding a continuous 14+ day task streak without fail.
+            </p>
+</div>
+</div>
+<div class="mt-space-md pt-space-xs flex items-center justify-between">
+<span class="font-label-sm text-label-sm text-emerald-complete font-medium">Eligible</span>
+<button class="px-space-md py-1.5 rounded-lg bg-surface-container hover:bg-primary hover:text-on-primary text-on-surface font-title-md text-body-sm transition-all" onclick="openDrawer('Consistency Master Badge', 500, 'badge')">
+            Redeem
+          </button>
+</div>
+</div>
+<!-- Card 7: Cosmetic: Indigo Aura Shard -->
+<div class="store-card group flex flex-col justify-between rounded-xl bg-surface p-space-md shadow-sm hover:bg-surface-elevated transition-all duration-200" data-category="cosmetic">
+<div class="flex flex-col gap-space-sm">
+<div class="relative w-full h-36 rounded-lg bg-surface-container-low overflow-hidden flex items-center justify-center p-3">
+<div class="w-12 h-12 rounded-lg bg-primary/20 rotate-45 flex items-center justify-center shadow-[0_0_20px_rgba(192,193,255,0.4)]">
+<span class="material-symbols-outlined text-primary -rotate-45 text-headline-sm">flare</span>
+</div>
+<span class="absolute top-2 right-2 font-label-sm text-[10px] px-2 py-0.5 rounded bg-surface-container-high text-primary font-bold">RARE</span>
+</div>
+<div class="flex flex-col gap-1">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-[11px] text-outline uppercase tracking-wider">CARD SHADER</span>
+<span class="font-stat-numeric text-body-md text-secondary font-bold">600 G</span>
+</div>
+<h3 class="font-title-md text-title-md text-on-surface group-hover:text-primary transition-colors">Indigo Aura Shard</h3>
+<p class="font-body-sm text-body-sm text-text-secondary line-clamp-2">
+              Gives your character stats profile card an ambient slow-breathing chromatic rim aura.
+            </p>
+</div>
+</div>
+<div class="mt-space-md pt-space-xs flex items-center justify-between">
+<span class="font-label-sm text-label-sm text-outline">Perpetual</span>
+<button class="px-space-md py-1.5 rounded-lg bg-surface-container hover:bg-primary hover:text-on-primary text-on-surface font-title-md text-body-sm transition-all" onclick="openDrawer('Indigo Aura Shard', 600, 'cosmetic')">
+            Redeem
+          </button>
+</div>
+</div>
+<!-- Card 8: Theme: Midnight Calm -->
+<div class="store-card group flex flex-col justify-between rounded-xl bg-surface p-space-md shadow-sm hover:bg-surface-elevated transition-all duration-200" data-category="theme">
+<div class="flex flex-col gap-space-sm">
+<div class="relative w-full h-36 rounded-lg bg-surface-container-low overflow-hidden flex items-center justify-center p-3">
+<div class="w-full h-full rounded bg-surface-container-high flex flex-col p-2 justify-between">
+<div class="flex items-center justify-between">
+<span class="w-14 h-2 rounded bg-tertiary/40"></span>
+<span class="material-symbols-outlined text-tertiary text-body-md">nightlight</span>
+</div>
+<div class="space-y-1">
+<div class="w-2/3 h-1.5 rounded bg-surface-container"></div>
+<div class="w-1/3 h-1.5 rounded bg-surface-container"></div>
+</div>
+<span class="font-label-sm text-[9px] text-tertiary">TEAL • SLATE EQUIPPED</span>
+</div>
+<span class="absolute top-2 right-2 font-label-sm text-[10px] px-2 py-0.5 rounded bg-surface-container text-tertiary font-bold">UNCOMMON</span>
+<span class="absolute bottom-2 left-2 font-label-sm text-[10px] px-2 py-0.5 rounded bg-surface text-emerald-complete font-bold">OWNED</span>
+</div>
+<div class="flex flex-col gap-1">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-[11px] text-outline uppercase tracking-wider">ENVIRONMENT</span>
+<span class="font-stat-numeric text-body-md text-text-muted font-bold">450 G</span>
+</div>
+<h3 class="font-title-md text-title-md text-on-surface group-hover:text-primary transition-colors">Midnight Calm</h3>
+<p class="font-body-sm text-body-sm text-text-secondary line-clamp-2">
+              Soothing deep-slate surface with muted teal accents for evening debriefs.
+            </p>
+</div>
+</div>
+<div class="mt-space-md pt-space-xs flex items-center justify-between">
+<span class="font-label-sm text-label-sm text-emerald-complete">In Wardrobe</span>
+<button class="px-space-md py-1.5 rounded-lg bg-surface-container hover:bg-surface-container-high text-on-surface font-title-md text-body-sm transition-all" onclick="applyThemeEquip('Midnight Calm')">
+            Equip
+          </button>
+</div>
+</div>
+</div>
+</div>
+<!-- SECTION 3B: My Inventory View (Hidden by default, switched via tab) -->
+<div class="hidden flex-col gap-space-lg" id="inventory-section">
+<div class="flex flex-col md:flex-row md:items-center justify-between gap-space-md">
+<div class="flex items-center gap-space-xs">
+<span class="font-title-md text-title-md text-on-surface">Equipped Arsenal &amp; Stash</span>
+<span class="font-label-sm text-label-sm text-outline">(18 / 40 Capacity)</span>
+</div>
+<div class="flex items-center gap-2">
+<button class="px-space-md py-1.5 rounded-lg bg-surface-container text-on-surface font-body-sm text-body-sm hover:bg-surface-container-high transition-colors">
+          Auto-Sort Inventory
+        </button>
+</div>
+</div>
+<!-- Inventory Grid -->
+<div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-6 gap-space-md">
+<div class="p-space-md rounded-xl bg-surface flex flex-col items-center text-center gap-2 relative">
+<span class="absolute top-2 left-2 text-[10px] font-label-sm text-emerald-complete bg-emerald-complete/10 px-1.5 py-0.5 rounded">EQUIPPED</span>
+<div class="w-14 h-14 rounded-xl bg-surface-container flex items-center justify-center text-primary mt-3">
+<span class="material-symbols-outlined text-headline-lg">palette</span>
+</div>
+<span class="font-title-md text-body-sm text-on-surface">Midnight Graphite</span>
+<span class="font-label-sm text-[10px] text-outline uppercase">Active Environment</span>
+</div>
+<div class="p-space-md rounded-xl bg-surface flex flex-col items-center text-center gap-2 relative">
+<span class="absolute top-2 left-2 text-[10px] font-label-sm text-emerald-complete bg-emerald-complete/10 px-1.5 py-0.5 rounded">EQUIPPED</span>
+<div class="w-14 h-14 rounded-xl bg-surface-container flex items-center justify-center text-secondary mt-3">
+<span class="material-symbols-outlined text-headline-lg">badge</span>
+</div>
+<span class="font-title-md text-body-sm text-on-surface">Tactical Obsidian</span>
+<span class="font-label-sm text-[10px] text-outline uppercase">Avatar Frame</span>
+</div>
+<div class="p-space-md rounded-xl bg-surface flex flex-col items-center text-center gap-2 relative">
+<span class="absolute top-2 right-2 text-[10px] font-label-sm text-secondary bg-secondary/10 px-1.5 py-0.5 rounded">2x</span>
+<div class="w-14 h-14 rounded-xl bg-surface-container flex items-center justify-center text-emerald-complete mt-3">
+<span class="material-symbols-outlined text-headline-lg">science</span>
+</div>
+<span class="font-title-md text-body-sm text-on-surface">XP Surge Vial</span>
+<button class="font-label-sm text-[11px] text-primary hover:underline uppercase">Consume (2h)</button>
+</div>
+<div class="p-space-md rounded-xl bg-surface flex flex-col items-center text-center gap-2">
+<div class="w-14 h-14 rounded-xl bg-surface-container flex items-center justify-center text-tertiary mt-3">
+<span class="material-symbols-outlined text-headline-lg">nightlight</span>
+</div>
+<span class="font-title-md text-body-sm text-on-surface">Midnight Calm</span>
+<button class="font-label-sm text-[11px] text-outline hover:text-on-surface uppercase">Equip Theme</button>
+</div>
+<div class="p-space-md rounded-xl bg-surface flex flex-col items-center text-center gap-2">
+<div class="w-14 h-14 rounded-xl bg-surface-container flex items-center justify-center text-outline mt-3">
+<span class="material-symbols-outlined text-headline-lg">hourglass_bottom</span>
+</div>
+<span class="font-title-md text-body-sm text-on-surface">Focus Hourglass</span>
+<span class="font-label-sm text-[10px] text-outline uppercase">Passive Relic</span>
+</div>
+<div class="p-space-md rounded-xl bg-surface-container-low flex flex-col items-center justify-center text-center border-dashed border-2 border-surface-container-high min-h-[140px]">
+<span class="material-symbols-outlined text-headline-lg text-outline">add</span>
+<span class="font-label-sm text-[11px] text-outline mt-1">Empty Slot</span>
+</div>
+</div>
+</div>
+<!-- SECTION 4: Interactive Slide-Over Drawer for Redemption & Simulation -->
+<div class="fixed inset-0 z-50 pointer-events-none transition-opacity duration-300 opacity-0" id="redemption-drawer">
+<!-- Backdrop -->
+<div class="absolute inset-0 bg-background/70 backdrop-blur-sm transition-opacity" onclick="closeDrawer()"></div>
+<!-- Drawer Panel (Right Side) -->
+<div class="absolute right-0 top-0 bottom-0 w-full max-w-md bg-surface p-space-xl flex flex-col justify-between shadow-2xl overflow-y-auto transform translate-x-full transition-transform duration-300" id="drawer-panel">
+<div class="flex flex-col gap-space-md">
+<!-- Close & Header -->
+<div class="flex items-center justify-between pb-space-xs">
+<div class="flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-outline">VAULT EXCHANGE LEDGER</span>
+</div>
+<button class="p-1 rounded-lg hover:bg-surface-container text-outline hover:text-on-surface transition-colors" onclick="closeDrawer()">
+<span class="material-symbols-outlined text-headline-sm">close</span>
+</button>
+</div>
+<div class="flex flex-col gap-1">
+<span class="font-label-sm text-label-sm text-primary uppercase font-bold tracking-wider" id="drawer-item-cat">ENVIRONMENT PROTOCOL</span>
+<h3 class="font-headline-lg text-headline-lg text-on-surface font-bold tracking-tight" id="drawer-item-title">Deep Work Environment</h3>
+<p class="font-body-md text-body-md text-text-secondary" id="drawer-item-desc">
+            Direct server-side entitlement grant. Item will be instantly committed to your inventory storage and usable across mobile and web command interfaces.
+          </p>
+</div>
+<!-- Visual Mini Mockup in Drawer -->
+<div class="w-full h-44 rounded-xl bg-surface-container-lowest p-space-md flex flex-col justify-between relative overflow-hidden">
+<div class="flex items-center justify-between text-label-sm font-label-sm text-outline">
+<span>ASSET CERTIFICATE: #8841-A</span>
+<span class="text-emerald-complete">AUTHENTICATED</span>
+</div>
+<div class="flex items-center justify-center my-auto">
+<div class="flex flex-col items-center gap-2 text-center">
+<span class="material-symbols-outlined text-primary text-headline-hero">verified_user</span>
+<span class="font-body-sm text-body-sm text-on-surface font-semibold" id="drawer-item-display-title">Deep Work Workspace</span>
+</div>
+</div>
+<div class="flex items-center justify-between font-label-sm text-[10px] text-outline">
+<span>SLOT: THEME_SYS</span>
+<span>RARITY: RARE</span>
+</div>
+</div>
+<!-- Ledger Financial Breakdown -->
+<div class="flex flex-col gap-space-xs p-space-md rounded-xl bg-surface-container-low">
+<div class="flex items-center justify-between font-body-sm text-body-sm">
+<span class="text-text-secondary">Current Gold Balance</span>
+<span class="font-stat-numeric text-on-surface" id="drawer-current-balance">1,420 G</span>
+</div>
+<div class="flex items-center justify-between font-body-sm text-body-sm">
+<span class="text-text-secondary">Item Acquisition Cost</span>
+<span class="font-stat-numeric text-secondary font-bold" id="drawer-item-cost">-750 G</span>
+</div>
+<div class="h-px bg-surface-container-highest my-1"></div>
+<div class="flex items-center justify-between font-title-md text-body-md font-semibold">
+<span class="text-on-surface">Projected Vault Reserve</span>
+<span class="font-stat-numeric text-emerald-complete" id="drawer-remaining-balance">670 G</span>
+</div>
+</div>
+<!-- Live Simulation Check -->
+<div class="p-space-sm rounded-lg bg-surface-container flex items-center gap-space-sm">
+<span class="material-symbols-outlined text-primary text-headline-sm">check_circle</span>
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-on-surface font-semibold">Pre-requisite Validation</span>
+<span class="font-body-sm text-[11px] text-text-secondary">Player Level 12 meets or exceeds required Level 10.</span>
+</div>
+</div>
+</div>
+<!-- Action Confirmation Buttons -->
+<div class="flex flex-col gap-space-sm pt-space-md">
+<button class="w-full py-space-sm rounded-lg bg-primary text-on-primary font-title-md text-body-md font-semibold hover:bg-primary-container hover:text-on-primary-container transition-all shadow-md flex items-center justify-center gap-2" id="confirm-redeem-btn" onclick="executeRedemption()">
+<span class="material-symbols-outlined text-headline-sm">check</span>
+<span>Confirm Redemption</span>
+</button>
+<button class="w-full py-space-sm rounded-lg bg-surface-container hover:bg-surface-container-high text-on-surface font-title-md text-body-sm transition-colors flex items-center justify-center gap-2" onclick="simulateEquipPreview()">
+<span class="material-symbols-outlined text-body-md text-outline">tune</span>
+<span>Test Live Simulation</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Interactive JavaScript -->
+<script>
+    let currentGold = 1420;
+    let pendingCost = 750;
+
+    function switchMainTab(tab) {
+      const storeBtn = document.getElementById('tab-store-btn');
+      const invBtn = document.getElementById('tab-inventory-btn');
+      const catalogSec = document.getElementById('catalog-section');
+      const inventorySec = document.getElementById('inventory-section');
+
+      if (tab === 'store') {
+        storeBtn.className = "flex items-center gap-space-xs px-space-lg py-space-xs rounded-lg bg-surface text-on-surface font-title-md text-body-md shadow-sm transition-all duration-150";
+        invBtn.className = "flex items-center gap-space-xs px-space-lg py-space-xs rounded-lg text-text-secondary hover:text-on-surface font-title-md text-body-md transition-all duration-150";
+        catalogSec.classList.remove('hidden');
+        inventorySec.classList.add('hidden');
+      } else {
+        invBtn.className = "flex items-center gap-space-xs px-space-lg py-space-xs rounded-lg bg-surface text-on-surface font-title-md text-body-md shadow-sm transition-all duration-150";
+        storeBtn.className = "flex items-center gap-space-xs px-space-lg py-space-xs rounded-lg text-text-secondary hover:text-on-surface font-title-md text-body-md transition-all duration-150";
+        catalogSec.classList.add('hidden');
+        inventorySec.classList.remove('hidden');
+      }
+    }
+
+    function filterCatalog(category) {
+      // Update buttons
+      const buttons = document.querySelectorAll('.catalog-filter-btn');
+      buttons.forEach(btn => {
+        btn.classList.remove('bg-surface-container-high', 'text-on-surface');
+        btn.classList.add('bg-surface-container', 'text-text-secondary');
+      });
+      event.target.classList.remove('bg-surface-container', 'text-text-secondary');
+      event.target.classList.add('bg-surface-container-high', 'text-on-surface');
+
+      // Filter cards
+      const cards = document.querySelectorAll('.store-card');
+      cards.forEach(card => {
+        if (category === 'all' || card.getAttribute('data-category') === category) {
+          card.classList.remove('hidden');
+        } else {
+          card.classList.add('hidden');
+        }
+      });
+    }
+
+    function openDrawer(title, cost, category) {
+      pendingCost = cost;
+      const drawer = document.getElementById('redemption-drawer');
+      const panel = document.getElementById('drawer-panel');
+
+      document.getElementById('drawer-item-title').innerText = title;
+      document.getElementById('drawer-item-display-title').innerText = title;
+      document.getElementById('drawer-item-cat').innerText = (category || 'ITEM').toUpperCase() + ' PROTOCOL';
+      document.getElementById('drawer-item-cost').innerText = `-${cost} G`;
+      document.getElementById('drawer-current-balance').innerText = `${currentGold} G`;
+      document.getElementById('drawer-remaining-balance').innerText = `${currentGold - cost} G`;
+
+      drawer.classList.remove('pointer-events-none', 'opacity-0');
+      drawer.classList.add('opacity-100');
+      panel.classList.remove('translate-x-full');
+      panel.classList.add('translate-x-0');
+    }
+
+    function closeDrawer() {
+      const drawer = document.getElementById('redemption-drawer');
+      const panel = document.getElementById('drawer-panel');
+
+      panel.classList.remove('translate-x-0');
+      panel.classList.add('translate-x-full');
+      drawer.classList.remove('opacity-100');
+      drawer.classList.add('opacity-0');
+      setTimeout(() => {
+        drawer.classList.add('pointer-events-none');
+      }, 300);
+    }
+
+    function executeRedemption() {
+      if (currentGold >= pendingCost) {
+        currentGold -= pendingCost;
+        document.getElementById('current-gold-display').innerText = `${currentGold} G`;
+        
+        const btn = document.getElementById('confirm-redeem-btn');
+        btn.innerText = 'Redeemed & Equipped!';
+        btn.classList.remove('bg-primary');
+        btn.classList.add('bg-emerald-complete', 'text-surface-container-lowest');
+
+        setTimeout(() => {
+          btn.innerHTML = '<span class="material-symbols-outlined text-headline-sm">check</span><span>Confirm Redemption</span>';
+          btn.classList.add('bg-primary');
+          btn.classList.remove('bg-emerald-complete', 'text-surface-container-lowest');
+          closeDrawer();
+        }, 1200);
+      } else {
+        alert('Insufficient Gold in Vault');
+      }
+    }
+
+    function previewThemeModal() {
+      openDrawer('Obsidian Deep-Work Environment', 750, 'theme');
+    }
+
+    function simulateEquipPreview() {
+      const btn = event.target;
+      const original = btn.innerHTML;
+      btn.innerHTML = '<span class="material-symbols-outlined text-body-md animate-spin">refresh</span><span>Simulating Workspace...</span>';
+      setTimeout(() => {
+        btn.innerHTML = '<span class="material-symbols-outlined text-body-md text-emerald-complete">check</span><span>Simulation Passed: Low Latency</span>';
+        setTimeout(() => btn.innerHTML = original, 2000);
+      }, 900);
+    }
+
+    function applyThemeEquip(themeName) {
+      alert(`Equipped ${themeName} successfully.`);
+    }
+  </script>
+</div></main></div></body></html>

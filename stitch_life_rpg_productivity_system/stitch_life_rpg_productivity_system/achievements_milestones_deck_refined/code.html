@@ -1,0 +1,736 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&family=Inter:wght@100..900&family=JetBrains+Mono:wght@100..900&display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={darkMode:"class",theme:{extend:{colors:{"tertiary":"#4cd7f6","bg-secondary":"#11141C","text-muted":"#64748B","surface-dim":"#10131a","on-secondary-fixed-variant":"#653e00","on-primary":"#1000a9","on-primary-fixed-variant":"#2f2ebe","border-focus":"rgba(99, 102, 241, 0.4)","on-tertiary-fixed-variant":"#004e5c","tertiary-fixed-dim":"#4cd7f6","on-surface":"#e1e2ec","outline":"#908fa0","on-error-container":"#ffdad6","surface":"#151923","secondary-fixed":"#ffddb8","inverse-surface":"#e1e2ec","on-secondary":"#472a00","surface-container-low":"#191b23","on-tertiary-container":"#002f38","on-secondary-container":"#5b3800","amber-streak":"#F97316","secondary-fixed-dim":"#ffb95f","text-secondary":"#94A3B8","inverse-primary":"#494bd6","on-error":"#690005","surface-tint":"#c0c1ff","surface-variant":"#32353d","error":"#ffb4ab","error-container":"#93000a","surface-container":"#1d2027","surface-container-highest":"#32353d","on-secondary-fixed":"#2a1700","surface-bright":"#363941","tertiary-container":"#009eb9","inverse-on-surface":"#2d3038","emerald-complete":"#10B981","bg-primary":"#0B0E15","crimson-threat":"#EF4444","background":"#10131a","on-surface-variant":"#c7c4d7","outline-variant":"#464554","primary":"#c0c1ff","border-subtle":"rgba(255, 255, 255, 0.07)","on-background":"#e1e2ec","secondary-container":"#ee9800","on-primary-container":"#0d0096","text-primary":"#F1F5F9","secondary":"#ffb95f","on-tertiary-fixed":"#001f26","on-primary-fixed":"#07006c","primary-container":"#8083ff","surface-elevated":"#1B1F2A","primary-fixed-dim":"#c0c1ff","surface-container-high":"#272a32","on-tertiary":"#003640","surface-container-lowest":"#0b0e15","primary-fixed":"#e1e0ff","tertiary-fixed":"#acedff"},borderRadius:{"DEFAULT":"0.25rem","lg":"0.5rem","xl":"0.75rem","full":"9999px"},spacing:{"margin-mobile":"1rem","space-md":"1rem","space-sm":"0.5rem","gutter-mobile":"0.75rem","space-xl":"2rem","gutter":"1.5rem","space-lg":"1.5rem","space-xs":"0.25rem","margin":"2rem"},fontFamily:{"label-md":["JetBrains Mono"],"headline-lg-mobile":["Geist"],"headline-hero-mobile":["Geist"],"body-lg":["Inter"],"body-md":["Inter"],"headline-lg":["Geist"],"headline-md":["Geist"],"headline-hero":["Geist"],"label-sm":["JetBrains Mono"],"headline-sm":["Geist"],"body-sm":["Inter"],"stat-numeric":["JetBrains Mono"]},fontSize:{"label-md":["12px",{"lineHeight":"16px","letterSpacing":"0.02em","fontWeight":"500"}],"headline-lg-mobile":["22px",{"lineHeight":"28px","letterSpacing":"-0.01em","fontWeight":"600"}],"headline-hero-mobile":["28px",{"lineHeight":"36px","letterSpacing":"-0.02em","fontWeight":"600"}],"body-lg":["16px",{"lineHeight":"26px","letterSpacing":"-0.01em","fontWeight":"400"}],"body-md":["14px",{"lineHeight":"22px","letterSpacing":"-0.005em","fontWeight":"400"}],"headline-lg":["28px",{"lineHeight":"36px","letterSpacing":"-0.02em","fontWeight":"600"}],"headline-md":["20px",{"lineHeight":"28px","letterSpacing":"-0.01em","fontWeight":"600"}],"headline-hero":["40px",{"lineHeight":"48px","letterSpacing":"-0.03em","fontWeight":"600"}],"label-sm":["11px",{"lineHeight":"14px","letterSpacing":"0.04em","fontWeight":"500"}],"headline-sm":["16px",{"lineHeight":"24px","letterSpacing":"-0.005em","fontWeight":"600"}],"body-sm":["13px",{"lineHeight":"18px","letterSpacing":"0em","fontWeight":"400"}],"stat-numeric":["20px",{"lineHeight":"24px","letterSpacing":"-0.02em","fontWeight":"500"}]}}}}</script></head><body class="bg-bg-primary text-text-primary font-body-md text-body-md antialiased selection:bg-primary-container selection:text-on-primary-container"><aside class="fixed left-0 top-0 h-full w-60 bg-surface border-r border-border-subtle z-50 flex flex-col justify-between select-none"><div class="flex flex-col"><div class="h-14 px-space-md flex items-center justify-between border-b border-border-subtle"><div class="flex items-center gap-space-sm"><img alt="Brand logo. - Primary color: #6366f1
+- Font: spaceGrotesk
+- Mode: dark
+- Roundness: rounded-sm
+" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/AEtjO1VlbnrqzmNOVJ2yKdYoktYWIGVBFEvYg9syEtql2dySDYkvWLo4PZw8yRWen_4lhpH0ZLZuXgSsRXL6rmGiSfwcHeD4YXphx5QNfkIwTQgmwyJkAEbYZEVf9ave59tLPGCx5sHugwK1O1gVSR5ckE5oAu8GDjTBTn1nN79EqkdFq0RnCt1qx_BWz-FjbPd0unBiu5utczfixV-Rz7CYRu8roH1Z5p6OXZiI08oq6pXwvyIeJxZuCsNy3w"/><span class="font-headline-sm text-headline-sm text-text-primary tracking-tight font-semibold">LIFE RPG</span></div><span class="font-label-sm text-label-sm px-1.5 py-0.5 rounded bg-surface-elevated text-text-secondary border border-border-subtle">v2.4</span></div><div class="px-space-md py-space-sm"><span class="font-label-sm text-label-sm uppercase text-text-muted tracking-wider px-2">Navigation</span></div><nav class="flex flex-col px-space-sm gap-1" data-active-classes="bg-surface-elevated text-text-primary font-medium border-l-2 border-primary"><a class="flex items-center justify-between px-3 py-2 rounded-lg text-text-secondary hover:bg-surface-elevated hover:text-text-primary transition-colors group" data-path="home" href="#"><div class="flex items-center gap-2.5"><span class="material-symbols-outlined text-[18px] text-text-muted group-hover:text-text-primary transition-colors">space_dashboard</span><span class="font-body-md text-body-md">Home</span></div><kbd class="font-label-sm text-label-sm text-text-muted group-hover:text-text-secondary">⌘1</kbd></a><a class="flex items-center justify-between px-3 py-2 rounded-lg text-text-secondary hover:bg-surface-elevated hover:text-text-primary transition-colors group" data-path="quests" href="#"><div class="flex items-center gap-2.5"><span class="material-symbols-outlined text-[18px] text-text-muted group-hover:text-text-primary transition-colors">task_alt</span><span class="font-body-md text-body-md">Quests</span></div><kbd class="font-label-sm text-label-sm text-text-muted group-hover:text-text-secondary">⌘2</kbd></a><a class="flex items-center justify-between px-3 py-2 rounded-lg text-text-secondary hover:bg-surface-elevated hover:text-text-primary transition-colors group" data-path="character" href="#"><div class="flex items-center gap-2.5"><span class="material-symbols-outlined text-[18px] text-text-muted group-hover:text-text-primary transition-colors">shield_person</span><span class="font-body-md text-body-md">Character</span></div><kbd class="font-label-sm text-label-sm text-text-muted group-hover:text-text-secondary">⌘3</kbd></a><a class="flex items-center justify-between px-3 py-2 rounded-lg text-text-secondary hover:bg-surface-elevated hover:text-text-primary transition-colors group" data-path="rewards" href="#"><div class="flex items-center gap-2.5"><span class="material-symbols-outlined text-[18px] text-text-muted group-hover:text-text-primary transition-colors">featured_seasonal_and_gifts</span><span class="font-body-md text-body-md">Rewards</span></div><kbd class="font-label-sm text-label-sm text-text-muted group-hover:text-text-secondary">⌘4</kbd></a><a class="flex items-center justify-between px-3 py-2 rounded-lg text-text-secondary hover:bg-surface-elevated hover:text-text-primary transition-colors group" data-path="inventory" href="#"><div class="flex items-center gap-2.5"><span class="material-symbols-outlined text-[18px] text-text-muted group-hover:text-text-primary transition-colors">inventory_2</span><span class="font-body-md text-body-md">Inventory</span></div><kbd class="font-label-sm text-label-sm text-text-muted group-hover:text-text-secondary">⌘5</kbd></a><a aria-current="page" class="flex items-center justify-between px-3 py-2 rounded-lg transition-colors group bg-surface-elevated text-text-primary font-medium border-l-2 border-primary" data-path="achievements" href="#"><div class="flex items-center gap-2.5"><span class="material-symbols-outlined text-[18px] text-text-muted group-hover:text-text-primary transition-colors">military_tech</span><span class="font-body-md text-body-md">Achievements</span></div><kbd class="font-label-sm text-label-sm text-text-muted group-hover:text-text-secondary">⌘6</kbd></a></nav></div><div class="flex flex-col gap-2 p-space-sm border-t border-border-subtle bg-bg-secondary/40"><div class="flex items-center justify-between px-2.5 py-1.5 rounded-lg bg-surface-elevated border border-border-subtle"><div class="flex items-center gap-2"><span class="material-symbols-outlined text-[16px] text-amber-streak">local_fire_department</span><span class="font-label-sm text-label-sm text-text-primary font-medium">14-DAY STREAK</span></div><span class="w-1.5 h-1.5 rounded-full bg-emerald-complete"></span></div><div class="flex items-center justify-between px-2 text-text-secondary"><div class="flex items-center gap-2"><button aria-label="Toggle Audio SFX" class="p-1.5 rounded-md hover:bg-surface-elevated hover:text-text-primary transition-colors" type="button"><span class="material-symbols-outlined text-[18px]">volume_up</span></button><button aria-label="Settings" class="p-1.5 rounded-md hover:bg-surface-elevated hover:text-text-primary transition-colors" type="button"><span class="material-symbols-outlined text-[18px]">tune</span></button></div><span class="font-label-sm text-label-sm text-text-muted">SYST:OK</span></div><div class="flex items-center gap-2.5 px-2 py-1.5 rounded-lg hover:bg-surface-elevated transition-colors cursor-pointer border border-transparent hover:border-border-subtle"><div class="w-8 h-8 rounded-full bg-surface-variant flex items-center justify-center font-label-sm text-label-sm text-primary font-bold border border-border-subtle">K</div><div class="flex flex-col min-w-0 flex-1"><span class="font-body-sm text-body-sm font-medium text-text-primary truncate leading-none">Kai</span><span class="font-label-sm text-label-sm text-text-muted truncate mt-0.5">Arch-Strategist II</span></div><span class="material-symbols-outlined text-[16px] text-text-muted">unfold_more</span></div></div></aside><div class="pl-60"><header class="fixed top-0 left-60 right-0 h-14 bg-surface/90 backdrop-blur-xl border-b border-border-subtle z-40 flex items-center justify-between px-gutter"><div class="flex items-center gap-space-lg flex-1 max-w-2xl"><div class="flex items-center gap-2"><span class="font-label-sm text-label-sm text-primary font-semibold px-2 py-0.5 rounded bg-primary-container/20 border border-border-focus">LVL 12</span><span class="font-body-sm text-body-sm text-text-secondary font-medium hidden sm:inline">Arch-Strategist II</span></div><div class="flex-1 flex items-center gap-3"><div class="w-full bg-surface-elevated h-1.5 rounded-full overflow-hidden border border-border-subtle"><div class="bg-primary-container h-full rounded-full" style="width: 82.6%"></div></div><span class="font-label-sm text-label-sm text-text-muted whitespace-nowrap">8,260 / 10,000 XP</span></div></div><div class="flex items-center gap-space-md"><div class="flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-surface-elevated border border-border-subtle"><span class="material-symbols-outlined text-[16px] text-secondary">monetization_on</span><span class="font-stat-numeric text-stat-numeric text-[13px] text-secondary font-medium">1,420 G</span></div><div class="flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-surface-elevated border border-border-subtle"><span class="material-symbols-outlined text-[16px] text-emerald-complete">local_fire_department</span><span class="font-label-sm text-label-sm text-emerald-complete font-semibold">14D</span></div><div class="h-4 w-px bg-border-subtle"></div><button aria-label="Notifications" class="p-1.5 rounded-md text-text-secondary hover:text-text-primary hover:bg-surface-elevated transition-colors relative" type="button"><span class="material-symbols-outlined text-[20px]">notifications</span><span class="absolute top-1 right-1 w-2 h-2 rounded-full bg-primary-container ring-2 ring-surface"></span></button><img alt="Profile" class="w-8 h-8 rounded-full object-cover border border-border-subtle" src="https://lh3.googleusercontent.com/aida/AEtjO1UJwu6y3T_FuhMaWitkt8dJ_HR6r_r-RxSgzCQMd2P_Mq_z8ZDZZ3mbJq7RKuigb7wfG0H7WmGacUeBXtF3_QoUzaQj9v7Lf4IvvrY4v2cINEmR1uZ8jrA5niXbnAURU6FIuqvtbHCj-84EDn11bXjHjd_lWNF5VOmTJqBkC1soYnekynvJ2gMxl6U2Aeo8ezkwDidsdaiP4gHOAjAqg0hlQQBdp0If-3oExSxDVxuAnIBLIFiX7HVa"/></div></header><main class="relative pt-14 w-full min-h-screen bg-bg-primary px-gutter py-space-lg"><div class="flex flex-col w-full">
+<!-- Page Header & Quick Accolade Summary -->
+<header class="flex flex-col lg:flex-row lg:items-end justify-between gap-space-lg pb-space-lg">
+<div class="flex flex-col gap-1.5">
+<div class="flex items-center gap-2">
+<span class="font-label-sm text-label-sm uppercase tracking-widest text-primary font-semibold">Field Dossier // Accolades</span>
+<span class="w-1 h-1 rounded-full bg-border-subtle"></span>
+<span class="font-label-sm text-label-sm text-text-muted">Kai · Arch-Strategist II</span>
+</div>
+<h1 class="font-headline-hero text-headline-hero text-text-primary tracking-tight font-semibold">Achievements & Milestones</h1>
+<p class="font-body-md text-body-md text-text-secondary max-w-2xl">Permanent accolades earned through consistent real-world execution and disciplined daily operating velocity.</p>
+</div>
+<!-- Right Telemetry Badges Strip -->
+<div class="flex flex-wrap items-center gap-space-sm">
+<div class="flex items-center gap-2.5 px-3 py-2 rounded-xl bg-surface-elevated">
+<span class="material-symbols-outlined text-[18px] text-emerald-complete">military_tech</span>
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-text-muted leading-none">Global Unlocked</span>
+<span class="font-stat-numeric text-stat-numeric text-text-primary font-semibold leading-tight">12 / 30 <span class="font-label-sm text-label-sm text-emerald-complete font-medium">(40%)</span></span>
+</div>
+</div>
+<div class="flex items-center gap-2.5 px-3 py-2 rounded-xl bg-surface-elevated">
+<span class="material-symbols-outlined text-[18px] text-secondary">monetization_on</span>
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-text-muted leading-none">Accolade Yield</span>
+<span class="font-stat-numeric text-stat-numeric text-secondary font-semibold leading-tight">+1,850 G</span>
+</div>
+</div>
+<div class="flex items-center gap-2 px-3 py-2 rounded-xl bg-surface-container-high text-text-secondary">
+<span class="material-symbols-outlined text-[16px] text-amber-streak">track_changes</span>
+<span class="font-label-sm text-label-sm text-text-secondary">Target: <span class="text-text-primary font-medium">Consistency Legend</span></span>
+</div>
+</div>
+</header>
+<!-- Progress Overview Bento Strip -->
+<section class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-space-lg mb-space-xl">
+<!-- Card 1: Master Completion Trajectory -->
+<div class="rounded-2xl bg-surface p-space-lg flex flex-col justify-between relative overflow-hidden shadow-sm">
+<div class="flex items-start justify-between">
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-text-muted">Trajectory Matrix</span>
+<h2 class="font-headline-sm text-headline-sm text-text-primary mt-1 font-semibold">Master Completion</h2>
+</div>
+<div class="w-10 h-10 rounded-xl bg-surface-elevated flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[20px]">award_star</span>
+</div>
+</div>
+<div class="my-space-md flex flex-col gap-2">
+<div class="flex items-baseline justify-between">
+<div class="flex items-baseline gap-1.5">
+<span class="font-stat-numeric text-stat-numeric text-text-primary font-semibold">12</span>
+<span class="font-body-sm text-body-sm text-text-muted">/ 30 Unlocked</span>
+</div>
+<span class="font-stat-numeric text-stat-numeric text-emerald-complete font-medium">40.0%</span>
+</div>
+<!-- Segmented Trajectory Bar -->
+<div class="w-full h-2 rounded-full bg-surface-elevated overflow-hidden flex">
+<div class="h-full bg-gradient-to-r from-primary-container to-emerald-complete transition-all duration-700" style="width: 40%"></div>
+</div>
+</div>
+<div class="flex items-center justify-between pt-space-xs text-text-muted font-label-sm text-label-sm">
+<span class="flex items-center gap-1.5"><span class="w-1.5 h-1.5 rounded-full bg-primary-container"></span> 18 Accolades Left</span>
+<span class="text-primary font-medium">+2,400 XP Pool</span>
+</div>
+</div>
+<!-- Card 2: Current Active Bounty Focus -->
+<div class="rounded-2xl bg-surface p-space-lg flex flex-col justify-between relative overflow-hidden shadow-sm">
+<div class="flex items-start justify-between">
+<div class="flex flex-col">
+<div class="flex items-center gap-2">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-amber-streak font-medium">Priority Tracking</span>
+<span class="px-1.5 py-0.2 rounded bg-amber-streak/10 text-amber-streak font-label-sm text-[10px] font-semibold">TIER III</span>
+</div>
+<h2 class="font-headline-sm text-headline-sm text-text-primary mt-1 font-semibold">Consistency Legend</h2>
+</div>
+<div class="w-10 h-10 rounded-xl bg-surface-elevated flex items-center justify-center text-amber-streak">
+<span class="material-symbols-outlined text-[20px]">local_fire_department</span>
+</div>
+</div>
+<div class="my-space-md flex flex-col gap-2">
+<div class="flex items-baseline justify-between">
+<span class="font-body-sm text-body-sm text-text-secondary">21-Day Streak Protocol</span>
+<span class="font-stat-numeric text-stat-numeric text-text-primary font-medium">14 <span class="text-text-muted font-normal text-[13px]">/ 21 D (66%)</span></span>
+</div>
+<div class="w-full h-2 rounded-full bg-surface-elevated overflow-hidden">
+<div class="h-full bg-amber-streak rounded-full transition-all duration-700" style="width: 66.6%"></div>
+</div>
+</div>
+<div class="flex items-center justify-between pt-space-xs font-label-sm text-label-sm">
+<span class="text-text-muted flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px] text-text-muted">hourglass_top</span> 7 Days Remaining
+        </span>
+<span class="text-secondary font-medium">+500 G & Mythic Title</span>
+</div>
+</div>
+<!-- Card 3: Recent Accolade Claimed -->
+<div class="rounded-2xl bg-surface p-space-lg flex flex-col justify-between relative overflow-hidden shadow-sm">
+<div class="flex items-start justify-between">
+<div class="flex flex-col">
+<div class="flex items-center gap-2">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-emerald-complete font-medium">Claimed Accolade</span>
+<span class="px-1.5 py-0.2 rounded bg-emerald-complete/10 text-emerald-complete font-label-sm text-[10px] font-semibold">VERIFIED</span>
+</div>
+<h2 class="font-headline-sm text-headline-sm text-text-primary mt-1 font-semibold">14-Day Streak Master</h2>
+</div>
+<div class="w-10 h-10 rounded-xl bg-surface-elevated flex items-center justify-center text-emerald-complete">
+<span class="material-symbols-outlined text-[20px]">verified</span>
+</div>
+</div>
+<div class="my-space-md">
+<p class="font-body-sm text-body-sm text-text-secondary leading-relaxed">Sustained zero-slippage discipline for two uninterrupted weeks across all active daily pipelines.</p>
+</div>
+<div class="flex items-center justify-between pt-space-xs font-label-sm text-label-sm">
+<span class="text-text-muted flex items-center gap-1.5">
+<span class="w-1.5 h-1.5 rounded-full bg-emerald-complete"></span> Yesterday 23:40
+        </span>
+<span class="text-secondary font-medium">+250 G Claimed</span>
+</div>
+</div>
+</section>
+<!-- Filter & Segment Bar -->
+<section class="flex flex-col md:flex-row items-stretch md:items-center justify-between gap-space-md mb-space-lg">
+<!-- Category Segment Pills -->
+<div class="flex items-center gap-1.5 overflow-x-auto pb-1 md:pb-0 scrollbar-none" id="categoryFilterContainer">
+<button class="achievement-category-btn px-3 py-1.5 rounded-lg bg-surface-elevated text-text-primary font-label-sm text-label-sm font-semibold transition-colors" data-category="all" type="button">
+        All <span class="ml-1 text-text-muted font-normal">30</span>
+</button>
+<button class="achievement-category-btn px-3 py-1.5 rounded-lg bg-transparent hover:bg-surface-elevated text-text-secondary hover:text-text-primary font-label-sm text-label-sm transition-colors" data-category="progression" type="button">
+        Progression <span class="ml-1 text-text-muted font-normal">8</span>
+</button>
+<button class="achievement-category-btn px-3 py-1.5 rounded-lg bg-transparent hover:bg-surface-elevated text-text-secondary hover:text-text-primary font-label-sm text-label-sm transition-colors" data-category="streaks" type="button">
+        Streaks <span class="ml-1 text-text-muted font-normal">6</span>
+</button>
+<button class="achievement-category-btn px-3 py-1.5 rounded-lg bg-transparent hover:bg-surface-elevated text-text-secondary hover:text-text-primary font-label-sm text-label-sm transition-colors" data-category="quests" type="button">
+        Quests & Raids <span class="ml-1 text-text-muted font-normal">8</span>
+</button>
+<button class="achievement-category-btn px-3 py-1.5 rounded-lg bg-transparent hover:bg-surface-elevated text-text-secondary hover:text-text-primary font-label-sm text-label-sm transition-colors" data-category="economy" type="button">
+        Economy <span class="ml-1 text-text-muted font-normal">4</span>
+</button>
+<button class="achievement-category-btn px-3 py-1.5 rounded-lg bg-transparent hover:bg-surface-elevated text-text-secondary hover:text-text-primary font-label-sm text-label-sm transition-colors" data-category="special" type="button">
+        Special <span class="ml-1 text-text-muted font-normal">4</span>
+</button>
+</div>
+<!-- Status Sub-filter & Search -->
+<div class="flex items-center gap-space-sm">
+<div class="flex items-center bg-surface-elevated rounded-lg p-0.5" id="statusFilterContainer">
+<button class="status-tab px-2.5 py-1 rounded-md text-text-primary bg-surface font-label-sm text-label-sm font-medium" data-status="all" type="button">All</button>
+<button class="status-tab px-2.5 py-1 rounded-md text-text-secondary hover:text-text-primary font-label-sm text-label-sm transition-colors" data-status="unlocked" type="button">Unlocked (12)</button>
+<button class="status-tab px-2.5 py-1 rounded-md text-text-secondary hover:text-text-primary font-label-sm text-label-sm transition-colors" data-status="in-progress" type="button">In Progress (14)</button>
+<button class="status-tab px-2.5 py-1 rounded-md text-text-secondary hover:text-text-primary font-label-sm text-label-sm transition-colors" data-status="locked" type="button">Locked (4)</button>
+</div>
+<div class="relative hidden sm:block">
+<span class="material-symbols-outlined text-[16px] text-text-muted absolute left-2.5 top-2.5">search</span>
+<input class="w-44 bg-surface-elevated text-text-primary font-body-sm text-body-sm pl-8 pr-3 py-1.5 rounded-lg placeholder:text-text-muted focus:outline-none focus:ring-1 focus:ring-primary" id="achievementSearch" placeholder="Search accolades..." type="text"/>
+</div>
+</div>
+</section>
+<!-- 12-Card Grid (3 Columns) representing Unlocked, In Progress, and Locked States -->
+<section class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-space-lg mb-space-xl" id="achievementsGrid">
+<!-- ==================== STATE 1: UNLOCKED ==================== -->
+<!-- Card: First Blood Protocol -->
+<div class="achievement-card rounded-2xl bg-surface p-space-lg flex flex-col justify-between transition-all hover:bg-surface-elevated group cursor-pointer" data-category="progression quests" data-status="unlocked" onclick="openMilestoneDetail('First Blood Protocol', 'Execute your first registered mission with zero slippage.', '1 / 1 Complete', '100%', 'Completed on Oct 12 · Verified on Local Sync', '+50 XP · +25 Gold', 'unlocked')">
+<div class="flex flex-col gap-3">
+<div class="flex items-start justify-between gap-2">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-xl bg-surface-elevated flex items-center justify-center text-emerald-complete">
+<span class="material-symbols-outlined text-[22px]">bolt</span>
+</div>
+<div class="flex flex-col">
+<span class="font-headline-sm text-headline-sm text-text-primary font-semibold group-hover:text-primary transition-colors">First Blood Protocol</span>
+<span class="font-label-sm text-label-sm text-emerald-complete flex items-center gap-1 font-medium">
+<span class="material-symbols-outlined text-[13px]">check_circle</span> UNLOCKED · OCT 12
+              </span>
+</div>
+</div>
+<span class="font-label-sm text-label-sm text-text-muted px-2 py-0.5 rounded bg-surface-elevated">PRG-01</span>
+</div>
+<p class="font-body-sm text-body-sm text-text-secondary leading-relaxed">Execute your first registered mission with zero slippage.</p>
+</div>
+<div class="mt-space-lg pt-space-md flex items-center justify-between bg-surface-elevated/40 -mx-space-lg -mb-space-lg px-space-lg py-space-sm rounded-b-2xl">
+<div class="flex items-center gap-1.5 text-text-secondary">
+<span class="material-symbols-outlined text-[14px] text-secondary">monetization_on</span>
+<span class="font-label-sm text-label-sm text-text-secondary">+50 XP · +25 G</span>
+</div>
+<span class="font-label-sm text-label-sm text-emerald-complete font-medium">Claimed</span>
+</div>
+</div>
+<!-- Card: Consistency Master -->
+<div class="achievement-card rounded-2xl bg-surface p-space-lg flex flex-col justify-between transition-all hover:bg-surface-elevated group cursor-pointer" data-category="streaks" data-status="unlocked" onclick="openMilestoneDetail('Consistency Master', 'Maintain an uninterrupted 14-day execution streak.', '14 / 14 Days', '100%', 'Completed Yesterday at 23:40', '+250 Gold · Master Badge', 'unlocked')">
+<div class="flex flex-col gap-3">
+<div class="flex items-start justify-between gap-2">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-xl bg-surface-elevated flex items-center justify-center text-emerald-complete">
+<span class="material-symbols-outlined text-[22px]">verified</span>
+</div>
+<div class="flex flex-col">
+<span class="font-headline-sm text-headline-sm text-text-primary font-semibold group-hover:text-primary transition-colors">Consistency Master</span>
+<span class="font-label-sm text-label-sm text-emerald-complete flex items-center gap-1 font-medium">
+<span class="material-symbols-outlined text-[13px]">check_circle</span> UNLOCKED · YESTERDAY
+              </span>
+</div>
+</div>
+<span class="font-label-sm text-label-sm text-text-muted px-2 py-0.5 rounded bg-surface-elevated">STR-02</span>
+</div>
+<p class="font-body-sm text-body-sm text-text-secondary leading-relaxed">Maintain an uninterrupted 14-day execution streak.</p>
+</div>
+<div class="mt-space-lg pt-space-md flex items-center justify-between bg-surface-elevated/40 -mx-space-lg -mb-space-lg px-space-lg py-space-sm rounded-b-2xl">
+<div class="flex items-center gap-1.5 text-text-secondary">
+<span class="material-symbols-outlined text-[14px] text-secondary">monetization_on</span>
+<span class="font-label-sm text-label-sm text-text-secondary">+250 G · Master Badge</span>
+</div>
+<span class="font-label-sm text-label-sm text-emerald-complete font-medium">Claimed</span>
+</div>
+</div>
+<!-- Card: Level 10 Milestone -->
+<div class="achievement-card rounded-2xl bg-surface p-space-lg flex flex-col justify-between transition-all hover:bg-surface-elevated group cursor-pointer" data-category="progression" data-status="unlocked" onclick="openMilestoneDetail('Level 10 Milestone', 'Surpass Tier 1 operations and advance to Field Commander rank.', 'Level 12 / 10', '100%', 'Completed on Aug 24', '+300 XP · Custom Matrix Frame', 'unlocked')">
+<div class="flex flex-col gap-3">
+<div class="flex items-start justify-between gap-2">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-xl bg-surface-elevated flex items-center justify-center text-emerald-complete">
+<span class="material-symbols-outlined text-[22px]">upgrade</span>
+</div>
+<div class="flex flex-col">
+<span class="font-headline-sm text-headline-sm text-text-primary font-semibold group-hover:text-primary transition-colors">Level 10 Milestone</span>
+<span class="font-label-sm text-label-sm text-emerald-complete flex items-center gap-1 font-medium">
+<span class="material-symbols-outlined text-[13px]">check_circle</span> UNLOCKED · AUG 24
+              </span>
+</div>
+</div>
+<span class="font-label-sm text-label-sm text-text-muted px-2 py-0.5 rounded bg-surface-elevated">PRG-10</span>
+</div>
+<p class="font-body-sm text-body-sm text-text-secondary leading-relaxed">Surpass Tier 1 operations and advance to Field Commander.</p>
+</div>
+<div class="mt-space-lg pt-space-md flex items-center justify-between bg-surface-elevated/40 -mx-space-lg -mb-space-lg px-space-lg py-space-sm rounded-b-2xl">
+<div class="flex items-center gap-1.5 text-text-secondary">
+<span class="material-symbols-outlined text-[14px] text-primary">military_tech</span>
+<span class="font-label-sm text-label-sm text-text-secondary">+300 XP · Custom Matrix</span>
+</div>
+<span class="font-label-sm text-label-sm text-emerald-complete font-medium">Claimed</span>
+</div>
+</div>
+<!-- Card: Deep Work Initiate -->
+<div class="achievement-card rounded-2xl bg-surface p-space-lg flex flex-col justify-between transition-all hover:bg-surface-elevated group cursor-pointer" data-category="quests special" data-status="unlocked" onclick="openMilestoneDetail('Deep Work Initiate', 'Log 10 hours of verified deep-work focus sessions.', '10.0 / 10.0 Hours', '100%', 'Completed Oct 18', '+150 XP · +80 Gold', 'unlocked')">
+<div class="flex flex-col gap-3">
+<div class="flex items-start justify-between gap-2">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-xl bg-surface-elevated flex items-center justify-center text-emerald-complete">
+<span class="material-symbols-outlined text-[22px]">timer</span>
+</div>
+<div class="flex flex-col">
+<span class="font-headline-sm text-headline-sm text-text-primary font-semibold group-hover:text-primary transition-colors">Deep Work Initiate</span>
+<span class="font-label-sm text-label-sm text-emerald-complete flex items-center gap-1 font-medium">
+<span class="material-symbols-outlined text-[13px]">check_circle</span> UNLOCKED · OCT 18
+              </span>
+</div>
+</div>
+<span class="font-label-sm text-label-sm text-text-muted px-2 py-0.5 rounded bg-surface-elevated">QST-03</span>
+</div>
+<p class="font-body-sm text-body-sm text-text-secondary leading-relaxed">Log 10 hours of verified deep-work focus sessions.</p>
+</div>
+<div class="mt-space-lg pt-space-md flex items-center justify-between bg-surface-elevated/40 -mx-space-lg -mb-space-lg px-space-lg py-space-sm rounded-b-2xl">
+<div class="flex items-center gap-1.5 text-text-secondary">
+<span class="material-symbols-outlined text-[14px] text-secondary">monetization_on</span>
+<span class="font-label-sm text-label-sm text-text-secondary">+150 XP · +80 G</span>
+</div>
+<span class="font-label-sm text-label-sm text-emerald-complete font-medium">Claimed</span>
+</div>
+</div>
+<!-- ==================== STATE 2: IN PROGRESS ==================== -->
+<!-- Card: Consistency Legend -->
+<div class="achievement-card rounded-2xl bg-surface p-space-lg flex flex-col justify-between transition-all hover:bg-surface-elevated group cursor-pointer" data-category="streaks" data-status="in-progress" onclick="openMilestoneDetail('Consistency Legend', 'Push disciplined velocity across 3 uninterrupted weeks.', '14 / 21 Days', '66.6%', 'Active daily streak logging', '+500 Gold · 10% Gold Overclock', 'in-progress')">
+<div class="flex flex-col gap-3">
+<div class="flex items-start justify-between gap-2">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-xl bg-surface-elevated flex items-center justify-center text-amber-streak">
+<span class="material-symbols-outlined text-[22px]">local_fire_department</span>
+</div>
+<div class="flex flex-col">
+<span class="font-headline-sm text-headline-sm text-text-primary font-semibold group-hover:text-primary transition-colors">Consistency Legend</span>
+<span class="font-label-sm text-label-sm text-amber-streak font-medium">14 / 21 DAYS (66%)</span>
+</div>
+</div>
+<span class="font-label-sm text-label-sm text-text-muted px-2 py-0.5 rounded bg-surface-elevated">STR-03</span>
+</div>
+<p class="font-body-sm text-body-sm text-text-secondary leading-relaxed">Push disciplined velocity across 3 uninterrupted weeks.</p>
+</div>
+<div class="flex flex-col gap-2 mt-space-md">
+<div class="w-full h-1.5 rounded-full bg-surface-elevated overflow-hidden">
+<div class="h-full bg-amber-streak rounded-full transition-all duration-500" style="width: 66.6%"></div>
+</div>
+<div class="flex items-center justify-between text-text-muted font-label-sm text-label-sm">
+<span>Current: 14D Streak</span>
+<span class="text-amber-streak">7D to Unlock</span>
+</div>
+</div>
+<div class="mt-space-md pt-space-md flex items-center justify-between bg-surface-elevated/40 -mx-space-lg -mb-space-lg px-space-lg py-space-sm rounded-b-2xl">
+<div class="flex items-center gap-1.5 text-text-secondary">
+<span class="material-symbols-outlined text-[14px] text-secondary">monetization_on</span>
+<span class="font-label-sm text-label-sm text-text-secondary">+500 G · 10% Overclock</span>
+</div>
+<span class="font-label-sm text-label-sm text-primary font-medium">In Flight</span>
+</div>
+</div>
+<!-- Card: Century Operative -->
+<div class="achievement-card rounded-2xl bg-surface p-space-lg flex flex-col justify-between transition-all hover:bg-surface-elevated group cursor-pointer" data-category="quests" data-status="in-progress" onclick="openMilestoneDetail('Century Operative', 'Complete 100 real-world campaign and daily protocols.', '68 / 100 Quests', '68.0%', 'Active combat operations tracking', '+1,000 XP · High Architect Title', 'in-progress')">
+<div class="flex flex-col gap-3">
+<div class="flex items-start justify-between gap-2">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-xl bg-surface-elevated flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[22px]">task_alt</span>
+</div>
+<div class="flex flex-col">
+<span class="font-headline-sm text-headline-sm text-text-primary font-semibold group-hover:text-primary transition-colors">Century Operative</span>
+<span class="font-label-sm text-label-sm text-primary font-medium">68 / 100 QUESTS (68%)</span>
+</div>
+</div>
+<span class="font-label-sm text-label-sm text-text-muted px-2 py-0.5 rounded bg-surface-elevated">QST-08</span>
+</div>
+<p class="font-body-sm text-body-sm text-text-secondary leading-relaxed">Complete 100 real-world campaign and daily protocols.</p>
+</div>
+<div class="flex flex-col gap-2 mt-space-md">
+<div class="w-full h-1.5 rounded-full bg-surface-elevated overflow-hidden">
+<div class="h-full bg-primary rounded-full transition-all duration-500" style="width: 68%"></div>
+</div>
+<div class="flex items-center justify-between text-text-muted font-label-sm text-label-sm">
+<span>68 Completed</span>
+<span class="text-primary">32 Remaining</span>
+</div>
+</div>
+<div class="mt-space-md pt-space-md flex items-center justify-between bg-surface-elevated/40 -mx-space-lg -mb-space-lg px-space-lg py-space-sm rounded-b-2xl">
+<div class="flex items-center gap-1.5 text-text-secondary">
+<span class="material-symbols-outlined text-[14px] text-primary">military_tech</span>
+<span class="font-label-sm text-label-sm text-text-secondary">+1,000 XP · Title</span>
+</div>
+<span class="font-label-sm text-label-sm text-primary font-medium">In Flight</span>
+</div>
+</div>
+<!-- Card: Gold Reservoir -->
+<div class="achievement-card rounded-2xl bg-surface p-space-lg flex flex-col justify-between transition-all hover:bg-surface-elevated group cursor-pointer" data-category="economy" data-status="in-progress" onclick="openMilestoneDetail('Gold Reservoir', 'Accumulate a balance of 2,500 Gold in your personal vault.', '1,420 / 2,500 Gold', '56.8%', 'Vault balance tracking live', '+200 XP · Midas Trim Profile', 'in-progress')">
+<div class="flex flex-col gap-3">
+<div class="flex items-start justify-between gap-2">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-xl bg-surface-elevated flex items-center justify-center text-secondary">
+<span class="material-symbols-outlined text-[22px]">savings</span>
+</div>
+<div class="flex flex-col">
+<span class="font-headline-sm text-headline-sm text-text-primary font-semibold group-hover:text-primary transition-colors">Gold Reservoir</span>
+<span class="font-label-sm text-label-sm text-secondary font-medium">1,420 / 2,500 G (56%)</span>
+</div>
+</div>
+<span class="font-label-sm text-label-sm text-text-muted px-2 py-0.5 rounded bg-surface-elevated">ECO-02</span>
+</div>
+<p class="font-body-sm text-body-sm text-text-secondary leading-relaxed">Accumulate a balance of 2,500 Gold in your personal vault.</p>
+</div>
+<div class="flex flex-col gap-2 mt-space-md">
+<div class="w-full h-1.5 rounded-full bg-surface-elevated overflow-hidden">
+<div class="h-full bg-secondary rounded-full transition-all duration-500" style="width: 56.8%"></div>
+</div>
+<div class="flex items-center justify-between text-text-muted font-label-sm text-label-sm">
+<span>Vault: 1,420 G</span>
+<span class="text-secondary">1,080 G to go</span>
+</div>
+</div>
+<div class="mt-space-md pt-space-md flex items-center justify-between bg-surface-elevated/40 -mx-space-lg -mb-space-lg px-space-lg py-space-sm rounded-b-2xl">
+<div class="flex items-center gap-1.5 text-text-secondary">
+<span class="material-symbols-outlined text-[14px] text-secondary">monetization_on</span>
+<span class="font-label-sm text-label-sm text-text-secondary">+200 XP · Midas Trim</span>
+</div>
+<span class="font-label-sm text-label-sm text-primary font-medium">In Flight</span>
+</div>
+</div>
+<!-- Card: Boss Slayer -->
+<div class="achievement-card rounded-2xl bg-surface p-space-lg flex flex-col justify-between transition-all hover:bg-surface-elevated group cursor-pointer" data-category="quests special" data-status="in-progress" onclick="openMilestoneDetail('Boss Slayer', 'Successfully defeat 3 critical time-bound Boss Raid objectives.', '2 / 3 Boss Raids', '66.6%', '2 Boss encounters confirmed fallen', '+400 XP · Crimson Crest', 'in-progress')">
+<div class="flex flex-col gap-3">
+<div class="flex items-start justify-between gap-2">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-xl bg-surface-elevated flex items-center justify-center text-crimson-threat">
+<span class="material-symbols-outlined text-[22px]">swords</span>
+</div>
+<div class="flex flex-col">
+<span class="font-headline-sm text-headline-sm text-text-primary font-semibold group-hover:text-primary transition-colors">Boss Slayer</span>
+<span class="font-label-sm text-label-sm text-crimson-threat font-medium">2 / 3 BOSSES (66%)</span>
+</div>
+</div>
+<span class="font-label-sm text-label-sm text-text-muted px-2 py-0.5 rounded bg-surface-elevated">RAID-01</span>
+</div>
+<p class="font-body-sm text-body-sm text-text-secondary leading-relaxed">Successfully defeat 3 critical time-bound Boss Raid objectives.</p>
+</div>
+<div class="flex flex-col gap-2 mt-space-md">
+<div class="w-full h-1.5 rounded-full bg-surface-elevated overflow-hidden">
+<div class="h-full bg-crimson-threat rounded-full transition-all duration-500" style="width: 66.6%"></div>
+</div>
+<div class="flex items-center justify-between text-text-muted font-label-sm text-label-sm">
+<span>Q3 Raid & Launch Left</span>
+<span class="text-crimson-threat">1 Boss Defeat Left</span>
+</div>
+</div>
+<div class="mt-space-md pt-space-md flex items-center justify-between bg-surface-elevated/40 -mx-space-lg -mb-space-lg px-space-lg py-space-sm rounded-b-2xl">
+<div class="flex items-center gap-1.5 text-text-secondary">
+<span class="material-symbols-outlined text-[14px] text-primary">military_tech</span>
+<span class="font-label-sm text-label-sm text-text-secondary">+400 XP · Crimson Crest</span>
+</div>
+<span class="font-label-sm text-label-sm text-primary font-medium">In Flight</span>
+</div>
+</div>
+<!-- ==================== STATE 3: LOCKED ==================== -->
+<!-- Card: Autonomous Mastery -->
+<div class="achievement-card rounded-2xl bg-surface/60 p-space-lg flex flex-col justify-between transition-all hover:bg-surface group cursor-pointer" data-category="progression special" data-status="locked" onclick="openMilestoneDetail('Autonomous Mastery', 'Unlock and configure the Autonomous Task Engine feature.', 'Locked (Level 12)', '82.6%', 'Requires Level 13 (8,260 / 10,000 XP)', '+800 XP · AI Co-Pilot Aura', 'locked')">
+<div class="flex flex-col gap-3">
+<div class="flex items-start justify-between gap-2">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-xl bg-surface-elevated/60 flex items-center justify-center text-text-muted">
+<span class="material-symbols-outlined text-[22px]">lock</span>
+</div>
+<div class="flex flex-col">
+<span class="font-headline-sm text-headline-sm text-text-secondary font-semibold group-hover:text-text-primary transition-colors">Autonomous Mastery</span>
+<span class="font-label-sm text-label-sm text-text-muted font-medium">LOCKED</span>
+</div>
+</div>
+<span class="font-label-sm text-label-sm text-text-muted px-2 py-0.5 rounded bg-surface-elevated/60">PRG-14</span>
+</div>
+<p class="font-body-sm text-body-sm text-text-muted leading-relaxed">Unlock and configure the Autonomous Task Engine feature.</p>
+</div>
+<div class="mt-space-md p-2 rounded-lg bg-surface-elevated/50 flex items-center gap-2 text-text-secondary">
+<span class="material-symbols-outlined text-[16px] text-primary">info</span>
+<span class="font-label-sm text-label-sm text-text-secondary">Requires Level 13 (82.6% complete)</span>
+</div>
+<div class="mt-space-md pt-space-md flex items-center justify-between bg-surface-elevated/20 -mx-space-lg -mb-space-lg px-space-lg py-space-sm rounded-b-2xl">
+<div class="flex items-center gap-1.5 text-text-muted">
+<span class="material-symbols-outlined text-[14px]">military_tech</span>
+<span class="font-label-sm text-label-sm text-text-muted">+800 XP · Co-Pilot Aura</span>
+</div>
+<span class="font-label-sm text-label-sm text-text-muted">Prerequisite Unmet</span>
+</div>
+</div>
+<!-- Card: Grandmaster of Discipline -->
+<div class="achievement-card rounded-2xl bg-surface/60 p-space-lg flex flex-col justify-between transition-all hover:bg-surface group cursor-pointer" data-category="progression" data-status="locked" onclick="openMilestoneDetail('Grandmaster of Discipline', 'Reach a Discipline attribute score of 95+ (Current: 91).', '91 / 95 DIS', '95.7%', 'Discipline Stat: +4 needed', '+500 Gold · Zen Frame', 'locked')">
+<div class="flex flex-col gap-3">
+<div class="flex items-start justify-between gap-2">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-xl bg-surface-elevated/60 flex items-center justify-center text-text-muted">
+<span class="material-symbols-outlined text-[22px]">lock</span>
+</div>
+<div class="flex flex-col">
+<span class="font-headline-sm text-headline-sm text-text-secondary font-semibold group-hover:text-text-primary transition-colors">Grandmaster of Discipline</span>
+<span class="font-label-sm text-label-sm text-text-muted font-medium">LOCKED</span>
+</div>
+</div>
+<span class="font-label-sm text-label-sm text-text-muted px-2 py-0.5 rounded bg-surface-elevated/60">STA-05</span>
+</div>
+<p class="font-body-sm text-body-sm text-text-muted leading-relaxed">Reach a Discipline attribute score of 95+ (Current: 91).</p>
+</div>
+<div class="mt-space-md p-2 rounded-lg bg-surface-elevated/50 flex items-center gap-2 text-text-secondary">
+<span class="material-symbols-outlined text-[16px] text-primary">info</span>
+<span class="font-label-sm text-label-sm text-text-secondary">+4 Discipline attribute required</span>
+</div>
+<div class="mt-space-md pt-space-md flex items-center justify-between bg-surface-elevated/20 -mx-space-lg -mb-space-lg px-space-lg py-space-sm rounded-b-2xl">
+<div class="flex items-center gap-1.5 text-text-muted">
+<span class="material-symbols-outlined text-[14px]">monetization_on</span>
+<span class="font-label-sm text-label-sm text-text-muted">+500 G · Zen Frame</span>
+</div>
+<span class="font-label-sm text-label-sm text-text-muted">Prerequisite Unmet</span>
+</div>
+</div>
+<!-- Card: Centurion Streak -->
+<div class="achievement-card rounded-2xl bg-surface/60 p-space-lg flex flex-col justify-between transition-all hover:bg-surface group cursor-pointer" data-category="streaks" data-status="locked" onclick="openMilestoneDetail('Centurion Streak', 'Sustain a 100-day unyielding daily protocol streak.', '14 / 100 Days', '14.0%', 'Prerequisite: Reach 30-Day Streak first', '+2,500 Gold · Mythic Crown', 'locked')">
+<div class="flex flex-col gap-3">
+<div class="flex items-start justify-between gap-2">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-xl bg-surface-elevated/60 flex items-center justify-center text-text-muted">
+<span class="material-symbols-outlined text-[22px]">lock</span>
+</div>
+<div class="flex flex-col">
+<span class="font-headline-sm text-headline-sm text-text-secondary font-semibold group-hover:text-text-primary transition-colors">Centurion Streak</span>
+<span class="font-label-sm text-label-sm text-text-muted font-medium">LOCKED</span>
+</div>
+</div>
+<span class="font-label-sm text-label-sm text-text-muted px-2 py-0.5 rounded bg-surface-elevated/60">STR-10</span>
+</div>
+<p class="font-body-sm text-body-sm text-text-muted leading-relaxed">Sustain a 100-day unyielding daily protocol streak.</p>
+</div>
+<div class="mt-space-md p-2 rounded-lg bg-surface-elevated/50 flex items-center gap-2 text-text-secondary">
+<span class="material-symbols-outlined text-[16px] text-amber-streak">warning</span>
+<span class="font-label-sm text-label-sm text-text-secondary">Prerequisite: Reach 30-Day Streak first</span>
+</div>
+<div class="mt-space-md pt-space-md flex items-center justify-between bg-surface-elevated/20 -mx-space-lg -mb-space-lg px-space-lg py-space-sm rounded-b-2xl">
+<div class="flex items-center gap-1.5 text-text-muted">
+<span class="material-symbols-outlined text-[14px]">military_tech</span>
+<span class="font-label-sm text-label-sm text-text-muted">+2,500 G · Mythic Crown</span>
+</div>
+<span class="font-label-sm text-label-sm text-text-muted">Tier Locked</span>
+</div>
+</div>
+<!-- Card: Omni-Max Strategist -->
+<div class="achievement-card rounded-2xl bg-surface/60 p-space-lg flex flex-col justify-between transition-all hover:bg-surface group cursor-pointer" data-category="progression special" data-status="locked" onclick="openMilestoneDetail('Omni-Max Strategist', 'Max out all five functional core capacities to 100.', '0 / 5 Core Stats Maxed', '0%', 'Level 20 rank required to uncap caps', 'Prestige Avatar + Mythic Flare', 'locked')">
+<div class="flex flex-col gap-3">
+<div class="flex items-start justify-between gap-2">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-xl bg-surface-elevated/60 flex items-center justify-center text-text-muted">
+<span class="material-symbols-outlined text-[22px]">lock</span>
+</div>
+<div class="flex flex-col">
+<span class="font-headline-sm text-headline-sm text-text-secondary font-semibold group-hover:text-text-primary transition-colors">Omni-Max Strategist</span>
+<span class="font-label-sm text-label-sm text-text-muted font-medium">LOCKED</span>
+</div>
+</div>
+<span class="font-label-sm text-label-sm text-text-muted px-2 py-0.5 rounded bg-surface-elevated/60">PRG-20</span>
+</div>
+<p class="font-body-sm text-body-sm text-text-muted leading-relaxed">Max out all five functional core capacities to 100.</p>
+</div>
+<div class="mt-space-md p-2 rounded-lg bg-surface-elevated/50 flex items-center gap-2 text-text-secondary">
+<span class="material-symbols-outlined text-[16px] text-primary">info</span>
+<span class="font-label-sm text-label-sm text-text-secondary">Level 20 required · Currently LVL 12</span>
+</div>
+<div class="mt-space-md pt-space-md flex items-center justify-between bg-surface-elevated/20 -mx-space-lg -mb-space-lg px-space-lg py-space-sm rounded-b-2xl">
+<div class="flex items-center gap-1.5 text-text-muted">
+<span class="material-symbols-outlined text-[14px]">palette</span>
+<span class="font-label-sm text-label-sm text-text-muted">Prestige Avatar Flare</span>
+</div>
+<span class="font-label-sm text-label-sm text-text-muted">Pinnacle Tier</span>
+</div>
+</div>
+</section>
+<!-- Detail Flyout Modal Backdrop -->
+<div class="fixed inset-0 z-50 bg-black/70 backdrop-blur-sm hidden flex items-center justify-center p-4" id="milestoneModalBackdrop">
+<div class="w-full max-w-xl bg-surface rounded-2xl p-space-lg flex flex-col gap-space-lg relative shadow-xl">
+<!-- Modal Header -->
+<div class="flex items-start justify-between gap-4">
+<div class="flex items-center gap-3">
+<div class="w-12 h-12 rounded-xl bg-surface-elevated flex items-center justify-center text-primary" id="modalIconContainer">
+<span class="material-symbols-outlined text-[26px]" id="modalIcon">military_tech</span>
+</div>
+<div class="flex flex-col">
+<div class="flex items-center gap-2">
+<span class="font-label-sm text-label-sm text-primary uppercase font-medium" id="modalBadgeState">IN FLIGHT</span>
+<span class="w-1 h-1 rounded-full bg-border-subtle"></span>
+<span class="font-label-sm text-label-sm text-text-muted">ACCOLADE PROTOCOL</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-text-primary font-semibold" id="modalTitle">Consistency Legend</h3>
+</div>
+</div>
+<button class="p-1.5 rounded-lg text-text-muted hover:text-text-primary hover:bg-surface-elevated transition-colors" onclick="closeMilestoneDetail()" type="button">
+<span class="material-symbols-outlined text-[20px]">close</span>
+</button>
+</div>
+<!-- Description -->
+<div class="p-3.5 rounded-xl bg-surface-elevated flex flex-col gap-1.5">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-text-muted font-medium">Objective Description</span>
+<p class="font-body-md text-body-md text-text-secondary leading-relaxed" id="modalDesc">Push disciplined velocity across 3 uninterrupted weeks.</p>
+</div>
+<!-- Progress Track -->
+<div class="flex flex-col gap-2">
+<div class="flex items-center justify-between font-label-sm text-label-sm">
+<span class="text-text-muted">Telemetry Progress</span>
+<span class="text-text-primary font-medium font-stat-numeric" id="modalRatio">14 / 21 Days (66%)</span>
+</div>
+<div class="w-full h-2 rounded-full bg-surface-elevated overflow-hidden">
+<div class="h-full bg-primary rounded-full transition-all duration-300" id="modalProgressBar" style="width: 66%"></div>
+</div>
+<div class="flex items-center justify-between text-text-muted font-label-sm text-label-sm">
+<span id="modalContextSub">Active daily streak logging</span>
+<span class="text-primary font-medium font-stat-numeric" id="modalPercent">66.6%</span>
+</div>
+</div>
+<!-- Historical Verification / Roadmap Checkpoints -->
+<div class="flex flex-col gap-2">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-text-muted">Milestone Milestones</span>
+<div class="flex flex-col gap-1.5 font-body-sm text-body-sm">
+<div class="flex items-center justify-between p-2 rounded-lg bg-surface-elevated/60 text-text-secondary">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[16px] text-emerald-complete">check_circle</span>
+<span>Tier 1: 7 Consecutive Days</span>
+</div>
+<span class="font-label-sm text-label-sm text-emerald-complete">Claimed (+100 G)</span>
+</div>
+<div class="flex items-center justify-between p-2 rounded-lg bg-surface-elevated/60 text-text-secondary">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[16px] text-emerald-complete">check_circle</span>
+<span>Tier 2: 14 Consecutive Days</span>
+</div>
+<span class="font-label-sm text-label-sm text-emerald-complete">Claimed (+250 G)</span>
+</div>
+<div class="flex items-center justify-between p-2 rounded-lg bg-surface-elevated text-text-primary">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[16px] text-amber-streak">pending</span>
+<span class="font-medium">Tier 3: 21 Consecutive Days</span>
+</div>
+<span class="font-label-sm text-label-sm text-amber-streak font-medium">7 Days to Target</span>
+</div>
+</div>
+</div>
+<!-- Reward Breakdown & Action Button -->
+<div class="pt-space-sm flex items-center justify-between gap-4">
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-text-muted">Completion Yield</span>
+<span class="font-body-md text-body-md text-secondary font-semibold" id="modalRewardYield">+500 Gold & 10% Overclock</span>
+</div>
+<button class="px-5 py-2 rounded-lg bg-surface-elevated hover:bg-surface-elevated/80 text-text-primary font-label-sm text-label-sm font-medium transition-colors" onclick="closeMilestoneDetail()" type="button">
+          Dismiss
+        </button>
+</div>
+</div>
+</div>
+<!-- Interactive JavaScript Logic -->
+<script>
+    // Tab switching for categories
+    const categoryButtons = document.querySelectorAll('.achievement-category-btn');
+    const statusButtons = document.querySelectorAll('.status-tab');
+    const cards = document.querySelectorAll('.achievement-card');
+    const searchInput = document.getElementById('achievementSearch');
+
+    let currentCategory = 'all';
+    let currentStatus = 'all';
+    let searchFilter = '';
+
+    function applyFilters() {
+      cards.forEach(card => {
+        const catList = card.getAttribute('data-category') || '';
+        const stat = card.getAttribute('data-status') || '';
+        const text = card.innerText.toLowerCase();
+
+        const matchCat = (currentCategory === 'all') || catList.includes(currentCategory);
+        const matchStat = (currentStatus === 'all') || (stat === currentStatus);
+        const matchSearch = (!searchFilter) || text.includes(searchFilter);
+
+        if (matchCat && matchStat && matchSearch) {
+          card.classList.remove('hidden');
+        } else {
+          card.classList.add('hidden');
+        }
+      });
+    }
+
+    categoryButtons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        categoryButtons.forEach(b => {
+          b.classList.remove('bg-surface-elevated', 'text-text-primary', 'font-semibold');
+          b.classList.add('bg-transparent', 'text-text-secondary');
+        });
+        btn.classList.add('bg-surface-elevated', 'text-text-primary', 'font-semibold');
+        btn.classList.remove('bg-transparent', 'text-text-secondary');
+        currentCategory = btn.getAttribute('data-category');
+        applyFilters();
+      });
+    });
+
+    statusButtons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        statusButtons.forEach(b => {
+          b.classList.remove('bg-surface', 'text-text-primary', 'font-medium');
+          b.classList.add('text-text-secondary');
+        });
+        btn.classList.add('bg-surface', 'text-text-primary', 'font-medium');
+        btn.classList.remove('text-text-secondary');
+        currentStatus = btn.getAttribute('data-status');
+        applyFilters();
+      });
+    });
+
+    if (searchInput) {
+      searchInput.addEventListener('input', (e) => {
+        searchFilter = e.target.value.toLowerCase().trim();
+        applyFilters();
+      });
+    }
+
+    // Modal behavior
+    const modalBackdrop = document.getElementById('milestoneModalBackdrop');
+    const modalTitle = document.getElementById('modalTitle');
+    const modalDesc = document.getElementById('modalDesc');
+    const modalRatio = document.getElementById('modalRatio');
+    const modalPercent = document.getElementById('modalPercent');
+    const modalProgressBar = document.getElementById('modalProgressBar');
+    const modalContextSub = document.getElementById('modalContextSub');
+    const modalRewardYield = document.getElementById('modalRewardYield');
+    const modalBadgeState = document.getElementById('modalBadgeState');
+    const modalIcon = document.getElementById('modalIcon');
+    const modalIconContainer = document.getElementById('modalIconContainer');
+
+    window.openMilestoneDetail = function(title, desc, ratio, percent, context, rewards, state) {
+      modalTitle.textContent = title;
+      modalDesc.textContent = desc;
+      modalRatio.textContent = ratio;
+      modalPercent.textContent = percent;
+      modalProgressBar.style.width = percent;
+      modalContextSub.textContent = context;
+      modalRewardYield.textContent = rewards;
+
+      if (state === 'unlocked') {
+        modalBadgeState.textContent = 'VERIFIED UNLOCKED';
+        modalBadgeState.className = 'font-label-sm text-label-sm text-emerald-complete uppercase font-medium';
+        modalProgressBar.className = 'h-full bg-emerald-complete rounded-full';
+        modalIcon.textContent = 'verified';
+        modalIconContainer.className = 'w-12 h-12 rounded-xl bg-surface-elevated flex items-center justify-center text-emerald-complete';
+      } else if (state === 'in-progress') {
+        modalBadgeState.textContent = 'OPERATION IN PROGRESS';
+        modalBadgeState.className = 'font-label-sm text-label-sm text-primary uppercase font-medium';
+        modalProgressBar.className = 'h-full bg-primary rounded-full';
+        modalIcon.textContent = 'track_changes';
+        modalIconContainer.className = 'w-12 h-12 rounded-xl bg-surface-elevated flex items-center justify-center text-primary';
+      } else {
+        modalBadgeState.textContent = 'LOCKED REQUISITE';
+        modalBadgeState.className = 'font-label-sm text-label-sm text-text-muted uppercase font-medium';
+        modalProgressBar.className = 'h-full bg-surface-elevated rounded-full';
+        modalIcon.textContent = 'lock';
+        modalIconContainer.className = 'w-12 h-12 rounded-xl bg-surface-elevated flex items-center justify-center text-text-muted';
+      }
+
+      modalBackdrop.classList.remove('hidden');
+    };
+
+    window.closeMilestoneDetail = function() {
+      modalBackdrop.classList.add('hidden');
+    };
+
+    modalBackdrop.addEventListener('click', (e) => {
+      if (e.target === modalBackdrop) {
+        closeMilestoneDetail();
+      }
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        closeMilestoneDetail();
+      }
+    });
+  </script>
+</div></main></div></body></html>

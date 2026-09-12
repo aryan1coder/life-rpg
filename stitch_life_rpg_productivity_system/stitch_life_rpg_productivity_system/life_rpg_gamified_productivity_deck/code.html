@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&family=Inter:wght@100..900&family=JetBrains+Mono:wght@100..900&display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={darkMode:"class",theme:{extend:{colors:{"on-primary":"#1000a9","inverse-on-surface":"#2d3038","on-secondary-container":"#5b3800","on-error":"#690005","background":"#10131a","border-subtle":"rgba(255, 255, 255, 0.07)","on-secondary":"#472a00","secondary":"#ffb95f","primary":"#c0c1ff","on-primary-fixed-variant":"#2f2ebe","error":"#ffb4ab","primary-container":"#8083ff","on-tertiary-container":"#002f38","surface-container-lowest":"#0b0e15","on-surface":"#e1e2ec","on-secondary-fixed-variant":"#653e00","surface-elevated":"#1B1F2A","tertiary":"#4cd7f6","on-secondary-fixed":"#2a1700","on-primary-fixed":"#07006c","secondary-fixed":"#ffddb8","text-muted":"#64748B","tertiary-fixed-dim":"#4cd7f6","on-background":"#e1e2ec","secondary-fixed-dim":"#ffb95f","bg-secondary":"#11141C","inverse-primary":"#494bd6","surface-container-high":"#272a32","outline":"#908fa0","text-secondary":"#94A3B8","emerald-complete":"#10B981","crimson-threat":"#EF4444","on-tertiary-fixed":"#001f26","surface-bright":"#363941","on-primary-container":"#0d0096","inverse-surface":"#e1e2ec","error-container":"#93000a","surface-container":"#1d2027","surface-tint":"#c0c1ff","tertiary-container":"#009eb9","surface-container-low":"#191b23","bg-primary":"#0B0E15","text-primary":"#F1F5F9","secondary-container":"#ee9800","primary-fixed":"#e1e0ff","border-focus":"rgba(99, 102, 241, 0.4)","primary-fixed-dim":"#c0c1ff","surface-variant":"#32353d","outline-variant":"#464554","amber-streak":"#F97316","surface":"#151923","on-surface-variant":"#c7c4d7","on-tertiary":"#003640","on-error-container":"#ffdad6","surface-dim":"#10131a","surface-container-highest":"#32353d","tertiary-fixed":"#acedff","on-tertiary-fixed-variant":"#004e5c"},borderRadius:{DEFAULT:"0.25rem",lg:"0.5rem",xl:"0.75rem",full:"9999px"},spacing:{"space-lg":"1.5rem","space-xs":"0.25rem",margin:"2rem","margin-mobile":"1rem",gutter:"1.5rem","space-sm":"0.5rem","space-md":"1rem","space-xl":"2rem","gutter-mobile":"0.75rem"},fontFamily:{"headline-lg-mobile":["Geist"],"body-sm":["Inter"],"headline-hero":["Geist"],"headline-hero-mobile":["Geist"],"headline-sm":["Geist"],"body-md":["Inter"],"headline-lg":["Geist"],"headline-md":["Geist"],"label-sm":["JetBrains Mono"],"body-lg":["Inter"],"stat-numeric":["JetBrains Mono"],"label-md":["JetBrains Mono"]},fontSize:{"headline-lg-mobile":["22px",{lineHeight:"28px",letterSpacing:"-0.01em",fontWeight:"600"}],"body-sm":["13px",{lineHeight:"18px",letterSpacing:"0em",fontWeight:"400"}],"headline-hero":["40px",{lineHeight:"48px",letterSpacing:"-0.03em",fontWeight:"600"}],"headline-hero-mobile":["28px",{lineHeight:"36px",letterSpacing:"-0.02em",fontWeight:"600"}],"headline-sm":["16px",{lineHeight:"24px",letterSpacing:"-0.005em",fontWeight:"600"}],"body-md":["14px",{lineHeight:"22px",letterSpacing:"-0.005em",fontWeight:"400"}],"headline-lg":["28px",{lineHeight:"36px",letterSpacing:"-0.02em",fontWeight:"600"}],"headline-md":["20px",{lineHeight:"28px",letterSpacing:"-0.01em",fontWeight:"600"}],"label-sm":["11px",{lineHeight:"14px",letterSpacing:"0.04em",fontWeight:"500"}],"body-lg":["16px",{lineHeight:"26px",letterSpacing:"-0.01em",fontWeight:"400"}],"stat-numeric":["20px",{lineHeight:"24px",letterSpacing:"-0.02em",fontWeight:"500"}],"label-md":["12px",{lineHeight:"16px",letterSpacing:"0.02em",fontWeight:"500"}]}}}};</script></head><body class="bg-bg-primary font-body-md text-body-md text-on-surface antialiased selection:bg-primary-container selection:text-on-primary-container"><aside class="fixed left-0 top-0 h-full w-64 bg-bg-secondary border-r border-border-subtle z-50 flex flex-col justify-between select-none"><div class="flex flex-col"><div class="h-16 px-5 flex items-center gap-3 border-b border-border-subtle"><img alt="Brand logo. - Primary color: #6366f1
+- Font: spaceGrotesk
+- Mode: dark
+- Roundness: rounded-sm
+" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/AEtjO1VbSfhYKcbXhAUIr9-pLsiwvBSLgwakw7fdkXq3szsXQnzb2g_ULv9EmvlgkZeJopKXzqdDZy9Wa8OLbCpXfB3G6I9o5v1jN4WR7oLAaF_3DRjTPzPLFidgjW-3U_kvdIu2UZSJ40fzzhgitYMqHuNSDCRM_Ez1pMQFhUukbzMYbdKnakNc8D1FEIwGJnybK3w98iuLONL8doMHlo1aQQ3h9fhAxhACcWz4cZDWvOjlVFzvtYJdgZul8w"/><div class="flex flex-col"><span class="font-headline-sm text-headline-sm text-text-primary tracking-tight">LIFE RPG</span><span class="font-label-sm text-label-sm text-text-muted tracking-wider uppercase">SYSTEM v2.4</span></div></div><div class="px-3 pt-4 pb-2"><span class="px-2.5 font-label-sm text-label-sm text-text-muted uppercase tracking-widest">Navigation</span></div><nav class="flex flex-col gap-1 px-3" data-active-classes="bg-surface-elevated text-text-primary border border-border-subtle shadow-sm"><a aria-current="page" class="group flex items-center justify-between px-2.5 py-2 rounded-lg transition-all bg-surface-elevated text-text-primary border border-border-subtle shadow-sm" data-path="home" href="#"><div class="flex items-center gap-3"><span class="material-symbols-outlined text-[18px]">home</span><span class="font-body-md text-body-md">Home</span></div><kbd class="font-label-sm text-label-sm text-text-muted group-hover:text-text-secondary transition-colors">⌘1</kbd></a><a class="group flex items-center justify-between px-2.5 py-2 rounded-lg text-text-secondary hover:text-text-primary hover:bg-surface-elevated transition-all" data-path="quests" href="#"><div class="flex items-center gap-3"><span class="material-symbols-outlined text-[18px]">task_alt</span><span class="font-body-md text-body-md">Quests</span></div><kbd class="font-label-sm text-label-sm text-text-muted group-hover:text-text-secondary transition-colors">⌘2</kbd></a><a class="group flex items-center justify-between px-2.5 py-2 rounded-lg text-text-secondary hover:text-text-primary hover:bg-surface-elevated transition-all" data-path="character" href="#"><div class="flex items-center gap-3"><span class="material-symbols-outlined text-[18px]">person</span><span class="font-body-md text-body-md">Character</span></div><kbd class="font-label-sm text-label-sm text-text-muted group-hover:text-text-secondary transition-colors">⌘3</kbd></a><a class="group flex items-center justify-between px-2.5 py-2 rounded-lg text-text-secondary hover:text-text-primary hover:bg-surface-elevated transition-all" data-path="rewards" href="#"><div class="flex items-center gap-3"><span class="material-symbols-outlined text-[18px]">military_tech</span><span class="font-body-md text-body-md">Rewards</span></div><kbd class="font-label-sm text-label-sm text-text-muted group-hover:text-text-secondary transition-colors">⌘4</kbd></a><a class="group flex items-center justify-between px-2.5 py-2 rounded-lg text-text-secondary hover:text-text-primary hover:bg-surface-elevated transition-all" data-path="inventory" href="#"><div class="flex items-center gap-3"><span class="material-symbols-outlined text-[18px]">backpack</span><span class="font-body-md text-body-md">Inventory</span></div><kbd class="font-label-sm text-label-sm text-text-muted group-hover:text-text-secondary transition-colors">⌘5</kbd></a><a class="group flex items-center justify-between px-2.5 py-2 rounded-lg text-text-secondary hover:text-text-primary hover:bg-surface-elevated transition-all" data-path="achievements" href="#"><div class="flex items-center gap-3"><span class="material-symbols-outlined text-[18px]">verified</span><span class="font-body-md text-body-md">Achievements</span></div><kbd class="font-label-sm text-label-sm text-text-muted group-hover:text-text-secondary transition-colors">⌘6</kbd></a></nav></div><div class="flex flex-col gap-3 p-3 border-t border-border-subtle bg-bg-secondary"><div class="flex items-center justify-between px-2.5 py-2 rounded-lg bg-surface-elevated border border-border-subtle"><div class="flex items-center gap-2"><span class="material-symbols-outlined text-amber-streak text-[18px]">local_fire_department</span><span class="font-body-sm text-body-sm text-text-secondary">Current Streak</span></div><span class="font-label-sm text-label-sm text-amber-streak font-medium">14 DAYS</span></div><div class="flex items-center justify-between px-1"><button class="flex items-center gap-2 p-1.5 rounded text-text-muted hover:text-text-primary hover:bg-surface-elevated transition-all" type="button"><span class="material-symbols-outlined text-[18px]">volume_up</span><span class="font-label-sm text-label-sm">Audio ON</span></button><a class="flex items-center gap-1.5 p-1.5 rounded text-text-muted hover:text-text-primary hover:bg-surface-elevated transition-all" data-path="settings" href="#"><span class="material-symbols-outlined text-[18px]">settings</span><span class="font-label-sm text-label-sm">Settings</span></a></div><div class="flex items-center gap-3 p-2 rounded-lg bg-surface border border-border-subtle"><div class="relative flex-shrink-0"><img alt="Profile" class="w-8 h-8 rounded-full object-cover" src="https://lh3.googleusercontent.com/aida/AEtjO1WYYfG_zabn5Hd81ixbEJIgD8ELc302VsbWiIZutAImQAU_yL8Jsz6a6WSSXuCko6C9T073TQeRauo9UcL35S-YyBBpF_F9zhIybtLozsT1d1yzUQdcGGk2E4JsBIeffpiGrdeXtjPyV_ifGll2Y91tAqApDLwKbiTSRDbwJqN_fW89CNAgBFhc78p1QoiVYwZm-Jj2rzjIKUK5pmvVpZKF3EG27YQIS6YDGRfMUNJQ6x5monmR8OmC"/><span class="absolute bottom-0 right-0 w-2 h-2 rounded-full bg-emerald-complete ring-2 ring-surface"></span></div><div class="flex flex-col min-w-0 flex-1"><span class="font-body-sm text-body-sm text-text-primary truncate font-medium">Aiden Vance</span><span class="font-label-sm text-label-sm text-text-muted truncate">Tier 2 Strategist</span></div></div></div></aside><div class="pl-64"><header class="fixed top-0 left-64 right-0 h-16 bg-bg-secondary/90 backdrop-blur-xl border-b border-border-subtle z-40 px-8 flex items-center justify-between"><div class="flex items-center gap-6"><div class="flex items-center gap-2"><span class="font-label-sm text-label-sm px-2 py-0.5 rounded bg-surface-elevated border border-border-subtle text-primary font-medium tracking-wide uppercase">LVL 12</span><span class="text-border-subtle font-light">|</span><span class="font-body-sm text-body-sm text-text-secondary">Master Tactician</span></div><div class="hidden md:flex items-center gap-3 pl-2"><div class="flex items-center gap-2"><span class="font-label-sm text-label-sm text-text-muted uppercase tracking-wider">XP</span><div class="w-24 h-1.5 rounded-full bg-surface-elevated overflow-hidden"><div class="h-full bg-primary-container rounded-full" style="width: 82.6%"></div></div><span class="font-label-sm text-label-sm text-text-secondary">82.6%</span></div></div></div><div class="flex items-center gap-4"><div class="flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-surface-elevated border border-border-subtle"><span class="material-symbols-outlined text-secondary text-[16px]">monetization_on</span><span class="font-label-sm text-label-sm text-secondary font-medium tracking-tight">1,420 G</span></div><div class="flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-surface-elevated border border-border-subtle"><span class="material-symbols-outlined text-amber-streak text-[16px]">local_fire_department</span><span class="font-label-sm text-label-sm text-amber-streak font-medium tracking-tight">14D</span></div><button class="p-1.5 rounded-lg text-text-muted hover:text-text-primary hover:bg-surface-elevated transition-colors" type="button"><span class="material-symbols-outlined text-[20px]">notifications</span></button><div class="h-4 w-px bg-border-subtle"></div><div class="flex items-center gap-2 pl-1"><div class="relative"><img alt="Profile" class="w-8 h-8 rounded-full object-cover" src="https://lh3.googleusercontent.com/aida/AEtjO1WYYfG_zabn5Hd81ixbEJIgD8ELc302VsbWiIZutAImQAU_yL8Jsz6a6WSSXuCko6C9T073TQeRauo9UcL35S-YyBBpF_F9zhIybtLozsT1d1yzUQdcGGk2E4JsBIeffpiGrdeXtjPyV_ifGll2Y91tAqApDLwKbiTSRDbwJqN_fW89CNAgBFhc78p1QoiVYwZm-Jj2rzjIKUK5pmvVpZKF3EG27YQIS6YDGRfMUNJQ6x5monmR8OmC"/><span class="absolute bottom-0 right-0 w-2 h-2 rounded-full bg-emerald-complete ring-2 ring-bg-secondary"></span></div></div></div></header><main class="relative pt-16 min-h-screen bg-bg-primary"><div class="w-full max-w-7xl mx-auto p-8 lg:p-12"><div class="flex flex-col w-full gap-8">
+<!-- TOP GREETING & COMMAND BAR -->
+<div class="flex flex-col lg:flex-row lg:items-center justify-between gap-6">
+<div class="flex flex-col gap-1.5">
+<div class="flex items-center gap-3">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-text-muted">Cycle 284 · Meridian Shift</span>
+<span class="w-1 h-1 rounded-full bg-border-focus"></span>
+<span class="font-label-sm text-label-sm text-emerald-complete flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-emerald-complete"></span>
+          Neural Sync Live
+        </span>
+</div>
+<div class="flex items-baseline gap-3">
+<h1 class="font-headline-hero text-headline-hero text-text-primary tracking-tight">Good evening, Kai</h1>
+<span class="font-headline-sm text-headline-sm text-primary font-normal">Level 12 · Arch-Strategist</span>
+</div>
+</div>
+<!-- Quick Action Array -->
+<div class="flex items-center gap-3 flex-wrap">
+<button class="group flex items-center gap-2 px-4 py-2.5 rounded-lg bg-surface hover:bg-surface-elevated text-text-secondary hover:text-text-primary shadow-sm transition-all" type="button">
+<span class="material-symbols-outlined text-[18px] group-hover:rotate-180 transition-transform duration-500">sync</span>
+<span class="font-body-md text-body-md font-medium">Sync Schedule</span>
+<span class="font-label-sm text-label-sm text-text-muted ml-1">⌥S</span>
+</button>
+<button class="flex items-center gap-2 px-5 py-2.5 rounded-lg bg-primary text-on-primary font-body-md text-body-md font-semibold hover:bg-primary-fixed transition-all shadow-md active:scale-95" id="btn-create-quest" type="button">
+<span class="material-symbols-outlined text-[18px]">add_circle</span>
+<span>+ Create Quest</span>
+<span class="font-label-sm text-label-sm text-on-primary/70 ml-1">⌘N</span>
+</button>
+</div>
+</div>
+<!-- HERO PROGRESSION CANVAS (PROGRESSION ENGINE) -->
+<div class="relative overflow-hidden rounded-xl bg-surface p-8 shadow-sm">
+<!-- Faint atmospheric ambient glow behind level badge -->
+<div class="absolute -top-24 -left-24 w-80 h-80 rounded-full bg-primary-container/10 blur-3xl pointer-events-none"></div>
+<div class="relative z-10 flex flex-col gap-6">
+<!-- Upper Tier: Avatar + Progression Meta -->
+<div class="flex flex-col lg:flex-row lg:items-center justify-between gap-6">
+<div class="flex items-center gap-5">
+<div class="relative flex-shrink-0">
+<img alt="Character Avatar" class="w-20 h-20 rounded-xl object-cover shadow-md ring-1 ring-primary/20" src="https://lh3.googleusercontent.com/aida/AEtjO1WYYfG_zabn5Hd81ixbEJIgD8ELc302VsbWiIZutAImQAU_yL8Jsz6a6WSSXuCko6C9T073TQeRauo9UcL35S-YyBBpF_F9zhIybtLozsT1d1yzUQdcGGk2E4JsBIeffpiGrdeXtjPyV_ifGll2Y91tAqApDLwKbiTSRDbwJqN_fW89CNAgBFhc78p1QoiVYwZm-Jj2rzjIKUK5pmvVpZKF3EG27YQIS6YDGRfMUNJQ6x5monmR8OmC"/>
+<span class="absolute -bottom-2 -right-2 px-2 py-0.5 rounded-md bg-surface-elevated font-label-sm text-label-sm text-primary font-semibold shadow-sm">
+              LVL 12
+            </span>
+</div>
+<div class="flex flex-col gap-1">
+<div class="flex items-center gap-3">
+<span class="font-label-md text-label-md uppercase tracking-wider text-text-muted">Domain Specialization</span>
+<span class="px-2 py-0.5 rounded bg-surface-elevated font-label-sm text-label-sm text-tertiary">TIER II</span>
+</div>
+<span class="font-headline-md text-headline-md text-text-primary tracking-tight">Arch-Strategist II</span>
+<span class="font-body-sm text-body-sm text-text-secondary">Next threshold unlocks Cognitive Co-Pilot Subroutines</span>
+</div>
+</div>
+<!-- Telemetry Status Pills -->
+<div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+<div class="flex flex-col px-4 py-3 rounded-lg bg-surface-elevated">
+<div class="flex items-center justify-between gap-2">
+<span class="font-label-sm text-label-sm text-text-muted uppercase">Active Streak</span>
+<span class="material-symbols-outlined text-amber-streak text-[16px]">local_fire_department</span>
+</div>
+<span class="font-stat-numeric text-stat-numeric text-amber-streak mt-1">14 DAYS</span>
+<span class="font-label-sm text-label-sm text-text-muted mt-0.5">Multiplier x1.40</span>
+</div>
+<div class="flex flex-col px-4 py-3 rounded-lg bg-surface-elevated">
+<div class="flex items-center justify-between gap-2">
+<span class="font-label-sm text-label-sm text-text-muted uppercase">Gold Reservoir</span>
+<span class="material-symbols-outlined text-secondary text-[16px]">monetization_on</span>
+</div>
+<span class="font-stat-numeric text-stat-numeric text-secondary mt-1">1,420 G</span>
+<span class="font-label-sm text-label-sm text-text-muted mt-0.5">+140 G Today</span>
+</div>
+<div class="flex flex-col px-4 py-3 rounded-lg bg-surface-elevated">
+<div class="flex items-center justify-between gap-2">
+<span class="font-label-sm text-label-sm text-text-muted uppercase">Daily Quota</span>
+<span class="material-symbols-outlined text-emerald-complete text-[16px]">task_alt</span>
+</div>
+<span class="font-stat-numeric text-stat-numeric text-text-primary mt-1">4 of 6</span>
+<span class="font-label-sm text-label-sm text-emerald-complete mt-0.5">67% Complete</span>
+</div>
+</div>
+</div>
+<!-- Linear Progression Meter -->
+<div class="flex flex-col gap-2 pt-2">
+<div class="flex items-center justify-between font-label-md text-label-md">
+<div class="flex items-center gap-2">
+<span class="text-text-primary font-semibold">EXPERIENCE TRAJECTORY</span>
+<span class="text-text-muted">·</span>
+<span class="text-text-secondary">8,260 / 10,000 XP</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="text-primary font-medium">82.6%</span>
+<span class="text-text-muted">(+1,740 XP to Level 13)</span>
+</div>
+</div>
+<div class="w-full h-3 rounded-full bg-surface-container overflow-hidden p-0.5">
+<div class="h-full bg-gradient-to-r from-primary-container via-primary to-tertiary rounded-full transition-all duration-700" style="width: 82.6%"></div>
+</div>
+<div class="flex items-center justify-between font-label-sm text-label-sm text-text-muted">
+<span>Level 12 Anchor</span>
+<span class="flex items-center gap-1.5 text-text-secondary">
+<span class="material-symbols-outlined text-[14px] text-tertiary">lock_open</span>
+            Unlocks 'Autonomous Task Engine' at Level 13
+          </span>
+<span>Level 13 Zenith</span>
+</div>
+</div>
+</div>
+</div>
+<!-- MAIN DUAL-COLUMN LAYOUT -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+<!-- LEFT EXECUTION CANVAS (7 COLS): ACTIVE QUEST QUEUE -->
+<div class="lg:col-span-7 flex flex-col gap-6">
+<!-- Section Header with Crisp Tabs -->
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary text-[22px]">target</span>
+<h2 class="font-headline-md text-headline-md text-text-primary tracking-tight">Today's Quests</h2>
+<span class="px-2 py-0.5 rounded-full bg-surface-elevated font-label-sm text-label-sm text-text-secondary">6 Active</span>
+</div>
+<!-- Filter Pills -->
+<div class="flex items-center gap-1 bg-surface p-1 rounded-lg self-start sm:self-auto">
+<button class="px-3 py-1 rounded bg-surface-elevated font-label-sm text-label-sm text-text-primary shadow-sm" type="button">All (6)</button>
+<button class="px-3 py-1 rounded hover:bg-surface-elevated font-label-sm text-label-sm text-text-secondary hover:text-text-primary transition-all" type="button">High Priority (2)</button>
+<button class="px-3 py-1 rounded hover:bg-surface-elevated font-label-sm text-label-sm text-text-secondary hover:text-text-primary transition-all" type="button">Habits (3)</button>
+<button class="px-3 py-1 rounded hover:bg-surface-elevated font-label-sm text-label-sm text-text-secondary hover:text-text-primary transition-all" type="button">Campaign (1)</button>
+</div>
+</div>
+<!-- Quest Stream -->
+<div class="flex flex-col gap-4">
+<!-- QUEST CARD 1: ACTIVE INTELLECT -->
+<div class="group relative rounded-xl bg-surface hover:bg-surface-elevated p-6 transition-all duration-200 shadow-sm">
+<div class="flex flex-col gap-4">
+<div class="flex items-start justify-between gap-4">
+<!-- Pill & Title Stack -->
+<div class="flex items-start gap-4">
+<div class="p-2.5 rounded-lg bg-surface-elevated group-hover:bg-surface text-tertiary flex-shrink-0 transition-colors">
+<span class="material-symbols-outlined text-[20px]">psychology</span>
+</div>
+<div class="flex flex-col gap-1 min-w-0">
+<div class="flex items-center gap-2">
+<span class="font-label-sm text-label-sm text-tertiary tracking-wider font-semibold">INTELLECT</span>
+<span class="text-text-muted">·</span>
+<span class="font-label-sm text-label-sm text-text-muted uppercase">Daily Cadence</span>
+<span class="text-text-muted">·</span>
+<span class="px-1.5 py-0.2 rounded bg-surface-elevated font-label-sm text-label-sm text-text-secondary">Normal</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-text-primary tracking-tight">Algorithm Practice & System Architecture</h3>
+<p class="font-body-sm text-body-sm text-text-secondary line-clamp-1">Review inverted index distributed queries and construct lock-free queue benchmarks.</p>
+</div>
+</div>
+<!-- Action button -->
+<button class="quest-action flex items-center gap-1.5 px-4 py-2 rounded-lg bg-surface-container hover:bg-primary hover:text-on-primary font-body-sm text-body-sm text-text-primary transition-all flex-shrink-0" type="button">
+<span class="material-symbols-outlined text-[16px]">check_circle</span>
+<span>Complete</span>
+</button>
+</div>
+<!-- Inline Micro-Progress Meter -->
+<div class="flex flex-col gap-1.5 pt-2">
+<div class="flex items-center justify-between font-label-sm text-label-sm">
+<span class="text-text-muted">Subroutines: 4 / 5 modules reviewed</span>
+<span class="text-tertiary font-medium">80%</span>
+</div>
+<div class="w-full h-1.5 rounded-full bg-surface-container overflow-hidden">
+<div class="h-full bg-tertiary rounded-full" style="width: 80%"></div>
+</div>
+</div>
+<!-- Reward Telemetry Footer -->
+<div class="flex items-center justify-between pt-2">
+<div class="flex items-center gap-2 flex-wrap">
+<span class="flex items-center gap-1 px-2 py-0.5 rounded bg-surface-elevated font-label-sm text-label-sm text-primary">
+<span class="material-symbols-outlined text-[12px]">bolt</span> +120 XP
+                </span>
+<span class="flex items-center gap-1 px-2 py-0.5 rounded bg-surface-elevated font-label-sm text-label-sm text-secondary">
+<span class="material-symbols-outlined text-[12px]">monetization_on</span> +65 Gold
+                </span>
+<span class="flex items-center gap-1 px-2 py-0.5 rounded bg-surface-elevated font-label-sm text-label-sm text-tertiary">
+<span class="material-symbols-outlined text-[12px]">insights</span> +2 INT
+                </span>
+</div>
+<span class="font-label-sm text-label-sm text-text-muted flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">schedule</span> Due 21:00
+              </span>
+</div>
+</div>
+</div>
+<!-- QUEST CARD 2: COMPLETED DISCIPLINE -->
+<div class="relative rounded-xl bg-surface/60 p-6 opacity-90 transition-all duration-200 shadow-sm">
+<div class="flex flex-col gap-4">
+<div class="flex items-start justify-between gap-4">
+<div class="flex items-start gap-4">
+<div class="p-2.5 rounded-lg bg-emerald-complete/10 text-emerald-complete flex-shrink-0">
+<span class="material-symbols-outlined text-[20px]">verified</span>
+</div>
+<div class="flex flex-col gap-1 min-w-0">
+<div class="flex items-center gap-2">
+<span class="font-label-sm text-label-sm text-secondary tracking-wider font-semibold">DISCIPLINE</span>
+<span class="text-text-muted">·</span>
+<span class="font-label-sm text-label-sm text-amber-streak uppercase">14-Day Streak Linked</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-text-secondary line-through tracking-tight">Morning Deep Focus & Communication Triage</h3>
+<p class="font-body-sm text-body-sm text-text-muted line-clamp-1">Zero inbox achieved, core daily priority dispatched without contextual drift.</p>
+</div>
+</div>
+<!-- Transformed Claimed State -->
+<div class="flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg bg-emerald-complete/10 font-label-sm text-label-sm text-emerald-complete flex-shrink-0">
+<span class="material-symbols-outlined text-[16px]">done_all</span>
+<span>Completed (+90 XP Claimed)</span>
+</div>
+</div>
+<!-- 100% Bar -->
+<div class="flex flex-col gap-1.5 pt-1">
+<div class="w-full h-1.5 rounded-full bg-surface-container overflow-hidden">
+<div class="h-full bg-emerald-complete rounded-full" style="width: 100%"></div>
+</div>
+</div>
+<div class="flex items-center justify-between pt-1">
+<div class="flex items-center gap-2">
+<span class="px-2 py-0.5 rounded bg-surface-elevated font-label-sm text-label-sm text-text-muted">Logged 08:30</span>
+<span class="px-2 py-0.5 rounded bg-surface-elevated font-label-sm text-label-sm text-emerald-complete">+3 DIS Gained</span>
+</div>
+<span class="font-label-sm text-label-sm text-text-muted">Status: Synchronized</span>
+</div>
+</div>
+</div>
+<!-- QUEST CARD 3: BIOMETRIC FEED VITALITY -->
+<div class="group relative rounded-xl bg-surface hover:bg-surface-elevated p-6 transition-all duration-200 shadow-sm">
+<div class="flex flex-col gap-4">
+<div class="flex items-start justify-between gap-4">
+<div class="flex items-start gap-4">
+<div class="p-2.5 rounded-lg bg-surface-elevated group-hover:bg-surface text-emerald-complete flex-shrink-0 transition-colors">
+<span class="material-symbols-outlined text-[20px]">directions_run</span>
+</div>
+<div class="flex flex-col gap-1 min-w-0">
+<div class="flex items-center gap-2">
+<span class="font-label-sm text-label-sm text-emerald-complete tracking-wider font-semibold">VITALITY</span>
+<span class="text-text-muted">·</span>
+<span class="font-label-sm text-label-sm text-text-muted uppercase">Biometric Feed</span>
+<span class="text-text-muted">·</span>
+<span class="px-1.5 py-0.2 rounded bg-surface-elevated font-label-sm text-label-sm text-text-secondary">Medium</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-text-primary tracking-tight">Aerobic Conditioning (10,000 Steps Expedition)</h3>
+<p class="font-body-sm text-body-sm text-text-secondary line-clamp-1">Cardiovascular endurance replenishment via outdoor steady-state movement.</p>
+</div>
+</div>
+<!-- Action button -->
+<button class="sensor-sync flex items-center gap-1.5 px-4 py-2 rounded-lg bg-surface-container hover:bg-surface-bright font-body-sm text-body-sm text-text-primary transition-all flex-shrink-0" type="button">
+<span class="material-symbols-outlined text-[16px] text-emerald-complete">sensors</span>
+<span>Sync Sensors</span>
+</button>
+</div>
+<!-- Steps Meter -->
+<div class="flex flex-col gap-1.5 pt-2">
+<div class="flex items-center justify-between font-label-sm text-label-sm">
+<span class="text-text-secondary font-medium">7,420 / 10,000 steps</span>
+<span class="text-emerald-complete font-medium">74.2%</span>
+</div>
+<div class="w-full h-1.5 rounded-full bg-surface-container overflow-hidden">
+<div class="h-full bg-emerald-complete rounded-full" style="width: 74.2%"></div>
+</div>
+</div>
+<!-- Rewards -->
+<div class="flex items-center justify-between pt-2">
+<div class="flex items-center gap-2 flex-wrap">
+<span class="flex items-center gap-1 px-2 py-0.5 rounded bg-surface-elevated font-label-sm text-label-sm text-primary">
+<span class="material-symbols-outlined text-[12px]">bolt</span> +90 XP
+                </span>
+<span class="flex items-center gap-1 px-2 py-0.5 rounded bg-surface-elevated font-label-sm text-label-sm text-secondary">
+<span class="material-symbols-outlined text-[12px]">monetization_on</span> +25 Gold
+                </span>
+<span class="flex items-center gap-1 px-2 py-0.5 rounded bg-surface-elevated font-label-sm text-label-sm text-emerald-complete">
+<span class="material-symbols-outlined text-[12px]">favorite</span> +5 VIT
+                </span>
+</div>
+<span class="font-label-sm text-label-sm text-text-muted flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-emerald-complete animate-pulse"></span> Apple Watch Live
+              </span>
+</div>
+</div>
+</div>
+</div>
+<!-- Quick Add Inline Prompt -->
+<div class="p-4 rounded-xl bg-surface-container-low flex items-center justify-between gap-4">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-text-muted text-[18px]">add_task</span>
+<span class="font-body-sm text-body-sm text-text-muted">Press <kbd class="px-1.5 py-0.5 rounded bg-surface font-label-sm text-label-sm text-text-secondary">Space</kbd> or click to rapidly enqueue tomorrow's campaign objectives...</span>
+</div>
+<button class="font-label-sm text-label-sm text-primary hover:underline uppercase" type="button">Quick Draft</button>
+</div>
+</div>
+<!-- RIGHT LEDGER COLUMN (5 COLS): ATTRIBUTES, CAMPAIGN & LOOT -->
+<div class="lg:col-span-5 flex flex-col gap-6">
+<!-- ATTRIBUTES MATRIX CARD -->
+<div class="rounded-xl bg-surface p-6 shadow-sm flex flex-col gap-5">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[20px]">equalizer</span>
+<h3 class="font-headline-sm text-headline-sm text-text-primary tracking-tight">Attributes Matrix</h3>
+</div>
+<span class="font-label-sm text-label-sm text-emerald-complete font-medium">+35 Today</span>
+</div>
+<div class="flex flex-col gap-4">
+<!-- INTELLECT -->
+<div class="flex flex-col gap-1.5">
+<div class="flex items-center justify-between font-label-sm text-label-sm">
+<div class="flex items-center gap-2">
+<span class="font-bold text-tertiary">INT</span>
+<span class="text-text-primary font-medium">Intellect</span>
+<span class="text-text-muted">Lv. 22</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="text-tertiary font-bold">86</span>
+<span class="text-emerald-complete">(+12 today)</span>
+</div>
+</div>
+<div class="w-full h-1.5 rounded-full bg-surface-container overflow-hidden">
+<div class="h-full bg-tertiary rounded-full" style="width: 86%"></div>
+</div>
+</div>
+<!-- DISCIPLINE -->
+<div class="flex flex-col gap-1.5">
+<div class="flex items-center justify-between font-label-sm text-label-sm">
+<div class="flex items-center gap-2">
+<span class="font-bold text-primary">DIS</span>
+<span class="text-text-primary font-medium">Discipline</span>
+<span class="text-text-muted">Lv. 19</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="text-primary font-bold">91</span>
+<span class="text-emerald-complete">(+8 today)</span>
+</div>
+</div>
+<div class="w-full h-1.5 rounded-full bg-surface-container overflow-hidden">
+<div class="h-full bg-primary rounded-full" style="width: 91%"></div>
+</div>
+</div>
+<!-- VITALITY -->
+<div class="flex flex-col gap-1.5">
+<div class="flex items-center justify-between font-label-sm text-label-sm">
+<div class="flex items-center gap-2">
+<span class="font-bold text-emerald-complete">VIT</span>
+<span class="text-text-primary font-medium">Vitality</span>
+<span class="text-text-muted">Lv. 16</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="text-emerald-complete font-bold">78</span>
+<span class="text-emerald-complete">(+5 today)</span>
+</div>
+</div>
+<div class="w-full h-1.5 rounded-full bg-surface-container overflow-hidden">
+<div class="h-full bg-emerald-complete rounded-full" style="width: 78%"></div>
+</div>
+</div>
+<!-- STRENGTH -->
+<div class="flex flex-col gap-1.5">
+<div class="flex items-center justify-between font-label-sm text-label-sm">
+<div class="flex items-center gap-2">
+<span class="font-bold text-secondary">STR</span>
+<span class="text-text-primary font-medium">Strength</span>
+<span class="text-text-muted">Lv. 14</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="text-secondary font-bold">72</span>
+<span class="text-emerald-complete">(+6 today)</span>
+</div>
+</div>
+<div class="w-full h-1.5 rounded-full bg-surface-container overflow-hidden">
+<div class="h-full bg-secondary rounded-full" style="width: 72%"></div>
+</div>
+</div>
+<!-- CREATIVITY -->
+<div class="flex flex-col gap-1.5">
+<div class="flex items-center justify-between font-label-sm text-label-sm">
+<div class="flex items-center gap-2">
+<span class="font-bold text-amber-streak">CRE</span>
+<span class="text-text-primary font-medium">Creativity</span>
+<span class="text-text-muted">Lv. 11</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="text-amber-streak font-bold">64</span>
+<span class="text-emerald-complete">(+4 today)</span>
+</div>
+</div>
+<div class="w-full h-1.5 rounded-full bg-surface-container overflow-hidden">
+<div class="h-full bg-amber-streak rounded-full" style="width: 64%"></div>
+</div>
+</div>
+</div>
+</div>
+<!-- ACTIVE CAMPAIGN WIDGET -->
+<div class="rounded-xl bg-surface p-6 shadow-sm flex flex-col gap-4">
+<div class="flex items-start justify-between">
+<div class="flex flex-col gap-0.5">
+<span class="font-label-sm text-label-sm text-primary uppercase tracking-wider font-semibold">Active Campaign</span>
+<h3 class="font-headline-sm text-headline-sm text-text-primary tracking-tight">Ship The Hackathon MVP</h3>
+</div>
+<span class="px-2 py-0.5 rounded bg-surface-elevated font-label-sm text-label-sm text-text-secondary">Phase 3 of 4</span>
+</div>
+<p class="font-body-sm text-body-sm text-text-secondary">Finalizing real-time synchronization pipelines prior to the public staging deployment deadline.</p>
+<!-- Milestone Track -->
+<div class="py-2">
+<div class="flex items-center justify-between text-center">
+<div class="flex flex-col items-center gap-1.5">
+<div class="w-6 h-6 rounded-full bg-emerald-complete text-surface-container-lowest flex items-center justify-center font-label-sm text-[11px] font-bold">✓</div>
+<span class="font-label-sm text-label-sm text-text-primary">UI</span>
+</div>
+<div class="flex-1 h-0.5 bg-emerald-complete mx-1"></div>
+<div class="flex flex-col items-center gap-1.5">
+<div class="w-6 h-6 rounded-full bg-emerald-complete text-surface-container-lowest flex items-center justify-center font-label-sm text-[11px] font-bold">✓</div>
+<span class="font-label-sm text-label-sm text-text-primary">Backend</span>
+</div>
+<div class="flex-1 h-0.5 bg-primary mx-1"></div>
+<div class="flex flex-col items-center gap-1.5">
+<div class="w-6 h-6 rounded-full bg-primary text-on-primary flex items-center justify-center font-label-sm text-[11px] font-bold animate-pulse">●</div>
+<span class="font-label-sm text-label-sm text-primary font-semibold">Persistence</span>
+</div>
+<div class="flex-1 h-0.5 bg-surface-container mx-1"></div>
+<div class="flex flex-col items-center gap-1.5">
+<div class="w-6 h-6 rounded-full bg-surface-container text-text-muted flex items-center justify-center font-label-sm text-[11px]">○</div>
+<span class="font-label-sm text-label-sm text-text-muted">Deploy</span>
+</div>
+</div>
+</div>
+<!-- Bounty Box -->
+<div class="p-3.5 rounded-lg bg-surface-elevated flex items-center justify-between gap-3">
+<div class="flex items-center gap-2.5">
+<span class="material-symbols-outlined text-secondary text-[20px]">military_tech</span>
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-text-muted uppercase">Bounty Reward</span>
+<span class="font-body-sm text-body-sm text-text-primary font-medium">Legendary Chrono-Core</span>
+</div>
+</div>
+<span class="font-label-sm text-label-sm text-secondary font-bold px-2 py-1 rounded bg-surface">+500 Gold</span>
+</div>
+</div>
+<!-- RECENT LOOT & RELICS -->
+<div class="rounded-xl bg-surface p-6 shadow-sm flex flex-col gap-4">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary text-[20px]">token</span>
+<h3 class="font-headline-sm text-headline-sm text-text-primary tracking-tight">Recent Acquisitions</h3>
+</div>
+<a class="font-label-sm text-label-sm text-text-muted hover:text-text-primary transition-colors uppercase" href="#">Vault</a>
+</div>
+<div class="grid grid-cols-2 gap-3">
+<!-- Item 1 -->
+<div class="p-3 rounded-lg bg-surface-elevated flex flex-col gap-2 group hover:bg-surface-bright transition-all cursor-pointer">
+<div class="flex items-center justify-between">
+<span class="material-symbols-outlined text-primary text-[20px]">auto_awesome</span>
+<span class="font-label-sm text-[10px] uppercase tracking-wider text-primary font-semibold px-1.5 py-0.5 rounded bg-surface">RARE</span>
+</div>
+<div class="flex flex-col">
+<span class="font-body-sm text-body-sm text-text-primary font-medium truncate">Obsidian Focus Core</span>
+<span class="font-label-sm text-label-sm text-text-muted">+15% INT gains (24h)</span>
+</div>
+</div>
+<!-- Item 2 -->
+<div class="p-3 rounded-lg bg-surface-elevated flex flex-col gap-2 group hover:bg-surface-bright transition-all cursor-pointer">
+<div class="flex items-center justify-between">
+<span class="material-symbols-outlined text-amber-streak text-[20px]">hourglass_top</span>
+<span class="font-label-sm text-[10px] uppercase tracking-wider text-amber-streak font-semibold px-1.5 py-0.5 rounded bg-surface">RELIC</span>
+</div>
+<div class="flex flex-col">
+<span class="font-body-sm text-body-sm text-text-primary font-medium truncate">Focus Surge Elixir</span>
+<span class="font-label-sm text-label-sm text-text-muted">Mitigates streak freeze</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- INLINE CLIENT MICRO-INTERACTIONS -->
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // Toggle Quest completion interaction demo
+      const completeBtns = document.querySelectorAll('.quest-action');
+      completeBtns.forEach(btn => {
+        btn.addEventListener('click', (e) => {
+          e.stopPropagation();
+          const isDone = btn.classList.contains('completed-state');
+          if (!isDone) {
+            btn.classList.add('completed-state', 'bg-emerald-complete', 'text-surface-container-lowest');
+            btn.classList.remove('bg-surface-container', 'hover:bg-primary');
+            btn.innerHTML = '<span class="material-symbols-outlined text-[16px]">check</span><span>Done</span>';
+          } else {
+            btn.classList.remove('completed-state', 'bg-emerald-complete', 'text-surface-container-lowest');
+            btn.classList.add('bg-surface-container', 'hover:bg-primary');
+            btn.innerHTML = '<span class="material-symbols-outlined text-[16px]">check_circle</span><span>Complete</span>';
+          }
+        });
+      });
+
+      // Quick sync simulation feedback
+      const syncBtn = document.querySelector('.sensor-sync');
+      if (syncBtn) {
+        syncBtn.addEventListener('click', () => {
+          syncBtn.innerHTML = '<span class="material-symbols-outlined text-[16px] animate-spin">autorenew</span><span>Syncing...</span>';
+          setTimeout(() => {
+            syncBtn.innerHTML = '<span class="material-symbols-outlined text-[16px] text-emerald-complete">done</span><span>Updated</span>';
+            setTimeout(() => {
+              syncBtn.innerHTML = '<span class="material-symbols-outlined text-[16px] text-emerald-complete">sensors</span><span>Sync Sensors</span>';
+            }, 1800);
+          }, 800);
+        });
+      }
+    });
+  </script>
+</div></div></main></div></body></html>

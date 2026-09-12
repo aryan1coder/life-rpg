@@ -1,0 +1,922 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Rewards &amp; Vault — LIFE RPG</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+    @layer base {
+      html, body {
+        margin: 0;
+        padding: 0;
+        background-color: #0B0E15;
+        color: #F1F5F9;
+        font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      }
+      ::-webkit-scrollbar {
+        width: 6px;
+        height: 6px;
+      }
+      ::-webkit-scrollbar-track {
+        background: #0B0E15;
+      }
+      ::-webkit-scrollbar-thumb {
+        background: #1D2027;
+        border-radius: 9999px;
+      }
+      ::-webkit-scrollbar-thumb:hover {
+        background: #32353D;
+      }
+    }
+    .font-mono {
+      font-family: 'JetBrains Mono', monospace;
+    }
+  </style>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script>
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "bg-primary": "#0B0E15",
+            "bg-secondary": "#11141C",
+            "surface": "#151923",
+            "surface-elevated": "#1B1F2A",
+            "border-subtle": "rgba(255, 255, 255, 0.07)",
+            "text-primary": "#F1F5F9",
+            "text-secondary": "#94A3B8",
+            "text-muted": "#64748B",
+            "electric-indigo": "#6366F1",
+            "warm-gold": "#F59E0B",
+            "emerald-accent": "#10B981",
+            "crimson-danger": "#EF4444"
+          }
+        }
+      }
+    };
+  </script>
+</head>
+<body class="bg-bg-primary text-text-primary min-h-screen selection:bg-electric-indigo/30 selection:text-white">
+<!-- Tactical Sidebar Shell (240px) -->
+<aside class="fixed left-0 top-0 bottom-0 w-[240px] bg-[#0B0E15] border-r border-border-subtle z-50 flex flex-col justify-between py-5 px-3">
+<!-- Brand & Navigation -->
+<div class="flex flex-col gap-6">
+<!-- Brand Header -->
+<div class="px-3 flex items-center gap-3">
+<div class="w-8 h-8 rounded-lg bg-electric-indigo/10 border border-electric-indigo/25 flex items-center justify-center text-electric-indigo">
+<span class="material-symbols-outlined text-[19px]">token</span>
+</div>
+<div class="flex flex-col">
+<span class="font-bold text-[14px] tracking-wide text-white font-mono">LIFE RPG</span>
+<span class="text-[10px] font-mono uppercase text-emerald-accent tracking-wider flex items-center gap-1.5">
+<span class="w-1.5 h-1.5 rounded-full bg-emerald-accent animate-pulse"></span>
+            SYSTEM V2.4
+          </span>
+</div>
+</div>
+<!-- Navigation Links -->
+<nav class="flex flex-col gap-1">
+<a class="flex items-center justify-between px-3 py-2 rounded-xl text-text-secondary hover:text-white hover:bg-white/[0.04] text-[13px] font-medium transition-all group" href="#">
+<div class="flex items-center gap-2.5">
+<span class="material-symbols-outlined text-[18px] text-text-muted group-hover:text-text-primary transition-colors">terminal</span>
+<span>Home</span>
+</div>
+<kbd class="text-[10px] font-mono px-1.5 py-0.5 rounded bg-white/[0.04] text-text-muted">⌘1</kbd>
+</a>
+<a class="flex items-center justify-between px-3 py-2 rounded-xl text-text-secondary hover:text-white hover:bg-white/[0.04] text-[13px] font-medium transition-all group" href="#">
+<div class="flex items-center gap-2.5">
+<span class="material-symbols-outlined text-[18px] text-text-muted group-hover:text-text-primary transition-colors">swords</span>
+<span>Quests</span>
+</div>
+<kbd class="text-[10px] font-mono px-1.5 py-0.5 rounded bg-white/[0.04] text-text-muted">⌘2</kbd>
+</a>
+<a class="flex items-center justify-between px-3 py-2 rounded-xl text-text-secondary hover:text-white hover:bg-white/[0.04] text-[13px] font-medium transition-all group" href="#">
+<div class="flex items-center gap-2.5">
+<span class="material-symbols-outlined text-[18px] text-text-muted group-hover:text-text-primary transition-colors">person</span>
+<span>Character</span>
+</div>
+<kbd class="text-[10px] font-mono px-1.5 py-0.5 rounded bg-white/[0.04] text-text-muted">⌘3</kbd>
+</a>
+<!-- ACTIVE: Rewards -->
+<a class="flex items-center justify-between px-3 py-2 rounded-xl bg-white/[0.06] text-white text-[13px] font-medium border border-border-subtle shadow-sm transition-all relative" href="#">
+<div class="flex items-center gap-2.5">
+<span class="w-1.5 h-1.5 rounded-full bg-electric-indigo"></span>
+<span class="material-symbols-outlined text-[18px] text-electric-indigo">featured_seasonal_and_gifts</span>
+<span>Rewards</span>
+</div>
+<kbd class="text-[10px] font-mono px-1.5 py-0.5 rounded bg-white/[0.08] text-text-secondary">⌘4</kbd>
+</a>
+<a class="flex items-center justify-between px-3 py-2 rounded-xl text-text-secondary hover:text-white hover:bg-white/[0.04] text-[13px] font-medium transition-all group" href="#">
+<div class="flex items-center gap-2.5">
+<span class="material-symbols-outlined text-[18px] text-text-muted group-hover:text-text-primary transition-colors">shield</span>
+<span>Inventory</span>
+</div>
+<kbd class="text-[10px] font-mono px-1.5 py-0.5 rounded bg-white/[0.04] text-text-muted">⌘5</kbd>
+</a>
+<a class="flex items-center justify-between px-3 py-2 rounded-xl text-text-secondary hover:text-white hover:bg-white/[0.04] text-[13px] font-medium transition-all group" href="#">
+<div class="flex items-center gap-2.5">
+<span class="material-symbols-outlined text-[18px] text-text-muted group-hover:text-text-primary transition-colors">military_tech</span>
+<span>Achievements</span>
+</div>
+<kbd class="text-[10px] font-mono px-1.5 py-0.5 rounded bg-white/[0.04] text-text-muted">⌘6</kbd>
+</a>
+</nav>
+</div>
+<!-- Bottom Rail -->
+<div class="flex flex-col gap-3">
+<!-- Streak Pill -->
+<div class="flex items-center justify-between px-3 py-2 rounded-xl bg-surface border border-border-subtle">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px] text-warm-gold">local_fire_department</span>
+<span class="text-[11px] font-mono font-semibold text-warm-gold tracking-wide">14 DAYS</span>
+</div>
+<span class="text-[10px] font-mono text-text-muted uppercase">Active</span>
+</div>
+<!-- Audio & Settings -->
+<div class="flex items-center justify-between px-1">
+<button class="flex items-center gap-1.5 px-2.5 py-1 rounded-lg text-text-secondary hover:text-white hover:bg-white/[0.04] text-[11px] font-mono transition-colors" type="button">
+<span class="material-symbols-outlined text-[15px]">volume_up</span>
+<span>AUDIO ON</span>
+</button>
+<button class="p-1.5 rounded-lg text-text-muted hover:text-white hover:bg-white/[0.04] transition-colors" title="Settings" type="button">
+<span class="material-symbols-outlined text-[18px]">settings</span>
+</button>
+</div>
+<!-- Compact User Profile -->
+<div class="flex items-center gap-2.5 p-2 rounded-xl bg-surface border border-border-subtle">
+<div class="relative w-8 h-8 shrink-0">
+<img alt="User Avatar" class="w-8 h-8 rounded-lg object-cover ring-1 ring-white/10" src="https://lh3.googleusercontent.com/aida/AEtjO1UJwu6y3T_FuhMaWitkt8dJ_HR6r_r-RxSgzCQMd2P_Mq_z8ZDZZ3mbJq7RKuigb7wfG0H7WmGacUeBXtF3_QoUzaQj9v7Lf4IvvrY4v2cINEmR1uZ8jrA5niXbnAURU6FIuqvtbHCj-84EDn11bXjHjd_lWNF5VOmTJqBkC1soYnekynvJ2gMxl6U2Aeo8ezkwDidsdaiP4gHOAjAqg0hlQQBdp0If-3oExSxDVxuAnIBLIFiX7HVa"/>
+<span class="absolute -bottom-0.5 -right-0.5 w-2.5 h-2.5 rounded-full bg-emerald-accent ring-2 ring-[#151923]"></span>
+</div>
+<div class="flex flex-col min-w-0">
+<span class="text-[12px] font-semibold text-white truncate leading-tight">Kai</span>
+<span class="text-[10px] font-mono text-text-secondary truncate leading-tight">LVL 12 Arch-Strategist II</span>
+</div>
+</div>
+</div>
+</aside>
+<!-- Main Content Wrapper (pl-[240px]) -->
+<div class="pl-[240px]">
+<!-- Top Telemetry Bar -->
+<header class="sticky top-0 z-40 h-14 bg-[#0B0E15]/80 backdrop-blur-xl border-b border-border-subtle px-8 flex items-center justify-between">
+<!-- Left: Level & Progress -->
+<div class="flex items-center gap-3">
+<span class="px-2 py-0.5 rounded-md bg-electric-indigo/10 border border-electric-indigo/25 text-electric-indigo font-mono text-[11px] font-semibold tracking-wider uppercase">
+          LVL 12
+        </span>
+<span class="text-[13px] font-semibold text-white">Arch-Strategist II</span>
+<div class="hidden sm:flex items-center gap-2 ml-2 pl-3 border-l border-border-subtle">
+<div class="w-32 h-1.5 rounded-full bg-surface-elevated overflow-hidden">
+<div class="h-full bg-gradient-to-r from-electric-indigo to-indigo-400 rounded-full" style="width: 82.6%;"></div>
+</div>
+<span class="font-mono text-[11px] text-text-muted">82.6% XP</span>
+</div>
+</div>
+<!-- Right: Telemetry Indicators -->
+<div class="flex items-center gap-3">
+<!-- Gold Balance -->
+<div class="flex items-center gap-1.5 px-3 py-1 rounded-lg bg-surface border border-border-subtle text-warm-gold font-mono text-[12px] font-semibold">
+<span class="material-symbols-outlined text-[16px]">monetization_on</span>
+<span id="top-bar-gold">1,420 G</span>
+</div>
+<!-- Streak Badge -->
+<div class="flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-surface border border-border-subtle text-warm-gold font-mono text-[12px] font-semibold">
+<span class="material-symbols-outlined text-[15px]">local_fire_department</span>
+<span>14D</span>
+</div>
+<!-- Notifications -->
+<button class="relative p-1.5 text-text-muted hover:text-white rounded-lg hover:bg-white/[0.04] transition-colors" type="button">
+<span class="material-symbols-outlined text-[19px]">notifications</span>
+<span class="absolute top-1 right-1 w-1.5 h-1.5 rounded-full bg-crimson-danger"></span>
+</button>
+<!-- User Thumbnail -->
+<div class="w-7 h-7 rounded-lg overflow-hidden ring-1 ring-white/10">
+<img alt="Kai" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida/AEtjO1UJwu6y3T_FuhMaWitkt8dJ_HR6r_r-RxSgzCQMd2P_Mq_z8ZDZZ3mbJq7RKuigb7wfG0H7WmGacUeBXtF3_QoUzaQj9v7Lf4IvvrY4v2cINEmR1uZ8jrA5niXbnAURU6FIuqvtbHCj-84EDn11bXjHjd_lWNF5VOmTJqBkC1soYnekynvJ2gMxl6U2Aeo8ezkwDidsdaiP4gHOAjAqg0hlQQBdp0If-3oExSxDVxuAnIBLIFiX7HVa"/>
+</div>
+</div>
+</header>
+<!-- Main Workspace -->
+<main class="px-8 py-7 max-w-[1400px] mx-auto flex flex-col gap-7">
+<!-- Header & Tab Navigation -->
+<div class="flex flex-col gap-5">
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-4">
+<div class="flex flex-col gap-1">
+<h1 class="text-[26px] font-bold tracking-tight text-white font-sans">Rewards &amp; Vault</h1>
+<p class="text-[13px] text-text-secondary max-w-2xl leading-relaxed">
+              Turn your real-world disciplined execution into permanent environmental assets and tactical gear.
+            </p>
+</div>
+<!-- Segmented Store / Inventory Switcher -->
+<div class="inline-flex p-1 rounded-xl bg-surface border border-border-subtle self-start md:self-auto">
+<button class="flex items-center gap-2 px-4 py-1.5 rounded-lg bg-white/[0.08] text-white text-[12px] font-medium shadow-sm transition-all" id="tab-store-btn" onclick="switchMainTab('store')">
+<span class="material-symbols-outlined text-[16px] text-electric-indigo">storefront</span>
+<span>Reward Store</span>
+<span class="px-1.5 py-0.2 rounded text-[10px] font-mono bg-white/10 text-text-secondary">24</span>
+</button>
+<button class="flex items-center gap-2 px-4 py-1.5 rounded-lg text-text-secondary hover:text-white text-[12px] font-medium transition-all" id="tab-inventory-btn" onclick="switchMainTab('inventory')">
+<span class="material-symbols-outlined text-[16px]">inventory_2</span>
+<span>My Inventory</span>
+<span class="px-1.5 py-0.2 rounded text-[10px] font-mono bg-white/[0.04] text-text-muted">18</span>
+</button>
+</div>
+</div>
+<!-- Filter Pills & Sorting Strip -->
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pt-1 border-t border-border-subtle">
+<div class="flex items-center gap-1.5 overflow-x-auto pb-1 sm:pb-0" id="filter-pills">
+<button class="catalog-filter-btn px-3 py-1 rounded-lg bg-white/10 text-white text-[11px] font-mono font-medium border border-white/10 transition-colors" onclick="filterCatalog('all', this)">
+              All (24)
+            </button>
+<button class="catalog-filter-btn px-3 py-1 rounded-lg text-text-secondary hover:text-white text-[11px] font-mono transition-colors" onclick="filterCatalog('theme', this)">
+              Themes (6)
+            </button>
+<button class="catalog-filter-btn px-3 py-1 rounded-lg text-text-secondary hover:text-white text-[11px] font-mono transition-colors" onclick="filterCatalog('cosmetic', this)">
+              Cosmetics (5)
+            </button>
+<button class="catalog-filter-btn px-3 py-1 rounded-lg text-text-secondary hover:text-white text-[11px] font-mono transition-colors" onclick="filterCatalog('badge', this)">
+              Badges (4)
+            </button>
+<button class="catalog-filter-btn px-3 py-1 rounded-lg text-text-secondary hover:text-white text-[11px] font-mono transition-colors" onclick="filterCatalog('title', this)">
+              Titles (4)
+            </button>
+<button class="catalog-filter-btn px-3 py-1 rounded-lg text-text-secondary hover:text-white text-[11px] font-mono transition-colors" onclick="filterCatalog('boost', this)">
+              Boosts (3)
+            </button>
+<button class="catalog-filter-btn px-3 py-1 rounded-lg text-text-secondary hover:text-white text-[11px] font-mono transition-colors" onclick="filterCatalog('unlock', this)">
+              Unlocks (2)
+            </button>
+</div>
+<div class="flex items-center gap-2 shrink-0">
+<div class="flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-surface border border-border-subtle text-text-secondary text-[11px] font-mono">
+<span class="material-symbols-outlined text-[15px] text-text-muted">swap_vert</span>
+<select class="bg-transparent text-text-primary focus:outline-none cursor-pointer pr-1">
+<option class="bg-[#151923]" value="featured">Sort: Featured First</option>
+<option class="bg-[#151923]" value="price-asc">Price: Low to High</option>
+<option class="bg-[#151923]" value="price-desc">Price: High to Low</option>
+<option class="bg-[#151923]" value="rarity">Rarity Level</option>
+</select>
+</div>
+</div>
+</div>
+</div>
+<!-- SECTION 1: Featured Milestone Spotlight Hero (Linear/Apple aesthetic) -->
+<section class="relative rounded-2xl bg-surface border border-border-subtle p-6 overflow-hidden">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-center">
+<!-- Left Editorial Details -->
+<div class="lg:col-span-6 flex flex-col gap-4">
+<div class="flex items-center gap-2 flex-wrap">
+<span class="px-2 py-0.5 rounded-md bg-electric-indigo/10 border border-electric-indigo/25 text-electric-indigo text-[10px] font-mono uppercase font-semibold">
+                ENVIRONMENT THEME
+              </span>
+<span class="px-2 py-0.5 rounded-md bg-white/[0.04] border border-white/5 text-emerald-accent text-[10px] font-mono uppercase flex items-center gap-1 font-semibold">
+<span class="w-1.5 h-1.5 rounded-full bg-emerald-accent"></span>
+                Rare Theme · Level 10+ Met
+              </span>
+</div>
+<div class="flex flex-col gap-1.5">
+<h2 class="text-[20px] font-bold text-white tracking-tight">
+                Focus Mode: Obsidian Deep-Work Environment
+              </h2>
+<p class="text-[13px] text-text-secondary leading-relaxed">
+                A calm, ultra-low distraction workspace layout engineered specifically for prolonged 90-minute hyperfocus intervals. Drops non-essential dashboard saturation by 40% and highlights primary quest telemetry.
+              </p>
+</div>
+<!-- Telemetry Stats -->
+<div class="grid grid-cols-3 gap-2.5 py-1">
+<div class="p-3 rounded-xl bg-surface-elevated border border-border-subtle flex flex-col">
+<span class="text-[10px] font-mono text-text-muted uppercase">Exchange Cost</span>
+<span class="text-[15px] font-mono font-bold text-warm-gold mt-0.5">750 G</span>
+</div>
+<div class="p-3 rounded-xl bg-surface-elevated border border-border-subtle flex flex-col">
+<span class="text-[10px] font-mono text-text-muted uppercase">Cognitive Yield</span>
+<span class="text-[13px] font-mono font-semibold text-electric-indigo mt-0.5">+18% Focus</span>
+</div>
+<div class="p-3 rounded-xl bg-surface-elevated border border-border-subtle flex flex-col">
+<span class="text-[10px] font-mono text-text-muted uppercase">Status</span>
+<span class="text-[12px] font-mono font-semibold text-emerald-accent mt-0.5 flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">check_circle</span>
+                  Eligible
+                </span>
+</div>
+</div>
+<!-- CTAs -->
+<div class="flex items-center gap-3 pt-1">
+<button class="flex items-center gap-2 px-5 py-2.5 rounded-lg bg-electric-indigo hover:bg-indigo-500 text-white text-[13px] font-semibold transition-all shadow-sm" onclick="openRedeemDrawer('Obsidian Deep-Work Environment', 750, 'theme')">
+<span class="material-symbols-outlined text-[17px]">shopping_bag</span>
+<span>Redeem 750 G</span>
+</button>
+<button class="flex items-center gap-2 px-4 py-2.5 rounded-lg bg-white/[0.04] hover:bg-white/[0.08] border border-border-subtle text-text-secondary hover:text-white text-[13px] font-medium transition-colors" onclick="previewThemeSnippet()">
+<span class="material-symbols-outlined text-[17px] text-text-muted">visibility</span>
+<span>Interactive Preview</span>
+</button>
+</div>
+</div>
+<!-- Right: Live Obsidian HUD Theme Preview -->
+<div class="lg:col-span-6 flex flex-col">
+<div class="w-full rounded-xl bg-[#0E1117] border border-border-subtle p-4 shadow-xl flex flex-col gap-3">
+<!-- Mock Header -->
+<div class="flex items-center justify-between pb-2 border-b border-white/[0.06]">
+<div class="flex items-center gap-2">
+<div class="flex gap-1.5">
+<span class="w-2.5 h-2.5 rounded-full bg-crimson-danger/60"></span>
+<span class="w-2.5 h-2.5 rounded-full bg-warm-gold/60"></span>
+<span class="w-2.5 h-2.5 rounded-full bg-emerald-accent/60"></span>
+</div>
+<span class="text-[10px] font-mono text-text-muted uppercase ml-2">ENVIRONMENT // OBSIDIAN-V2</span>
+</div>
+<span class="text-[10px] font-mono text-electric-indigo bg-electric-indigo/10 px-2 py-0.5 rounded">LIVE PREVIEW</span>
+</div>
+<!-- Task List simulation in theme -->
+<div class="space-y-2 py-1">
+<div class="p-2.5 rounded-lg bg-surface flex items-center justify-between border border-border-subtle">
+<div class="flex items-center gap-2.5">
+<span class="material-symbols-outlined text-[16px] text-emerald-accent">check_circle</span>
+<span class="text-[12px] font-medium text-white">Architect Distributed Query Index</span>
+</div>
+<span class="text-[10px] font-mono text-warm-gold font-medium">+120 EXP</span>
+</div>
+<div class="p-2.5 rounded-lg bg-surface-elevated flex items-center justify-between border border-electric-indigo/25">
+<div class="flex items-center gap-2.5">
+<span class="w-2 h-2 rounded-full bg-electric-indigo animate-pulse"></span>
+<span class="text-[12px] font-medium text-white">Write Integration Tests: Vault Token API</span>
+</div>
+<span class="text-[10px] font-mono text-electric-indigo">IN PROGRESS</span>
+</div>
+<div class="p-2.5 rounded-lg bg-surface/50 opacity-40 flex items-center justify-between border border-border-subtle">
+<div class="flex items-center gap-2.5">
+<span class="material-symbols-outlined text-[16px] text-text-muted">radio_button_unchecked</span>
+<span class="text-[12px] text-text-muted">Commit telemetry patch &amp; publish</span>
+</div>
+<span class="text-[10px] font-mono text-text-muted">QUEUED</span>
+</div>
+</div>
+<!-- Palette Pill -->
+<div class="flex items-center justify-between pt-2 border-t border-white/[0.06] text-[10px] font-mono text-text-muted">
+<div class="flex items-center gap-1.5">
+<span>PALETTE</span>
+<div class="flex gap-1 ml-1">
+<span class="w-3 h-3 rounded-full bg-[#0B0E15] border border-white/10"></span>
+<span class="w-3 h-3 rounded-full bg-[#151923]"></span>
+<span class="w-3 h-3 rounded-full bg-electric-indigo"></span>
+<span class="w-3 h-3 rounded-full bg-warm-gold"></span>
+</div>
+</div>
+<span class="text-electric-indigo font-medium">SATURATION: -40% CALM</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- SECTION 2: Economy Ledger & Active Loadout Strip (3 Columns) -->
+<section class="grid grid-cols-1 md:grid-cols-3 gap-5">
+<!-- Col 1: Gold Reservoir & Sparkline -->
+<div class="rounded-2xl bg-surface border border-border-subtle p-5 flex flex-col justify-between gap-4">
+<div class="flex flex-col gap-1">
+<div class="flex items-center justify-between">
+<span class="text-[10px] font-mono uppercase tracking-wider text-text-muted">RESERVOIR TELEMETRY</span>
+<span class="text-[10px] font-mono text-emerald-accent bg-emerald-accent/10 px-1.5 py-0.5 rounded font-semibold">+47.8% NET</span>
+</div>
+<div class="flex items-baseline gap-2 mt-1">
+<span class="text-[28px] font-mono font-bold text-white tracking-tight" id="reservoir-val">1,420</span>
+<span class="text-[13px] font-mono font-semibold text-warm-gold">GOLD</span>
+</div>
+<p class="text-[12px] text-text-secondary leading-relaxed">
+              +680 G accumulated past 7 days across 18 quest milestones.
+            </p>
+</div>
+<!-- Minimalist 7-Day Sparkline -->
+<div class="pt-2">
+<div class="flex items-center justify-between text-[10px] font-mono text-text-muted mb-1">
+<span>MON</span>
+<span>WED</span>
+<span>FRI</span>
+<span class="text-warm-gold font-semibold">TODAY</span>
+</div>
+<svg class="w-full h-12 text-warm-gold" fill="none" viewbox="0 0 280 50">
+<path d="M0 38 C 35 36, 70 42, 105 28 C 140 14, 175 32, 210 16 C 240 5, 260 14, 280 6" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"></path>
+<path d="M0 38 C 35 36, 70 42, 105 28 C 140 14, 175 32, 210 16 C 240 5, 260 14, 280 6 L 280 50 L 0 50 Z" fill="currentColor" fill-opacity="0.06"></path>
+<circle cx="280" cy="6" fill="currentColor" r="3.5"></circle>
+</svg>
+</div>
+</div>
+<!-- Col 2: Active Synced Loadout -->
+<div class="rounded-2xl bg-surface border border-border-subtle p-5 flex flex-col justify-between gap-4">
+<div class="flex items-center justify-between">
+<span class="text-[10px] font-mono uppercase tracking-wider text-text-muted">ACTIVE SYNCED LOADOUT</span>
+<span class="text-[10px] font-mono text-electric-indigo font-semibold">CONFIG OK</span>
+</div>
+<div class="flex flex-col gap-2">
+<div class="flex items-center justify-between p-2 rounded-lg bg-surface-elevated border border-border-subtle">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[15px] text-text-muted">palette</span>
+<span class="text-[11px] text-text-secondary">Equipped Theme</span>
+</div>
+<span class="text-[11px] font-medium text-white">Obsidian Deep-Work</span>
+</div>
+<div class="flex items-center justify-between p-2 rounded-lg bg-surface-elevated border border-border-subtle">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[15px] text-text-muted">crop_free</span>
+<span class="text-[11px] text-text-secondary">Tactical Frame</span>
+</div>
+<span class="text-[11px] font-medium text-white">Tactical Obsidian</span>
+</div>
+<div class="flex items-center justify-between p-2 rounded-lg bg-surface-elevated border border-border-subtle">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[15px] text-text-muted">badge</span>
+<span class="text-[11px] text-text-secondary">Squad Title</span>
+</div>
+<span class="text-[11px] font-semibold text-electric-indigo">Arch-Strategist</span>
+</div>
+<div class="flex items-center justify-between p-2 rounded-lg bg-surface-elevated border border-border-subtle">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[15px] text-warm-gold">speed</span>
+<span class="text-[11px] text-text-secondary">Active Boost</span>
+</div>
+<span class="text-[11px] font-semibold text-warm-gold">+15% Overclock Buff</span>
+</div>
+</div>
+<button class="w-full py-2 rounded-lg bg-white/[0.04] hover:bg-white/[0.08] text-text-secondary hover:text-white text-[12px] font-medium border border-border-subtle transition-colors text-center" onclick="switchMainTab('inventory')">
+            Manage Loadout Slots
+          </button>
+</div>
+<!-- Col 3: Recent Ledger Activity -->
+<div class="rounded-2xl bg-surface border border-border-subtle p-5 flex flex-col justify-between gap-4">
+<div class="flex items-center justify-between">
+<span class="text-[10px] font-mono uppercase tracking-wider text-text-muted">RECENT TRANSACTIONS</span>
+<span class="text-[10px] font-mono text-text-muted">LAST 48H</span>
+</div>
+<div class="flex flex-col gap-2.5">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2.5 min-w-0">
+<div class="w-6 h-6 rounded-md bg-emerald-accent/10 text-emerald-accent flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-[14px]">task_alt</span>
+</div>
+<div class="flex flex-col min-w-0">
+<span class="text-[12px] text-white truncate font-medium">Sprint Architecture Quest</span>
+<span class="text-[10px] font-mono text-text-muted">2h ago</span>
+</div>
+</div>
+<span class="text-[12px] font-mono font-bold text-emerald-accent">+120 G</span>
+</div>
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2.5 min-w-0">
+<div class="w-6 h-6 rounded-md bg-warm-gold/10 text-warm-gold flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-[14px]">local_fire_department</span>
+</div>
+<div class="flex flex-col min-w-0">
+<span class="text-[12px] text-white truncate font-medium">14-Day Streak Bonus Multiplier</span>
+<span class="text-[10px] font-mono text-text-muted">Yesterday</span>
+</div>
+</div>
+<span class="text-[12px] font-mono font-bold text-warm-gold">+250 G</span>
+</div>
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2.5 min-w-0">
+<div class="w-6 h-6 rounded-md bg-electric-indigo/10 text-electric-indigo flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-[14px]">shopping_bag</span>
+</div>
+<div class="flex flex-col min-w-0">
+<span class="text-[12px] text-white truncate font-medium">Redeemed: Obsidian Environment</span>
+<span class="text-[10px] font-mono text-text-muted">3 days ago</span>
+</div>
+</div>
+<span class="text-[12px] font-mono font-bold text-text-muted">-750 G</span>
+</div>
+</div>
+<div class="flex items-center justify-between pt-1 border-t border-border-subtle text-[10px] font-mono text-text-muted">
+<span>HASH: 0x88F...A92</span>
+<span class="hover:text-white cursor-pointer transition-colors flex items-center gap-1">
+              Full Export <span class="material-symbols-outlined text-[12px]">arrow_forward</span>
+</span>
+</div>
+</div>
+</section>
+<!-- SECTION 3: Store Catalog Grid (8 Cards) -->
+<section class="flex flex-col gap-4" id="catalog-section">
+<div class="flex items-center justify-between">
+<span class="text-[13px] font-bold text-white tracking-wide font-sans">AVAILABLE IN VAULT STORE</span>
+<span class="text-[11px] font-mono text-text-muted">Showing 8 of 24 Assets</span>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4" id="cards-container">
+<!-- Card 1: Theme: Deep Work Workspace -->
+<div class="store-card rounded-2xl bg-surface border border-border-subtle p-4 flex flex-col justify-between gap-4 hover:border-white/15 transition-all duration-150" data-category="theme">
+<div class="flex flex-col gap-3">
+<div class="h-32 rounded-xl bg-surface-elevated border border-border-subtle flex flex-col justify-between p-3 relative overflow-hidden">
+<div class="flex items-center justify-between">
+<span class="text-[10px] font-mono text-text-muted uppercase">THEME</span>
+<span class="text-[10px] font-mono text-electric-indigo bg-electric-indigo/10 px-1.5 py-0.5 rounded font-semibold">RARE</span>
+</div>
+<div class="space-y-1 my-auto">
+<div class="w-1/2 h-2 rounded bg-white/10"></div>
+<div class="w-3/4 h-2 rounded bg-white/5"></div>
+</div>
+<span class="text-[9px] font-mono text-emerald-accent">READY TO CLAIM</span>
+</div>
+<div class="flex flex-col gap-1">
+<div class="flex items-center justify-between">
+<span class="text-[10px] font-mono text-text-muted uppercase">ENVIRONMENT</span>
+<span class="text-[13px] font-mono font-bold text-warm-gold">750 G</span>
+</div>
+<h3 class="text-[13px] font-semibold text-white">Deep Work Workspace</h3>
+<p class="text-[11px] text-text-secondary line-clamp-2 leading-relaxed">
+                  Low-contrast graphite palette with dynamic task highlighting for sustained sprints.
+                </p>
+</div>
+</div>
+<button class="w-full py-2 rounded-lg bg-electric-indigo hover:bg-indigo-500 text-white text-[12px] font-semibold transition-all shadow-sm" onclick="openRedeemDrawer('Deep Work Workspace', 750, 'theme')">
+              Redeem 750 G
+            </button>
+</div>
+<!-- Card 2: Cosmetic: Orbit Avatar Frame -->
+<div class="store-card rounded-2xl bg-surface border border-border-subtle p-4 flex flex-col justify-between gap-4 hover:border-white/15 transition-all duration-150" data-category="cosmetic">
+<div class="flex flex-col gap-3">
+<div class="h-32 rounded-xl bg-surface-elevated border border-border-subtle flex items-center justify-center relative overflow-hidden">
+<span class="absolute top-2.5 right-2.5 text-[10px] font-mono text-electric-indigo bg-electric-indigo/10 px-1.5 py-0.5 rounded font-semibold">EPIC</span>
+<div class="w-14 h-14 rounded-full border border-electric-indigo/50 flex items-center justify-center shadow-[0_0_15px_rgba(99,102,241,0.25)]">
+<span class="material-symbols-outlined text-[24px] text-electric-indigo">person</span>
+</div>
+</div>
+<div class="flex flex-col gap-1">
+<div class="flex items-center justify-between">
+<span class="text-[10px] font-mono text-text-muted uppercase">COSMETIC FRAME</span>
+<span class="text-[13px] font-mono font-bold text-warm-gold">950 G</span>
+</div>
+<h3 class="text-[13px] font-semibold text-white">Orbit Avatar Frame</h3>
+<p class="text-[11px] text-text-secondary line-clamp-2 leading-relaxed">
+                  Concentric cybernetic orbital ring with subtle reactive glow responsive to focus timer.
+                </p>
+</div>
+</div>
+<button class="w-full py-2 rounded-lg bg-white/[0.06] hover:bg-white/[0.1] text-white text-[12px] font-semibold border border-border-subtle transition-all" onclick="openRedeemDrawer('Orbit Avatar Frame', 950, 'cosmetic')">
+              Redeem 950 G
+            </button>
+</div>
+<!-- Card 3: Boost: XP Surge Vial -->
+<div class="store-card rounded-2xl bg-surface border border-border-subtle p-4 flex flex-col justify-between gap-4 hover:border-white/15 transition-all duration-150" data-category="boost">
+<div class="flex flex-col gap-3">
+<div class="h-32 rounded-xl bg-surface-elevated border border-border-subtle flex items-center justify-center relative overflow-hidden">
+<span class="absolute top-2.5 right-2.5 text-[10px] font-mono text-emerald-accent bg-emerald-accent/10 px-1.5 py-0.5 rounded font-semibold">UNCOMMON</span>
+<span class="absolute bottom-2.5 left-2.5 text-[10px] font-mono text-text-secondary bg-white/[0.04] px-1.5 py-0.5 rounded border border-border-subtle">OWNED: 2X</span>
+<div class="w-12 h-12 rounded-xl bg-emerald-accent/10 flex items-center justify-center text-emerald-accent">
+<span class="material-symbols-outlined text-[26px]">science</span>
+</div>
+</div>
+<div class="flex flex-col gap-1">
+<div class="flex items-center justify-between">
+<span class="text-[10px] font-mono text-text-muted uppercase">CONSUMABLE BOOST</span>
+<span class="text-[13px] font-mono font-bold text-warm-gold">350 G</span>
+</div>
+<h3 class="text-[13px] font-semibold text-white">XP Surge Vial</h3>
+<p class="text-[11px] text-text-secondary line-clamp-2 leading-relaxed">
+                  Grants +25% XP yield across all finished execution quests for 2 consecutive hours.
+                </p>
+</div>
+</div>
+<button class="w-full py-2 rounded-lg bg-emerald-accent/15 hover:bg-emerald-accent/25 text-emerald-accent text-[12px] font-semibold border border-emerald-accent/30 transition-all" onclick="openRedeemDrawer('XP Surge Vial', 350, 'boost')">
+              Acquire More
+            </button>
+</div>
+<!-- Card 4: Unlock: Autonomous Task Engine -->
+<div class="store-card rounded-2xl bg-surface border border-border-subtle p-4 flex flex-col justify-between gap-4 opacity-80" data-category="unlock">
+<div class="flex flex-col gap-3">
+<div class="h-32 rounded-xl bg-[#0E1117] border border-border-subtle flex flex-col items-center justify-center gap-1 relative overflow-hidden">
+<span class="absolute top-2.5 right-2.5 text-[10px] font-mono text-warm-gold bg-warm-gold/10 px-1.5 py-0.5 rounded font-semibold">LEGENDARY</span>
+<span class="material-symbols-outlined text-[22px] text-text-muted">lock</span>
+<span class="text-[10px] font-mono text-text-secondary uppercase tracking-wider">Level 13 Required</span>
+</div>
+<div class="flex flex-col gap-1">
+<div class="flex items-center justify-between">
+<span class="text-[10px] font-mono text-text-muted uppercase">FEATURE UNLOCK</span>
+<span class="text-[13px] font-mono font-bold text-text-muted">1,800 G</span>
+</div>
+<h3 class="text-[13px] font-semibold text-white">Autonomous Task Engine</h3>
+<p class="text-[11px] text-text-secondary line-clamp-2 leading-relaxed">
+                  Automatically aggregates recurring habit pipelines into calendar timeblocks with smart-rescheduling.
+                </p>
+</div>
+</div>
+<button class="w-full py-2 rounded-lg bg-white/[0.04] text-text-muted text-[12px] font-medium border border-border-subtle cursor-not-allowed" disabled="">
+              Locked (Req. Level 13)
+            </button>
+</div>
+<!-- Card 5: Title: High Architect -->
+<div class="store-card rounded-2xl bg-surface border border-border-subtle p-4 flex flex-col justify-between gap-4 opacity-80" data-category="title">
+<div class="flex flex-col gap-3">
+<div class="h-32 rounded-xl bg-[#0E1117] border border-border-subtle flex flex-col items-center justify-center gap-1 relative overflow-hidden">
+<span class="absolute top-2.5 right-2.5 text-[10px] font-mono text-electric-indigo bg-electric-indigo/10 px-1.5 py-0.5 rounded font-semibold">EPIC</span>
+<span class="material-symbols-outlined text-[22px] text-text-muted">lock</span>
+<span class="text-[10px] font-mono text-text-secondary uppercase tracking-wider">Level 15 Required</span>
+</div>
+<div class="flex flex-col gap-1">
+<div class="flex items-center justify-between">
+<span class="text-[10px] font-mono text-text-muted uppercase">PRESTIGE TITLE</span>
+<span class="text-[13px] font-mono font-bold text-text-muted">1,200 G</span>
+</div>
+<h3 class="text-[13px] font-semibold text-white">High Architect</h3>
+<p class="text-[11px] text-text-secondary line-clamp-2 leading-relaxed">
+                  Unlocks title flair &amp; gold particle signature on team velocity boards.
+                </p>
+</div>
+</div>
+<button class="w-full py-2 rounded-lg bg-white/[0.04] text-text-muted text-[12px] font-medium border border-border-subtle cursor-not-allowed" disabled="">
+              Req. LVL 15
+            </button>
+</div>
+<!-- Card 6: Badge: Consistency Master -->
+<div class="store-card rounded-2xl bg-surface border border-border-subtle p-4 flex flex-col justify-between gap-4 hover:border-white/15 transition-all duration-150" data-category="badge">
+<div class="flex flex-col gap-3">
+<div class="h-32 rounded-xl bg-surface-elevated border border-border-subtle flex items-center justify-center relative overflow-hidden">
+<span class="absolute top-2.5 right-2.5 text-[10px] font-mono text-electric-indigo bg-electric-indigo/10 px-1.5 py-0.5 rounded font-semibold">RARE</span>
+<span class="absolute bottom-2.5 left-2.5 text-[10px] font-mono text-emerald-accent bg-emerald-accent/10 px-1.5 py-0.5 rounded">STREAK UNLOCKED</span>
+<div class="w-12 h-12 rounded-full bg-warm-gold/10 border border-warm-gold/30 flex items-center justify-center text-warm-gold">
+<span class="material-symbols-outlined text-[24px]">workspace_premium</span>
+</div>
+</div>
+<div class="flex flex-col gap-1">
+<div class="flex items-center justify-between">
+<span class="text-[10px] font-mono text-text-muted uppercase">ACHIEVEMENT BADGE</span>
+<span class="text-[13px] font-mono font-bold text-warm-gold">500 G</span>
+</div>
+<h3 class="text-[13px] font-semibold text-white">Consistency Master</h3>
+<p class="text-[11px] text-text-secondary line-clamp-2 leading-relaxed">
+                  Commemorative insignia for holding a continuous 14+ day task streak without fail.
+                </p>
+</div>
+</div>
+<button class="w-full py-2 rounded-lg bg-white/[0.06] hover:bg-white/[0.1] text-white text-[12px] font-semibold border border-border-subtle transition-all" onclick="openRedeemDrawer('Consistency Master Badge', 500, 'badge')">
+              Redeem 500 G
+            </button>
+</div>
+<!-- Card 7: Cosmetic: Indigo Aura Shard -->
+<div class="store-card rounded-2xl bg-surface border border-border-subtle p-4 flex flex-col justify-between gap-4 hover:border-white/15 transition-all duration-150" data-category="cosmetic">
+<div class="flex flex-col gap-3">
+<div class="h-32 rounded-xl bg-surface-elevated border border-border-subtle flex items-center justify-center relative overflow-hidden">
+<span class="absolute top-2.5 right-2.5 text-[10px] font-mono text-electric-indigo bg-electric-indigo/10 px-1.5 py-0.5 rounded font-semibold">RARE</span>
+<div class="w-10 h-10 rounded-lg bg-electric-indigo/20 rotate-45 flex items-center justify-center shadow-[0_0_20px_rgba(99,102,241,0.35)]">
+<span class="material-symbols-outlined text-electric-indigo -rotate-45 text-[20px]">flare</span>
+</div>
+</div>
+<div class="flex flex-col gap-1">
+<div class="flex items-center justify-between">
+<span class="text-[10px] font-mono text-text-muted uppercase">CARD SHADER</span>
+<span class="text-[13px] font-mono font-bold text-warm-gold">600 G</span>
+</div>
+<h3 class="text-[13px] font-semibold text-white">Indigo Aura Shard</h3>
+<p class="text-[11px] text-text-secondary line-clamp-2 leading-relaxed">
+                  Gives your character stats profile card an ambient slow-breathing chromatic rim aura.
+                </p>
+</div>
+</div>
+<button class="w-full py-2 rounded-lg bg-white/[0.06] hover:bg-white/[0.1] text-white text-[12px] font-semibold border border-border-subtle transition-all" onclick="openRedeemDrawer('Indigo Aura Shard', 600, 'cosmetic')">
+              Redeem 600 G
+            </button>
+</div>
+<!-- Card 8: Theme: Midnight Calm -->
+<div class="store-card rounded-2xl bg-surface border border-border-subtle p-4 flex flex-col justify-between gap-4 hover:border-white/15 transition-all duration-150" data-category="theme">
+<div class="flex flex-col gap-3">
+<div class="h-32 rounded-xl bg-surface-elevated border border-border-subtle flex flex-col justify-between p-3 relative overflow-hidden">
+<div class="flex items-center justify-between">
+<span class="text-[10px] font-mono text-emerald-accent bg-emerald-accent/10 px-1.5 py-0.5 rounded font-semibold">OWNED</span>
+<span class="text-[10px] font-mono text-text-muted">UNCOMMON</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[20px] text-text-secondary">nightlight</span>
+<span class="text-[11px] font-mono text-text-secondary">Slate &amp; Teal</span>
+</div>
+<span class="text-[9px] font-mono text-emerald-accent">IN WARDROBE</span>
+</div>
+<div class="flex flex-col gap-1">
+<div class="flex items-center justify-between">
+<span class="text-[10px] font-mono text-text-muted uppercase">ENVIRONMENT</span>
+<span class="text-[13px] font-mono font-bold text-text-muted">450 G</span>
+</div>
+<h3 class="text-[13px] font-semibold text-white">Midnight Calm</h3>
+<p class="text-[11px] text-text-secondary line-clamp-2 leading-relaxed">
+                  Soothing deep-slate surface with muted teal accents for evening debriefs.
+                </p>
+</div>
+</div>
+<button class="w-full py-2 rounded-lg bg-white/[0.04] hover:bg-white/[0.08] text-white text-[12px] font-semibold border border-border-subtle transition-all" onclick="alert('Midnight Calm equipped successfully!')">
+              Equip
+            </button>
+</div>
+</div>
+</section>
+<!-- SECTION 4: My Inventory View (Switched via Tab) -->
+<section class="hidden flex-col gap-4" id="inventory-section">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="text-[13px] font-bold text-white tracking-wide font-sans">MY ACQUIRED VAULT GEAR</span>
+<span class="text-[11px] font-mono text-text-muted">(18 / 40 Capacity)</span>
+</div>
+<button class="px-3 py-1 rounded-lg bg-surface border border-border-subtle text-text-secondary hover:text-white text-[11px] font-mono transition-colors" type="button">
+            Auto-Sort Arsenal
+          </button>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
+<!-- Item 1: Equipped -->
+<div class="p-4 rounded-2xl bg-surface border border-emerald-accent/25 flex flex-col items-center text-center gap-2 relative">
+<span class="absolute top-2.5 left-2.5 text-[9px] font-mono text-emerald-accent bg-emerald-accent/10 px-1.5 py-0.5 rounded font-semibold">EQUIPPED</span>
+<div class="w-12 h-12 rounded-xl bg-surface-elevated flex items-center justify-center text-electric-indigo mt-3 border border-border-subtle">
+<span class="material-symbols-outlined text-[22px]">palette</span>
+</div>
+<span class="text-[12px] font-semibold text-white">Obsidian Deep-Work</span>
+<span class="text-[10px] font-mono text-text-muted uppercase">Active Environment</span>
+</div>
+<!-- Item 2: Equipped -->
+<div class="p-4 rounded-2xl bg-surface border border-emerald-accent/25 flex flex-col items-center text-center gap-2 relative">
+<span class="absolute top-2.5 left-2.5 text-[9px] font-mono text-emerald-accent bg-emerald-accent/10 px-1.5 py-0.5 rounded font-semibold">EQUIPPED</span>
+<div class="w-12 h-12 rounded-xl bg-surface-elevated flex items-center justify-center text-warm-gold mt-3 border border-border-subtle">
+<span class="material-symbols-outlined text-[22px]">badge</span>
+</div>
+<span class="text-[12px] font-semibold text-white">Tactical Obsidian</span>
+<span class="text-[10px] font-mono text-text-muted uppercase">Avatar Frame</span>
+</div>
+<!-- Item 3: Consumable -->
+<div class="p-4 rounded-2xl bg-surface border border-border-subtle flex flex-col items-center text-center gap-2 relative">
+<span class="absolute top-2.5 right-2.5 text-[10px] font-mono text-warm-gold bg-warm-gold/10 px-1.5 py-0.5 rounded font-semibold">2x</span>
+<div class="w-12 h-12 rounded-xl bg-surface-elevated flex items-center justify-center text-emerald-accent mt-3 border border-border-subtle">
+<span class="material-symbols-outlined text-[22px]">science</span>
+</div>
+<span class="text-[12px] font-semibold text-white">XP Surge Vial</span>
+<button class="text-[11px] font-mono text-electric-indigo hover:underline uppercase">Consume (2h)</button>
+</div>
+<!-- Item 4: Theme -->
+<div class="p-4 rounded-2xl bg-surface border border-border-subtle flex flex-col items-center text-center gap-2">
+<div class="w-12 h-12 rounded-xl bg-surface-elevated flex items-center justify-center text-text-secondary mt-3 border border-border-subtle">
+<span class="material-symbols-outlined text-[22px]">nightlight</span>
+</div>
+<span class="text-[12px] font-semibold text-white">Midnight Calm</span>
+<button class="text-[11px] font-mono text-text-secondary hover:text-white uppercase">Equip Theme</button>
+</div>
+<!-- Item 5: Relic -->
+<div class="p-4 rounded-2xl bg-surface border border-border-subtle flex flex-col items-center text-center gap-2">
+<div class="w-12 h-12 rounded-xl bg-surface-elevated flex items-center justify-center text-text-muted mt-3 border border-border-subtle">
+<span class="material-symbols-outlined text-[22px]">hourglass_bottom</span>
+</div>
+<span class="text-[12px] font-semibold text-white">Focus Hourglass</span>
+<span class="text-[10px] font-mono text-text-muted uppercase">Passive Relic</span>
+</div>
+<!-- Item 6: Empty Slot -->
+<div class="p-4 rounded-2xl bg-surface/40 border border-dashed border-border-subtle flex flex-col items-center justify-center text-center min-h-[140px]">
+<span class="material-symbols-outlined text-[22px] text-text-muted">add</span>
+<span class="text-[11px] font-mono text-text-muted mt-1">Empty Slot</span>
+</div>
+</div>
+</section>
+</main>
+</div>
+<!-- Interactive Slide-Over Drawer for Redemption -->
+<div class="fixed inset-0 z-50 pointer-events-none opacity-0 transition-opacity duration-200" id="redeem-drawer">
+<div class="absolute inset-0 bg-[#0B0E15]/70 backdrop-blur-sm" onclick="closeRedeemDrawer()"></div>
+<div class="absolute right-0 top-0 bottom-0 w-full max-w-md bg-surface border-l border-border-subtle p-6 flex flex-col justify-between translate-x-full transition-transform duration-200 shadow-2xl" id="drawer-container">
+<div class="flex flex-col gap-5">
+<div class="flex items-center justify-between pb-3 border-b border-border-subtle">
+<div class="flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-electric-indigo"></span>
+<span class="text-[10px] font-mono uppercase tracking-wider text-text-muted">VAULT EXCHANGE LEDGER</span>
+</div>
+<button class="p-1 rounded-lg text-text-muted hover:text-white hover:bg-white/[0.04] transition-colors" onclick="closeRedeemDrawer()" type="button">
+<span class="material-symbols-outlined text-[18px]">close</span>
+</button>
+</div>
+<div class="flex flex-col gap-1">
+<span class="text-[10px] font-mono text-electric-indigo uppercase font-semibold" id="drawer-item-cat">ENVIRONMENT PROTOCOL</span>
+<h3 class="text-[18px] font-bold text-white tracking-tight" id="drawer-item-title">Deep Work Workspace</h3>
+<p class="text-[12px] text-text-secondary leading-relaxed">
+            Direct server-side entitlement grant. Item will be instantly committed to your inventory storage and usable across all connected surfaces.
+          </p>
+</div>
+<!-- Ledger Breakdown Box -->
+<div class="flex flex-col gap-2 p-4 rounded-xl bg-surface-elevated border border-border-subtle">
+<div class="flex items-center justify-between text-[12px]">
+<span class="text-text-secondary">Current Gold Balance</span>
+<span class="font-mono text-white" id="drawer-curr-gold">1,420 G</span>
+</div>
+<div class="flex items-center justify-between text-[12px]">
+<span class="text-text-secondary">Item Acquisition Cost</span>
+<span class="font-mono text-warm-gold font-bold" id="drawer-cost">-750 G</span>
+</div>
+<div class="h-px bg-border-subtle my-0.5"></div>
+<div class="flex items-center justify-between text-[13px] font-semibold">
+<span class="text-white">Projected Vault Reserve</span>
+<span class="font-mono text-emerald-accent" id="drawer-rem-gold">670 G</span>
+</div>
+</div>
+<!-- Pre-requisite validation -->
+<div class="p-3 rounded-xl bg-surface-elevated border border-border-subtle flex items-center gap-3">
+<span class="material-symbols-outlined text-[18px] text-emerald-accent">check_circle</span>
+<div class="flex flex-col">
+<span class="text-[12px] font-semibold text-white">Pre-requisite Validation</span>
+<span class="text-[11px] text-text-secondary">Player Level 12 meets or exceeds requirement.</span>
+</div>
+</div>
+</div>
+<div class="flex flex-col gap-2 pt-4">
+<button class="w-full py-2.5 rounded-lg bg-electric-indigo hover:bg-indigo-500 text-white text-[13px] font-semibold transition-all flex items-center justify-center gap-2 shadow-sm" id="confirm-btn" onclick="executeRedeem()">
+<span class="material-symbols-outlined text-[16px]">check</span>
+<span>Confirm Redemption</span>
+</button>
+<button class="w-full py-2.5 rounded-lg bg-white/[0.04] hover:bg-white/[0.08] text-text-secondary hover:text-white text-[12px] font-medium transition-colors" onclick="closeRedeemDrawer()">
+          Cancel
+        </button>
+</div>
+</div>
+</div>
+<!-- Interactive JS -->
+<script>
+    let goldReserve = 1420;
+    let pendingPrice = 750;
+
+    function switchMainTab(tab) {
+      const storeBtn = document.getElementById('tab-store-btn');
+      const invBtn = document.getElementById('tab-inventory-btn');
+      const catSec = document.getElementById('catalog-section');
+      const invSec = document.getElementById('inventory-section');
+
+      if (tab === 'store') {
+        storeBtn.className = "flex items-center gap-2 px-4 py-1.5 rounded-lg bg-white/[0.08] text-white text-[12px] font-medium shadow-sm transition-all";
+        invBtn.className = "flex items-center gap-2 px-4 py-1.5 rounded-lg text-text-secondary hover:text-white text-[12px] font-medium transition-all";
+        catSec.classList.remove('hidden');
+        invSec.classList.add('hidden');
+      } else {
+        invBtn.className = "flex items-center gap-2 px-4 py-1.5 rounded-lg bg-white/[0.08] text-white text-[12px] font-medium shadow-sm transition-all";
+        storeBtn.className = "flex items-center gap-2 px-4 py-1.5 rounded-lg text-text-secondary hover:text-white text-[12px] font-medium transition-all";
+        catSec.classList.add('hidden');
+        invSec.classList.remove('hidden');
+      }
+    }
+
+    function filterCatalog(cat, btn) {
+      const allBtns = document.querySelectorAll('.catalog-filter-btn');
+      allBtns.forEach(b => {
+        b.className = "catalog-filter-btn px-3 py-1 rounded-lg text-text-secondary hover:text-white text-[11px] font-mono transition-colors";
+      });
+      btn.className = "catalog-filter-btn px-3 py-1 rounded-lg bg-white/10 text-white text-[11px] font-mono font-medium border border-white/10 transition-colors";
+
+      const cards = document.querySelectorAll('.store-card');
+      cards.forEach(c => {
+        if (cat === 'all' || c.getAttribute('data-category') === cat) {
+          c.classList.remove('hidden');
+        } else {
+          c.classList.add('hidden');
+        }
+      });
+    }
+
+    function openRedeemDrawer(title, cost, category) {
+      pendingPrice = cost;
+      document.getElementById('drawer-item-title').innerText = title;
+      document.getElementById('drawer-item-cat').innerText = (category || 'ITEM').toUpperCase() + ' PROTOCOL';
+      document.getElementById('drawer-cost').innerText = `-${cost} G`;
+      document.getElementById('drawer-curr-gold').innerText = `${goldReserve} G`;
+      document.getElementById('drawer-rem-gold').innerText = `${goldReserve - cost} G`;
+
+      const drawer = document.getElementById('redeem-drawer');
+      const cont = document.getElementById('drawer-container');
+      drawer.classList.remove('pointer-events-none', 'opacity-0');
+      drawer.classList.add('opacity-100');
+      cont.classList.remove('translate-x-full');
+      cont.classList.add('translate-x-0');
+    }
+
+    function closeRedeemDrawer() {
+      const drawer = document.getElementById('redeem-drawer');
+      const cont = document.getElementById('drawer-container');
+      cont.classList.remove('translate-x-0');
+      cont.classList.add('translate-x-full');
+      drawer.classList.remove('opacity-100');
+      drawer.classList.add('opacity-0');
+      setTimeout(() => drawer.classList.add('pointer-events-none'), 200);
+    }
+
+    function executeRedeem() {
+      if (goldReserve >= pendingPrice) {
+        goldReserve -= pendingPrice;
+        document.getElementById('top-bar-gold').innerText = `${goldReserve} G`;
+        document.getElementById('reservoir-val').innerText = `${goldReserve}`;
+        const btn = document.getElementById('confirm-btn');
+        btn.innerText = 'Redeemed & Stored!';
+        btn.classList.remove('bg-electric-indigo');
+        btn.classList.add('bg-emerald-accent', 'text-black');
+
+        setTimeout(() => {
+          btn.innerHTML = '<span class="material-symbols-outlined text-[16px]">check</span><span>Confirm Redemption</span>';
+          btn.classList.add('bg-electric-indigo');
+          btn.classList.remove('bg-emerald-accent', 'text-black');
+          closeRedeemDrawer();
+        }, 1000);
+      } else {
+        alert('Insufficient Gold in Vault');
+      }
+    }
+
+    function previewThemeSnippet() {
+      openRedeemDrawer('Obsidian Deep-Work Environment', 750, 'theme');
+    }
+  </script>
+</body></html>
