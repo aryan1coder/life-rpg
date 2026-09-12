@@ -5,8 +5,13 @@ import { SESSION_COOKIE_NAME } from '@/lib/auth/session';
 export function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl;
   const sessionCookie = request.cookies.get(SESSION_COOKIE_NAME)?.value;
-  const sbToken = request.cookies.get('sb-access-token')?.value || request.cookies.get('supabase-auth-token')?.value;
-  const isAuthenticated = Boolean(sessionCookie || sbToken);
+  const allCookies = request.cookies.getAll();
+  const hasSbCookie = allCookies.some(
+    (c) =>
+      c.name.startsWith('sb-') &&
+      (c.name.includes('-auth-token') || c.name === 'sb-access-token')
+  ) || Boolean(request.cookies.get('supabase-auth-token')?.value);
+  const isAuthenticated = Boolean(sessionCookie || hasSbCookie);
 
   const protectedRoutes = ['/home', '/quests', '/character', '/rewards', '/inventory', '/achievements'];
   const isProtectedRoute = protectedRoutes.some((route) => pathname.startsWith(route));

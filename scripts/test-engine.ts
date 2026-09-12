@@ -329,6 +329,79 @@ test('Equipping unowned item is strictly rejected', () => {
   assert.strictEqual(validation.reason, 'Item not owned in inventory.');
 });
 
+// 10. Supabase Configuration Guard (No Fake Requests)
+import { isSupabaseConfigured, createClient } from '../src/lib/supabase/client';
+import { getAuthSession } from '../src/lib/auth/session';
+import { NextRequest } from 'next/server';
+
+test('isSupabaseConfigured strictly detects unconfigured or placeholder states', () => {
+  // Ensure unconfigured state returns false without errors
+  const originalUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
+  const originalKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
+
+  delete process.env.NEXT_PUBLIC_SUPABASE_URL;
+  delete process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
+  assert.strictEqual(isSupabaseConfigured(), false);
+
+  process.env.NEXT_PUBLIC_SUPABASE_URL = 'https://placeholder.supabase.co';
+  process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY = 'placeholder-key';
+  assert.strictEqual(isSupabaseConfigured(), false);
+
+  process.env.NEXT_PUBLIC_SUPABASE_URL = 'https://your-project.supabase.co';
+  process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY = 'your-anon-key';
+  assert.strictEqual(isSupabaseConfigured(), false);
+
+  // Valid configured format
+  process.env.NEXT_PUBLIC_SUPABASE_URL = 'https://abcdefghijklm.supabase.co';
+  process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY = 'valid-jwt-token-string';
+  assert.strictEqual(isSupabaseConfigured(), true);
+
+  // Restore
+  if (originalUrl) process.env.NEXT_PUBLIC_SUPABASE_URL = originalUrl;
+  else delete process.env.NEXT_PUBLIC_SUPABASE_URL;
+  if (originalKey) process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY = originalKey;
+  else delete process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
+});
+
+test('createClient returns null when Supabase is unconfigured (prevents bogus network calls)', () => {
+  const originalUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
+  delete process.env.NEXT_PUBLIC_SUPABASE_URL;
+
+  const client = createClient();
+  assert.strictEqual(client, null);
+
+  if (originalUrl) process.env.NEXT_PUBLIC_SUPABASE_URL = originalUrl;
+});
+
+test('getAuthSession safely rejects unauthenticated requests and parses valid JWTs', () => {
+  // 1. Empty request
+  const unauthReq = new NextRequest('http://localhost:3000/api/character');
+  assert.strictEqual(getAuthSession(unauthReq), null);
+
+  // 2. Valid Supabase JWT Bearer token
+  const fakeJwtPayload = Buffer.from(
+    JSON.stringify({
+      sub: 'usr_real_supabase_uid_123',
+      email: 'operator@example.com',
+      user_metadata: { username: 'CyberStrategist' },
+      exp: Math.floor(Date.now() / 1000) + 3600,
+    })
+  ).toString('base64');
+  const validBearerToken = `eyJhbGciOiJIUzI1NiJ9.${fakeJwtPayload}.mockSignature`;
+
+  const authReq = new NextRequest('http://localhost:3000/api/character', {
+    headers: {
+      Authorization: `Bearer ${validBearerToken}`,
+    },
+  });
+
+  const session = getAuthSession(authReq);
+  assert.notStrictEqual(session, null);
+  assert.strictEqual(session?.id, 'usr_real_supabase_uid_123');
+  assert.strictEqual(session?.email, 'operator@example.com');
+  assert.strictEqual(session?.username, 'CyberStrategist');
+});
+
 console.log(`\n========================================`);
 console.log(`🏁 Total Tests: ${passed + failed} | Passed: ${passed} | Failed: ${failed}`);
 console.log(`========================================\n`);

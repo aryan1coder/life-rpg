@@ -13,10 +13,28 @@ export const SESSION_COOKIE_NAME = 'life_rpg_session';
  * Safe for server components and API route handlers.
  */
 export function getAuthSession(req: NextRequest): AuthSession | null {
-  // 1. Check custom Authorization or X-User-Id header
+  // 1. Check custom Authorization header
   const authHeader = req.headers.get('Authorization');
   if (authHeader && authHeader.startsWith('Bearer ')) {
-    const token = authHeader.substring(7);
+    const token = authHeader.substring(7).trim();
+    // 1a. Check if it's a Supabase JWT (3 segments)
+    const segments = token.split('.');
+    if (segments.length === 3) {
+      try {
+        const payload = JSON.parse(Buffer.from(segments[1], 'base64').toString('utf-8'));
+        if (payload.sub && (!payload.exp || payload.exp * 1000 > Date.now())) {
+          return {
+            id: payload.sub,
+            email: payload.email || `${payload.sub}@liferpg.system`,
+            username: payload.user_metadata?.username || payload.email?.split('@')[0] || 'Operator',
+          };
+        }
+      } catch (e) {
+        // ignore JWT parse error
+      }
+    }
+
+    // 1b. Check if it's a base64 session object
     try {
       const decoded = JSON.parse(Buffer.from(token, 'base64').toString('utf-8'));
       if (decoded.id && decoded.username) {
@@ -50,19 +68,40 @@ export function getAuthSession(req: NextRequest): AuthSession | null {
     }
   }
 
-  // 3. Check for standard Supabase auth token cookies
-  const sbToken = req.cookies.get('sb-access-token') || req.cookies.get('supabase-auth-token');
-  if (sbToken?.value) {
+  // 3. Check for standard and SSR Supabase auth cookies (e.g. sb-<project>-auth-token)
+  const allCookies = req.cookies.getAll();
+  const sbCookie = allCookies.find(
+    (c) =>
+      c.name.startsWith('sb-') &&
+      (c.name.includes('-auth-token') || c.name === 'sb-access-token')
+  ) || req.cookies.get('supabase-auth-token');
+
+  if (sbCookie?.value) {
     try {
-      const parts = sbToken.value.split('.');
-      if (parts.length === 3) {
-        const payload = JSON.parse(Buffer.from(parts[1], 'base64').toString('utf-8'));
-        if (payload.sub) {
-          return {
-            id: payload.sub,
-            email: payload.email || `${payload.sub}@liferpg.system`,
-            username: payload.user_metadata?.username || 'Operator',
-          };
+      let rawVal = sbCookie.value;
+      if (rawVal.startsWith('base64-')) {
+        rawVal = Buffer.from(rawVal.substring(7), 'base64').toString('utf-8');
+      }
+
+      let jwtToken: string | null = null;
+      if (rawVal.startsWith('[') || rawVal.startsWith('{')) {
+        const parsed = JSON.parse(rawVal);
+        jwtToken = Array.isArray(parsed) ? parsed[0] : (parsed.access_token || parsed);
+      } else if (rawVal.split('.').length === 3) {
+        jwtToken = rawVal;
+      }
+
+      if (jwtToken && typeof jwtToken === 'string') {
+        const parts = jwtToken.split('.');
+        if (parts.length === 3) {
+          const payload = JSON.parse(Buffer.from(parts[1], 'base64').toString('utf-8'));
+          if (payload.sub && (!payload.exp || payload.exp * 1000 > Date.now())) {
+            return {
+              id: payload.sub,
+              email: payload.email || `${payload.sub}@liferpg.system`,
+              username: payload.user_metadata?.username || payload.email?.split('@')[0] || 'Operator',
+            };
+          }
         }
       }
     } catch (e) {

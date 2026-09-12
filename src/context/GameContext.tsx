@@ -1,6 +1,7 @@
 'use client';
 
 import React, { createContext, useContext, useState, useEffect, ReactNode } from 'react';
+import { usePathname } from 'next/navigation';
 import {
   Achievement,
   CharacterAttributes,
@@ -11,6 +12,7 @@ import {
 } from '@/lib/game/types';
 import { Campaign } from '@/lib/game/campaigns';
 import { BossRaid } from '@/lib/game/boss-raids';
+import { createClient } from '@/lib/supabase/client';
 
 export interface ToastMessage {
   id: string;
@@ -55,6 +57,7 @@ interface GameContextType {
 const GameContext = createContext<GameContextType | undefined>(undefined);
 
 export function GameProvider({ children }: { children: ReactNode }) {
+  const pathname = usePathname();
   const [profile, setProfile] = useState<UserProfile | null>(null);
   const [attributes, setAttributes] = useState<CharacterAttributes | null>(null);
   const [quests, setQuests] = useState<Quest[]>([]);
@@ -88,11 +91,20 @@ export function GameProvider({ children }: { children: ReactNode }) {
 
   const logout = async () => {
     try {
+      const supabase = createClient();
+      if (supabase) {
+        await supabase.auth.signOut().catch(() => {});
+      }
       await fetch('/api/auth/logout', { method: 'POST' });
     } catch (e) {
       console.error('Logout failed:', e);
     } finally {
       setProfile(null);
+      setAttributes(null);
+      setQuests([]);
+      setRewards([]);
+      setInventory([]);
+      setAchievements([]);
       if (typeof window !== 'undefined') {
         window.location.href = '/auth/login';
       }
@@ -100,44 +112,66 @@ export function GameProvider({ children }: { children: ReactNode }) {
   };
 
   const refreshAll = async () => {
+    // 1. Guard against fetching protected endpoints when on public or auth routes
+    if (typeof window !== 'undefined') {
+      const path = window.location.pathname;
+      if (path === '/' || path.startsWith('/auth')) {
+        setLoading(false);
+        return;
+      }
+    }
+
     try {
-      const [charRes, questsRes, rewardsRes, achRes] = await Promise.all([
-        fetch('/api/character'),
-        fetch('/api/quests'),
-        fetch('/api/rewards'),
-        fetch('/api/achievements'),
-      ]);
+      // 2. Authoritative session verification via /api/character first
+      const charRes = await fetch('/api/character');
 
       if (charRes.status === 401) {
+        setProfile(null);
+        setAttributes(null);
+        setQuests([]);
+        setRewards([]);
+        setInventory([]);
+        setAchievements([]);
+        setLoading(false);
         if (typeof window !== 'undefined' && !window.location.pathname.startsWith('/auth')) {
           window.location.href = '/auth/login';
         }
         return;
       }
 
-      if (charRes.ok) {
-        const data = await charRes.json();
-        setProfile(data.profile);
-        setAttributes(data.attributes);
-        setLoadout(data.loadout);
-        setCampaign(data.campaign);
-        setBossRaid(data.bossRaid);
+      if (!charRes.ok) {
+        setLoading(false);
+        return;
       }
 
+      const data = await charRes.json();
+      setProfile(data.profile);
+      setAttributes(data.attributes);
+      setLoadout(data.loadout);
+      setCampaign(data.campaign);
+      setBossRaid(data.bossRaid);
+
+      // 3. Authenticated session verified: fetch auxiliary gameplay telemetry in parallel
+      const [questsRes, rewardsRes, achRes] = await Promise.all([
+        fetch('/api/quests'),
+        fetch('/api/rewards'),
+        fetch('/api/achievements'),
+      ]);
+
       if (questsRes.ok) {
-        const data = await questsRes.json();
-        setQuests(data.quests);
+        const qData = await questsRes.json();
+        setQuests(qData.quests || []);
       }
 
       if (rewardsRes.ok) {
-        const data = await rewardsRes.json();
-        setRewards(data.rewards);
-        setInventory(data.inventory);
+        const rData = await rewardsRes.json();
+        setRewards(rData.rewards || []);
+        setInventory(rData.inventory || []);
       }
 
       if (achRes.ok) {
-        const data = await achRes.json();
-        setAchievements(data.achievements);
+        const aData = await achRes.json();
+        setAchievements(aData.achievements || []);
       }
     } catch (e) {
       console.error('Failed to synchronize game state:', e);
@@ -148,7 +182,7 @@ export function GameProvider({ children }: { children: ReactNode }) {
 
   useEffect(() => {
     refreshAll();
-  }, []);
+  }, [pathname]);
 
   const completeQuest = async (id: string): Promise<boolean> => {
     // Optimistic completion in UI
