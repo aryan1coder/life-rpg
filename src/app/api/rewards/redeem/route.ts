@@ -1,9 +1,15 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { db, SEED_REWARDS } from '@/lib/storage/data-store';
 import { spendGold } from '@/lib/game/economy';
+import { getAuthSession } from '@/lib/auth/session';
 
 export async function POST(req: NextRequest) {
   try {
+    const session = getAuthSession(req);
+    if (!session) {
+      return NextResponse.json({ success: false, error: 'Unauthorized operator session' }, { status: 401 });
+    }
+
     const body = await req.json();
     const { itemId } = body;
 
@@ -16,16 +22,18 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ success: false, error: 'Reward item not found' }, { status: 404 });
     }
 
-    const profile = db.getProfile();
-    const inventory = db.getInventory(profile.id);
+    const profile = db.getProfile(session.id);
+    const inventory = db.getInventory(session.id);
 
-    if (inventory.includes(itemId)) {
+    // Duplicate check for permanent unique items
+    if (inventory.includes(itemId) && item.category !== 'Boost') {
       return NextResponse.json(
-        { success: false, error: 'Item already acquired in inventory' },
-        { status: 400 }
+        { success: false, error: 'Unique equipment already owned in inventory' },
+        { status: 409 }
       );
     }
 
+    // Level check
     if (profile.level < item.min_level_required) {
       return NextResponse.json(
         {
@@ -43,14 +51,14 @@ export async function POST(req: NextRequest) {
         {
           success: false,
           insufficientFunds: true,
-          error: `Insufficient Vault Balance: Requires ${item.cost_gold} G (Current: ${profile.gold_balance} G)`,
+          error: `Insufficient Vault Balance: Requires ${item.cost_gold} G (Available: ${profile.gold_balance} G)`,
           shortfall: spendResult.shortfall,
         },
         { status: 400 }
       );
     }
 
-    // Update Profile and Inventory
+    // Update Profile and Inventory atomically
     const updatedProfile = {
       ...profile,
       gold_balance: spendResult.newBalance,
@@ -58,7 +66,7 @@ export async function POST(req: NextRequest) {
     };
 
     db.updateProfile(updatedProfile);
-    db.addInventoryItem(profile.id, item.id);
+    db.addInventoryItem(session.id, item.id);
 
     return NextResponse.json({
       success: true,

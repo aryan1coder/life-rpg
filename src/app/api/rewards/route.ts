@@ -1,10 +1,16 @@
-import { NextResponse } from 'next/server';
+import { NextRequest, NextResponse } from 'next/server';
 import { db, SEED_REWARDS } from '@/lib/storage/data-store';
+import { getAuthSession } from '@/lib/auth/session';
 
-export async function GET() {
+export async function GET(req: NextRequest) {
   try {
-    const profile = db.getProfile();
-    const inventory = db.getInventory(profile.id);
+    const session = getAuthSession(req);
+    if (!session) {
+      return NextResponse.json({ success: false, error: 'Unauthorized operator session' }, { status: 401 });
+    }
+
+    const profile = db.getProfile(session.id);
+    const inventory = db.getInventory(session.id);
 
     return NextResponse.json({
       success: true,

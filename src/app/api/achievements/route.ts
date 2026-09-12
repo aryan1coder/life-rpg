@@ -1,10 +1,15 @@
-import { NextResponse } from 'next/server';
+import { NextRequest, NextResponse } from 'next/server';
 import { db, SEED_ACHIEVEMENTS } from '@/lib/storage/data-store';
+import { getAuthSession } from '@/lib/auth/session';
 
-export async function GET() {
+export async function GET(req: NextRequest) {
   try {
-    const profile = db.getProfile();
-    const userMap = db.getUserAchievements(profile.id);
+    const session = getAuthSession(req);
+    if (!session) {
+      return NextResponse.json({ success: false, error: 'Unauthorized operator session' }, { status: 401 });
+    }
+
+    const userMap = db.getUserAchievements(session.id);
 
     const merged = SEED_ACHIEVEMENTS.map((ach) => {
       const userProgress = userMap[ach.id] || { is_unlocked: false, current_progress: 0 };
