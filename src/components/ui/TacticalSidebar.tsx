@@ -16,11 +16,13 @@ import {
   VolumeX,
   Settings,
   Sparkles,
+  LogOut,
+  X,
 } from 'lucide-react';
 
 export function TacticalSidebar() {
   const pathname = usePathname();
-  const { profile } = useGame();
+  const { profile, sidebarOpen, setSidebarOpen, logout } = useGame();
   const [audioMuted, setAudioMuted] = useState(false);
 
   const navItems = [
@@ -33,66 +35,91 @@ export function TacticalSidebar() {
   ];
 
   return (
-    <aside className="fixed left-0 top-0 h-full w-64 bg-bg-secondary border-r border-border-subtle z-50 flex flex-col justify-between select-none">
-      <div className="flex flex-col">
-        {/* Brand Header */}
-        <div className="h-16 px-5 flex items-center gap-3 border-b border-border-subtle">
-          <div className="w-8 h-8 rounded-lg bg-primary/10 border border-primary/30 flex items-center justify-center text-primary">
-            <Sparkles className="w-4 h-4 text-primary" />
+    <>
+      {/* Mobile Backdrop Overlay */}
+      {sidebarOpen && (
+        <div
+          className="fixed inset-0 bg-black/70 backdrop-blur-sm z-40 lg:hidden"
+          onClick={() => setSidebarOpen(false)}
+          aria-hidden="true"
+        />
+      )}
+
+      <aside
+        className={`fixed left-0 top-0 h-full w-64 bg-bg-secondary border-r border-border-subtle z-50 flex flex-col justify-between select-none transition-transform duration-300 ease-in-out ${
+          sidebarOpen ? 'translate-x-0' : '-translate-x-full lg:translate-x-0'
+        }`}
+      >
+        <div className="flex flex-col">
+          {/* Brand Header */}
+          <div className="h-16 px-5 flex items-center justify-between border-b border-border-subtle">
+            <div className="flex items-center gap-3">
+              <div className="w-8 h-8 rounded-lg bg-primary/10 border border-primary/30 flex items-center justify-center text-primary">
+                <Sparkles className="w-4 h-4 text-primary" />
+              </div>
+              <div className="flex flex-col">
+                <span className="font-display font-semibold text-text-primary text-base tracking-tight">
+                  LIFE RPG
+                </span>
+                <span className="font-mono text-[10px] text-text-muted tracking-wider uppercase">
+                  SYSTEM v2.4
+                </span>
+              </div>
+            </div>
+            {/* Mobile close button */}
+            <button
+              onClick={() => setSidebarOpen(false)}
+              className="lg:hidden p-1.5 rounded-lg text-text-muted hover:text-text-primary hover:bg-surface-elevated transition-colors"
+              aria-label="Close Navigation"
+            >
+              <X className="w-5 h-5" />
+            </button>
           </div>
-          <div className="flex flex-col">
-            <span className="font-display font-semibold text-text-primary text-base tracking-tight">
-              LIFE RPG
-            </span>
-            <span className="font-mono text-[10px] text-text-muted tracking-wider uppercase">
-              SYSTEM v2.4
+
+          {/* Section Label */}
+          <div className="px-5 pt-4 pb-2">
+            <span className="font-mono text-[11px] text-text-muted uppercase tracking-widest">
+              Navigation
             </span>
           </div>
-        </div>
 
-        {/* Section Label */}
-        <div className="px-5 pt-4 pb-2">
-          <span className="font-mono text-[11px] text-text-muted uppercase tracking-widest">
-            Navigation
-          </span>
-        </div>
+          {/* Nav Links */}
+          <nav className="flex flex-col gap-1 px-3">
+            {navItems.map((item) => {
+              const Icon = item.icon;
+              const isActive = pathname === item.href || (item.href === '/home' && pathname === '/');
 
-        {/* Nav Links */}
-        <nav className="flex flex-col gap-1 px-3">
-          {navItems.map((item) => {
-            const Icon = item.icon;
-            const isActive = pathname === item.href || (item.href === '/home' && pathname === '/');
-
-            return (
-              <Link
-                key={item.href}
-                href={item.href}
-                className={`group flex items-center justify-between px-3 py-2 rounded-lg transition-all text-sm font-medium ${
-                  isActive
-                    ? 'bg-surface-elevated text-text-primary border border-border-subtle shadow-sm'
-                    : 'text-text-secondary hover:text-text-primary hover:bg-surface-elevated/70'
-                }`}
-              >
-                <div className="flex items-center gap-3">
-                  <Icon
-                    className={`w-4 h-4 transition-colors ${
-                      isActive ? 'text-primary' : 'text-text-muted group-hover:text-text-primary'
-                    }`}
-                  />
-                  <span>{item.label}</span>
-                </div>
-                <kbd
-                  className={`font-mono text-[10px] transition-colors ${
-                    isActive ? 'text-primary' : 'text-text-muted group-hover:text-text-secondary'
+              return (
+                <Link
+                  key={item.href}
+                  href={item.href}
+                  onClick={() => setSidebarOpen(false)}
+                  className={`group flex items-center justify-between px-3 py-2 rounded-lg transition-all text-sm font-medium ${
+                    isActive
+                      ? 'bg-surface-elevated text-text-primary border border-border-subtle shadow-sm'
+                      : 'text-text-secondary hover:text-text-primary hover:bg-surface-elevated/70'
                   }`}
                 >
-                  {item.shortcut}
-                </kbd>
-              </Link>
-            );
-          })}
-        </nav>
-      </div>
+                  <div className="flex items-center gap-3">
+                    <Icon
+                      className={`w-4 h-4 transition-colors ${
+                        isActive ? 'text-primary' : 'text-text-muted group-hover:text-text-primary'
+                      }`}
+                    />
+                    <span>{item.label}</span>
+                  </div>
+                  <kbd
+                    className={`font-mono text-[10px] transition-colors ${
+                      isActive ? 'text-primary' : 'text-text-muted group-hover:text-text-secondary'
+                    }`}
+                  >
+                    {item.shortcut}
+                  </kbd>
+                </Link>
+              );
+            })}
+          </nav>
+        </div>
 
       {/* Bottom Utility Rail */}
       <div className="flex flex-col gap-3 p-3 border-t border-border-subtle bg-bg-secondary">
@@ -131,6 +158,7 @@ export function TacticalSidebar() {
         {/* Operator Profile Trigger */}
         <Link
           href="/character"
+          onClick={() => setSidebarOpen(false)}
           className="flex items-center gap-3 p-2 rounded-lg bg-surface border border-border-subtle hover:border-primary/40 transition-all cursor-pointer"
         >
           <div className="relative flex-shrink-0">
@@ -153,7 +181,19 @@ export function TacticalSidebar() {
             </span>
           </div>
         </Link>
+
+        {/* Terminate Session / Logout Button */}
+        <button
+          onClick={() => logout()}
+          type="button"
+          className="flex items-center justify-center gap-2 w-full py-2 px-3 rounded-lg bg-surface hover:bg-surface-elevated text-text-muted hover:text-crimson-failed border border-border-subtle hover:border-crimson-failed/40 transition-all text-xs font-medium group"
+          title="Terminate Tactical Session"
+        >
+          <LogOut className="w-3.5 h-3.5 transition-transform group-hover:-translate-x-0.5" />
+          <span>Terminate Session</span>
+        </button>
       </div>
     </aside>
+    </>
   );
 }

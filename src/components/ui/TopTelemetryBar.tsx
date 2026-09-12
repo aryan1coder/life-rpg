@@ -3,11 +3,11 @@
 import React from 'react';
 import { useGame } from '@/context/GameContext';
 import { calculateLevelProgress } from '@/lib/game/progression';
-import { Coins, Flame, Bell } from 'lucide-react';
+import { Coins, Flame, Bell, Menu } from 'lucide-react';
 import Link from 'next/link';
 
 export function TopTelemetryBar() {
-  const { profile } = useGame();
+  const { profile, sidebarOpen, setSidebarOpen } = useGame();
 
   const level = profile?.level ?? 12;
   const xpCurrent = profile?.xp_current ?? 8260;
@@ -19,14 +19,23 @@ export function TopTelemetryBar() {
   const progressPercent = calculateLevelProgress(xpCurrent, xpNext);
 
   return (
-    <header className="fixed top-0 left-64 right-0 h-16 bg-bg-secondary/90 backdrop-blur-xl border-b border-border-subtle z-40 px-8 flex items-center justify-between">
-      {/* Left: Level, Title & XP Telemetry */}
-      <div className="flex items-center gap-6">
+    <header className="fixed top-0 left-0 lg:left-64 right-0 h-16 bg-bg-secondary/90 backdrop-blur-xl border-b border-border-subtle z-40 px-4 sm:px-8 flex items-center justify-between">
+      {/* Left: Hamburger (mobile) + Level, Title & XP Telemetry */}
+      <div className="flex items-center gap-3 sm:gap-6">
+        <button
+          onClick={() => setSidebarOpen(!sidebarOpen)}
+          className="lg:hidden p-2 rounded-lg text-text-muted hover:text-text-primary hover:bg-surface-elevated transition-colors"
+          type="button"
+          aria-label="Toggle Command Deck Menu"
+        >
+          <Menu className="w-5 h-5" />
+        </button>
+
         <div className="flex items-center gap-2">
           <span className="font-mono text-xs px-2.5 py-0.5 rounded bg-surface-elevated border border-border-subtle text-primary font-semibold tracking-wide uppercase">
             LVL {level}
           </span>
-          <span className="text-border-subtle font-light">|</span>
+          <span className="text-border-subtle font-light hidden sm:inline">|</span>
           <span className="text-xs text-text-secondary font-medium hidden sm:inline">
             {title}
           </span>

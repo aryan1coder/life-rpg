@@ -39,6 +39,9 @@ interface GameContextType {
   setInsufficientFundsData: (data: { required: number; balance: number; shortfall: number } | null) => void;
   levelUpModalData: { newLevel: number; levelsGained: number } | null;
   setLevelUpModalData: (data: { newLevel: number; levelsGained: number } | null) => void;
+  sidebarOpen: boolean;
+  setSidebarOpen: (open: boolean) => void;
+  logout: () => Promise<void>;
   addToast: (toast: Omit<ToastMessage, 'id'>) => void;
   removeToast: (id: string) => void;
   completeQuest: (id: string) => Promise<boolean>;
@@ -64,11 +67,12 @@ export function GameProvider({ children }: { children: ReactNode }) {
   const [loading, setLoading] = useState(true);
   const [toasts, setToasts] = useState<ToastMessage[]>([]);
 
-  // Modals
+  // Modals & Navigation
   const [createQuestModalOpen, setCreateQuestModalOpen] = useState(false);
   const [redeemItemTarget, setRedeemItemTarget] = useState<RewardItem | null>(null);
   const [insufficientFundsData, setInsufficientFundsData] = useState<{ required: number; balance: number; shortfall: number } | null>(null);
   const [levelUpModalData, setLevelUpModalData] = useState<{ newLevel: number; levelsGained: number } | null>(null);
+  const [sidebarOpen, setSidebarOpen] = useState(false);
 
   const addToast = (toast: Omit<ToastMessage, 'id'>) => {
     const id = `toast_${Date.now()}_${Math.random().toString(36).substring(2, 6)}`;
@@ -82,6 +86,19 @@ export function GameProvider({ children }: { children: ReactNode }) {
     setToasts((prev) => prev.filter((t) => t.id !== id));
   };
 
+  const logout = async () => {
+    try {
+      await fetch('/api/auth/logout', { method: 'POST' });
+    } catch (e) {
+      console.error('Logout failed:', e);
+    } finally {
+      setProfile(null);
+      if (typeof window !== 'undefined') {
+        window.location.href = '/auth/login';
+      }
+    }
+  };
+
   const refreshAll = async () => {
     try {
       const [charRes, questsRes, rewardsRes, achRes] = await Promise.all([
@@ -90,6 +107,13 @@ export function GameProvider({ children }: { children: ReactNode }) {
         fetch('/api/rewards'),
         fetch('/api/achievements'),
       ]);
+
+      if (charRes.status === 401) {
+        if (typeof window !== 'undefined' && !window.location.pathname.startsWith('/auth')) {
+          window.location.href = '/auth/login';
+        }
+        return;
+      }
 
       if (charRes.ok) {
         const data = await charRes.json();
@@ -371,6 +395,9 @@ export function GameProvider({ children }: { children: ReactNode }) {
         setInsufficientFundsData,
         levelUpModalData,
         setLevelUpModalData,
+        sidebarOpen,
+        setSidebarOpen,
+        logout,
         addToast,
         removeToast,
         completeQuest,
